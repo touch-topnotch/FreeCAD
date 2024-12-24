@@ -1,6 +1,6 @@
-<a href="https://freecad.org"><img src="/src/Gui/Icons/freecad.svg" height="100px" width="100px"></a>
+<a href="http://touchtopnotch.tilda.ws/archi"><img src="/src/Gui/Icons/freecad.svg" height="100px" width="100px"></a>
 
-### Your own 3D Parametric Modeler
+### ARCHI - AI 3D parametric modeler
 
 [Website](https://www.freecad.org) •
 [Documentation](https://wiki.freecad.org) •
@@ -22,8 +22,8 @@ modeler made primarily to design real-life objects of any size.
 Parametric modeling allows you to easily modify your design by going back into 
 your model history to change its parameters. 
 
-* **Create 3D from 2D and back** FreeCAD lets you sketch geometry-constrained
- 2D shapes and use them as a base to build other objects.
+* **Create 3D from 2D and back** FreeCAD lets you to sketch geometry constrained
+ 2D shapes and use them as a base to build other objects. 
  It contains many components to adjust dimensions or extract design details from 
  3D models to create high quality production-ready drawings.
 
@@ -44,12 +44,12 @@ Installing
 ----------
 
 Precompiled packages for stable releases are available for Windows, macOS and Linux on the
-[latest releases page](https://github.com/FreeCAD/FreeCAD/releases/latest).
+[Releases page](https://github.com/FreeCAD/FreeCAD/releases).
 
 On most Linux distributions, FreeCAD is also directly installable from the 
 software center application.
 
-For weekly development releases visit the [releases page](https://github.com/FreeCAD/FreeCAD/releases/).
+For development releases visit the [weekly-builds page](https://github.com/FreeCAD/FreeCAD-Bundle/releases/tag/weekly-builds).
 
 Other options are described on the [wiki Download page](https://wiki.freecad.org/Download).
 
@@ -71,9 +71,9 @@ Reporting Issues
 
 To report an issue please:
 
-- Consider posting to the [Forum](https://forum.freecad.org), [Discord](https://discord.com/invite/w2cTKGzccC) channel, or [Reddit](https://www.reddit.com/r/FreeCAD) to verify the issue; 
+- Consider posting to the [Forum](https://forum.freecad.org), [Discord](https://discord.com/invite/F4hdxzYZfc) channel, or [Reddit](https://www.reddit.com/r/FreeCAD) to verify the issue; 
 - Search the existing [issues](https://github.com/FreeCAD/FreeCAD/issues) for potential duplicates; 
-- Use the most updated stable or [development versions](https://github.com/FreeCAD/FreeCAD/releases/) of FreeCAD; 
+- Use the most updated stable or [development versions](https://github.com/FreeCAD/FreeCAD-Bundle/releases/tag/weekly-builds) of FreeCAD; 
 - Post version info from `Help > About FreeCAD > Copy to clipboard`; 
 - Restart FreeCAD in safe mode `Help > Restart in safe mode` and try to reproduce the issue again. If the issue is resolved it can be fixed by deleting the FreeCAD config files.
 - Start recording a macro `Macro > Macro recording...` and repeat all steps. Stop recording after the issue occurs and upload the saved macro or copy the macro code in the issue; 
@@ -86,6 +86,7 @@ For more details see:
 - [Reporting Issues and Requesting Features](https://github.com/FreeCAD/FreeCAD/issues/new/choose)
 - [Contributing](https://github.com/FreeCAD/FreeCAD/blob/main/CONTRIBUTING.md)
 - [Help Forum](https://forum.freecad.org/viewforum.php?f=3)
+- [Developers Handbook](https://freecad.github.io/DevelopersHandbook/)
 
 > [!NOTE]
 The [FPA](https://fpa.freecad.org) offers developers the opportunity
@@ -105,7 +106,7 @@ View these pages for more information:
 - [Frequent questions](https://wiki.freecad.org/FAQ/en)
 - [Workbenches](https://wiki.freecad.org/Workbenches)
 - [Scripting](https://wiki.freecad.org/Power_users_hub)
-- [Developers Handbook](https://freecad.github.io/DevelopersHandbook/)
+- [Development](https://wiki.freecad.org/Developer_hub)
 
 The [FreeCAD forum](https://forum.freecad.org) is a great place
 to find help and solve specific problems when learning to use FreeCAD.
