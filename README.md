@@ -1,6 +1,6 @@
-<a href="https://freecad.org"><img src="/src/Gui/Icons/freecad.svg" height="100px" width="100px"></a>
+<a href="http://touchtopnotch.tilda.ws/archi"><img src="/src/Gui/Icons/freecad.svg" height="100px" width="100px"></a>
 
-### Your own 3D parametric modeler
+### ARCHI - AI 3D parametric modeler
 
 [Website](https://www.freecad.org) •
 [Documentation](https://wiki.freecad.org) •
