@@ -108,3 +108,15 @@ Alternatively, launch FreeCAD as a regular application:
 ```
 This process ensures FreeCAD is built successfully on macOS using the mamba/conda toolchain. For additional help or troubleshooting, refer to the FreeCAD documentation.
 
+
+Add it to .zshrc, if you want to set the freecad as default environment in your repository independent of IDE
+```bash
+    # Run the default 'cd' command
+if [[ "$PWD" == *"/path/to/freecad"* ]]; then
+    if [[ "$CONDA_DEFAULT_ENV" != "freecad" ]]; then
+       echo "Activating FreeCAD environment..."
+       conda activate freecad
+    fi
+fi
+
+```
