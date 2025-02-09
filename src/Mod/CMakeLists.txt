@@ -6,6 +6,10 @@ if(BUILD_BIM)
   add_subdirectory(BIM)
 endif(BUILD_BIM)
 
+if(BUILD_ARCHI)
+    add_subdirectory(Archi)
+endif(BUILD_ARCHI)
+
 if(BUILD_ASSEMBLY)
   add_subdirectory(Assembly)
 endif(BUILD_ASSEMBLY)
@@ -93,6 +97,7 @@ if(BUILD_ROBOT)
       MESSAGE("Due to the missing Eigen3 library the Robot module won't be built")
     endif(EIGEN3_FOUND)
 endif(BUILD_ROBOT)
+
 
 if(BUILD_SANDBOX)
     add_subdirectory(Sandbox)
