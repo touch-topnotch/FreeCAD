@@ -169,7 +169,11 @@
           },
           "OCC_INCLUDE_DIR": {
             "type": "FILEPATH",
-            "value": "$env{CONDA_PREFIX}/include/opencascade"
+            "value": "/Users/dmitry057/Projects/DeepL/archi-ve/FreeCAD/.conda/freecad/include/opencascade"
+          },
+          "PYTHON_EXECUTABLE": {
+            "type": "FILEPATH",
+            "value": "$env{CONDA_PREFIX}/bin/python3"
           }
         }
       },
