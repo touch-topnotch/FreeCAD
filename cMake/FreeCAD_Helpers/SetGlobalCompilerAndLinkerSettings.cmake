@@ -31,7 +31,7 @@ macro(SetGlobalCompilerAndLinkerSettings)
     if(MSVC)
         # set default compiler settings
         add_definitions(-D_DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR -DNOMINMAX)
-        add_compile_options(/Zm150 /bigobj)
+        add_compile_options(/Zm250 /bigobj)
         set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DFC_DEBUG")
         if (MSVC_VERSION LESS 1930)  # Anything before VS 2022
             # set default libs
