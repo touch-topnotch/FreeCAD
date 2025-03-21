@@ -1,0 +1,6 @@
+{
+    "extraPaths": [
+        "./src",
+        "./.conda/Lib/site-packages/freecad-stubs"
+    ]
+}
