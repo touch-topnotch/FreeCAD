@@ -37,7 +37,7 @@ dependencies:
 - pre-commit
 - pybind11
 - pyside6
-- python ==3.11.*
+- python ==3.12.*
 - pyyaml
 - qt6-main
 - smesh
