@@ -106,7 +106,6 @@ SectionEnd
 #
 
 Function StartFreeCAD
-
-  Exec "$INSTDIR\${APP_RUN}"
-
+  ExecShell "runas" "$INSTDIR\${APP_RUN}"
 FunctionEnd
+

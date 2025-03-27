@@ -91,9 +91,6 @@ macro(SetupShibokenAndPyside)
         file(WRITE ${CMAKE_BINARY_DIR}/Ext/PySide/QtGui.py  "from PySide${PYSIDE_MAJOR_VERSION}.QtGui import *\n"
                                     "from PySide${PYSIDE_MAJOR_VERSION}.QtWidgets import *\n"
                                     "QHeaderView.setResizeMode = QHeaderView.setSectionResizeMode\n")
-        file(WRITE ${CMAKE_BINARY_DIR}/Ext/PySide/Qt3DCore.py "from PySide${PYSIDE_MAJOR_VERSION}.Qt3DCore import *\n")
-        file(WRITE ${CMAKE_BINARY_DIR}/Ext/PySide/Qt3DExtras.py "from PySide${PYSIDE_MAJOR_VERSION}.Qt3DExtras import *\n")
-        file(WRITE ${CMAKE_BINARY_DIR}/Ext/PySide/Qt3DRender.py "from PySide${PYSIDE_MAJOR_VERSION}.Qt3DRender import *\n")
         file(WRITE ${CMAKE_BINARY_DIR}/Ext/PySide/QtUiTools.py  "from PySide${PYSIDE_MAJOR_VERSION}.QtUiTools import *\n")
         file(WRITE ${CMAKE_BINARY_DIR}/Ext/PySide/QtWidgets.py  "from PySide${PYSIDE_MAJOR_VERSION}.QtWidgets import *\n")
         if(PYSIDE_MAJOR_VERSION LESS 6)
