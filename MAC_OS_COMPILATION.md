@@ -72,7 +72,7 @@ Date:   Tue Jun 4 19:15:12 2024 -0500
 4. Set Up Conda/Mamba Environment for FreeCAD
 
 ```bash
-main % source ./conda/setup-environment.sh
+main % source ./conda/setup-environment-qt6.sh
 main % conda activate freecad
 ```
 
