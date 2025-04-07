@@ -89,6 +89,9 @@ Ensure the correct cmake binary is being used:
 ```bash
 (freecad)FreeCAD main % which cmake
 /path/to/FreeCAD/.conda/freecad/bin/cmake
+
+#if it is not updated, or returns different path - try to do
+freecad)FreeCAD main % source ./zshrc
 ```
 
 6. List Available CMake Presets
