@@ -15,9 +15,9 @@ $VS2022_DIRECTORY = "C:\Program Files\Microsoft Visual Studio\2022\Community"
 
 Write-Host "===== Setting up environment for Telegram notifications ====="
 $CONFIGURE_BUILD = $true
-$INSTALL_BUILD   = $false
-$MAKE_INSTALLER  = $false
-$SEND_INSTALLER  = $false
+$INSTALL_BUILD   = $true
+$MAKE_INSTALLER  = $true
+$SEND_INSTALLER  = $true
 # Install python-telegram-bot via pip.
 # (Assumes Python + pip are already installed on the system)
 
@@ -46,6 +46,48 @@ function Send-TelegramMessage {
     }
     catch {
         Write-Host "ERROR sending to Telegram: $_"
+    }
+}
+
+function Send-TelegramFile {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$FilePath
+    )
+
+    # ---------------------------------------------------------------------------
+    #  Replace with your actual Telegram Bot Token and Chat ID
+    # ---------------------------------------------------------------------------
+    $BotToken = "7604470857:AAGepgWkFWSi_qqZUW-wJXA9O9axf2vC6F0"
+    $ChatID   = "1042330275"
+    # ---------------------------------------------------------------------------
+
+    $Url = "https://api.telegram.org/bot$($BotToken)/sendDocument"
+
+    try {
+        # Prepare the multipart form-data content
+        $boundary = [System.Guid]::NewGuid().ToString()
+        $headers = @{
+            "Content-Type" = "multipart/form-data; boundary=$boundary"
+        }
+        $body = @"
+--$boundary
+Content-Disposition: form-data; name="chat_id"
+
+$ChatID
+--$boundary
+Content-Disposition: form-data; name="document"; filename="$(Split-Path -Leaf $FilePath)"
+Content-Type: application/octet-stream
+
+$(Get-Content -Path $FilePath -Raw)
+--$boundary--
+"@
+
+        # Send the request
+        Invoke-RestMethod -Uri $Url -Method Post -Headers $headers -Body $body
+    }
+    catch {
+        Write-Host "ERROR sending file to Telegram: $_"
     }
 }
 
@@ -78,20 +120,16 @@ if($CONFIGURE_BUILD)
     $TOOLS_DIR `
     $VS2022_DIRECTORY `
 
-    if ($LASTEXITCODE -eq 0 -and $output -and $output.Count -gt 0 -and ($output[-1] -like "*Generating done*")) {
+    if ($LASTEXITCODE -eq 0) {
         Send-TelegramMessage "Configuration done"
     } else {
-        $errorMessage = $output -join "`n"
-
-        if ($errorMessage.Length -gt 4000) {
-            $errorMessage = ($output | Select-Object -First 40) -join "`n" + "`n...[truncated]"
-        }
 
         $telegramMessage = @(
-            "Configuration failed."
+        "Configuration part failed. Here is a log file:"
         ) -join "`n"
 
         Send-TelegramMessage $telegramMessage
+        Send-TelegramFile "$BUILD_DIR\cmake_execution.log"
         Exit 1
     }
 
@@ -113,18 +151,13 @@ if($INSTALL_BUILD)
     } else {
     $errorMessage = $output -join "`n"
 
-        if ($errorMessage.Length -gt 4000) {
-            $errorMessage = ($output | Select-Object -First 40) -join "`n" + "`n...[truncated]"
-        }
-
+       
         $telegramMessage = @(
-            'Compilation failed:',
-            '```powershell',
-            $errorMessage,
-            '```'
+        "Installation build part failed. Here is a log file:"
         ) -join "`n"
 
         Send-TelegramMessage $telegramMessage
+        Send-TelegramFile "$BUILD_DIR\install_build.log"
         Exit 1
     }
 }
@@ -135,26 +168,21 @@ if($MAKE_INSTALLER){
     Write-Host "===== Running make_installer_nsis.ps1 ====="
     powershell -ExecutionPolicy Bypass -File "./make_installer.ps1" `
     $TOOLS_DIR"\NSIS\makensis.exe" `
-    $SRC_DIR"\tools\build\WindowsInstaller\FreeCAD-installer.nsi"
+    $SRC_DIR"\tools\build\WindowsInstaller\FreeCAD-installer.nsi" `
+    $VS2022_DIRECTORY `
 
     if ($LASTEXITCODE -eq 0) {
         Send-TelegramMessage "Making installer done"
     } else {
-    $errorMessage = $output -join "`n"
+     $errorMessage = $output -join "`n"
 
-        if ($errorMessage.Length -gt 4000) {
-            $errorMessage = ($output | Select-Object -First 40) -join "`n" + "`n...[truncated]"
-        }
-
+       
         $telegramMessage = @(
-            'Compilation failed:',
-            '```powershell',
-            $errorMessage,
-            '```',
-            'penis'
+        "Installation build part failed. Here is a log file:"
         ) -join "`n"
 
         Send-TelegramMessage $telegramMessage
+        Send-TelegramFile $SRC_DIR"\tools\build\WindowsInstaller\make_installer.log"
         Exit 1
     }
 }
@@ -162,13 +190,15 @@ if($MAKE_INSTALLER){
 # 5) Run send_installer_to_server.ps1
 # ------------------------------------------------------------------------------
 if($SEND_INSTALLER){
+
+    echo "===== Running send_installer_to_server.ps1 ====="
     Write-Host "===== Running send_installer_to_server.ps1 ====="
 
     # Define the installer folder path
     $installerDir = Join-Path $SRC_DIR "tools\build\windowsinstaller"
 
     # Search for the first .exe file that contains "Archi" in its name
-    $exeFile = Get-ChildItem -Path $installerDir -Filter "*Archi*.exe" -File | Select-Object -First 1
+    $exeFile = Get-ChildItem -Path $installerDir -Filter "*installer*.exe" -File | Select-Object -First 1
 
     if ($exeFile) {
         $newPath = Join-Path $installerDir "\ArchiSetup.exe"
@@ -177,12 +207,17 @@ if($SEND_INSTALLER){
     } else {
         Write-Host "No EXE file containing 'Archi' found in: $installerDir" -ForegroundColor Red
         Send-TelegramMessage "No EXE file containing 'Archi' found in: $installerDir"
+        Exit(1)
     }
 
 
-    powershell -ExecutionPolicy Bypass -File "./send_installer_to_server.ps1" `
-    -FilePath $installerDir"\ArchiSetup.exe" `
-    -Password "hKG+*52pXCxp" 
+powershell -ExecutionPolicy Bypass -File "./send_installer_to_server.ps1" `
+    "$newPath" `
+    "hKG+*52pXCxp" `
+    "89.169.36.93" `
+    "/../var/www/archi-website/apps" `
+    "root" `
+    "$TOOLS_DIR"
 
     if ($LASTEXITCODE -eq 0) {
         Send-TelegramMessage "Installer sent"

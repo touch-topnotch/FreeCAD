@@ -33,9 +33,9 @@ cd /d "$buildDir"
 echo Building FreeCAD INSTALL project...
 msbuild INSTALL.vcxproj /p:Configuration=Release
 "@ | Set-Content -Encoding ASCII $tempBat
-
+$logFile = Join-Path $buildDir "install_build.log"
 # Run the .bat file in cmd.exe
-cmd.exe /c "`"$tempBat`""
+cmd.exe /c "`"$tempBat`"" > "`"$logFile`"" 2>&1
 
 # Check if the batch file failed
 if ($LASTEXITCODE -ne 0) {
@@ -46,4 +46,4 @@ if ($LASTEXITCODE -ne 0) {
 
 # Optional: Remove the temp .bat after successful execution
 Remove-Item $tempBat -Force
-Write-Host "✅ Batch script completed successfully."
+Write-Host "Batch script completed successfully."

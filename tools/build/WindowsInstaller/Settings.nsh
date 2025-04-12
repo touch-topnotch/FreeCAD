@@ -10,7 +10,8 @@ These typically need to be modified for each FreeCAD release
 # comment this for testing builds since it will reduce the time to create an installer
 # a lot - for the cost of a much greater file size.
 # So assure it is active for release builds!
-SetCompressor /SOLID lzma
+SetCompressor lzma
+
 
 #--------------------------------
 # Version number
