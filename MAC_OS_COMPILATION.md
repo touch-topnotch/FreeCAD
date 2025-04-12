@@ -72,7 +72,7 @@ Date:   Tue Jun 4 19:15:12 2024 -0500
 4. Set Up Conda/Mamba Environment for FreeCAD
 
 ```bash
-main % source ./conda/setup-environment.sh
+main % source ./conda/setup-environment-qt6.sh
 main % conda activate freecad
 ```
 
@@ -89,6 +89,9 @@ Ensure the correct cmake binary is being used:
 ```bash
 (freecad)FreeCAD main % which cmake
 /path/to/FreeCAD/.conda/freecad/bin/cmake
+
+#if it is not updated, or returns different path - try to do
+freecad)FreeCAD main % source ./zshrc
 ```
 
 6. List Available CMake Presets
