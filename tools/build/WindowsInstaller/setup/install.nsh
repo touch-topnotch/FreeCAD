@@ -52,12 +52,8 @@ Section -ProgramFiles SecProgramFiles
   File /r "${FILES_FREECAD}\lib\*.*"
   SetOutPath "$INSTDIR\Mod"
   File /r "${FILES_FREECAD}\Mod\*.*"
-  SetOutPath "$INSTDIR\resources"
-  File /r "${FILES_FREECAD}\resources\*.*"
-  SetOutPath "$INSTDIR\translations"
-  File /r "${FILES_FREECAD}\translations\*.*"
-  SetOutPath "$INSTDIR"
-  File /r "${FILES_THUMBS}"
+  SetOutPath "$INSTDIR\share"
+  File /r "${FILES_FREECAD}\share\*.*"
     
   # Create uninstaller
   WriteUninstaller "$INSTDIR\${SETUP_UNINSTALLER}"

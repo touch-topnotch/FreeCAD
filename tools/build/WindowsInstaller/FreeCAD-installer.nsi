@@ -14,6 +14,8 @@ Unicode true
 # enable support for high DPI resolution
 ManifestDPIAware true
 
+!include LogicLib.nsh
+
 # installer settings like version numbers
 !include settings.nsh
 
