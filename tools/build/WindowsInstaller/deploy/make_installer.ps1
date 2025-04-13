@@ -63,7 +63,7 @@ if (-not (Test-Path $msvcRedistPath)) {
 # Копируем библиотеки из нужных подкаталогов
 foreach ($dll in $dllMap.Keys) {
     $subfolder = $dllMap[$dll]
-    $sourceDir = Join-Path $latestVersionPath.FullName "x64\$subfolder"
+    $sourceDir = Join-Path $latestVersionPath.FullName "x86\$subfolder"
     $sourcePath = Join-Path $sourceDir $dll
     $destPath = Join-Path $msvcRedistPath $dll
 

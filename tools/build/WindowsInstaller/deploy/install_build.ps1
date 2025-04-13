@@ -1,49 +1,78 @@
-
 param (
     [Parameter(Mandatory = $true)]
-    [string]$buildDir,
+    [string]$BUILD_DIR,
 
     [Parameter(Mandatory = $true)]
-    [string]$vs2022
+    [string]$VS2022_DIRECTORY
 )
 
+Write-Host "Starting install_build.ps1..." -ForegroundColor Green
 
-# Ensure Admin rights
-$IsAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-if (-not $IsAdmin) {
-    Write-Host " This script must be run as Administrator." -ForegroundColor Red
+# Check if build directory exists
+if (-Not (Test-Path $BUILD_DIR)) {
+    Write-Host "Build directory not found: $BUILD_DIR" -ForegroundColor Red
     exit 1
 }
 
-# Define paths
-$vsDevCmd = Join-Path $vs2022 "\Common7\Tools\VsDevCmd.bat"
-$tempBat = "$env:TEMP\freecad_build.bat"
-
-# Check VS path
-if (-Not (Test-Path $vsDevCmd)) {
-    Write-Host " Could not find VsDevCmd.bat at: $vsDevCmd" -ForegroundColor Red
+# Check if Visual Studio exists
+if (-Not (Test-Path $VS2022_DIRECTORY)) {
+    Write-Host "Visual Studio 2022 not found: $VS2022_DIRECTORY" -ForegroundColor Red
     exit 1
 }
 
-# Write temp .bat file
-@"
-@echo off
-call "$vsDevCmd"
-cd /d "$buildDir"
-echo Building FreeCAD INSTALL project...
-msbuild INSTALL.vcxproj /p:Configuration=Release
-"@ | Set-Content -Encoding ASCII $tempBat
-$logFile = Join-Path $buildDir "install_build.log"
-# Run the .bat file in cmd.exe
-cmd.exe /c "`"$tempBat`"" > "`"$logFile`"" 2>&1
+try {
+    # Import Visual Studio environment variables
+    $vcvarsall = Join-Path $VS2022_DIRECTORY "VC\Auxiliary\Build\vcvarsall.bat"
+    if (-Not (Test-Path $vcvarsall)) {
+        Write-Host "vcvarsall.bat not found: $vcvarsall" -ForegroundColor Red
+        exit 1
+    }
 
-# Check if the batch file failed
-if ($LASTEXITCODE -ne 0) {
-    Write-Host " Batch script failed with exit code $LASTEXITCODE"
-    Remove-Item $tempBat -Force
+    Write-Host "Creating temporary build batch file..." -ForegroundColor Yellow
+    # Create temporary batch file for VS environment setup and build
+    $tempBatch = Join-Path $BUILD_DIR "temp_build.bat"
+    @"
+@echo on
+echo Starting Visual Studio environment setup...
+call "$vcvarsall" x64
+if errorlevel 1 (
+    echo Error: Failed to setup Visual Studio environment
+    exit /b 1
+)
+
+echo Starting CMake build...
+cmake --build "$BUILD_DIR" --config Release --target install --parallel
+if errorlevel 1 (
+    echo Error: Build failed
+    exit /b 2
+)
+
+echo Build completed successfully
+exit /b 0
+"@ | Set-Content $tempBatch -Encoding ASCII
+
+    # Start build
+    Write-Host "Starting Release configuration build..." -ForegroundColor Yellow
+    
+    # Run cmd.exe directly for better output
+    $buildProcess = Start-Process cmd.exe -ArgumentList "/c", "`"$tempBatch`" 2>&1" -NoNewWindow -Wait -PassThru
+    
+    # Check result
+    if ($buildProcess.ExitCode -ne 0) {
+        Write-Host "Build failed. Exit code: $($buildProcess.ExitCode)" -ForegroundColor Red
+        exit $buildProcess.ExitCode
+    }
+
+    Write-Host "Build completed successfully!" -ForegroundColor Green
+    exit 0
+}
+catch {
+    Write-Host "Error occurred during build process: $_" -ForegroundColor Red
     exit 1
 }
-
-# Optional: Remove the temp .bat after successful execution
-Remove-Item $tempBat -Force
-Write-Host "Batch script completed successfully."
+finally {
+    # Cleanup temporary files
+    if (Test-Path $tempBatch) {
+        Remove-Item $tempBatch -Force
+    }
+}

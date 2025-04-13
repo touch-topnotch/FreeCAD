@@ -75,17 +75,21 @@ if (-Not (Test-Path $VS2022_DIRECTORY)) {
 
 Push-Location $SRC_DIR
 Write-Host "Starting CMake configuration..." -ForegroundColor Green
-$cmakeOutput = cmake -G "Visual Studio 17 2022" `
-  -A x64 `
-  -DCMAKE_BUILD_TYPE=Release `
-  -DFREECAD_LIBPACK_DIR="$LIBPACK_DIRECTORY" `
-  -DCMAKE_PREFIX_PATH="$LIBPACK_DIRECTORY" `
-  -DCMAKE_INSTALL_PREFIX="C:/Program Files (x86)/FreeCAD" `
-  -DBoost_PYTHON_LIBRARY="$LIBPACK_DIRECTORY/lib/boost_python312-vc142-mt-x64-1_86.lib" `
-  -DCMAKE_POLICY_VERSION_MINIMUM="3.5" `
-  -S "$SRC_DIR" -B "$BUILD_DIR"
+$cmakePath = Join-Path $TOOLS_DIRECTORY "\cmake\bin\cmake.exe"
+$cmakeArgs = @(
+    '-G', 'Visual Studio 17 2022',
+    '-A', 'x64',
+    '-DCMAKE_BUILD_TYPE=Release',
+    "-DFREECAD_LIBPACK_DIR=$LIBPACK_DIRECTORY",
+    "-DCMAKE_PREFIX_PATH=$LIBPACK_DIRECTORY",
+    '-DCMAKE_INSTALL_PREFIX=C:/Program Files (x86)/FreeCAD',
+    "-DBoost_PYTHON_LIBRARY=$LIBPACK_DIRECTORY/lib/boost_python312-vc142-mt-x64-1_86.lib",
+    '-DCMAKE_POLICY_VERSION_MINIMUM=3.5',
+    '-S', $SRC_DIR,
+    '-B', $BUILD_DIR
+)
 
-
+$cmakeOutput = & $cmakePath $cmakeArgs
 
 # Save logs to a file for reference
 $logFile = "$BUILD_DIR\cmake_execution.log"

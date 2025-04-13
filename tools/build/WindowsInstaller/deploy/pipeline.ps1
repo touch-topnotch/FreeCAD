@@ -1,5 +1,3 @@
-
-
 # the perfect directory should be like
 # path/to/archi-ve/
 # ----> FreeCAD (from github)
@@ -7,17 +5,17 @@
 # ----> tools (from google drive)
 # C:/Program Files/Microsoft Visual Studio/2022/Community
 
-$SRC_DIR = "C:\archi-ve\FreeCAD"
-$BUILD_DIR = "C:\archi-ve\FreeCAD\build"
-$TOOLS_DIR = "C:\archi-ve\tools"
-$LIBPACK_DIRECTORY = "C:\archi-ve\LibPack-1.1.0-v3.1.0-Release"
+$SRC_DIR = "D:\GOIDA\FreeCAD"
+$BUILD_DIR = "D:\GOIDA\FreeCAD\build"
+$TOOLS_DIR = "D:\GOIDA\tools"
+$LIBPACK_DIRECTORY = "D:\GOIDA\LibPack-1.1.0-v3.1.0-Release"
 $VS2022_DIRECTORY = "C:\Program Files\Microsoft Visual Studio\2022\Community"
 
 Write-Host "===== Setting up environment for Telegram notifications ====="
-$CONFIGURE_BUILD = $true
+$CONFIGURE_BUILD = $false
 $INSTALL_BUILD   = $true
-$MAKE_INSTALLER  = $true
-$SEND_INSTALLER  = $true
+$MAKE_INSTALLER  = $false
+$SEND_INSTALLER  = $false
 # Install python-telegram-bot via pip.
 # (Assumes Python + pip are already installed on the system)
 
@@ -141,23 +139,50 @@ if($CONFIGURE_BUILD)
 
 if($INSTALL_BUILD)
 {
-    Write-Host "===== Running install_build.ps1 ====="
-    Start-Process powershell -Verb RunAs -ArgumentList '-ExecutionPolicy Bypass -File "./install_build.ps1" `
-    $BUILD_DIR `
-    $VS2022_DIRECTORY `'
+    Write-Host "===== Running install_build.ps1 =====" -ForegroundColor Green
+    
+    # Create log files in advance
+    $buildLog = "$BUILD_DIR\install_build.log"
+    $errorLog = "$BUILD_DIR\install_build_error.log"
+    "" | Set-Content $buildLog
+    "" | Set-Content $errorLog
 
-    if ($LASTEXITCODE -eq 0) {
-        Send-TelegramMessage "Compilation done"
-    } else {
-    $errorMessage = $output -join "`n"
-
-       
-        $telegramMessage = @(
-        "Installation build part failed. Here is a log file:"
-        ) -join "`n"
-
-        Send-TelegramMessage $telegramMessage
-        Send-TelegramFile "$BUILD_DIR\install_build.log"
+    try {
+        # Start process with elevated privileges
+        $process = Start-Process powershell -Verb RunAs -ArgumentList "-ExecutionPolicy", "Bypass", "-File", "`"$PSScriptRoot\install_build.ps1`"", "`"$BUILD_DIR`"", "`"$VS2022_DIRECTORY`"" -Wait -PassThru
+        
+        if ($process.ExitCode -eq 0) {
+            Write-Host "Build completed successfully" -ForegroundColor Green
+            Send-TelegramMessage "Compilation done"
+        } else {
+            Write-Host "Build failed with error code: $($process.ExitCode)" -ForegroundColor Red
+            
+            $telegramMessage = @(
+                "Installation build part failed. Error code: $($process.ExitCode)",
+                "Check logs for details."
+            ) -join "`n"
+            
+            Send-TelegramMessage $telegramMessage
+            
+            # Send logs only if they exist and not empty
+            if (Test-Path $buildLog) {
+                $content = Get-Content $buildLog
+                if ($content.Length -gt 0) {
+                    Send-TelegramFile $buildLog
+                }
+            }
+            if (Test-Path $errorLog) {
+                $content = Get-Content $errorLog
+                if ($content.Length -gt 0) {
+                    Send-TelegramFile $errorLog
+                }
+            }
+            
+            Exit 1
+        }
+    }
+    catch {
+        Write-Host "Error launching process: $_" -ForegroundColor Red
         Exit 1
     }
 }
