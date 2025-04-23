@@ -13,9 +13,9 @@ $VS2022_DIRECTORY = "C:\Program Files\Microsoft Visual Studio\2022\Community"
 
 Write-Host "===== Setting up environment for Telegram notifications ====="
 $CONFIGURE_BUILD = $false
-$INSTALL_BUILD   = $true
-$MAKE_INSTALLER  = $false
-$SEND_INSTALLER  = $false
+$INSTALL_BUILD   = $false
+$MAKE_INSTALLER  = $true
+$SEND_INSTALLER  = $true
 # Install python-telegram-bot via pip.
 # (Assumes Python + pip are already installed on the system)
 
