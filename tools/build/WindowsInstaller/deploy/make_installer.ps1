@@ -37,7 +37,7 @@ $dllMap = @{
     "concrt140.dll"          = "Microsoft.VC143.CRT"
     "msvcp140.dll"           = "Microsoft.VC143.CRT"
     "vccorlib140.dll"        = "Microsoft.VC143.CRT"
-    "vcruntime140_1.dll"     = "Microsoft.VC143.CRT"
+    "vcruntime140.dll"       = "Microsoft.VC143.CRT"
     "vcomp140.dll"           = "Microsoft.VC143.OpenMP"
     "vcamp140.dll"           = "Microsoft.VC143.CXXAMP"
 }
