@@ -51,14 +51,6 @@
         "hidden": true,
         "generator": "Ninja",
         "cacheVariables": {
-          "BUILD_QT6": {
-            "type": "BOOL",
-            "value": "ON"
-          },
-          "QT_VERSION": {
-            "type": "STRING",
-            "value": "6"
-          },
           "BUILD_FEM_NETGEN": {
             "type": "BOOL",
             "value": "ON"
