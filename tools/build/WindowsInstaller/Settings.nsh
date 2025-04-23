@@ -43,5 +43,5 @@ SetCompressor lzma
 # !!! you need to adjust them to the folders in your Windows system !!!
 
 !define FILES_FREECAD "C:\Program Files (x86)\FreeCAD"
-!define FILES_DEPS "C:\archi-ve\FreeCAD\tools\build\WindowsInstaller\MSVCRedist"
-!define FILES_THUMBS "C:\archi-ve\FreeCAD\tools\build\WindowsInstaller\thumbnail"
+!define FILES_DEPS "D:\GOIDA\FreeCAD\tools\build\WindowsInstaller\MSVCRedist"
+!define FILES_THUMBS "D:\GOIDA\FreeCAD\tools\build\WindowsInstaller\thumbnail"
