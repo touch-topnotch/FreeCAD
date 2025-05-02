@@ -5,17 +5,17 @@
 # ----> tools (from google drive)
 # C:/Program Files/Microsoft Visual Studio/2022/Community
 
-$SRC_DIR = "D:\GOIDA\FreeCAD"
-$BUILD_DIR = "D:\GOIDA\FreeCAD\build"
-$TOOLS_DIR = "D:\GOIDA\tools"
-$LIBPACK_DIRECTORY = "D:\GOIDA\LibPack-1.1.0-v3.1.0-Release"
+$SRC_DIR = "C:\archi-ve\FreeCAD"
+$BUILD_DIR = "C:\archi-ve\FreeCAD\build"
+$TOOLS_DIR = "C:\archi-ve\tools"
+$LIBPACK_DIRECTORY = "C:\archi-ve\LibPack-1.1.0-v3.1.1.3-Release"
 $VS2022_DIRECTORY = "C:\Program Files\Microsoft Visual Studio\2022\Community"
 
 Write-Host "===== Setting up environment for Telegram notifications ====="
 $CONFIGURE_BUILD = $false
-$INSTALL_BUILD   = $false
-$MAKE_INSTALLER  = $true
-$SEND_INSTALLER  = $true
+$INSTALL_BUILD   = $true
+$MAKE_INSTALLER  = $false
+$SEND_INSTALLER  = $false
 # Install python-telegram-bot via pip.
 # (Assumes Python + pip are already installed on the system)
 

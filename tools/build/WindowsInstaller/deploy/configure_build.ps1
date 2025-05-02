@@ -82,9 +82,11 @@ $cmakeArgs = @(
     '-DCMAKE_BUILD_TYPE=Release',
     "-DFREECAD_LIBPACK_DIR=$LIBPACK_DIRECTORY",
     "-DCMAKE_PREFIX_PATH=$LIBPACK_DIRECTORY",
-    '-DCMAKE_INSTALL_PREFIX=C:/Program Files (x86)/FreeCAD',
+    '-DCMAKE_INSTALL_PREFIX=C:/archi-ve/build/FreeCAD',
     "-DBoost_PYTHON_LIBRARY=$LIBPACK_DIRECTORY/lib/boost_python312-vc142-mt-x64-1_86.lib",
     '-DCMAKE_POLICY_VERSION_MINIMUM=3.5',
+    '-DBUILD_TEST=OFF',
+    '-DFREECAD_BUILD_TEST=OFF',
     '-S', $SRC_DIR,
     '-B', $BUILD_DIR
 )
