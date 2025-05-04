@@ -7,15 +7,75 @@
 
 $SRC_DIR = "C:\archi-ve\FreeCAD"
 $BUILD_DIR = "C:\archi-ve\FreeCAD\build"
+$INSTALL_DIR = "C:\archi-ve\FreeCAD\build\install\Archi"
 $TOOLS_DIR = "C:\archi-ve\tools"
 $LIBPACK_DIRECTORY = "C:\archi-ve\LibPack-1.1.0-v3.1.1.3-Release"
 $VS2022_DIRECTORY = "C:\Program Files\Microsoft Visual Studio\2022\Community"
 
-Write-Host "===== Setting up environment for Telegram notifications ====="
+function Convert-SettingsPaths {
+    param (
+        [string]$SettingsFile = "$SRC_DIR\tools\build\WindowsInstaller\Settings.nsh"
+    )
+    
+    $content = Get-Content $SettingsFile
+    $newContent = $content | ForEach-Object {
+        if ($_ -match '!define APP_VERSION_MINOR "(.+)"') {
+            "!define APP_VERSION_MINOR `"$([int]$matches[1] + 1)`""
+        }
+        elseif ($_ -match '!define FILES_FREECAD "(.+)"') {
+            "!define FILES_FREECAD `"$SRC_DIR\build\install\Archi`""
+        }
+        elseif ($_ -match '!define FILES_DEPS "(.+)"') {
+            "!define FILES_DEPS `"$SRC_DIR\tools\build\WindowsInstaller\MSVCRedist`""
+        }
+        elseif ($_ -match '!define FILES_THUMBS "(.+)"') {
+            "!define FILES_THUMBS `"$SRC_DIR\tools\build\WindowsInstaller\thumbnail`""
+        }
+        else {
+            $_
+        }
+    }
+    Set-Content -Path $SettingsFile -Value $newContent 
+}
+# Convert paths in Settings.nsh
+Convert-SettingsPaths
 $CONFIGURE_BUILD = $false
-$INSTALL_BUILD   = $true
+$INSTALL_BUILD   = $false
 $MAKE_INSTALLER  = $false
-$SEND_INSTALLER  = $false
+$SEND_INSTALLER  = $true
+Write-Host "===== Getting Parameters ====="
+# Get user input for build flags
+Write-Host "Please enter 4 numbers (0 or 1) for the following build flags:"
+Write-Host "CONFIGURE_BUILD INSTALL_BUILD MAKE_INSTALLER SEND_INSTALLER"
+Write-Host "Example: 0 1 0 0"
+
+$userInput = Read-Host
+$values = $userInput.Split(" ")
+
+if ($values.Count -ne 4) {
+    Write-Host "Error: Please provide exactly 4 numbers" -ForegroundColor Red
+    exit 1
+}
+
+foreach ($value in $values) {
+    if ($value -ne "0" -and $value -ne "1") {
+        Write-Host "Error: Values must be 0 or 1" -ForegroundColor Red
+        exit 1
+    }
+}
+
+$CONFIGURE_BUILD = [bool][int]$values[0]
+$INSTALL_BUILD = [bool][int]$values[1] 
+$MAKE_INSTALLER = [bool][int]$values[2]
+$SEND_INSTALLER = [bool][int]$values[3]
+
+Write-Host "Build flags set to:"
+Write-Host "CONFIGURE_BUILD: $CONFIGURE_BUILD"
+Write-Host "INSTALL_BUILD: $INSTALL_BUILD"
+Write-Host "MAKE_INSTALLER: $MAKE_INSTALLER" 
+Write-Host "SEND_INSTALLER: $SEND_INSTALLER"
+
+Write-Host "===== Setting up environment for Telegram notifications ====="
 # Install python-telegram-bot via pip.
 # (Assumes Python + pip are already installed on the system)
 
@@ -114,6 +174,7 @@ if($CONFIGURE_BUILD)
     powershell -ExecutionPolicy Bypass -File "./configure_build.ps1" `
     $SRC_DIR `
     $BUILD_DIR `
+    $INSTALL_DIR `
     $LIBPACK_DIRECTORY `
     $TOOLS_DIR `
     $VS2022_DIRECTORY `
@@ -191,6 +252,9 @@ if($INSTALL_BUILD)
 # ------------------------------------------------------------------------------
 if($MAKE_INSTALLER){
     Write-Host "===== Running make_installer_nsis.ps1 ====="
+    
+   
+    
     powershell -ExecutionPolicy Bypass -File "./make_installer.ps1" `
     $TOOLS_DIR"\NSIS\makensis.exe" `
     $SRC_DIR"\tools\build\WindowsInstaller\FreeCAD-installer.nsi" `
@@ -224,15 +288,14 @@ if($SEND_INSTALLER){
 
     # Search for the first .exe file that contains "Archi" in its name
     $exeFile = Get-ChildItem -Path $installerDir -Filter "*installer*.exe" -File | Select-Object -First 1
-
+    $newPath = Join-Path $installerDir "\ArchiSetup.exe"
     if ($exeFile) {
-        $newPath = Join-Path $installerDir "\ArchiSetup.exe"
+       
         Rename-Item -Path $exeFile.FullName -NewName $newPath -Force
         Write-Host " Renamed '$($exeFile.Name)' to 'ArchiSetup.exe'"
     } else {
-        Write-Host "No EXE file containing 'Archi' found in: $installerDir" -ForegroundColor Red
-        Send-TelegramMessage "No EXE file containing 'Archi' found in: $installerDir"
-        Exit(1)
+        Write-Host "No EXE file containing 'Archi' found in: $installerDir. We will use ArchiSetup.exe"
+        Send-TelegramMessage "No EXE file containing 'Archi' found in: $installerDir. We will use ArchiSetup.exe"
     }
 
 

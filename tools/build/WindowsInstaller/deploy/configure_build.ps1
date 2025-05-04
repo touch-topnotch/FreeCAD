@@ -10,6 +10,9 @@ param (
     [string]$BUILD_DIR,
 
     [Parameter(Mandatory = $true)]
+    [string]$INSTALL_DIR,
+
+    [Parameter(Mandatory = $true)]
     [string]$LIBPACK_DIRECTORY,
 
     [Parameter(Mandatory = $true)]
@@ -28,6 +31,11 @@ if (-Not (Test-Path $SRC_DIR)) {
 if (-Not (Test-Path $BUILD_DIR)) {
     Write-Host " Build dir not found at: $BUILD_DIR. Making new one.." -ForegroundColor Yellow
     New-Item -Path $BUILD_DIR -ItemType Directory -Force
+}
+
+if (-Not (Test-Path $INSTALL_DIR)) {
+    Write-Host " Install dir not found at: $INSTALL_DIR. Making new one.." -ForegroundColor Yellow
+    New-Item -Path $INSTALL_DIR -ItemType Directory -Force
 }
 
 if (-Not (Test-Path $LIBPACK_DIRECTORY)) {
@@ -78,13 +86,11 @@ Write-Host "Starting CMake configuration..." -ForegroundColor Green
 $cmakePath = Join-Path $TOOLS_DIRECTORY "\cmake\bin\cmake.exe"
 $cmakeArgs = @(
     '-G', 'Visual Studio 17 2022',
-    '-A', 'x64',
     '-DCMAKE_BUILD_TYPE=Release',
     "-DFREECAD_LIBPACK_DIR=$LIBPACK_DIRECTORY",
     "-DCMAKE_PREFIX_PATH=$LIBPACK_DIRECTORY",
-    '-DCMAKE_INSTALL_PREFIX=C:/archi-ve/build/FreeCAD',
-    "-DBoost_PYTHON_LIBRARY=$LIBPACK_DIRECTORY/lib/boost_python312-vc142-mt-x64-1_86.lib",
-    '-DCMAKE_POLICY_VERSION_MINIMUM=3.5',
+    "-DCMAKE_INSTALL_PREFIX=$INSTALL_DIR",
+    '-DCMAKE_POLICY_VERSION_MINIMUM="3.5"',
     '-DBUILD_TEST=OFF',
     '-DFREECAD_BUILD_TEST=OFF',
     '-S', $SRC_DIR,

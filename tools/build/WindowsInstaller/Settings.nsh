@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 Settings for FreeCAD installer
 
@@ -17,7 +17,9 @@ SetCompressor lzma
 # Version number
 
 !define APP_VERSION_MAJOR 0
-!define APP_VERSION_MINOR 02
+
+!define APP_VERSION_MINOR 3
+
 !define APP_VERSION_REVISION 0
 !define APP_VERSION_EMERGENCY "" # use "1" for an emergency release of FreeCAD otherwise ""
 	# alternatively you can use APP_VERSION_EMERGENCY for a custom suffix of the version number
@@ -42,6 +44,9 @@ SetCompressor lzma
 # File locations
 # !!! you need to adjust them to the folders in your Windows system !!!
 
-!define FILES_FREECAD "C:\archi-ve\build\FreeCAD"
+!define FILES_FREECAD "C:\archi-ve\FreeCAD\build\install\Archi"
+!define FILES_FREECAD "C:\archi-ve\FreeCAD\build\install\Archi"
+!define FILES_FREECAD "C:\archi-ve\FreeCAD\build\install\Archi"
+!define FILES_FREECAD "C:\archi-ve\FreeCAD\build\install\Archi"
 !define FILES_DEPS "C:\archi-ve\FreeCAD\tools\build\WindowsInstaller\MSVCRedist"
 !define FILES_THUMBS "C:\archi-ve\FreeCAD\tools\build\WindowsInstaller\thumbnail"

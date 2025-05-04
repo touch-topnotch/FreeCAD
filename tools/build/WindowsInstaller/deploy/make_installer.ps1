@@ -9,6 +9,7 @@ param (
     [string]$VS2022_DIRECTORY
 )
 
+Write-Host "Starting make_installer.ps1..." -ForegroundColor Green
 
 # Validate NSIS compiler path
 if (-Not (Test-Path $MakensisPath)) {
@@ -21,7 +22,8 @@ if (-Not (Test-Path $NsiScriptPath)) {
     Write-Host " NSIS script not found at: $NsiScriptPath" -ForegroundColor Red
     exit 1
 }
-# Validate NSI script path
+
+# Validate VS2022 directory
 if (-Not (Test-Path $VS2022_DIRECTORY)) {
     Write-Host " VS2022 not found at: $VS2022_DIRECTORY" -ForegroundColor Red
     exit 1
@@ -32,6 +34,7 @@ if (-Not (Test-Path $msvcRedistPath)) {
     Write-Host " MSVC Redist not found at: $msvcRedistPath" -ForegroundColor Red
     exit 1
 }
+
 # Список всех библиотек и их подкаталогов
 $dllMap = @{
     "concrt140.dll"          = "Microsoft.VC143.CRT"
@@ -74,15 +77,49 @@ foreach ($dll in $dllMap.Keys) {
         Write-Warning "$dll not found in $sourceDir"
     }
 }
-Write-Host "Starting NSIS build..."
-$logFile = Join-Path (Split-Path -Path $NsiScriptPath -Parent) "make_installer.log"
-# Run makensis with LZMA compressor
-& "$MakensisPath" /V4 /DCompress=LZMA "$NsiScriptPath" > "$logFile" 2>&1
 
-# Exit with status
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "✅ NSIS installer built successfully." -ForegroundColor Green
-} else {
-    Write-Host " NSIS build failed with exit code $LASTEXITCODE." -ForegroundColor Red
-    Exit(1)
+Write-Host "Starting NSIS build..." -ForegroundColor Yellow
+
+# Create log files
+$buildLog = Join-Path (Split-Path -Path $NsiScriptPath -Parent) "make_installer.log"
+$errorLog = Join-Path (Split-Path -Path $NsiScriptPath -Parent) "make_installer_error.log"
+"" | Set-Content $buildLog
+"" | Set-Content $errorLog
+
+try {
+    # Create temporary batch file for NSIS build
+    $tempBatch = Join-Path (Split-Path -Path $NsiScriptPath -Parent) "temp_nsis_build.bat"
+    @"
+@echo on
+echo Starting NSIS build...
+"$MakensisPath" /V4 /DCompress=LZMA "$NsiScriptPath" 2>&1
+if errorlevel 1 (
+    echo Error: NSIS build failed
+    exit /b 1
+)
+echo NSIS build completed successfully
+exit /b 0
+"@ | Set-Content $tempBatch -Encoding ASCII
+
+    # Start process and show output
+    $process = Start-Process cmd.exe -ArgumentList "/c", "`"$tempBatch`"" -Wait -NoNewWindow -PassThru
+
+    # Check result
+    if ($process.ExitCode -eq 0) {
+        Write-Host "✅ NSIS installer built successfully." -ForegroundColor Green
+        exit 0
+    } else {
+        Write-Host "❌ NSIS build failed with exit code $($process.ExitCode)." -ForegroundColor Red
+        exit 1
+    }
+}
+catch {
+    Write-Host "Error occurred during NSIS build process: $_" -ForegroundColor Red
+    exit 1
+}
+finally {
+    # Cleanup temporary files
+    if (Test-Path $tempBatch) {
+        Remove-Item $tempBatch -Force
+    }
 }
