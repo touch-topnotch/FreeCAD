@@ -198,12 +198,15 @@ install(
 #    DESTINATION
 #        lib/cmake/E57Format
 #)
-# --------  CRT = /MD  ---------------------------------
-set_target_properties(E57Format PROPERTIES
-    MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")          # /MD
 
-# --------  Явно подтягиваем то, что /NODEFAULTLIB убрал
-target_link_libraries(E57Format PRIVATE
-    vcruntime.lib
-    ucrt.lib
-    msvcprt.lib)
+if(WIN32)
+    # --------  CRT = /MD  ---------------------------------
+    set_target_properties(E57Format PROPERTIES
+        MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")          # /MD
+
+    # --------  Явно подтягиваем то, что /NODEFAULTLIB убрал
+    target_link_libraries(E57Format PRIVATE
+        vcruntime.lib
+        ucrt.lib
+        msvcprt.lib)
+endif()
