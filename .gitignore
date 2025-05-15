@@ -46,6 +46,7 @@ install_manifest.txt
 /ZERO_CHECK.dir/
 /build/
 /install/
+/build-*/
 /cmake-build*/
 /src/Tools/offlinedoc/localwiki/
 /src/Tools/offlinedoc/*.txt
@@ -56,6 +57,8 @@ tags
 /CMakeUserPresets.json
 Testing
 compile_commands.json
+*.sublime-project
+*.sublime-workspace
 
 # crowdin file
 src/Tools/freecad.zip
