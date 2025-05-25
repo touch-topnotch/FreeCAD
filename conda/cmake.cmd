@@ -1,1 +1,4 @@
-mamba run --live-stream -n freecad cmake %*
+@echo off
+call conda activate freecad
+mamba run -n freecad cmake %*
+

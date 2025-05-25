@@ -63,13 +63,10 @@
         "hidden": true,
         "generator": "Ninja",
         "cacheVariables": {
+         
           "BUILD_FEM_NETGEN": {
             "type": "BOOL",
             "value": "ON"
-          },
-          "BUILD_REVERSEENGINEERING": {
-            "type": "BOOL",
-            "value": "OFF"
           },
           "BUILD_WITH_CONDA": {
             "type": "BOOL",
@@ -202,7 +199,36 @@
             "rhs": "Windows"
         },
         "cmakeExecutable": "${sourceDir}/conda/cmake.cmd",
+        "generator": "Ninja",
         "cacheVariables": {
+          "CMAKE_C_COMPILER": {
+            "type": "FILEPATH",
+            "value": "$env{CONDA_PREFIX}/Library/bin/clang-cl.exe"
+          },
+          "CMAKE_CXX_COMPILER": {
+            "type": "FILEPATH",
+            "value": "$env{CONDA_PREFIX}/Library/bin/clang-cl.exe"
+          },
+          "CMAKE_LINKER": {
+            "type": "FILEPATH",
+            "value": "$env{CONDA_PREFIX}/Library/bin/lld-link.exe"
+          },
+          "CMAKE_C_FLAGS": {
+            "type": "STRING",
+            "value": "-m64"
+          },
+          "CMAKE_CXX_FLAGS": {
+            "type": "STRING",
+            "value": "-m64"
+          },
+          "CMAKE_EXE_LINKER_FLAGS": {
+            "type": "STRING",
+            "value": ""
+          },
+          "CMAKE_SHARED_LINKER_FLAGS": {
+            "type": "STRING",
+            "value": ""
+          },
           "CMAKE_INSTALL_PREFIX": {
             "type": "FILEPATH",
             "value": "$env{CONDA_PREFIX}/Library"
@@ -214,6 +240,38 @@
           "OCC_INCLUDE_DIR": {
             "type": "FILEPATH",
             "value": "$env{CONDA_PREFIX}/Library/include/opencascade"
+          },
+          "GTEST_HAS_PTHREAD": {
+            "type": "STRING",
+            "value": "0"
+          },
+          "GTEST_FORCE_SHARED_CRT": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "GTEST_DISABLE_PTHREADS": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "GTEST_MSVC_SEARCH": {
+            "type": "STRING",
+            "value": "MT"
+          },
+          "BUILD_GMOCK": {
+            "type": "BOOL",
+            "value": "OFF"
+          },
+          "BUILD_GTEST": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "gtest_disable_pthreads": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "gtest_force_shared_crt": {
+            "type": "BOOL",
+            "value": "ON"
           }
         }
       },
