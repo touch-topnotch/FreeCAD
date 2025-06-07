@@ -422,7 +422,7 @@ class FCADLogger(object):
         self.laststamp = datetime.now()
         for key,default in (('printTag',True),('noUpdateUI',True),
                 ('timing',True),('lineno',True),('parent',None),
-                ('title','FreeCAD')) :
+                ('title','ARCHI')) :
             setattr(self,key,kargs.get(key,default))
 
     def _isEnabledFor(self,level):
@@ -711,7 +711,7 @@ except Exception as e:
     Err(traceback.format_exc())
     Err('-'*80+'\n')
 
-FreeCAD.addImportType("FreeCAD document (*.FCStd)","FreeCAD")
+FreeCAD.addImportType("ARCHI document (*.FCStd)","ARCHI")
 
 # set to no gui, is overwritten by InitGui
 App.GuiUp = 0

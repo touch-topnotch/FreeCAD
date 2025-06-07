@@ -824,7 +824,7 @@ class Writer:
         else:
             s["Exec Solver"] = "After simulation"
         s["Procedure"] = sifio.FileAttr("ResultOutputSolve/ResultOutputSolver")
-        s["Output File Name"] = sifio.FileAttr("FreeCAD")
+        s["Output File Name"] = sifio.FileAttr("ARCHI")
         s["Vtu Format"] = True
         s["Binary Output"] = self.solver.BinaryOutput
         s["Save Geometry Ids"] = self.solver.SaveGeometryIndex

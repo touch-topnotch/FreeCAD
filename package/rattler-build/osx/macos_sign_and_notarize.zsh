@@ -4,11 +4,11 @@
 
 # Default values
 SIGNING_KEY_ID="${FREECAD_SIGNING_KEY_ID}"
-KEYCHAIN_PROFILE="FreeCAD"
-CONTAINING_FOLDER="."
-APP_NAME="FreeCAD.app"
-VOLUME_NAME="FreeCAD"
-DMG_NAME="FreeCAD-macOS-$(uname -m).dmg"
+KEYCHAIN_PROFILE="ARCHI"
+CONTAINING_FOLDER="./build"
+APP_NAME="ARCHI.app"
+VOLUME_NAME="ARCHI"
+DMG_NAME="ARCHI-macOS-$(uname -m).dmg"
 DMG_SETTINGS="dmg_settings.py"
 
 # Function to display usage information

@@ -118,19 +118,19 @@
 #cmakedefine HAVE_BACKTRACE_SYMBOLS
 
 /* Name of package */
-#define PACKAGE "FreeCAD"
+#define PACKAGE "ARCHI"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "wmayer@users.sourceforge.net"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "FreeCAD"
+#define PACKAGE_NAME "ARCHI"
 
 /* Define to the full name and version of this package. */
 #define PACKAGE_STRING "${PACKAGE_STRING}"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "FreeCAD"
+#define PACKAGE_TARNAME "ARCHI"
 
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "${PACKAGE_VERSION}"

@@ -22,6 +22,7 @@ requirements:
     - noqt5
     - python>=3.11,<3.12
     - qt6-main>=6.7,<6.8
+    - qt6-3d>=6.7,<6.8
     - swig
 
     - if: linux and x86_64
@@ -102,12 +103,14 @@ requirements:
     - matplotlib-base
     - noqt5
     - numpy
-    - occt
+    - occt>=7.8,<7.9
     - pcl
     - pivy
     - ply
     - pybind11
     - pyside6
+    - pydantic
+    - keyring
     - python>=3.11,<3.12
     - qt6-main>=6.7,<6.8
     - six
@@ -116,6 +119,12 @@ requirements:
     - xerces-c
     - yaml-cpp
     - zlib
+    - if: osx
+      then:
+      - "libblas   * *_openblas"
+      - "libcblas  * *_openblas"
+      - "liblapack * *_openblas"
+
 
     - if: win
       then:
@@ -131,9 +140,9 @@ requirements:
         - libspnav
         - xorg-xproto
 
-    - if: osx
-      then:
-        - blas * accelerate*
+    # - if: osx
+    #   then:
+    #     - blas * accelerate*
 
   run:
     - blas
@@ -151,7 +160,7 @@ requirements:
     - nine
     - noqt5
     - numpy
-    - occt
+    - occt>=7.8,<7.9
     - olefile
     - opencamlib
     - opencv
@@ -161,15 +170,24 @@ requirements:
     - ply
     - pycollada
     - pyside6
+    - pydantic
+    - keyring
     - python>=3.11,<3.12
     - pythonocc-core
     - pyyaml
     - qt6-main>=6.7,<6.8
+    - qt6-3d>=6.7,<6.8
     - requests
     - scipy
     - sympy
+    - typing_extensions
     - vtk
     - xlutils
+    - if: osx
+      then:
+        - "libblas   * *_openblas"
+        - "libcblas  * *_openblas"
+        - "liblapack * *_openblas"
 
     - if: linux
       then:

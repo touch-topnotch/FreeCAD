@@ -21,6 +21,7 @@ conda config --add envs_dirs $(pwd)/.conda
 conda config --set env_prompt "({name})"
 
 # Install the FreeCAD dependencies into the environment
-mamba run --live-stream -n freecad mamba-devenv --no-prune -f conda/environment-qt6.devenv.yml
+mamba run -n freecad 
+mamba-devenv -f conda/environment-qt6.devenv.yml
 # Uninstall qt-main from the 'freecad' environment
-conda uninstall qt-main
+# conda uninstall qt-main

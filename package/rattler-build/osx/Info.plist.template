@@ -3,37 +3,41 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>FreeCAD</string>
+	<string>ARCHI</string>
 	<key>CFBundleGetInfoString</key>
 	<string></string>
 	<key>CFBundleIconFile</key>
-	<string>freecad.icns</string>
+	<string>archi.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.freecad.FreeCAD</string>
+	<string>org.archi</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLongVersionString</key>
 	<string></string>
 	<key>CFBundleName</key>
-	<string>APPLICATION_MENU_NAME</string>
+	<string>ARCHI</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string></string>
+	<string>ARCHI_VERSION</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>FREECAD_VERSION</string>
+	<string>ARCHI_VERSION</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.developer-tools</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.13</string>
 	<key>NSHumanReadableCopyright</key>
-	<string></string>
+	<string>Copyright (c) 2024 ARCHI Team</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSHighResolutionCapable</key>
-	<string>True</string>
+	<true/>
 	<key>NSRequiresAquaSystemAppearance</key>
 	<string>False</string>
 	<key>CFBundleDocumentTypes</key>
@@ -48,7 +52,7 @@
 				<string>FCParam</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>freecad-doc.icns</string>
+			<string>archi.icns</string>
 			<key>LSIsAppleDefaultForType</key>
 			<true/>
 		</dict>
@@ -61,7 +65,7 @@
 				<string>FCScript</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>freecad-script.icns</string>
+			<string>archi.icns</string>
 			<key>LSIsAppleDefaultForType</key>
 			<true/>
 		</dict>
@@ -86,5 +90,7 @@
 			</dict>
 		</dict>
 	</array>
+	<key>CFBundleDisplayName</key>
+	<string>ARCHI</string>
 </dict>
 </plist>

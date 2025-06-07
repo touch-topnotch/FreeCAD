@@ -2,12 +2,18 @@
 
 set -e
 set -x
-
-conda_env="FreeCAD.app/Contents/Resources"
-
+APP_DIR="../../../build/ARCHI.app"
+conda_env="../../../build/ARCHI.app/Contents/Resources"
 mkdir -p ${conda_env}
 
+# if [ -d "${APP_DIR}" ]; then
+#     rm -rf "${APP_DIR}"
+# fi
+
+mkdir -p ${APP_DIR}/Contents/Resources
 cp -a ../.pixi/envs/default/* ${conda_env}
+# Use rsync to merge directories, preserving existing files
+# rsync -a --ignore-existing ${INSTALL_DIR}/ ${conda_env}/
 
 export PATH="${PWD}/${conda_env}/bin:${PATH}"
 export CONDA_PREFIX="${PWD}/${conda_env}"
@@ -15,9 +21,9 @@ export CONDA_PREFIX="${PWD}/${conda_env}"
 # delete unnecessary stuff
 rm -rf ${conda_env}/include
 find ${conda_env} -name \*.a -delete
-
-mv ${conda_env}/bin ${conda_env}/bin_tmp
-mkdir ${conda_env}/bin
+mkdir -p ${conda_env}/bin_tmp
+mv ${conda_env}/bin/* ${conda_env}/bin_tmp
+mkdir -p ${conda_env}/bin
 cp ${conda_env}/bin_tmp/freecad ${conda_env}/bin/
 cp ${conda_env}/bin_tmp/freecadcmd ${conda_env}/bin
 cp ${conda_env}/bin_tmp/ccx ${conda_env}/bin/
@@ -45,41 +51,47 @@ find . -name "*.pyc" -type f -delete
 python ../scripts/fix_macos_lib_paths.py ${conda_env}/lib
 
 # build and install the launcher
+
 cmake -B build launcher
 cmake --build build
-mkdir -p FreeCAD.app/Contents/MacOS
-cp build/FreeCAD FreeCAD.app/Contents/MacOS/FreeCAD
+mkdir -p ${APP_DIR}/Contents/MacOS
+cp build/FreeCAD ${APP_DIR}/Contents/MacOS/ARCHI
+
 
 python_version=$(python -c 'import platform; print("py" + platform.python_version_tuple()[0] + platform.python_version_tuple()[1])')
-version_name="FreeCAD_${BUILD_TAG}-macOS-$(uname -m)-${python_version}"
-application_menu_name="FreeCAD_${BUILD_TAG}"
+version_name="ARCHI_${BUILD_TAG}-macOS-$(uname -m)-${python_version}"
+application_menu_name="ARCHI_${BUILD_TAG}"
 
 echo -e "\################"
 echo -e "version_name:  ${version_name}"
 echo -e "################"
 
 cp Info.plist.template ${conda_env}/../Info.plist
-sed -i "s/FREECAD_VERSION/${version_name}/" ${conda_env}/../Info.plist
+sed -i "s/ARCHI_VERSION/${version_name}/" ${conda_env}/../Info.plist
 sed -i "s/APPLICATION_MENU_NAME/${application_menu_name}/" ${conda_env}/../Info.plist
 
-pixi list -e default > FreeCAD.app/Contents/packages.txt
-sed -i '1s/.*/\nLIST OF PACKAGES:/' FreeCAD.app/Contents/packages.txt
+pixi list -e default > ${APP_DIR}/Contents/packages.txt
+sed -i '1s/.*/\nLIST OF PACKAGES:/' ${APP_DIR}/Contents/packages.txt
 
 # copy the plugin into its final location
-cp -a ${conda_env}/Library ${conda_env}/..
-rm -rf ${conda_env}/Library
+if [ -d "${conda_env}/Library" ]; then
+    cp -a ${conda_env}/Library ${conda_env}/..
+    rm -rf ${conda_env}/Library
+else
+    echo "Warning: Library directory not found in ${conda_env}"
+fi
 
 if [[ "${SIGN_RELEASE}" == "true" ]]; then
     # create the signed dmg
-    ./macos_sign_and_notarize.zsh -p "FreeCAD" -k ${SIGNING_KEY_ID} -o "${version_name}.dmg"
+    ./macos_sign_and_notarize.zsh -p "ARCHI" -k ${SIGNING_KEY_ID} -o "../../../build/bundle/${version_name}.dmg"
 else
     # create the dmg
-    dmgbuild -s dmg_settings.py "FreeCAD" "${version_name}.dmg"
+    dmgbuild -s dmg_settings.py "ARCHI" "../../../build/bundle/${version_name}.dmg"
 fi
 
 # create hash
-sha256sum ${version_name}.dmg > ${version_name}.dmg-SHA256.txt
+sha256sum "../../../build/bundle/${version_name}.dmg" > "../../../build/bundle/${version_name}.dmg-SHA256.txt"
 
 if [[ "${UPLOAD_RELEASE}" == "true" ]]; then
-    gh release upload --clobber ${BUILD_TAG} "${version_name}.dmg" "${version_name}.dmg-SHA256.txt"
+    gh release upload --clobber ${BUILD_TAG} "../../../build/bundle/${version_name}.dmg" "../../../build/bundle/${version_name}.dmg-SHA256.txt"
 fi

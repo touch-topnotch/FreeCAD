@@ -67,10 +67,6 @@
             "type": "BOOL",
             "value": "ON"
           },
-          "BUILD_REVERSEENGINEERING": {
-            "type": "BOOL",
-            "value": "OFF"
-          },
           "BUILD_WITH_CONDA": {
             "type": "BOOL",
             "value": "ON"
@@ -190,6 +186,18 @@
           "PYTHON_EXECUTABLE": {
             "type": "FILEPATH",
             "value": "$env{CONDA_PREFIX}/bin/python3"
+          },
+          "FREECAD_CREATE_APP_BUNDLE": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "FREECAD_APPLE_BUNDLE": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "FREECAD_CREATE_QSS_RCC": {
+            "type": "BOOL",
+            "value": "ON"
           }
         }
       },

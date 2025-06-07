@@ -353,8 +353,8 @@ QPixmap SplashScreen::splashImage()
         fontExe.setPointSizeF(20.0);
         QFontMetrics metricExe(fontExe);
         int l = QtTools::horizontalAdvance(metricExe, title);
-        if (title == QLatin1String("FreeCAD")) {
-            l = 0.0;  // "FreeCAD" text is already part of the splashscreen, version goes below it
+        if (title == QLatin1String("ARCHI")) {
+            l = 0.0;  // "ARCHI" text is already part of the splashscreen, version goes below it
         }
         int w = splash_image.width();
         int h = splash_image.height();
@@ -380,7 +380,7 @@ QPixmap SplashScreen::splashImage()
         if (color.isValid()) {
             painter.setPen(color);
             painter.setFont(fontExe);
-            if (title != QLatin1String("FreeCAD")) {
+            if (title != QLatin1String("ARCHI")) {
                 // FreeCAD's Splashscreen already contains the EXE name, no need to draw it
                 painter.drawText(x, y, title);
             }

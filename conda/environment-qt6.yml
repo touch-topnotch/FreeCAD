@@ -3,7 +3,7 @@ channels:
 - conda-forge
 - conda-forge/label/pivy_rc
 dependencies:
-- conda-forge/noarch::conda-libmamba-solver ==24.7.0
+- conda-forge/noarch::conda-libmamba-solver ==24.11.1
 - sed
 - ccache
 - clang-format
@@ -49,5 +49,7 @@ dependencies:
 - yaml-cpp
 - zlib
 - zstd
+- pydantic
+- keyring
 environment: {}
 name: freecad

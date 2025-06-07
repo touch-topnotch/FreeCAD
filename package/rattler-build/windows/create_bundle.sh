@@ -3,7 +3,7 @@
 set -e
 set -x 
 
-conda_env="fc_env"
+conda_env="fc_windows_env"
 
 mkdir -p ${conda_env}
 
@@ -56,7 +56,7 @@ echo '[Paths]' >> ${copy_dir}/bin/qt6.conf
 echo 'Prefix = ../lib/qt6' >> ${copy_dir}/bin/qt6.conf
 
 python_version=$(python -c 'import platform; print("py" + platform.python_version_tuple()[0] + platform.python_version_tuple()[1])')
-version_name="FreeCAD_${BUILD_TAG}-Windows-$(uname -m)-${python_version}"
+version_name="ARCHI_${BUILD_TAG}-Windows-$(uname -m)-${python_version}"
 
 echo -e "################"
 echo -e "version_name:  ${version_name}"
