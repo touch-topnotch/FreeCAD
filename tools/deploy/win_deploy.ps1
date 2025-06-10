@@ -12,68 +12,64 @@ Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 Start-Service sshd
 Set-Service -Name sshd -StartupType Automatic
 
-# 1. Check for Admin rights
-if (-not ([Security.Principal.WindowsPrincipal]
-    [Security.Principal.WindowsIdentity]::GetCurrent()
-    ).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-    Write-Error "Please run this script as Administrator."
-    exit 1
-}
-
-# 2. Define download URL & target path
-$installerUrl = 'https://www.spice-space.org/download/binaries/spice-guest-tools/spice-guest-tools-0.132/spice-guest-tools-0.132.exe'
-$installerPath = Join-Path $env:TEMP 'spice-guest-tools.exe'
-
-Write-Host "Downloading SPICE Guest Tools..."
-Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath -UseBasicParsing
-
-# 3. Silent install
-Write-Host "Installing SPICE Guest Tools silently..."
-Start-Process -FilePath $installerPath -ArgumentList '/S' -Wait
-
-# 4. Locate vdservice.exe (32- or 64-bit)
-$baseDir = Join-Path $env:ProgramFiles 'SPICE Guest Tools'
-$vdService = Join-Path $baseDir '64\vdservice.exe'
-if (-not (Test-Path $vdService)) {
-    $vdService = Join-Path $baseDir '32\vdservice.exe'
-}
-
-# 5. Register & start the service
-if (Test-Path $vdService) {
-    Write-Host "Registering SPICE service..."
-    & $vdService install
-    Write-Host "Starting SPICE service..."
-    & $vdService start
-    Write-Host "SPICE Guest Tools installed and service running."
-} else {
-    Write-Warning "vdservice.exe not found under '$baseDir'."
-}
 
 # Установка Conda + Mamba
 choco install -y miniconda3
-
-# Add Miniconda to PATH
+# Установка Conda + Mamba
 $minicondaPath = "C:\Users\Administrator\miniconda3"
+$minicondaInstaller = Join-Path $env:TEMP "Miniconda3-latest-Windows-x86_64.exe"
 $minicondaScriptsPath = "$minicondaPath\Scripts"
 $minicondaLibraryPath = "$minicondaPath\Library\bin"
+
+# Download and install Miniconda if not already installed
+if (-not (Test-Path $minicondaPath)) {
+    Write-Host "Downloading Miniconda installer..."
+    try {
+        Invoke-WebRequest -Uri "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" -OutFile $minicondaInstaller -UseBasicParsing
+        
+        Write-Host "Installing Miniconda..."
+        Start-Process -FilePath $minicondaInstaller -ArgumentList "/S /RegisterPython=1 /AddToPath=1 /InstallationType=JustMe /D=$minicondaPath" -Wait -NoNewWindow
+        
+        # Clean up installer
+        Remove-Item $minicondaInstaller -Force
+    } catch {
+        Write-Error "Failed to install Miniconda: $_"
+        exit 1
+    }
+}
 
 # Add to system PATH
 $currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
 if (-not $currentPath.Contains($minicondaPath)) {
     [Environment]::SetEnvironmentVariable("Path", "$currentPath;$minicondaPath;$minicondaScriptsPath;$minicondaLibraryPath", "User")
+    # Refresh current session's PATH
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "User")
 }
 
 # Initialize conda for PowerShell
 $condaInitScript = "$minicondaPath\shell\condabin\conda-hook.ps1"
 if (Test-Path $condaInitScript) {
     . $condaInitScript
-    conda init powershell
+    & "$minicondaPath\Scripts\conda.exe" init powershell
+    Write-Host "Conda has been initialized. Please restart your PowerShell session to use conda commands."
+} else {
+    Write-Error "Conda initialization script not found at: $condaInitScript"
+    exit 1
 }
 
+
+# Create a batch file to initialize conda in cmd
+$condaInitCmd = @"
+@echo off
+call "$minicondaPath\Scripts\activate.bat"
+"@
+$condaInitCmd | Out-File -FilePath "$minicondaPath\Scripts\conda-init.cmd" -Encoding ASCII
+
+Write-Host "Conda has been added to system PATH. Please restart your computer for changes to take effect."
 conda install -n base -y -c conda-forge mamba
 
 # Установка Visual Studio 2022 (Community)
-choco install -y visualstudio2022community --package-parameters="--add Microsoft.VisualStudio.Workload.Azure --add Microsoft.VisualStudio.Workload.NetWeb --add Microsoft.VisualStudio.Workload.Data --quiet --norestart --wait"
+choco install -y visualstudio2022community --package-parameters="--add Microsoft.VisualStudio.Workload.NativeDesktop --quiet --norestart --wait"
 
 # Создание папки для репозиториев
 New-Item -ItemType Directory -Force -Path "C:\repos"
@@ -81,6 +77,7 @@ New-Item -ItemType Directory -Force -Path "C:\repos"
 # Клонирование репозиториев (замените ссылки на свои)
 git clone https://github.com/touch-topnotch/FreeCAD C:\Users\Administrator\archi-ve\FreeCAD
 git checkout dev
+git submodule update --init --recursive
 git clone https://github.com/touch-topnotch/ArchiModule C:\Users\Administrator\archi-ve\FreeCAD\src\Mod\ArchiModule
 
 # Готово!
@@ -132,4 +129,22 @@ $settingsJson = @{
 Set-Content -Path $vscodeSettingsFile -Value $settingsJson
 
 Write-Host "✅ VS Code settings configured successfully!"
+# Install pixi package manager
+Write-Host "Installing pixi package manager..."
+$pixiInstaller = Join-Path $env:TEMP "pixi-installer.exe"
 
+try {
+    # Download pixi installer
+    Invoke-WebRequest -Uri "https://pixi.sh/install.ps1" -OutFile $pixiInstaller -UseBasicParsing
+    
+    # Run the installer with explicit architecture specification
+    Start-Process -FilePath $pixiInstaller -ArgumentList "--arch", "x64" -Wait -NoNewWindow
+    
+    # Clean up installer
+    Remove-Item $pixiInstaller -Force
+    
+    Write-Host "✅ Pixi installed successfully!"
+} catch {
+    Write-Error "Failed to install pixi: $_"
+    exit 1
+}
