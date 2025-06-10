@@ -11,55 +11,11 @@ Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 # Start and enable the service
 Start-Service sshd
 Set-Service -Name sshd -StartupType Automatic
-#Requires -RunAsAdministrator
-$ErrorActionPreference = 'Stop'
-$gitVersion   = '2.49.0'   # latest as of 2025-03-17  [oai_citation:2‡git-scm.com](https://git-scm.com/downloads/win?utm_source=chatgpt.com)
-$gitExe       = "Git-$gitVersion-64-bit.exe"
-$tempExe      = Join-Path $env:TEMP $gitExe
-$downloadUri  = "https://github.com/git-for-windows/git/releases/download/v$gitVersion.windows.1/$gitExe"
+# Install vdagent for remote access
+choco install -y spice-vdagent
+Start-Service spice-vdagent
+Set-Service -Name spice-vdagent -StartupType Automatic
 
-Write-Host "1. Remove any old Git:"
-choco uninstall git -n -y --skip-autouninstaller 2>$null
-choco uninstall git.install -n -y --skip-autouninstaller 2>$null
-Remove-Item "$env:ProgramData\chocolatey\lib\git*" -Recurse -Force -EA SilentlyContinue
-
-Write-Host "2. Try Chocolatey:"
-try {
-    choco install git -y --force --params "'/GitAndUnixToolsOnPath /NoAutoCrlf'"
-    return   # success, we're done
-}
-catch {
-    Write-Warning "Chocolatey failed, switching to manual download..."
-}
-
-Write-Host "3. Manual download:"
-for ($i=1; $i -le 3; $i++) {
-    try {
-        if (Test-Path $tempExe) { 
-            Get-Process -Name $gitExe -ErrorAction SilentlyContinue | Stop-Process -Force
-            Remove-Item $tempExe -Force
-        }
-        Invoke-WebRequest -Uri $downloadUri -OutFile $tempExe -UseBasicParsing
-        break
-    }
-    catch {
-        if ($i -eq 3) { throw "Download failed after 3 attempts" }
-        Start-Sleep 5
-    }
-}
-
-Write-Host "4. Silent install:"
-$innosetupArgs = @(
-    '/VERYSILENT','/NORESTART','/NOCANCEL','/SP-',
-    '/COMPONENTS="icons,assoc,assoc_sh,ext,ext\shellhere,ext\guihere,gitlfs,icons\quicklaunch"'
-) -join ' '
-
-Start-Process -FilePath $tempExe -ArgumentList $innosetupArgs -Wait -PassThru |
-    ForEach-Object {
-        if ($_.ExitCode -ne 0) { throw "Installer exited $($_.ExitCode)" }
-    }
-
-Write-Host "Git $gitVersion installed successfully."
 # Установка Conda + Mamba
 choco install -y miniconda3
 conda install -n base -y -c conda-forge mamba
