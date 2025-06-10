@@ -5,8 +5,12 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://com
 
 # Установка SSH (OpenSSH)
 choco install -y openssh
+# Install Microsoft’s own OpenSSH server bits
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+
+# Start and enable the service
 Start-Service sshd
-Set-Service -Name sshd -StartupType 'Automatic'
+Set-Service -Name sshd -StartupType Automatic
 #Requires -RunAsAdministrator
 $ErrorActionPreference = 'Stop'
 $gitVersion   = '2.49.0'   # latest as of 2025-03-17  [oai_citation:2‡git-scm.com](https://git-scm.com/downloads/win?utm_source=chatgpt.com)
