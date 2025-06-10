@@ -211,6 +211,10 @@
         },
         "cmakeExecutable": "${sourceDir}/conda/cmake.cmd",
         "cacheVariables": {
+          "THREADS_PREFER_PTHREAD_FLAG": {
+            "type": "BOOL",
+            "value": "OFF"
+          },
           "CMAKE_INSTALL_PREFIX": {
             "type": "FILEPATH",
             "value": "$env{CONDA_PREFIX}/Library"

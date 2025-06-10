@@ -4,7 +4,6 @@ channels:
 - conda-forge/label/pivy_rc
 dependencies:
 - conda-forge/noarch::conda-libmamba-solver ==24.11.1
-- sed
 - ccache
 - clang-format
 - cmake
