@@ -42,8 +42,8 @@ cmake \
     -S . \
     ${CMAKE_PLATFORM_FLAGS[@]}
 
-cmake --build build
-cmake --install build
+cmake --build build -j$(nproc || sysctl -n hw.ncpu || echo 4)
+cmake --install build -j$(nproc || sysctl -n hw.ncpu || echo 4)
 
 mv ${PREFIX}/bin/FreeCAD ${PREFIX}/bin/freecad || true
 mv ${PREFIX}/bin/FreeCADCmd ${PREFIX}/bin/freecadcmd || true
