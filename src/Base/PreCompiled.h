@@ -67,6 +67,7 @@
 #include <map>
 #include <memory>
 #include <mutex>
+#include <new>
 #include <numbers>
 #include <queue>
 #include <set>
@@ -82,6 +83,7 @@
 #include <sstream>
 
 // Xerces
+#include <xercesc/util/OutOfMemoryException.hpp>
 #include <xercesc/util/PlatformUtils.hpp>
 #include <xercesc/util/XercesVersion.hpp>
 #include <xercesc/dom/DOM.hpp>
@@ -95,6 +97,7 @@
 #include <xercesc/framework/LocalFileInputSource.hpp>
 #include <xercesc/framework/MemBufFormatTarget.hpp>
 #include <xercesc/framework/MemBufInputSource.hpp>
+#include <xercesc/framework/MemoryManager.hpp>
 #include <xercesc/parsers/XercesDOMParser.hpp>
 #include <xercesc/util/XMLUni.hpp>
 #include <xercesc/util/XMLUniDefs.hpp>
@@ -110,9 +113,6 @@
 #include <xercesc/sax2/SAX2XMLReader.hpp>
 #include <xercesc/sax2/XMLReaderFactory.hpp>
 
-#include <boost/filesystem/path.hpp>
-#include <boost/filesystem/operations.hpp>
-#include <boost/filesystem/exception.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/lexical_cast.hpp>
@@ -132,6 +132,7 @@
 #include <QReadLocker>
 #include <QReadWriteLock>
 #include <QTime>
+#include <QTimeZone>
 #include <QUuid>
 
 
