@@ -28,7 +28,7 @@ import FreeCADGui
 import Path
 import Path.Tool.Gui.Controller as PathToolControllerGui
 import PathScripts.PathUtilsGui as PathUtilsGui
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 from functools import partial
 from typing import List, Tuple
 from ...camassets import cam_assets, ensure_assets_initialized
@@ -74,10 +74,10 @@ class ToolBitLibraryDock(object):
         main_layout.addWidget(self.browser_widget)
 
         # Create buttons
-        self.libraryEditorOpenButton = QtGui.QPushButton(
+        self.libraryEditorOpenButton = QtWidgets.QPushButton(
             translate("CAM_ToolBit", "Open Library Editor")
         )
-        self.addToolControllerButton = QtGui.QPushButton(translate("CAM_ToolBit", "Add to Job"))
+        self.addToolControllerButton = QtWidgets.QPushButton(translate("CAM_ToolBit", "Add to Job"))
 
         # Add buttons to a horizontal layout
         button_layout = QtGui.QHBoxLayout()

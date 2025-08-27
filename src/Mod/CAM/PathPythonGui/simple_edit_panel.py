@@ -1,6 +1,6 @@
 import FreeCAD
 import FreeCADGui
-from PySide import QtGui
+from PySide import QtWidgets, QtGui
 
 translate = FreeCAD.Qt.translate
 
@@ -87,15 +87,15 @@ class SimpleEditPanel:
 
     def getStandardButtons(self):
         return (
-            QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Cancel
+            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel
         )
 
     def clicked(self, button):
         # callback for standard buttons
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.updateModel()
             FreeCAD.ActiveDocument.recompute()
-        if button == QtGui.QDialogButtonBox.Cancel:
+        if button == QtWidgets.QDialogButtonBox.Cancel:
             self.abort()
 
     def abort(self):

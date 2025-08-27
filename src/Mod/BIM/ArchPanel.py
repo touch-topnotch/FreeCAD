@@ -47,7 +47,7 @@ from FreeCAD import Vector
 from draftutils import params
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     from draftutils.translate import translate
@@ -1070,11 +1070,11 @@ class SheetTaskPanel(ArchComponent.ComponentTaskPanel):
         ArchComponent.ComponentTaskPanel.__init__(self)
         self.obj = obj
         self.optwid = QtGui.QWidget()
-        self.optwid.setWindowTitle(QtGui.QApplication.translate("Arch", "Tools", None))
+        self.optwid.setWindowTitle(QtWidgets.QApplication.translate("Arch", "Tools", None))
         lay = QtGui.QVBoxLayout(self.optwid)
-        self.editButton = QtGui.QPushButton(self.optwid)
+        self.editButton = QtWidgets.QPushButton(self.optwid)
         self.editButton.setIcon(QtGui.QIcon(":/icons/Draft_Edit.svg"))
-        self.editButton.setText(QtGui.QApplication.translate("Arch", "Edit views positions", None))
+        self.editButton.setText(QtWidgets.QApplication.translate("Arch", "Edit views positions", None))
         lay.addWidget(self.editButton)
         QtCore.QObject.connect(self.editButton, QtCore.SIGNAL("clicked()"), self.editNodes)
         self.form = [self.form,self.optwid]

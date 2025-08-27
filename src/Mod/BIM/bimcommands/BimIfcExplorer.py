@@ -47,7 +47,7 @@ class BIM_IfcExplorer:
 
     def Activated(self):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         try:
             import ifcopenshell
@@ -70,7 +70,7 @@ class BIM_IfcExplorer:
         self.linkfont.setUnderline(True)
 
         # setup a brush to paint text in system link color
-        self.linkbrush = QtGui.QApplication.palette().link()
+        self.linkbrush = QtWidgets.QApplication.palette().link()
 
         # draw the main tree widget
         self.tree = QtGui.QTreeWidget()
@@ -104,7 +104,7 @@ class BIM_IfcExplorer:
         self.properties.headerItem().setText(1, translate("BIM", "Value"))
 
         # create the dialog
-        self.dialog = QtGui.QDialog()
+        self.dialog = QtWidgets.QDialog()
         self.dialog.setObjectName("IfcExplorer")
         self.dialog.setWindowTitle(translate("BIM", "IFC Explorer"))
         self.dialog.resize(720, 540)
@@ -177,7 +177,7 @@ class BIM_IfcExplorer:
         "opens a file"
 
         import ifcopenshell
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         self.filename = ""
         lastfolder = FreeCAD.ParamGet(
@@ -256,7 +256,7 @@ class BIM_IfcExplorer:
         "inserts selected objects in the active document"
 
         from importers import importIFC
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         doc = FreeCAD.ActiveDocument
         if doc and self.filename:
@@ -396,7 +396,7 @@ class BIM_IfcExplorer:
     def addEntity(self, eid, children, parent):
         "adds a given entity and its children to the given tree item"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         def get_name(e):
             try:
@@ -475,7 +475,7 @@ class BIM_IfcExplorer:
         "adds the attributes of the given IFC entity under the given QTreeWidgetITem"
 
         import ifcopenshell
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         entity = self.ifc[eid]
 
@@ -558,7 +558,7 @@ class BIM_IfcExplorer:
     def addProperties(self, eid, parent):
         "adds properties of a given entity to the given QTReeWidgetItem"
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         entity = self.ifc[eid]
         if hasattr(entity, "IsDefinedBy"):
@@ -588,7 +588,7 @@ class BIM_IfcExplorer:
     def onSelectTree(self, item, previous):
         "displays attributes and properties of a tree item"
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         self.backnav.append(previous)
         eid = item.data(0, QtCore.Qt.UserRole)
@@ -631,7 +631,7 @@ class BIM_IfcExplorer:
     def onDoubleClickTree(self, item, column):
         "when a property or attribute is double-clicked"
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         if self.tree:
             txt = item.text(column)

@@ -38,7 +38,7 @@ import DraftGeomUtils
 
 if FreeCAD.GuiUp:
     from pivy import coin
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     import Draft
@@ -246,12 +246,12 @@ class AxisSystemTaskPanel:
         self.tree.header().hide()
 
         # buttons
-        self.addButton = QtGui.QPushButton(self.form)
+        self.addButton = QtWidgets.QPushButton(self.form)
         self.addButton.setObjectName("addButton")
         self.addButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         self.grid.addWidget(self.addButton, 3, 0, 1, 1)
 
-        self.delButton = QtGui.QPushButton(self.form)
+        self.delButton = QtWidgets.QPushButton(self.form)
         self.delButton.setObjectName("delButton")
         self.delButton.setIcon(QtGui.QIcon(":/icons/Arch_Remove.svg"))
         self.grid.addWidget(self.delButton, 3, 1, 1, 1)
@@ -270,7 +270,7 @@ class AxisSystemTaskPanel:
 
     def getStandardButtons(self):
 
-        return QtGui.QDialogButtonBox.Ok
+        return QtWidgets.QDialogButtonBox.Ok
 
     def getIcon(self,obj):
 
@@ -279,7 +279,7 @@ class AxisSystemTaskPanel:
         elif obj.isDerivedFrom("Sketcher::SketchObject"):
             return QtGui.QIcon(":/icons/Sketcher_Sketch.svg")
         elif obj.isDerivedFrom("App::DocumentObjectGroup"):
-            return QtGui.QApplication.style().standardIcon(QtGui.QStyle.SP_DirIcon)
+            return QtWidgets.QApplication.style().standardIcon(QtGui.QStyle.SP_DirIcon)
         elif hasattr(obj.ViewObject, "Icon"):
             return QtGui.QIcon(obj.ViewObject.Icon)
         return QtGui.QIcon(":/icons/Part_3D_object.svg")
@@ -325,7 +325,7 @@ class AxisSystemTaskPanel:
 
     def retranslateUi(self, TaskPanel):
 
-        TaskPanel.setWindowTitle(QtGui.QApplication.translate("Arch", "Axes", None))
-        self.delButton.setText(QtGui.QApplication.translate("Arch", "Remove", None))
-        self.addButton.setText(QtGui.QApplication.translate("Arch", "Add", None))
-        self.title.setText(QtGui.QApplication.translate("Arch", "Axis system components", None))
+        TaskPanel.setWindowTitle(QtWidgets.QApplication.translate("Arch", "Axes", None))
+        self.delButton.setText(QtWidgets.QApplication.translate("Arch", "Remove", None))
+        self.addButton.setText(QtWidgets.QApplication.translate("Arch", "Add", None))
+        self.title.setText(QtWidgets.QApplication.translate("Arch", "Axis system components", None))

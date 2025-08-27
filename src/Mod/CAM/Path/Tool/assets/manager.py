@@ -37,7 +37,7 @@ from typing import (
     Tuple,
 )
 from dataclasses import dataclass
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 from .store.base import AssetStore
 from .asset import Asset
 from .serializer import AssetSerializer
@@ -315,8 +315,8 @@ class AssetManager:
             f"AssetManager.get(uri='{uri}', stores='{stores_list}', depth='{depth}') called from thread: {calling_thread_name}"
         )
         if (
-            QtGui.QApplication.instance()
-            and QtCore.QThread.currentThread() is not QtGui.QApplication.instance().thread()
+            QtWidgets.QApplication.instance()
+            and QtCore.QThread.currentThread() is not QtWidgets.QApplication.instance().thread()
         ):
             logger.warning(
                 "AssetManager.get() called from a non-main thread! UI in from_bytes may fail!"

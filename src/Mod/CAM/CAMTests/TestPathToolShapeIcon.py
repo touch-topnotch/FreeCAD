@@ -3,7 +3,7 @@ import unittest
 import unittest.mock
 import pathlib
 from tempfile import TemporaryDirectory
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 from CAMTests.PathTestUtils import PathTestWithAssets
 from Path.Tool.assets import DummyAssetSerializer
 from Path.Tool.shape.models.icon import (
@@ -21,7 +21,7 @@ class TestToolBitShapeIconBase(PathTestWithAssets):
     def setUp(self):
         super().setUp()
         # Ensure a QApplication exists for QPixmap tests
-        self.app = QtGui.QApplication.instance()
+        self.app = QtWidgets.QApplication.instance()
 
         # Create a test shape and a test SVG icon.
         self.test_shape = self.assets.get("toolbitshape://ballend")

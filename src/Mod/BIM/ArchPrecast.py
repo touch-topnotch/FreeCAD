@@ -789,7 +789,7 @@ class _PrecastTaskPanel:
     def __init__(self):
 
         import FreeCADGui
-        from PySide import QtCore, QtGui, QtSvgWidgets
+        from PySide import QtWidgets, QtCore, QtGui, QtSvgWidgets
         self.form = QtGui.QWidget()
         self.grid = QtGui.QGridLayout(self.form)
         self.PrecastTypes = ["Beam","I-Beam","Pillar","Panel","Slab","Stairs"]
@@ -803,7 +803,7 @@ class _PrecastTaskPanel:
 
         # parameters
         self.labelSlabType = QtGui.QLabel()
-        self.valueSlabType = QtGui.QComboBox()
+        self.valueSlabType = QtWidgets.QComboBox()
         self.valueSlabType.addItems(self.SlabTypes)
         self.valueSlabType.setCurrentIndex(0)
         self.grid.addWidget(self.labelSlabType,1,0,1,1)
@@ -835,7 +835,7 @@ class _PrecastTaskPanel:
         self.grid.addWidget(self.valueBase,6,1,1,1)
 
         self.labelHoleNumber = QtGui.QLabel()
-        self.valueHoleNumber = QtGui.QSpinBox()
+        self.valueHoleNumber = QtWidgets.QSpinBox()
         self.grid.addWidget(self.labelHoleNumber,7,0,1,1)
         self.grid.addWidget(self.valueHoleNumber,7,1,1,1)
 
@@ -855,7 +855,7 @@ class _PrecastTaskPanel:
         self.grid.addWidget(self.valueHoleSpacing,10,1,1,1)
 
         self.labelGrooveNumber = QtGui.QLabel()
-        self.valueGrooveNumber = QtGui.QSpinBox()
+        self.valueGrooveNumber = QtWidgets.QSpinBox()
         self.grid.addWidget(self.labelGrooveNumber,11,0,1,1)
         self.grid.addWidget(self.valueGrooveNumber,11,1,1,1)
 
@@ -875,7 +875,7 @@ class _PrecastTaskPanel:
         self.grid.addWidget(self.valueGrooveSpacing,14,1,1,1)
 
         self.labelRiserNumber = QtGui.QLabel()
-        self.valueRiserNumber = QtGui.QSpinBox()
+        self.valueRiserNumber = QtWidgets.QSpinBox()
         self.grid.addWidget(self.labelRiserNumber,15,0,1,1)
         self.grid.addWidget(self.valueRiserNumber,15,1,1,1)
 
@@ -1013,7 +1013,7 @@ class _PrecastTaskPanel:
         params.set_param_arch("PrecastTread",value)
 
     def retranslateUi(self, dialog):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         self.form.setWindowTitle(translate("Arch", "Precast elements"))
         self.labelSlabType.setText(translate("Arch", "Slab type"))
         self.labelChamfer.setText(translate("Arch", "Chamfer"))
@@ -1275,7 +1275,7 @@ class _DentsTaskPanel:
     def __init__(self):
 
         import FreeCADGui
-        from PySide import QtCore, QtGui, QtSvgWidgets
+        from PySide import QtWidgets, QtCore, QtGui, QtSvgWidgets
         self.form = QtGui.QWidget()
         self.grid = QtGui.QGridLayout(self.form)
         self.Rotations = ["N","S","E","O"]
@@ -1288,8 +1288,8 @@ class _DentsTaskPanel:
         self.grid.addWidget(self.listDents,1,0,1,2)
 
         # buttons
-        self.buttonAdd = QtGui.QPushButton()
-        self.buttonRemove = QtGui.QPushButton()
+        self.buttonAdd = QtWidgets.QPushButton()
+        self.buttonRemove = QtWidgets.QPushButton()
         self.grid.addWidget(self.buttonAdd,2,0,1,1)
         self.grid.addWidget(self.buttonRemove,2,1,1,1)
 
@@ -1326,7 +1326,7 @@ class _DentsTaskPanel:
         self.grid.addWidget(self.valueLevel,8,1,1,1)
 
         self.labelRotation = QtGui.QLabel()
-        self.valueRotation = QtGui.QComboBox()
+        self.valueRotation = QtWidgets.QComboBox()
         self.valueRotation.addItems(self.Rotations)
         self.valueRotation.setCurrentIndex(0)
         self.grid.addWidget(self.labelRotation,9,0,1,1)
@@ -1416,7 +1416,7 @@ class _DentsTaskPanel:
             self.valueOffset.setText(FreeCAD.Units.Quantity(float(s[6]),FreeCAD.Units.Length).UserString)
 
     def retranslateUi(self, dialog):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         self.form.setWindowTitle(translate("Arch", "Precast options"))
         self.labelDents.setText(translate("Arch", "Dents list"))
         self.buttonAdd.setText(translate("Arch", "Add dent"))

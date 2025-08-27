@@ -24,7 +24,7 @@ import FreeCAD
 import Path
 import Path.Base.SetupSheetOpPrototype as PathSetupSheetOpPrototype
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 __title__ = "CAM Property Editor"
 __author__ = "sliptonic (Brad Collette)"
@@ -76,7 +76,7 @@ class _PropertyEditorBool(_PropertyEditor):
     """Editor for boolean values - uses a combo box."""
 
     def widget(self, parent):
-        return QtGui.QComboBox(parent)
+        return QtWidgets.QComboBox(parent)
 
     def setEditorData(self, widget):
         widget.clear()
@@ -92,7 +92,7 @@ class _PropertyEditorString(_PropertyEditor):
     """Editor for string values - uses a line edit."""
 
     def widget(self, parent):
-        return QtGui.QLineEdit(parent)
+        return QtWidgets.QLineEdit(parent)
 
     def setEditorData(self, widget):
         text = "" if self.propertyValue() is None else self.propertyValue()
@@ -104,7 +104,7 @@ class _PropertyEditorString(_PropertyEditor):
 
 class _PropertyEditorQuantity(_PropertyEditor):
     def widget(self, parent):
-        return QtGui.QLineEdit(parent)
+        return QtWidgets.QLineEdit(parent)
 
     def setEditorData(self, widget):
         quantity = self.propertyValue()
@@ -142,7 +142,7 @@ class _PropertyEditorPercent(_PropertyEditor):
     """Editor for percent values - uses a spin box."""
 
     def widget(self, parent):
-        return QtGui.QSpinBox(parent)
+        return QtWidgets.QSpinBox(parent)
 
     def setEditorData(self, widget):
         widget.setRange(0, 100)
@@ -159,7 +159,7 @@ class _PropertyEditorInteger(_PropertyEditor):
     """Editor for integer values - uses a spin box."""
 
     def widget(self, parent):
-        return QtGui.QSpinBox(parent)
+        return QtWidgets.QSpinBox(parent)
 
     def setEditorData(self, widget):
         value = self.propertyValue()
@@ -175,7 +175,7 @@ class _PropertyEditorFloat(_PropertyEditor):
     """Editor for float values - uses a double spin box."""
 
     def widget(self, parent):
-        return QtGui.QDoubleSpinBox(parent)
+        return QtWidgets.QDoubleSpinBox(parent)
 
     def setEditorData(self, widget):
         value = self.propertyValue()
@@ -189,7 +189,7 @@ class _PropertyEditorFloat(_PropertyEditor):
 
 class _PropertyEditorFile(_PropertyEditor):
     def widget(self, parent):
-        return QtGui.QLineEdit(parent)
+        return QtWidgets.QLineEdit(parent)
 
     def setEditorData(self, widget):
         text = "" if self.propertyValue() is None else self.propertyValue()
@@ -201,7 +201,7 @@ class _PropertyEditorFile(_PropertyEditor):
 
 class _PropertyEditorEnumeration(_PropertyEditor):
     def widget(self, parent):
-        return QtGui.QComboBox(parent)
+        return QtWidgets.QComboBox(parent)
 
     def setEditorData(self, widget):
         widget.clear()

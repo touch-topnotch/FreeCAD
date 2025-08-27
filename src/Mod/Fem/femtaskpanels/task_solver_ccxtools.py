@@ -31,10 +31,10 @@ __url__ = "https://www.freecad.org"
 
 import os
 import time
-from PySide import QtCore
-from PySide import QtGui
+from PySide import QtWidgets, QtCore
+from PySide import QtWidgets, QtGui
 from PySide.QtCore import Qt
-from PySide.QtGui import QApplication
+from PySide.QtWidgets import QApplication
 
 import FreeCAD
 import FreeCADGui
@@ -140,7 +140,7 @@ class _TaskPanel:
     def getStandardButtons(self):
         # only show a close button
         # def accept() in no longer needed, since there is no OK button
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def reject(self):
         FreeCADGui.ActiveDocument.resetEdit()

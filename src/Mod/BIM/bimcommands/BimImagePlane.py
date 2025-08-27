@@ -46,7 +46,7 @@ class BIM_ImagePlane:
         return v
 
     def Activated(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         import draftguitools.gui_trackers as DraftTrackers
 
         self.doc = FreeCAD.ActiveDocument
@@ -54,7 +54,7 @@ class BIM_ImagePlane:
         self.basepoint = None
         self.opposite = None
         (filename, _filter) = QtGui.QFileDialog.getOpenFileName(
-            QtGui.QApplication.activeWindow(),
+            QtWidgets.QApplication.activeWindow(),
             translate("BIM", "Select image"),
             None,
             translate("BIM", "Image file (*.png *.jpg *.bmp)"),

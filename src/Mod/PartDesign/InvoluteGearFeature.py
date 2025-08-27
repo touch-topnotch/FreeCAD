@@ -21,13 +21,13 @@
 
 import pathlib
 import FreeCAD, Part
-from PySide import QtCore
+from PySide import QtWidgets, QtCore
 from fcgear import involute
 from fcgear import fcgear
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtGui
+    from PySide import QtWidgets, QtGui
 
 __title__="PartDesign InvoluteGearObject management"
 __author__ = "Juergen Riegel"
@@ -214,7 +214,7 @@ class _InvoluteGearTaskPanel:
     def assignToolTipsFromPropertyDocs(self):
         def assign(property_name, *widgets):
             doc = self.obj.getDocumentationOfProperty(property_name)
-            translated_doc = QtGui.QApplication.translate("App::Property", doc)
+            translated_doc = QtWidgets.QApplication.translate("App::Property", doc)
             for w in widgets:
                 w.setToolTip(translated_doc)
 
@@ -258,10 +258,10 @@ class _InvoluteGearTaskPanel:
         self.form.doubleSpinBox_ProfileShift.setValue(self.obj.ProfileShiftCoefficient)
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.Apply
+        return QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Apply
 
     def clicked(self,button):
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.transferTo()
             self.obj.Proxy.execute(self.obj)
 

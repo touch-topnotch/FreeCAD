@@ -45,10 +45,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time, math
 
-from PySide import QtCore
-from PySide import QtGui
+from PySide import QtWidgets, QtCore
+from PySide import QtWidgets, QtGui
 from PySide.QtCore import Qt
-from PySide.QtGui import QApplication
+from PySide.QtWidgets import QApplication
 
 import FreeCAD
 import FreeCADGui
@@ -289,7 +289,7 @@ class _TaskPanel:
         self.result_widget.sb_displacement_factor_max.setValue(100.0)  # init non standard values
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def get_result_stats(self, type_name):
         return resulttools.get_stats(self.result_obj, type_name)
@@ -624,7 +624,7 @@ class _TaskPanel:
         if self.suitable_results:
             self.mesh_obj.ViewObject.setNodeColorByScalars(self.result_obj.NodeNumbers, res_values)
         self.set_result_stats(res_unit, minm, maxm)
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
 
     def set_result_stats(self, unit, minm, maxm):
         self.result_widget.le_min.setProperty("unit", unit)
@@ -652,7 +652,7 @@ class _TaskPanel:
                 self.result_obj.NodeNumbers, self.result_obj.DisplacementVectors
             )
         self.update_displacement()
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
 
     def hsb_disp_factor_changed(self, value):
         self.result_widget.sb_displacement_factor.setValue(
@@ -824,7 +824,7 @@ class _TaskPanel:
             self.result_widget.startButton.setText("Start Animation")
         except:
             pass
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
         self.startAnimate = False
 
     def value_changed(self, dummy, value, myType):

@@ -24,7 +24,7 @@
 
 import FreeCAD
 import FreeCADGui
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 from ...shape.ui.shapewidget import ShapeWidget
 from ...docobject.ui import DocumentObjectEditorWidget
 from ..models.base import ToolBit
@@ -44,7 +44,7 @@ class ToolBitPropertiesWidget(QtGui.QWidget):
         self._show_shape = icon
 
         # UI Elements
-        self._label_edit = QtGui.QLineEdit()
+        self._label_edit = QtWidgets.QLineEdit()
         self._id_label = QtGui.QLabel()  # Read-only ID
         self._id_label.setTextInteractionFlags(QtCore.Qt.TextSelectableByMouse)
 
@@ -177,8 +177,8 @@ class ToolBitEditorPanel(QtGui.QWidget):
         self._editor_widget = ToolBitPropertiesWidget(toolbit, self)
 
         # Create the button box
-        buttons = QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel
-        self._button_box = QtGui.QDialogButtonBox(buttons)
+        buttons = QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel
+        self._button_box = QtWidgets.QDialogButtonBox(buttons)
 
         # Connect button box signals to custom signals
         self._button_box.accepted.connect(self._accepted)

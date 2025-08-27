@@ -23,7 +23,7 @@
 
 import FreeCAD
 from FreeCAD import Vector
-from PySide import QtCore
+from PySide import QtWidgets, QtCore
 import Path
 import Path.Main.Job as PathJob
 import math
@@ -62,9 +62,9 @@ def waiting_effects(function):
     def new_function(*args, **kwargs):
         if not FreeCAD.GuiUp:
             return function(*args, **kwargs)
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
-        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         res = None
         try:
             res = function(*args, **kwargs)
@@ -73,7 +73,7 @@ def waiting_effects(function):
         #    raise e
         #    print("Error {}".format(e.args[0]))
         finally:
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
         return res
 
     return new_function

@@ -29,7 +29,7 @@ __url__ = "https://www.freecad.org"
 #  \ingroup FEM
 #  \brief A widget that shows summaries of all available links to extractors
 
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 
 import femobjects.base_fempostextractors as extr
 import femobjects.base_fempostvisualizations as vis
@@ -286,7 +286,7 @@ class _TreeChoiceButton(QtGui.QToolButton):
         self.setEnabled(bool(model.rowCount()))
 
 
-class _SettingsPopup(QtGui.QMenu):
+class _SettingsPopup(QtWidgets.QMenu):
 
     close = QtCore.Signal()
 
@@ -300,8 +300,8 @@ class _SettingsPopup(QtGui.QMenu):
         vbox = QtGui.QVBoxLayout()
         vbox.addWidget(setting)
 
-        buttonBox = QtGui.QDialogButtonBox()
-        buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Ok)
+        buttonBox = QtWidgets.QDialogButtonBox()
+        buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Ok)
         buttonBox.accepted.connect(self.hide)
         vbox.addWidget(buttonBox)
 

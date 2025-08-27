@@ -49,7 +49,7 @@ class BIM_Views:
         }
 
     def Activated(self):
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         vm = findWidget()
         self.allItemsInTree = []
@@ -85,7 +85,7 @@ class BIM_Views:
             self.dialog.tree.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
 
             # set button
-            self.dialog.menu = QtGui.QMenu()
+            self.dialog.menu = QtWidgets.QMenu()
             for button in [("Active", translate("BIM","Active (default)")),
                             ("AddLevel", translate("BIM","Add level")),
                             ("AddProxy", translate("BIM","Add proxy")),
@@ -176,7 +176,7 @@ class BIM_Views:
             self.update()
 
     def onClose(self, event):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         st = FreeCADGui.getMainWindow().statusBar()
         statuswidget = st.findChild(QtGui.QToolBar, "BIMStatusWidget")
@@ -194,7 +194,7 @@ class BIM_Views:
     def update(self, retrigger=True):
         "updates the view manager"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         import Draft
 
         vm = findWidget()
@@ -548,7 +548,7 @@ class BIM_Views:
     def getDockArea(self, area):
         """Turns an int into a qt dock area"""
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         if area == 1:
             return QtCore.Qt.LeftDockWidgetArea
@@ -600,7 +600,7 @@ class BIM_Views:
 def findWidget():
     "finds the manager widget, if present"
 
-    from PySide import QtGui
+    from PySide import QtWidgets, QtGui
 
     mw = FreeCADGui.getMainWindow()
     vm = mw.findChild(QtGui.QDockWidget, "BIM Views Manager")
@@ -702,7 +702,7 @@ def getTreeViewItem(obj):
     from FreeCAD object make the TreeWidgetItem including icon Label and LevelHeight
     and also make a level height in number to sort the order after
     """
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
     z = obj.Placement.Base.z
     lvHStr = FreeCAD.Units.Quantity(z, FreeCAD.Units.Length).UserString

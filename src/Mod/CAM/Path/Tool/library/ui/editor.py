@@ -445,7 +445,7 @@ class LibraryEditor(object):
             editor_dialog = ToolBitEditor(bit, self.form)  # Create dialog instance
             result = editor_dialog.show()  # Show as modal dialog
 
-            if result == PySide.QtGui.QDialog.Accepted:
+            if result == PySide.QtWidgets.QDialog.Accepted:
                 # The editor updates the toolbit directly, so we just need to save
                 cam_assets.add(bit)
                 Path.Log.info(f"Toolbit {bit.get_id()} saved.")

@@ -923,7 +923,7 @@ class _RoofTaskPanel:
         return True
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def update(self):
         '''fills the treewidget'''
@@ -985,15 +985,15 @@ class _RoofTaskPanel:
         return True
 
     def retranslateUi(self, TaskPanel):
-        TaskPanel.setWindowTitle(QtGui.QApplication.translate("Arch", "Roof", None))
-        self.title.setText(QtGui.QApplication.translate("Arch", "Parameters of the roof profiles:\n* Angle: slope in degrees relative to the horizontal.\n* Run: horizontal distance between the wall and the ridge.\n* IdRel: Id of the relative profile used for automatic calculations.\n* Thickness: thickness of the roof.\n* Overhang: horizontal distance between the eave and the wall.\n* Height: height of the ridge above the base (calculated automatically).\n---\nIf Angle = 0 and Run = 0 then the profile is identical to the relative profile.\nIf Angle = 0 then the angle is calculated so that the height is the same as the relative profile.\nIf Run = 0 then the run is calculated so that the height is the same as the relative profile.", None))
-        self.tree.setHeaderLabels([QtGui.QApplication.translate("Arch", "Id", None),
-                                   QtGui.QApplication.translate("Arch", "Angle", None),
-                                   QtGui.QApplication.translate("Arch", "Run", None),
-                                   QtGui.QApplication.translate("Arch", "IdRel", None),
-                                   QtGui.QApplication.translate("Arch", "Thickness", None),
-                                   QtGui.QApplication.translate("Arch", "Overhang", None),
-                                   QtGui.QApplication.translate("Arch", "Height", None)])
+        TaskPanel.setWindowTitle(QtWidgets.QApplication.translate("Arch", "Roof", None))
+        self.title.setText(QtWidgets.QApplication.translate("Arch", "Parameters of the roof profiles:\n* Angle: slope in degrees relative to the horizontal.\n* Run: horizontal distance between the wall and the ridge.\n* IdRel: Id of the relative profile used for automatic calculations.\n* Thickness: thickness of the roof.\n* Overhang: horizontal distance between the eave and the wall.\n* Height: height of the ridge above the base (calculated automatically).\n---\nIf Angle = 0 and Run = 0 then the profile is identical to the relative profile.\nIf Angle = 0 then the angle is calculated so that the height is the same as the relative profile.\nIf Run = 0 then the run is calculated so that the height is the same as the relative profile.", None))
+        self.tree.setHeaderLabels([QtWidgets.QApplication.translate("Arch", "Id", None),
+                                   QtWidgets.QApplication.translate("Arch", "Angle", None),
+                                   QtWidgets.QApplication.translate("Arch", "Run", None),
+                                   QtWidgets.QApplication.translate("Arch", "IdRel", None),
+                                   QtWidgets.QApplication.translate("Arch", "Thickness", None),
+                                   QtWidgets.QApplication.translate("Arch", "Overhang", None),
+                                   QtWidgets.QApplication.translate("Arch", "Height", None)])
 
 
 if FreeCAD.GuiUp:

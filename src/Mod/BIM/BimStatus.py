@@ -39,7 +39,7 @@ def setStatusIcons(show=True):
     "shows or hides the BIM icons in the status bar"
 
     import FreeCADGui
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
     nudgeLabelsI = [
         translate("BIM", "Custom..."),
@@ -89,7 +89,7 @@ def setStatusIcons(show=True):
 
     def toggleContextMenu(point):
         # DISABLED - TODO need to find a way to add a context menu to a QAction...
-        FreeCADGui.BimToggleMenu = QtGui.QMenu()
+        FreeCADGui.BimToggleMenu = QtWidgets.QMenu()
         for t in ["Report view", "Python console", "Selection view", "Combo View"]:
             a = QtGui.QAction(t)
             # a.setCheckable(True)
@@ -131,7 +131,7 @@ def setStatusIcons(show=True):
 
                 # report panels toggle button
                 togglebutton = QtGui.QAction()
-                togglemenu = QtGui.QMenu()
+                togglemenu = QtWidgets.QMenu()
                 for t in ["Toggle", "Report view", "Python console", "Selection view", "Combo View"]:
                     a = QtGui.QAction(t)
                     togglemenu.addAction(a)
@@ -191,7 +191,7 @@ def setStatusIcons(show=True):
                     ifc_status.set_status_widget(statuswidget)
 
                 # nudge button
-                nudge = QtGui.QPushButton(nudgeLabelsM[-1])
+                nudge = QtWidgets.QPushButton(nudgeLabelsM[-1])
                 nudge.setIcon(
                     QtGui.QIcon(":/icons/BIM_Nudge.svg"))
                 nudge.setFlat(True)
@@ -207,7 +207,7 @@ def setStatusIcons(show=True):
                 )
                 statuswidget.addWidget(nudge)
                 statuswidget.nudge = nudge
-                menu = QtGui.QMenu(nudge)
+                menu = QtWidgets.QMenu(nudge)
                 gnudge = QtGui.QActionGroup(menu)
                 for u in nudgeLabelsM:
                     a = QtGui.QAction(gnudge)

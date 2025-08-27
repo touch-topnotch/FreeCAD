@@ -273,7 +273,7 @@ class Arch_Wall:
     def taskbox(self):
         """Set up a simple gui widget for the interactive mode."""
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         import Draft
         from draftutils import params
         w = QtGui.QWidget()
@@ -282,7 +282,7 @@ class Arch_Wall:
         grid = QtGui.QGridLayout(w)
 
         # Wall presets input
-        comboWallPresets = QtGui.QComboBox()
+        comboWallPresets = QtWidgets.QComboBox()
         comboWallPresets.addItem(translate("Arch","Wall Presets..."))
         comboWallPresets.setToolTip(translate("Arch","This list shows all the MultiMaterials objects of this document. Create some to define wall types."))
         self.multimats = []
@@ -321,7 +321,7 @@ class Arch_Wall:
 
         # Wall alignment input
         labelAlignment = QtGui.QLabel(translate("Arch","Alignment"))
-        comboAlignment = QtGui.QComboBox()
+        comboAlignment = QtWidgets.QComboBox()
         items = [translate("Arch","Center"),translate("Arch","Left"),translate("Arch","Right")]
         comboAlignment.addItems(items)
         comboAlignment.setCurrentIndex(["Center","Left","Right"].index(self.Align))

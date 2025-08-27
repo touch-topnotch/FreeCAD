@@ -39,7 +39,7 @@ from draftutils import params
 
 if FreeCAD.GuiUp:
     import os
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     import Arch_rc # Needed for access to icons # lgtm [py/unused_import]
@@ -319,7 +319,7 @@ class _ViewProviderArchMaterial:
 
     def updateData(self, obj, prop):
         if prop == "Color":
-            from PySide import QtCore,QtGui
+            from PySide import QtWidgets, QtCore,QtGui
 
             # custom icon
             if hasattr(obj,"Color"):
@@ -696,28 +696,28 @@ class _ViewProviderArchMultiMaterial:
 
 if FreeCAD.GuiUp:
 
-    class MultiMaterialDelegate(QtGui.QStyledItemDelegate):
+    class MultiMaterialDelegate(QtWidgets.QStyledItemDelegate):
 
         def __init__(self, parent=None, *args):
             self.mats = []
             for obj in FreeCAD.ActiveDocument.Objects:
                 if obj.isDerivedFrom("App::MaterialObject"):
                     self.mats.append(obj)
-            QtGui.QStyledItemDelegate.__init__(self, parent, *args)
+            QtWidgets.QStyledItemDelegate.__init__(self, parent, *args)
 
         def createEditor(self,parent,option,index):
             if index.column() == 0:
-                editor = QtGui.QComboBox(parent)
+                editor = QtWidgets.QComboBox(parent)
                 editor.setEditable(True)
             elif index.column() == 1:
-                editor = QtGui.QComboBox(parent)
+                editor = QtWidgets.QComboBox(parent)
             elif index.column() == 2:
                 ui = FreeCADGui.UiLoader()
                 editor = ui.createWidget("Gui::InputField")
                 editor.setSizePolicy(QtGui.QSizePolicy.Preferred,QtGui.QSizePolicy.Minimum)
                 editor.setParent(parent)
             else:
-                editor = QtGui.QLineEdit(parent)
+                editor = QtWidgets.QLineEdit(parent)
             return editor
 
         def setEditorData(self, editor, index):
@@ -732,7 +732,7 @@ if FreeCAD.GuiUp:
                         idx = i
                 editor.setCurrentIndex(idx)
             else:
-                QtGui.QStyledItemDelegate.setEditorData(self, editor, index)
+                QtWidgets.QStyledItemDelegate.setEditorData(self, editor, index)
 
         def setModelData(self, editor, model, index):
             if index.column() == 0:
@@ -746,7 +746,7 @@ if FreeCAD.GuiUp:
                 else:
                     model.setData(index, self.mats[editor.currentIndex()].Label)
             else:
-                QtGui.QStyledItemDelegate.setModelData(self, editor, model, index)
+                QtWidgets.QStyledItemDelegate.setModelData(self, editor, model, index)
 
 
 class _ArchMultiMaterialTaskPanel:

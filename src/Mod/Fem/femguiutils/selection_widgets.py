@@ -31,8 +31,8 @@ __url__ = "https://www.freecad.org"
 #  \brief FreeCAD FEM FemSelectWidget
 
 from typing import List, TYPE_CHECKING
-from PySide import QtGui
-from PySide import QtCore
+from PySide import QtWidgets, QtGui
+from PySide import QtWidgets, QtCore
 
 import FreeCAD
 import FreeCADGui
@@ -78,8 +78,8 @@ class _Selector(QtGui.QWidget):
         self._references = []
         self._register = dict()
 
-        addBtn = QtGui.QPushButton(self.tr("Add"))
-        delBtn = QtGui.QPushButton(self.tr("Remove"))
+        addBtn = QtWidgets.QPushButton(self.tr("Add"))
+        delBtn = QtWidgets.QPushButton(self.tr("Remove"))
         addBtn.clicked.connect(self._add)
         delBtn.clicked.connect(self._del)
 
@@ -294,8 +294,8 @@ class GeometryElementsSelection(QtGui.QWidget):
         # title
         self.setWindowTitle(self.tr("Geometry Reference Selector"))
         # button
-        self.pushButton_Add = QtGui.QPushButton(self.tr("Add"))
-        self.pushButton_Remove = QtGui.QPushButton(self.tr("Remove"))
+        self.pushButton_Add = QtWidgets.QPushButton(self.tr("Add"))
+        self.pushButton_Remove = QtWidgets.QPushButton(self.tr("Remove"))
         # list
         self.list_References = QtGui.QListWidget()
         # radiobutton down the list
@@ -432,7 +432,7 @@ class GeometryElementsSelection(QtGui.QWidget):
         self.obj_notvisible = []
 
     def references_list_right_clicked(self, QPos):
-        self.contextMenu = QtGui.QMenu()
+        self.contextMenu = QtWidgets.QMenu()
         menu_item_remove_selected = self.contextMenu.addAction("Remove Selected Geometry")
         menu_item_remove_all = self.contextMenu.addAction("Clear List")
         if not self.references:

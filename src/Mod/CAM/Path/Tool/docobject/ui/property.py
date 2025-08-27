@@ -27,7 +27,7 @@ Includes a factory method to create the appropriate widget based on type.
 
 import FreeCAD
 import FreeCADGui
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 from typing import Optional
 
 
@@ -139,7 +139,7 @@ class BoolPropertyEditorWidget(BasePropertyEditorWidget):
 
     def __init__(self, obj: FreeCAD.DocumentObject, prop_name: str, parent: QtGui.QWidget = None):
         super().__init__(obj, prop_name, parent)
-        self._editor_widget: QtGui.QComboBox = QtGui.QComboBox()
+        self._editor_widget: QtWidgets.QComboBox = QtWidgets.QComboBox()
         self._editor_widget.addItems(["False", "True"])
         self._layout.addWidget(self._editor_widget)
         self.updateWidget()
@@ -172,7 +172,7 @@ class IntPropertyEditorWidget(BasePropertyEditorWidget):
 
     def __init__(self, obj: FreeCAD.DocumentObject, prop_name: str, parent: QtGui.QWidget = None):
         super().__init__(obj, prop_name, parent)
-        self._editor_widget: QtGui.QSpinBox = QtGui.QSpinBox()
+        self._editor_widget: QtWidgets.QSpinBox = QtWidgets.QSpinBox()
         self._editor_widget.setMinimum(-2147483648)
         self._editor_widget.setMaximum(2147483647)
         self._layout.addWidget(self._editor_widget)
@@ -199,7 +199,7 @@ class EnumPropertyEditorWidget(BasePropertyEditorWidget):
 
     def __init__(self, obj: FreeCAD.DocumentObject, prop_name: str, parent: QtGui.QWidget = None):
         super().__init__(obj, prop_name, parent)
-        self._editor_widget: QtGui.QComboBox = QtGui.QComboBox()
+        self._editor_widget: QtWidgets.QComboBox = QtWidgets.QComboBox()
         self._layout.addWidget(self._editor_widget)
         self._populate_enum()
         self.updateWidget()

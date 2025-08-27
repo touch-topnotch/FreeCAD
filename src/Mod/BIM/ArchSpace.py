@@ -44,7 +44,7 @@ import Draft
 from draftutils import params
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     from draftutils.translate import translate
@@ -724,28 +724,28 @@ class SpaceTaskPanel(ArchComponent.ComponentTaskPanel):
     def __init__(self):
 
         ArchComponent.ComponentTaskPanel.__init__(self)
-        self.editButton = QtGui.QPushButton(self.form)
+        self.editButton = QtWidgets.QPushButton(self.form)
         self.editButton.setObjectName("editButton")
         self.editButton.setIcon(QtGui.QIcon(":/icons/Draft_Edit.svg"))
         self.grid.addWidget(self.editButton, 4, 0, 1, 2)
-        self.editButton.setText(QtGui.QApplication.translate("Arch", "Set text position", None))
+        self.editButton.setText(QtWidgets.QApplication.translate("Arch", "Set text position", None))
         QtCore.QObject.connect(self.editButton, QtCore.SIGNAL("clicked()"), self.setTextPos)
         boundLabel = QtGui.QLabel(self.form)
         self.grid.addWidget(boundLabel, 5, 0, 1, 2)
-        boundLabel.setText(QtGui.QApplication.translate("Arch", "Space boundaries", None))
+        boundLabel.setText(QtWidgets.QApplication.translate("Arch", "Space boundaries", None))
         self.boundList = QtGui.QListWidget(self.form)
         self.grid.addWidget(self.boundList, 6, 0, 1, 2)
-        self.addCompButton = QtGui.QPushButton(self.form)
+        self.addCompButton = QtWidgets.QPushButton(self.form)
         self.addCompButton.setObjectName("addCompButton")
         self.addCompButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         self.grid.addWidget(self.addCompButton, 7, 0, 1, 1)
-        self.addCompButton.setText(QtGui.QApplication.translate("Arch", "Add", None))
+        self.addCompButton.setText(QtWidgets.QApplication.translate("Arch", "Add", None))
         QtCore.QObject.connect(self.addCompButton, QtCore.SIGNAL("clicked()"), self.addBoundary)
-        self.delCompButton = QtGui.QPushButton(self.form)
+        self.delCompButton = QtWidgets.QPushButton(self.form)
         self.delCompButton.setObjectName("delCompButton")
         self.delCompButton.setIcon(QtGui.QIcon(":/icons/Arch_Remove.svg"))
         self.grid.addWidget(self.delCompButton, 7, 1, 1, 1)
-        self.delCompButton.setText(QtGui.QApplication.translate("Arch", "Remove", None))
+        self.delCompButton.setText(QtWidgets.QApplication.translate("Arch", "Remove", None))
         QtCore.QObject.connect(self.delCompButton, QtCore.SIGNAL("clicked()"), self.delBoundary)
 
     def updateBoundaries(self):

@@ -88,7 +88,7 @@ class ifc_vp_object:
         from . import ifc_psets
         from . import ifc_materials
         from . import ifc_types
-        from PySide import QtGui  # lazy import
+        from PySide import QtWidgets, QtGui  # lazy import
 
         if FreeCADGui.activeWorkbench().name() != 'BIMWorkbench':
             return
@@ -149,7 +149,7 @@ class ifc_vp_object:
             action_type.triggered.connect(self.convertToType)
             actions.append(action_type)
         if actions:
-            ifc_menu = QtGui.QMenu("IFC")
+            ifc_menu = QtWidgets.QMenu("IFC")
             ifc_menu.setIcon(icon)
             ifc_menu.addActions(actions)
             menu.addMenu(ifc_menu)
@@ -177,7 +177,7 @@ class ifc_vp_object:
         """Creates children of this object"""
 
         from . import ifc_tools  # lazy import
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         if not obj:
             obj = self.Object
@@ -323,7 +323,7 @@ class ifc_vp_object:
     def dropObject(self, vobj, incoming_object):
         """Add an object to the view provider by d&d"""
 
-        from PySide import QtCore  # lazy import
+        from PySide import QtWidgets, QtCore  # lazy import
         # delay the action to prevent the object to be deleted
         # before the end of the drop
         QtCore.QTimer.singleShot(100, lambda: self.onDrop(incoming_object))
@@ -421,7 +421,7 @@ class ifc_vp_document(ifc_vp_object):
 
     def setupContextMenu(self, vobj, menu):
 
-        from PySide import QtGui  # lazy import
+        from PySide import QtWidgets, QtGui  # lazy import
 
         if FreeCADGui.activeWorkbench().name() != 'BIMWorkbench':
             return
@@ -465,7 +465,7 @@ class ifc_vp_document(ifc_vp_object):
     def replace_file(self, obj, newfile):
         """Asks the user if the attached file path needs to be replaced"""
 
-        from PySide import QtGui  # lazy import
+        from PySide import QtWidgets, QtGui  # lazy import
 
         msg = "Replace the stored IFC file path in object "
         msg += self.Object.Label + " with the new one: "
@@ -486,7 +486,7 @@ class ifc_vp_document(ifc_vp_object):
             return False
 
     def schema_warning(self):
-        from PySide import QtGui  # lazy import
+        from PySide import QtWidgets, QtGui  # lazy import
 
         msg = "Warning: This operation will change the whole IFC file contents "
         msg += "and will not give versionable results. It is best to not do "
@@ -518,7 +518,7 @@ class ifc_vp_group:
         self.Object = vobj.Object
 
     def getIcon(self):
-        from PySide import QtGui  # lazy loading
+        from PySide import QtWidgets, QtGui  # lazy loading
         import Draft_rc
         import Arch_rc
 
@@ -564,7 +564,7 @@ class ifc_vp_material:
             return ":/icons/Arch_Material.svg"
 
     def updateData(self, obj, prop):
-        from PySide import QtCore, QtGui  # lazy loading
+        from PySide import QtWidgets, QtCore, QtGui  # lazy loading
 
         if hasattr(self.Object, "Color"):
             c = self.Object.Color
@@ -604,7 +604,7 @@ class ifc_vp_material:
     def setupContextMenu(self, vobj, menu):
         from . import ifc_tools  # lazy import
         from . import ifc_psets
-        from PySide import QtGui  # lazy import
+        from PySide import QtWidgets, QtGui  # lazy import
 
         if FreeCADGui.activeWorkbench().name() != 'BIMWorkbench':
             return
@@ -634,7 +634,7 @@ class ifc_vp_buildingpart(ifc_vp_object, ArchBuildingPart.ViewProviderBuildingPa
 def overlay(icon1, icon2):
     """Overlays icon2 onto icon1"""
 
-    from PySide import QtCore, QtGui  # lazy loading
+    from PySide import QtWidgets, QtCore, QtGui  # lazy loading
 
     if isinstance(icon1, QtGui.QIcon):
         baseicon = icon1.pixmap(32, 32)
@@ -662,7 +662,7 @@ def get_filepath(project):
     """Saves the associated IFC file to another file"""
 
     from . import ifc_tools  # lazy import
-    from PySide import QtGui  # lazy import
+    from PySide import QtWidgets, QtGui  # lazy import
 
     sf = QtGui.QFileDialog.getSaveFileName(
         None,
@@ -682,7 +682,7 @@ def get_filepath(project):
 def get_icon(vp):
     """Returns an icon for a view provider"""
 
-    from PySide import QtCore, QtGui  # lazy import
+    from PySide import QtWidgets, QtCore, QtGui  # lazy import
 
     if hasattr(vp, "Object"):
         if hasattr(vp.Object, "IfcClass"):

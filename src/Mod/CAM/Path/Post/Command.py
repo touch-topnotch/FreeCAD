@@ -31,7 +31,7 @@ from PathScripts import PathUtils
 from Path.Post.Utils import FilenameGenerator
 import os
 from Path.Post.Processor import PostProcessor, PostProcessorFactory
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 from PySide.QtCore import QT_TRANSLATE_NOOP
 
 LOG_MODULE = Path.Log.thisModule()
@@ -80,7 +80,7 @@ class DlgSelectPostProcessor:
         if firstItem:
             self.dialog.lwPostProcessor.setCurrentItem(firstItem)
         else:
-            self.dialog.buttonBox.button(QtGui.QDialogButtonBox.Ok).setEnabled(False)
+            self.dialog.buttonBox.button(QtWidgets.QDialogButtonBox.Ok).setEnabled(False)
         self.tooltips = {}
         self.dialog.lwPostProcessor.itemDoubleClicked.connect(self.dialog.accept)
         self.dialog.lwPostProcessor.setMouseTracking(True)

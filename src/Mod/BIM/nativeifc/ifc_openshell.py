@@ -68,7 +68,7 @@ class IFC_UpdateIOS:
     def show_dialog(self, mode, version=None):
         """Shows a dialog to the user"""
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         title = translate("BIM", "IfcOpenShell update")
         note = translate("BIM", "The update is installed in your FreeCAD's user directory and won't affect the rest of your system.")
         if mode == "update":
@@ -104,12 +104,12 @@ class IFC_UpdateIOS:
         """Installs the given version"""
 
         import addonmanager_utilities as utils
-        from PySide import QtCore, QtGui
-        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        from PySide import QtWidgets, QtCore, QtGui
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         vendor_path = utils.get_pip_target_directory()
         args = ["install", "--upgrade", "--disable-pip-version-check", "--target", vendor_path, "ifcopenshell"]
         result = self.run_pip(args)
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
         return result
 
 

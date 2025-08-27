@@ -4,7 +4,7 @@ version = "1.0.0"
 description = "pixi instructions for FreeCAD"
 authors = ["looooo <sppedflyer@gmail.com>"]
 channels = ["conda-forge"]
-platforms = [ "linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64" ]
+platforms = [ "linux-64", "osx-64", "osx-arm64", "win-64" ]
 requires-pixi = ">=0.48"
 
 [dependencies]
@@ -50,6 +50,7 @@ python = ">=3.11,<3.12"
 pythonocc-core = "*"
 pyyaml = "*"
 qt6-main = ">=6.8,<6.9"
+qt6-3d = "*"
 requests = "*"
 scipy = "*"
 six = "*"
@@ -148,6 +149,7 @@ pthreads-win32 = "*"
 
 [pypi-dependencies]
 freecad-stubs = "*"
+PySide6-Addons=">=6.8,<6.9"
 
 ## Qt 6 Configuration Presets
 [target.linux-64.tasks]
@@ -174,12 +176,12 @@ freecad-release = { cmd = [ ".pixi/envs/default/Library/bin/FreeCAD.exe" ], depe
 
 [tasks]
 initialize = { cmd = ["git", "submodule", "update", "--init", "--recursive"]}
-# redirect to debug by default
-configure = [{ task = "configure-debug" }]
-build = [{ task = "build-debug" }]
-install = [{ task = "install-debug" }]
-test = [{ task = "test-debug" }]
-freecad = [{ task = "freecad-debug" }]
+# redirect to release by default
+configure = [{ task = "configure-release" }]
+build = [{ task = "build-release" }]
+install = [{ task = "install-release" }]
+test = [{ task = "test-release" }]
+freecad = [{ task = "freecad-release" }]
 
 build-debug = { cmd = ["cmake", "--build", "build/debug"]}
 build-release = { cmd = ["cmake", "--build", "build/release"]}

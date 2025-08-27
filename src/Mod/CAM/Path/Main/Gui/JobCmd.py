@@ -20,7 +20,7 @@
 # *                                                                         *
 # ***************************************************************************
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 from PySide.QtCore import QT_TRANSLATE_NOOP
 import FreeCAD
 import FreeCADGui
@@ -132,7 +132,7 @@ class CommandJobTemplateExport:
     @classmethod
     def SaveDialog(cls, job, dialog):
         foo = QtGui.QFileDialog.getSaveFileName(
-            QtGui.QApplication.activeWindow(),
+            QtWidgets.QApplication.activeWindow(),
             "Path - Job Template",
             Path.Preferences.filePath(),
             "job_*.json",

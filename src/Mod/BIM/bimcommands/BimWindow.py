@@ -304,7 +304,7 @@ class Arch_Window:
         "sets up a taskbox widget"
 
         from draftutils import params
-        from PySide import QtCore, QtGui, QtSvgWidgets
+        from PySide import QtWidgets, QtCore, QtGui, QtSvgWidgets
         from ArchWindowPresets import WindowPresets
         w = QtGui.QWidget()
         ui = FreeCADGui.UiLoader()
@@ -353,9 +353,9 @@ class Arch_Window:
 
         # presets box
         labelp = QtGui.QLabel(translate("Arch","Preset"))
-        valuep = QtGui.QComboBox()
+        valuep = QtWidgets.QComboBox()
         valuep.setMinimumContentsLength(6)
-        valuep.setSizeAdjustPolicy(QtGui.QComboBox.AdjustToContents)
+        valuep.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToContents)
         valuep.addItems(WindowPresets)
         valuep.setCurrentIndex(self.Preset)
         grid.addWidget(labelp,2,0,1,1)
@@ -442,7 +442,7 @@ class Arch_Window:
 
     def setPreset(self,i):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         from draftutils import params
         from ArchWindowPresets import WindowPresets
         self.Preset = i

@@ -22,7 +22,7 @@
 import FreeCAD
 
 import PySide
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 import sys
 
 try:
@@ -52,7 +52,7 @@ except ImportError:
 
 def getMainWindow():
     """Return the FreeCAD main window."""
-    toplevel = PySide.QtGui.QApplication.topLevelWidgets()
+    toplevel = PySide.QtWidgets.QApplication.topLevelWidgets()
     for i in toplevel:
         if i.metaObject().className() == "Gui::MainWindow":
             return i

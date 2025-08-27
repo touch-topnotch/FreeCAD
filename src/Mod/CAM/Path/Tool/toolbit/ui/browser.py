@@ -23,9 +23,9 @@
 """Widget for browsing ToolBit assets with filtering and sorting."""
 
 from typing import List, cast
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 from typing import List, cast
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 from ...assets import AssetManager, AssetUri
 from ...toolbit import ToolBit
 from .toollist import ToolBitListWidget, CompactToolBitListWidget, ToolBitUriRole
@@ -67,11 +67,11 @@ class ToolBitBrowserWidget(QtGui.QWidget):
         self._sort_key = "tool_no" if tool_no_factory else "label"
 
         # UI Elements
-        self._search_edit = QtGui.QLineEdit()
+        self._search_edit = QtWidgets.QLineEdit()
         self._search_edit.setPlaceholderText("Search tools...")
 
         # Sorting dropdown
-        self._sort_combo = QtGui.QComboBox()
+        self._sort_combo = QtWidgets.QComboBox()
         if self._tool_no_factory:
             self._sort_combo.addItem("Sort by Tool Number", "tool_no")
         self._sort_combo.addItem("Sort by Label", "label")

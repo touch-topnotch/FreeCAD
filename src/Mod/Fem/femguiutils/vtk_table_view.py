@@ -29,8 +29,8 @@ __url__ = "https://www.freecad.org"
 #  \ingroup FEM
 #  \brief A Qt widget to show a vtkTable
 
-from PySide import QtGui
-from PySide import QtCore
+from PySide import QtWidgets, QtGui
+from PySide import QtWidgets, QtCore
 
 import FreeCAD
 import FreeCADGui
@@ -249,5 +249,5 @@ class VtkTableView(QtGui.QWidget):
         copy_table += str(self.model.data(selection[-1], QtCore.Qt.DisplayRole))
         copy_table += "\n"
 
-        clipboard = QtGui.QApplication.instance().clipboard()
+        clipboard = QtWidgets.QApplication.instance().clipboard()
         clipboard.setText(copy_table)

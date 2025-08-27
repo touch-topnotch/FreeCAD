@@ -43,7 +43,7 @@ from FreeCAD import Vector
 from draftutils import params
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     from draftutils.translate import translate
@@ -380,9 +380,9 @@ class ProfileTaskPanel:
             self.type = "Building Element Proxy"
         self.form = QtGui.QWidget()
         layout = QtGui.QVBoxLayout(self.form)
-        self.comboCategory = QtGui.QComboBox(self.form)
+        self.comboCategory = QtWidgets.QComboBox(self.form)
         layout.addWidget(self.comboCategory)
-        self.comboProfile = QtGui.QComboBox(self.form)
+        self.comboProfile = QtWidgets.QComboBox(self.form)
         layout.addWidget(self.comboProfile)
         QtCore.QObject.connect(self.comboCategory, QtCore.SIGNAL("currentTextChanged(QString)"), self.changeCategory)
         QtCore.QObject.connect(self.comboProfile, QtCore.SIGNAL("currentIndexChanged(int)"), self.changeProfile)
@@ -468,4 +468,4 @@ class ProfileTaskPanel:
 
     def retranslateUi(self, TaskPanel):
 
-        self.form.setWindowTitle(self.type+" "+QtGui.QApplication.translate("Arch", "Profile", None))
+        self.form.setWindowTitle(self.type+" "+QtWidgets.QApplication.translate("Arch", "Profile", None))

@@ -42,7 +42,7 @@ except ImportError as err:
 
 if App.GuiUp:
     import FreeCADGui as Gui
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from FreeCADGui import PySideUic as uic
 
 #-------------------------- translation-related code ----------------------------------------
@@ -306,10 +306,10 @@ class AttachmentEditorTaskPanel(FrozenClass):
 
     # task dialog handling
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.Apply
+        return QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Apply
 
     def clicked(self,button):
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             if self.obj_is_attachable:
                 self.writeParameters()
             if self.create_transaction:

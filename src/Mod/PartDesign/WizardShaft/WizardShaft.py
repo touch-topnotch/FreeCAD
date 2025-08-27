@@ -23,7 +23,7 @@
 
 import FreeCAD, FreeCADGui
 import traceback
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 from .WizardShaftTable import WizardShaftTable
 from .Shaft import Shaft
 
@@ -35,7 +35,7 @@ class TaskWizardShaft:
     Gui = FreeCADGui
 
     def __init__(self, doc):
-        mw = QtGui.QApplication.activeWindow()
+        mw = QtWidgets.QApplication.activeWindow()
         #cw = mw.centralWidget() # This is a qmdiarea widget
         cw = mw.findChild(QtGui.QMdiArea)
         self.doc = doc
@@ -70,7 +70,7 @@ class TaskWizardShaft:
 
         for col in range(3):
             for row in range(6):
-                button = QtGui.QPushButton(bnames[row][col])
+                button = QtWidgets.QPushButton(bnames[row][col])
                 buttonLayout.addWidget(button,  row,  col)
                 self.buttons[row][col] = button
                 button.clicked.connect(slots[row][col])
@@ -155,7 +155,7 @@ class TaskWizardShaft:
             self.updateButton(row,  col,  flag)
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Ok
+        return QtWidgets.QDialogButtonBox.Ok
 
     def accept(self):
         if self.table:

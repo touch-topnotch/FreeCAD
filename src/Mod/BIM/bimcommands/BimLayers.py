@@ -37,7 +37,7 @@ def getColorIcon(color):
 
     "returns a QtGui.QIcon from a color 3-float tuple"
 
-    from PySide import QtGui
+    from PySide import QtWidgets, QtGui
 
     c = QtGui.QColor(int(color[0] * 255), int(color[1] * 255), int(color[2] * 255))
     im = QtGui.QImage(48, 48, QtGui.QImage.Format_ARGB32)
@@ -66,7 +66,7 @@ class BIM_Layers:
 
     def Activated(self):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         # check if the dialog is running)
         if getattr(self, "dialog", None):
@@ -342,7 +342,7 @@ class BIM_Layers:
     def addItem(self, obj=None):
         "adds a row to the model"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         # create row with default values
         onItem = QtGui.QStandardItem()
@@ -450,7 +450,7 @@ class BIM_Layers:
     def onToggle(self):
         "toggle selected layers on/off"
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         state = None
         for index in self.dialog.tree.selectedIndexes():
@@ -469,7 +469,7 @@ class BIM_Layers:
     def onIsolate(self):
         "isolates the selected layers (turns all the others off"
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         onrows = []
         for index in self.dialog.tree.selectedIndexes():
@@ -482,7 +482,7 @@ class BIM_Layers:
     def onIFC(self):
         "attributes this layer to an IFC project"
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         for index in self.dialog.tree.selectedIndexes():
             if index.column() == 1:
@@ -516,13 +516,13 @@ class BIM_Layers:
 
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
-    class BIM_Layers_Delegate(QtGui.QStyledItemDelegate):
+    class BIM_Layers_Delegate(QtWidgets.QStyledItemDelegate):
         "model delegate"
 
         def __init__(self, parent=None, *args):
-            QtGui.QStyledItemDelegate.__init__(self, parent, *args)
+            QtWidgets.QStyledItemDelegate.__init__(self, parent, *args)
             # setEditorData() is triggered several times.
             # But we want to show the color dialog only the first time
             self.first = True
@@ -531,24 +531,24 @@ if FreeCAD.GuiUp:
             if index.column() == 0:  # Layer on/off
                 editor = QtGui.QCheckBox(parent)
             if index.column() == 1:  # Layer name
-                editor = QtGui.QLineEdit(parent)
+                editor = QtWidgets.QLineEdit(parent)
             elif index.column() == 2:  # Line width
-                editor = QtGui.QSpinBox(parent)
+                editor = QtWidgets.QSpinBox(parent)
                 editor.setMaximum(99)
             elif index.column() == 3:  # Line style
-                editor = QtGui.QComboBox(parent)
+                editor = QtWidgets.QComboBox(parent)
                 editor.addItems(["Solid", "Dashed", "Dotted", "Dashdot"])
             elif index.column() == 4:  # Line color
-                editor = QtGui.QLineEdit(parent)
+                editor = QtWidgets.QLineEdit(parent)
                 self.first = True
             elif index.column() == 5:  # Shape color
-                editor = QtGui.QLineEdit(parent)
+                editor = QtWidgets.QLineEdit(parent)
                 self.first = True
             elif index.column() == 6:  # Transparency
-                editor = QtGui.QSpinBox(parent)
+                editor = QtWidgets.QSpinBox(parent)
                 editor.setMaximum(100)
             elif index.column() == 7:  # Line print color
-                editor = QtGui.QLineEdit(parent)
+                editor = QtWidgets.QLineEdit(parent)
                 self.first = True
             return editor
 

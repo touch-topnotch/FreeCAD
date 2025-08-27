@@ -21,7 +21,7 @@
 # *                                                                            *
 # ******************************************************************************/
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 import FreeCAD
 
 translate = FreeCAD.Qt.translate
@@ -122,7 +122,7 @@ class WizardShaftTable:
         self.widget.setHorizontalHeaderItem(index + 1, QtGui.QTableWidgetItem(translate("WizardShaftTable", "Section %s") % (index + 1)))
 
         # Length
-        widget = QtGui.QDoubleSpinBox(self.widget)
+        widget = QtWidgets.QDoubleSpinBox(self.widget)
         widget.setMinimum(0)
         widget.setMaximum(1E9)
         self.widget.setCellWidget(self.rowDict["Length"], index, widget)
@@ -130,7 +130,7 @@ class WizardShaftTable:
         widget.valueChanged.connect(self.slotValueChanged)
         widget.editingFinished.connect(self.slotEditingFinished)
         # Diameter
-        widget = QtGui.QDoubleSpinBox(self.widget)
+        widget = QtWidgets.QDoubleSpinBox(self.widget)
         widget.setMinimum(0)
         widget.setMaximum(1E9)
         self.widget.setCellWidget(self.rowDict["Diameter"], index, widget)
@@ -138,7 +138,7 @@ class WizardShaftTable:
         widget.valueChanged.connect(self.slotValueChanged)
         widget.editingFinished.connect(self.slotEditingFinished)
         # inner Diameter
-        widget = QtGui.QDoubleSpinBox(self.widget)
+        widget = QtWidgets.QDoubleSpinBox(self.widget)
         widget.setMinimum(0)
         widget.setMaximum(1E9)
         self.widget.setCellWidget(self.rowDict["InnerDiameter"], index, widget)
@@ -146,7 +146,7 @@ class WizardShaftTable:
         widget.valueChanged.connect(self.slotValueChanged)
         widget.editingFinished.connect(self.slotEditingFinished)
         # Constraint type
-        widget = QtGui.QComboBox(self.widget)
+        widget = QtWidgets.QComboBox(self.widget)
         widget.insertItem(0, translate("WizardShaftTable", "None"), "None")
         widget.insertItem(1, translate("WizardShaftTable", "Fixed"), "Fixed")
         widget.insertItem(2, translate("WizardShaftTable", "Force"), "Force")
@@ -161,7 +161,7 @@ class WizardShaftTable:
         widget.setCurrentIndex(0)
         self.widget.connect(widget, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.slotConstraintType)
         # Start edge type
-        widget = QtGui.QComboBox(self.widget)
+        widget = QtWidgets.QComboBox(self.widget)
         widget.insertItem(0, translate("WizardShaftTable", "None"), "None",)
         widget.insertItem(1, translate("WizardShaftTable", "Chamfer"), "Chamfer")
         widget.insertItem(2, translate("WizardShaftTable", "Fillet"), "Fillet")
@@ -170,7 +170,7 @@ class WizardShaftTable:
         widget.setEnabled(False)
         #self.widget.connect(widget, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.slotLoadType)
         # Start edge size
-        widget = QtGui.QDoubleSpinBox(self.widget)
+        widget = QtWidgets.QDoubleSpinBox(self.widget)
         widget.setMinimum(0)
         widget.setMaximum(1E9)
         self.widget.setCellWidget(self.rowDict["StartEdgeSize"],index, widget)
@@ -179,7 +179,7 @@ class WizardShaftTable:
         widget.editingFinished.connect(self.slotEditingFinished)
         widget.setEnabled(False)
         # End edge type
-        widget = QtGui.QComboBox(self.widget)
+        widget = QtWidgets.QComboBox(self.widget)
         widget.insertItem(0, "None",)
         widget.insertItem(1, "Chamfer")
         widget.insertItem(2, "Fillet")
@@ -188,7 +188,7 @@ class WizardShaftTable:
         widget.setEnabled(False)
         #self.widget.connect(widget, QtCore.SIGNAL("currentIndexChanged(const QString&)"), self.slotLoadType)
         # End edge size
-        widget = QtGui.QDoubleSpinBox(self.widget)
+        widget = QtWidgets.QDoubleSpinBox(self.widget)
         widget.setMinimum(0)
         widget.setMaximum(1E9)
         self.widget.setCellWidget(self.rowDict["EndEdgeSize"],index, widget)
@@ -326,7 +326,7 @@ class WizardShaftTable:
 
     def getFocusedColumn(self):
         # Make the focused cell also the current one in the table
-        widget = QtGui.QApplication.focusWidget()
+        widget = QtWidgets.QApplication.focusWidget()
         if widget is not None:
             index = self.widget.indexAt(widget.pos())
             self.widget.setCurrentCell(index.row(), index.column())
@@ -334,7 +334,7 @@ class WizardShaftTable:
 
     def getFocusedCell(self):
         # Make the focused cell also the current one in the table
-        widget = QtGui.QApplication.focusWidget()
+        widget = QtWidgets.QApplication.focusWidget()
         if widget is not None:
             index = self.widget.indexAt(widget.pos())
             self.widget.setCurrentCell(index.row(), index.column())

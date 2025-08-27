@@ -29,8 +29,8 @@ __url__ = "https://www.freecad.org"
 #  \ingroup FEM
 #  \brief FreeCAD FEM command definitions
 
-from PySide import QtCore
-from PySide import QtGui
+from PySide import QtWidgets, QtCore
+from PySide import QtWidgets, QtGui
 
 import FreeCAD
 import FreeCADGui
@@ -1165,7 +1165,7 @@ class _SolverRun(CommandManager):
 
     def Activated(self):
         if self.selobj.Proxy.Type == "Fem::SolverCalculiX":
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             try:
                 from femsolver.calculix.calculixtools import CalculiXTools
 
@@ -1174,7 +1174,7 @@ class _SolverRun(CommandManager):
                 self.tool.prepare()
                 self.tool.compute()
             except Exception as e:
-                QtGui.QApplication.restoreOverrideCursor()
+                QtWidgets.QApplication.restoreOverrideCursor()
                 raise
 
         else:
@@ -1195,9 +1195,9 @@ class _SolverRun(CommandManager):
         if status == QtCore.QProcess.ExitStatus.NormalExit and code == 0:
             self.tool.update_properties()
             FreeCAD.ActiveDocument.recompute()
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
         else:
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
             FreeCAD.Console.PrintError("Process finished with errors. Result not updated\n")
 
 

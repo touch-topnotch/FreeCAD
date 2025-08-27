@@ -20,7 +20,7 @@
 # *                                                                         *
 # ***************************************************************************
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 from PySide.QtCore import QT_TRANSLATE_NOOP
 from pivy import coin
 import FreeCAD
@@ -76,11 +76,11 @@ class PathDressupTagTaskPanel:
 
     def getStandardButtons(self):
         return (
-            QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Cancel
+            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel
         )
 
     def clicked(self, button):
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.getFields()
             self.obj.Proxy.execute(self.obj)
             self.isDirty = False

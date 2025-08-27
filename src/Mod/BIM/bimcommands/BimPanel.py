@@ -127,7 +127,7 @@ class Arch_Panel:
             FreeCADGui.doCommand('s.Placement.Rotation = FreeCAD.Rotation(FreeCAD.Vector(1.00,0.00,0.00),90.00)')
         self.doc.commitTransaction()
         self.doc.recompute()
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
         QtCore.QTimer.singleShot(100, self.check_continueMode)
 
 
@@ -143,7 +143,7 @@ class Arch_Panel:
         "sets up a taskbox widget"
 
         from draftutils import params
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         w = QtGui.QWidget()
         ui = FreeCADGui.UiLoader()
         w.setWindowTitle(translate("Arch","Panel options"))
@@ -151,7 +151,7 @@ class Arch_Panel:
 
         # presets box
         labelp = QtGui.QLabel(translate("Arch","Preset"))
-        valuep = QtGui.QComboBox()
+        valuep = QtWidgets.QComboBox()
         fpresets = [" "]
         for p in Presets[1:]:
             fpresets.append(translate("Arch",p[0]))
@@ -181,7 +181,7 @@ class Arch_Panel:
         grid.addWidget(self.vHeight,3,1,1,1)
 
         # horizontal button
-        value4= QtGui.QPushButton(translate("Arch","Rotate"))
+        value4= QtWidgets.QPushButton(translate("Arch","Rotate"))
         grid.addWidget(value4,4,0,1,2)
 
         valuep.currentIndexChanged.connect(self.setPreset)
@@ -399,7 +399,7 @@ class NestTaskPanel:
 
     def addObject(self,obj,form):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         i = QtGui.QListWidgetItem()
         i.setText(obj.Label)
         i.setToolTip(obj.Name)
@@ -427,7 +427,7 @@ class NestTaskPanel:
 
     def start(self):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         import ArchNesting
         self.clearTemps()
         self.form.progressBar.setFormat("pass 1: %p%")
@@ -446,7 +446,7 @@ class NestTaskPanel:
         self.form.ButtonStop.setEnabled(True)
         self.form.ButtonStart.setEnabled(False)
         self.form.ButtonPreview.setEnabled(False)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
         result = self.nester.run()
         self.form.progressBar.hide()
         self.form.ButtonStart.setEnabled(True)

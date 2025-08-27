@@ -13,3 +13,6 @@
 [submodule "src/Mod/AddonManager"]
 	path = src/Mod/AddonManager
 	url = https://github.com/FreeCAD/AddonManager.git
+[submodule "src/Mod/ArchiModule"]
+	path = src/Mod/ArchiModule
+	url = https://github.com/touch-topnotch/ArchiModule.git

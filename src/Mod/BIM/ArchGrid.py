@@ -38,7 +38,7 @@ import FreeCAD
 import Part
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     from draftutils.translate import translate
@@ -346,27 +346,27 @@ class ArchGridTaskPanel:
         # row/column buttons
         hbox1 = QtGui.QHBoxLayout()
         layout.addLayout(hbox1)
-        self.addRowButton = QtGui.QPushButton(self.form)
+        self.addRowButton = QtWidgets.QPushButton(self.form)
         self.addRowButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         hbox1.addWidget(self.addRowButton)
-        self.delRowButton = QtGui.QPushButton(self.form)
+        self.delRowButton = QtWidgets.QPushButton(self.form)
         self.delRowButton.setIcon(QtGui.QIcon(":/icons/Arch_Remove.svg"))
         hbox1.addWidget(self.delRowButton)
-        self.addColumnButton = QtGui.QPushButton(self.form)
+        self.addColumnButton = QtWidgets.QPushButton(self.form)
         self.addColumnButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         hbox1.addWidget(self.addColumnButton)
-        self.delColumnButton = QtGui.QPushButton(self.form)
+        self.delColumnButton = QtWidgets.QPushButton(self.form)
         self.delColumnButton.setIcon(QtGui.QIcon(":/icons/Arch_Remove.svg"))
         hbox1.addWidget(self.delColumnButton)
 
         # span buttons
         hbox2 = QtGui.QHBoxLayout()
         layout.addLayout(hbox2)
-        self.spanButton = QtGui.QPushButton(self.form)
+        self.spanButton = QtWidgets.QPushButton(self.form)
         self.spanButton.setIcon(QtGui.QIcon(":/icons/SpreadsheetMergeCells.svg"))
         hbox2.addWidget(self.spanButton)
         self.spanButton.setEnabled(False)
-        self.delSpanButton = QtGui.QPushButton(self.form)
+        self.delSpanButton = QtWidgets.QPushButton(self.form)
         self.delSpanButton.setIcon(QtGui.QIcon(":/icons/SpreadsheetSplitCell.svg"))
         hbox2.addWidget(self.delSpanButton)
         self.delSpanButton.setEnabled(False)
@@ -388,16 +388,16 @@ class ArchGridTaskPanel:
 
     def retranslateUi(self,widget=None):
 
-        self.form.setWindowTitle(QtGui.QApplication.translate("Arch", "Grid", None))
-        self.wLabel.setText(QtGui.QApplication.translate("Arch", "Total width", None))
-        self.hLabel.setText(QtGui.QApplication.translate("Arch", "Total height", None))
-        self.addRowButton.setText(QtGui.QApplication.translate("Arch", "Add row", None))
-        self.delRowButton.setText(QtGui.QApplication.translate("Arch", "Del row", None))
-        self.addColumnButton.setText(QtGui.QApplication.translate("Arch", "Add column", None))
-        self.delColumnButton.setText(QtGui.QApplication.translate("Arch", "Del column", None))
-        self.spanButton.setText(QtGui.QApplication.translate("Arch", "Create span", None))
-        self.delSpanButton.setText(QtGui.QApplication.translate("Arch", "Remove span", None))
-        self.title.setText(QtGui.QApplication.translate("Arch", "Rows", None)+": "+str(self.table.rowCount())+" / "+QtGui.QApplication.translate("Arch", "Columns", None)+": "+str(self.table.columnCount()))
+        self.form.setWindowTitle(QtWidgets.QApplication.translate("Arch", "Grid", None))
+        self.wLabel.setText(QtWidgets.QApplication.translate("Arch", "Total width", None))
+        self.hLabel.setText(QtWidgets.QApplication.translate("Arch", "Total height", None))
+        self.addRowButton.setText(QtWidgets.QApplication.translate("Arch", "Add row", None))
+        self.delRowButton.setText(QtWidgets.QApplication.translate("Arch", "Del row", None))
+        self.addColumnButton.setText(QtWidgets.QApplication.translate("Arch", "Add column", None))
+        self.delColumnButton.setText(QtWidgets.QApplication.translate("Arch", "Del column", None))
+        self.spanButton.setText(QtWidgets.QApplication.translate("Arch", "Create span", None))
+        self.delSpanButton.setText(QtWidgets.QApplication.translate("Arch", "Remove span", None))
+        self.title.setText(QtWidgets.QApplication.translate("Arch", "Rows", None)+": "+str(self.table.rowCount())+" / "+QtWidgets.QApplication.translate("Arch", "Columns", None)+": "+str(self.table.columnCount()))
 
     def update(self):
 

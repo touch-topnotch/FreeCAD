@@ -43,7 +43,7 @@ from draftutils import params
 from draftutils.groups import is_group
 
 if FreeCAD.GuiUp:
-    from PySide import QtGui,QtCore
+    from PySide import QtWidgets, QtGui,QtCore
     import FreeCADGui
     from draftutils.translate import translate
 else:
@@ -1059,9 +1059,9 @@ def survey(callback=False):
                                         FreeCAD.SurveyDialog.update(1,t)
                                 if FreeCAD.GuiUp and t:
                                     if showUnit:
-                                        QtGui.QApplication.clipboard().setText(t)
+                                        QtWidgets.QApplication.clipboard().setText(t)
                                     else:
-                                        QtGui.QApplication.clipboard().setText(str(u.Value))
+                                        QtWidgets.QApplication.clipboard().setText(str(u.Value))
                             else:
                                 # single element(s)
                                 for el in o.SubElementNames:
@@ -1099,9 +1099,9 @@ def survey(callback=False):
                                         FreeCAD.Console.PrintMessage("Object: " + n + ", Element: " + el + ", Zcoord: " + t + "\n")
                                     if FreeCAD.GuiUp and t:
                                         if showUnit:
-                                            QtGui.QApplication.clipboard().setText(t)
+                                            QtWidgets.QApplication.clipboard().setText(t)
                                         else:
-                                            QtGui.QApplication.clipboard().setText(str(u.Value))
+                                            QtWidgets.QApplication.clipboard().setText(str(u.Value))
 
                     FreeCAD.SurveyObserver.selection.extend(newsels)
             if hasattr(FreeCAD,"SurveyObserver"):
@@ -1153,23 +1153,23 @@ class SurveyTaskPanel:
         self.form.setWindowIcon(QtGui.QIcon(":/icons/Arch_Survey.svg"))
         layout = QtGui.QVBoxLayout(self.form)
         llayout = QtGui.QHBoxLayout()
-        self.descr = QtGui.QLineEdit()
+        self.descr = QtWidgets.QLineEdit()
         llayout.addWidget(self.descr)
-        self.addButton = QtGui.QPushButton()
+        self.addButton = QtWidgets.QPushButton()
         llayout.addWidget(self.addButton)
         layout.addLayout(llayout)
         self.tree = QtGui.QTreeWidget()
         self.tree.setColumnCount(3)
         layout.addWidget(self.tree)
         blayout = QtGui.QHBoxLayout()
-        self.clearButton = QtGui.QPushButton()
+        self.clearButton = QtWidgets.QPushButton()
         blayout.addWidget(self.clearButton)
-        self.copyLength = QtGui.QPushButton()
+        self.copyLength = QtWidgets.QPushButton()
         blayout.addWidget(self.copyLength)
-        self.copyArea = QtGui.QPushButton()
+        self.copyArea = QtWidgets.QPushButton()
         blayout.addWidget(self.copyArea)
         layout.addLayout(blayout)
-        self.export = QtGui.QPushButton()
+        self.export = QtWidgets.QPushButton()
         layout.addWidget(self.export)
         QtCore.QObject.connect(self.addButton, QtCore.SIGNAL("clicked()"), self.setText)
         QtCore.QObject.connect(self.clearButton, QtCore.SIGNAL("clicked()"), self.clear)
@@ -1182,15 +1182,15 @@ class SurveyTaskPanel:
         self.tree.setCurrentItem(item)
 
     def retranslateUi(self,dlg):
-        self.form.setWindowTitle(QtGui.QApplication.translate("Arch", "Survey", None))
-        self.addButton.setText(QtGui.QApplication.translate("Arch", "Set description", None))
-        self.clearButton.setText(QtGui.QApplication.translate("Arch", "Clear", None))
-        self.copyLength.setText(QtGui.QApplication.translate("Arch", "Copy Length", None))
-        self.copyArea.setText(QtGui.QApplication.translate("Arch", "Copy Area", None))
-        self.export.setText(QtGui.QApplication.translate("Arch", "Export CSV", None))
-        self.tree.setHeaderLabels([QtGui.QApplication.translate("Arch", "Description", None),
-                                   QtGui.QApplication.translate("Arch", "Length", None),
-                                   QtGui.QApplication.translate("Arch", "Area", None)])
+        self.form.setWindowTitle(QtWidgets.QApplication.translate("Arch", "Survey", None))
+        self.addButton.setText(QtWidgets.QApplication.translate("Arch", "Set description", None))
+        self.clearButton.setText(QtWidgets.QApplication.translate("Arch", "Clear", None))
+        self.copyLength.setText(QtWidgets.QApplication.translate("Arch", "Copy Length", None))
+        self.copyArea.setText(QtWidgets.QApplication.translate("Arch", "Copy Area", None))
+        self.export.setText(QtWidgets.QApplication.translate("Arch", "Export CSV", None))
+        self.tree.setHeaderLabels([QtWidgets.QApplication.translate("Arch", "Description", None),
+                                   QtWidgets.QApplication.translate("Arch", "Length", None),
+                                   QtWidgets.QApplication.translate("Arch", "Area", None)])
 
     def isAllowedAlterSelection(self):
         return True
@@ -1199,7 +1199,7 @@ class SurveyTaskPanel:
         return True
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def reject(self):
         if hasattr(FreeCAD,"SurveyObserver"):
@@ -1217,9 +1217,9 @@ class SurveyTaskPanel:
             u = FreeCAD.Units.Quantity(FreeCAD.SurveyObserver.totalLength,FreeCAD.Units.Length)
             t = u.getUserPreferred()[0]
             if params.get_param_arch("surveyUnits"):
-                QtGui.QApplication.clipboard().setText(t)
+                QtWidgets.QApplication.clipboard().setText(t)
             else:
-                QtGui.QApplication.clipboard().setText(str(u.Value/u.getUserPreferred()[1]))
+                QtWidgets.QApplication.clipboard().setText(str(u.Value/u.getUserPreferred()[1]))
 
     def clipArea(self):
         if hasattr(FreeCAD,"SurveyObserver"):
@@ -1227,15 +1227,15 @@ class SurveyTaskPanel:
             t = u.getUserPreferred()[0]
             t = t.replace("^2","²")
             if params.get_param_arch("surveyUnits"):
-                QtGui.QApplication.clipboard().setText(t)
+                QtWidgets.QApplication.clipboard().setText(t)
             else:
-                QtGui.QApplication.clipboard().setText(str(u.Value/u.getUserPreferred()[1]))
+                QtWidgets.QApplication.clipboard().setText(str(u.Value/u.getUserPreferred()[1]))
 
     def newline(self,length=0,area=0):
         FreeCADGui.Selection.clearSelection()
         item = QtGui.QTreeWidgetItem(self.tree)
         if length or area:
-            item.setText(0,QtGui.QApplication.translate("Arch", "Total", None))
+            item.setText(0,QtWidgets.QApplication.translate("Arch", "Total", None))
             item.setToolTip(0,"total")
             f = QtGui.QFont()
             f.setBold(True)
@@ -1277,7 +1277,7 @@ class SurveyTaskPanel:
         import csv
         rows = self.tree.topLevelItemCount()
         if rows:
-            filename = QtGui.QFileDialog.getSaveFileName(QtGui.QApplication.activeWindow(), translate("Arch","Export CSV File"), None, "CSV file (*.csv)")
+            filename = QtGui.QFileDialog.getSaveFileName(QtWidgets.QApplication.activeWindow(), translate("Arch","Export CSV File"), None, "CSV file (*.csv)")
             if filename:
                 with open(filename[0].encode("utf8"), "w") as csvfile:
                     csvfile = csv.writer(csvfile,delimiter="\t")

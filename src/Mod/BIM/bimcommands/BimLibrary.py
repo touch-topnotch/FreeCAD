@@ -114,7 +114,7 @@ class BIM_Library_TaskPanel:
 
     def __init__(self, offlinemode=False):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         self.mainDocName = FreeCAD.Gui.ActiveDocument.Document.Name
         self.previewDocName = "Viewer"
@@ -221,7 +221,7 @@ class BIM_Library_TaskPanel:
     def onItemSelected(self, selected, deselected):
         """Generates and displays needed previews"""
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         if not selected:
             return
@@ -388,7 +388,7 @@ class BIM_Library_TaskPanel:
 
     def setSearchModel(self, text):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         def add_line(f, dp):
             if self.isAllowed(f) and (text.lower() in f.lower()):
@@ -451,7 +451,7 @@ class BIM_Library_TaskPanel:
 
     def setOnlineModel(self):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         def addItems(root, d, path):
             for k, v in d.items():
@@ -529,7 +529,7 @@ class BIM_Library_TaskPanel:
 
     def openUrl(self, url):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         s = PARAMS.GetBool("LibraryWebSearch", False)
         if s:
@@ -545,9 +545,9 @@ class BIM_Library_TaskPanel:
 
     def getStandardButtons(self):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def reject(self):
 
@@ -637,9 +637,9 @@ class BIM_Library_TaskPanel:
         filepath = os.path.join(TEMPLIBPATH, url.split("/")[-1])
         url = url.replace(" ", "%20")
         if not os.path.exists(filepath):
-            from PySide import QtCore, QtGui
+            from PySide import QtWidgets, QtCore, QtGui
 
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             u = urllib.request.urlopen(url)
             if not u:
                 FreeCAD.Console.PrintError(
@@ -649,7 +649,7 @@ class BIM_Library_TaskPanel:
             f = open(filepath, "wb")
             f.write(b)
             f.close()
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
         return filepath
 
     def place(self, path):
@@ -681,7 +681,7 @@ class BIM_Library_TaskPanel:
 
     def makeOriginWidget(self):
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         w = QtGui.QWidget()
         w.setWindowTitle(translate("BIM", "Insertion point"))
@@ -692,7 +692,7 @@ class BIM_Library_TaskPanel:
         )
         l = QtGui.QVBoxLayout()
         w.setLayout(l)
-        c = QtGui.QComboBox()
+        c = QtWidgets.QComboBox()
         c.ObjectName = "comboOrigin"
         w.comboOrigin = c
         c.addItems(
@@ -867,7 +867,7 @@ class BIM_Library_TaskPanel:
     def onRefresh(self):
         """refreshes the tree"""
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         def writeOfflineLib():
             if USE_API:
@@ -888,12 +888,12 @@ class BIM_Library_TaskPanel:
         if reply:
             PARAMS.SetBool("LibraryWarning", True)
             self.form.setEnabled(False)
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.form.repaint()
-            QtGui.QApplication.processEvents()
+            QtWidgets.QApplication.processEvents()
             QtCore.QTimer.singleShot(1, writeOfflineLib)
             self.form.setEnabled(True)
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
         else:
             self.setOnlineModel()
 
@@ -1026,7 +1026,7 @@ class BIM_Library_TaskPanel:
 
 if FreeCAD.GuiUp:
 
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
     class LibraryModel(QtGui.QFileSystemModel):
         "a custom QFileSystemModel that displays freecad file icons"

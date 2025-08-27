@@ -50,7 +50,7 @@ class BIM_ProjectManager:
 
         import FreeCADGui
         import ArchBuildingPart
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         self.form = FreeCADGui.PySideUic.loadUi(":/ui/dialogProjectManager.ui")
         self.project = None
@@ -403,7 +403,7 @@ class BIM_ProjectManager:
         return True
 
     def addGroup(self):
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         it = QtGui.QListWidgetItem(translate("BIM", "New Group"))
         it.setFlags(it.flags() | QtCore.Qt.ItemIsEditable)
@@ -416,13 +416,13 @@ class BIM_ProjectManager:
 
     def savePreset(self):
         import Arch
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         res = QtGui.QInputDialog.getText(
             None,
             translate("BIM", "Save preset"),
             translate("BIM", "Preset name:"),
-            QtGui.QLineEdit.Normal,
+            QtWidgets.QLineEdit.Normal,
             "DefaultProject",
         )
         if res[1]:
@@ -491,7 +491,7 @@ class BIM_ProjectManager:
 
     def getPreset(self, preset):
         import Arch
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         preset = self.form.presets.itemText(preset)
         pfile = os.path.join(FreeCAD.getUserAppDataDir(), "BIM", preset + ".txt")
@@ -645,10 +645,10 @@ class BIM_ProjectManager:
         )
 
         d.Meta = values
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         filename = QtGui.QFileDialog.getSaveFileName(
-            QtGui.QApplication.activeWindow(),
+            QtWidgets.QApplication.activeWindow(),
             translate("BIM", "Save template file"),
             None,
             "FreeCAD file (*.FCStd)",
@@ -666,13 +666,13 @@ class BIM_ProjectManager:
     def loadTemplate(self):
         """loads the contents of a template into the current file"""
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         import FreeCADGui
         import WorkingPlane
         from FreeCAD import Vector  # required for following eval calls
 
         filename = QtGui.QFileDialog.getOpenFileName(
-            QtGui.QApplication.activeWindow(),
+            QtWidgets.QApplication.activeWindow(),
             translate("BIM", "Open template file"),
             None,
             "FreeCAD file (*.FCStd)",

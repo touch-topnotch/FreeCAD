@@ -31,7 +31,7 @@ __url__ = "https://www.freecad.org"
 
 from . import vtk_table_view
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 from vtkmodules.vtkCommonCore import vtkVersion
 from vtkmodules.vtkCommonDataModel import vtkTable
@@ -90,7 +90,7 @@ class DataExtraction(_BasePostTaskPanel):
     @QtCore.Slot()
     def showData(self):
 
-        dialog = QtGui.QDialog(self.widget)
+        dialog = QtWidgets.QDialog(self.widget)
         dialog.setWindowTitle(f"Data of {self.Object.Label}")
         widget = vtk_table_view.VtkTableView(self.data_model)
         layout = QtGui.QVBoxLayout()
@@ -104,7 +104,7 @@ class DataExtraction(_BasePostTaskPanel):
     @QtCore.Slot()
     def showSummary(self):
 
-        dialog = QtGui.QDialog(self.widget)
+        dialog = QtWidgets.QDialog(self.widget)
         dialog.setWindowTitle(f"Data Summary of {self.Object.Label}")
         widget = vtk_table_view.VtkTableView(self.summary_model)
         layout = QtGui.QVBoxLayout()

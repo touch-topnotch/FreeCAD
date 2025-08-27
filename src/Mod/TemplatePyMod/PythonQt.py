@@ -5,7 +5,7 @@ Examples for customizing the FreeCAD application with PySide facilities.
 
 __author__ = "Werner Mayer <werner.wm.mayer@gmx.de>"
 
-from PySide import QtCore,QtGui
+from PySide import QtWidgets, QtCore,QtGui
 import FreeCADGui, __main__
 
 class MainWindow:
@@ -62,7 +62,7 @@ class PythonQtWorkbench (__main__.Workbench):
 		QtGui.QMessageBox.critical(self.mw, "Error", "This is an error")
 
 	def Initialize(self):
-		self.menu = QtGui.QMenu()
+		self.menu = QtWidgets.QMenu()
 		self.menu.setTitle("Python Qt")
 		self.item.append(self.menu.addAction("Test 1"))
 		self.item.append(self.menu.addAction("Test 2"))

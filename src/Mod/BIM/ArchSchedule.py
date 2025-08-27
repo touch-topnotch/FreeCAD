@@ -39,7 +39,7 @@ import FreeCAD
 from draftutils import params
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     from draftutils.translate import translate
@@ -661,7 +661,7 @@ class _ViewProviderArchSchedule:
 
         self.taskd = ArchScheduleTaskPanel(vobj.Object)
         if not self.taskd.form.isVisible():
-            from PySide import QtCore
+            from PySide import QtWidgets, QtCore
             QtCore.QTimer.singleShot(100, self.showEditor)
         return True
 
@@ -825,7 +825,7 @@ class ArchScheduleTaskPanel:
 
         """Imports a CSV file"""
 
-        filename = QtGui.QFileDialog.getOpenFileName(QtGui.QApplication.activeWindow(), translate("Arch","Import CSV file"), None, "CSV files (*.csv *.CSV)")
+        filename = QtGui.QFileDialog.getOpenFileName(QtWidgets.QApplication.activeWindow(), translate("Arch","Import CSV file"), None, "CSV files (*.csv *.CSV)")
         if filename:
             filename = filename[0]
             self.form.list.clearContents()
@@ -857,7 +857,7 @@ class ArchScheduleTaskPanel:
         if not self.obj.Proxy.data:
             return
 
-        filename = QtGui.QFileDialog.getSaveFileName(QtGui.QApplication.activeWindow(),
+        filename = QtGui.QFileDialog.getSaveFileName(QtWidgets.QApplication.activeWindow(),
                                                      translate("Arch","Export CSV file"),
                                                      None,
                                                      "Comma-separated values (*.csv);;TAB-separated values (*.tsv);;Markdown (*.md)");

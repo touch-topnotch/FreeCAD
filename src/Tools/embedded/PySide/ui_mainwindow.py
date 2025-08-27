@@ -7,7 +7,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 
 class Ui_MainWindow(object):
@@ -17,10 +17,10 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtGui.QMenuBar(MainWindow)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 25))
         self.menubar.setObjectName("menubar")
-        self.menuFreeCAD = QtGui.QMenu(self.menubar)
+        self.menuFreeCAD = QtWidgets.QMenu(self.menubar)
         self.menuFreeCAD.setObjectName("menuFreeCAD")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
@@ -42,25 +42,25 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(
-            QtGui.QApplication.translate(
-                "MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8
+            QtWidgets.QApplication.translate(
+                "MainWindow", "MainWindow", None, QtWidgets.QApplication.UnicodeUTF8
             )
         )
         self.menuFreeCAD.setTitle(
-            QtGui.QApplication.translate(
-                "MainWindow", "FreeCAD", None, QtGui.QApplication.UnicodeUTF8
+            QtWidgets.QApplication.translate(
+                "MainWindow", "FreeCAD", None, QtWidgets.QApplication.UnicodeUTF8
             )
         )
         self.actionEmbed.setText(
-            QtGui.QApplication.translate(
-                "MainWindow", "Embed", None, QtGui.QApplication.UnicodeUTF8
+            QtWidgets.QApplication.translate(
+                "MainWindow", "Embed", None, QtWidgets.QApplication.UnicodeUTF8
             )
         )
         self.actionDocument.setText(
-            QtGui.QApplication.translate(
-                "MainWindow", "Document", None, QtGui.QApplication.UnicodeUTF8
+            QtWidgets.QApplication.translate(
+                "MainWindow", "Document", None, QtWidgets.QApplication.UnicodeUTF8
             )
         )
         self.actionCube.setText(
-            QtGui.QApplication.translate("MainWindow", "Cube", None, QtGui.QApplication.UnicodeUTF8)
+            QtWidgets.QApplication.translate("MainWindow", "Cube", None, QtWidgets.QApplication.UnicodeUTF8)
         )

@@ -67,7 +67,7 @@ class Arch_CutPlane:
 class CutPlaneTaskPanel:
     def __init__(self):
         import ArchCutPlane
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         _, self.base, self.cutter = ArchCutPlane._getShapes(FreeCADGui.Selection.getSelectionEx("", 0))
 
         self.previewObj = FreeCAD.ActiveDocument.addObject("Part::Feature", "PreviewCutVolume")
@@ -82,7 +82,7 @@ class CutPlaneTaskPanel:
         self.grid.addWidget(self.title, 1, 0)
         self.infoText =  QtGui.QLabel(self.form)
         self.grid.addWidget(self.infoText, 2, 0)
-        self.combobox = QtGui.QComboBox()
+        self.combobox = QtWidgets.QComboBox()
         self.combobox.setCurrentIndex(0)
         self.grid.addWidget(self.combobox, 2, 1)
         QtCore.QObject.connect(self.combobox,QtCore.SIGNAL("currentIndexChanged(int)"), self.previewCutVolume)
@@ -109,8 +109,8 @@ class CutPlaneTaskPanel:
         return True
 
     def getStandardButtons(self):
-        from PySide import QtGui
-        return QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel
+        from PySide import QtWidgets, QtGui
+        return QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel
 
     def previewCutVolume(self, i):
         import Arch

@@ -30,8 +30,8 @@ import os
 
 from importlib import import_module
 
-from PySide import QtCore
-from PySide import QtGui
+from PySide import QtWidgets, QtCore
+from PySide import QtWidgets, QtGui
 
 import FreeCADGui
 
@@ -167,16 +167,16 @@ class FemExamples(QtGui.QWidget):
         self.view.itemDoubleClicked.connect(self.double_clicked)
 
         # Ok buttons:
-        self.button_box = QtGui.QDialogButtonBox(self)
+        self.button_box = QtWidgets.QDialogButtonBox(self)
         self.button_box.setOrientation(QtCore.Qt.Horizontal)
-        self.setup_button = QtGui.QPushButton(QtGui.QIcon.fromTheme("document-new"), "Setup")
+        self.setup_button = QtWidgets.QPushButton(QtGui.QIcon.fromTheme("document-new"), "Setup")
         self.setup_button.setEnabled(False)
-        self.button_box.addButton(self.setup_button, QtGui.QDialogButtonBox.AcceptRole)
-        self.run_button = QtGui.QPushButton(QtGui.QIcon.fromTheme("system-run"), "Run")
+        self.button_box.addButton(self.setup_button, QtWidgets.QDialogButtonBox.AcceptRole)
+        self.run_button = QtWidgets.QPushButton(QtGui.QIcon.fromTheme("system-run"), "Run")
         self.run_button.setEnabled(False)
-        self.button_box.addButton(self.run_button, QtGui.QDialogButtonBox.ApplyRole)
-        self.close_button = QtGui.QPushButton(QtGui.QIcon.fromTheme("window-close"), "Close")
-        self.button_box.addButton(self.close_button, QtGui.QDialogButtonBox.RejectRole)
+        self.button_box.addButton(self.run_button, QtWidgets.QDialogButtonBox.ApplyRole)
+        self.close_button = QtWidgets.QPushButton(QtGui.QIcon.fromTheme("window-close"), "Close")
+        self.button_box.addButton(self.close_button, QtWidgets.QDialogButtonBox.RejectRole)
         self.button_box.clicked.connect(self.clicked)
 
         # Layout:
@@ -186,15 +186,15 @@ class FemExamples(QtGui.QWidget):
         self.setLayout(layout)
 
     def clicked(self, button):
-        if self.button_box.buttonRole(button) == QtGui.QDialogButtonBox.AcceptRole:
+        if self.button_box.buttonRole(button) == QtWidgets.QDialogButtonBox.AcceptRole:
             self.accept()
-        elif self.button_box.buttonRole(button) == QtGui.QDialogButtonBox.ApplyRole:
+        elif self.button_box.buttonRole(button) == QtWidgets.QDialogButtonBox.ApplyRole:
             self.run()
-        elif self.button_box.buttonRole(button) == QtGui.QDialogButtonBox.RejectRole:
+        elif self.button_box.buttonRole(button) == QtWidgets.QDialogButtonBox.RejectRole:
             self.reject()
 
     def accept(self):
-        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         item = self.view.selectedItems()[0]
         name = item.text(0)
         example = self.files_name[name]
@@ -212,7 +212,7 @@ class FemExamples(QtGui.QWidget):
             FreeCADGui.doCommand(f'setup(solvertype="{str(solver)}")')
         else:
             FreeCADGui.doCommand("setup()")
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
 
     def reject(self):
         self.close()
@@ -223,7 +223,7 @@ class FemExamples(QtGui.QWidget):
             pw.deleteLater()
 
     def run(self):
-        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         item = self.view.selectedItems()[0]
         name = item.text(0)
         example = self.files_name[name]
@@ -243,7 +243,7 @@ class FemExamples(QtGui.QWidget):
             )
         else:
             FreeCADGui.doCommand(f'run_example("{str(example)}", run_solver=True)')
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
 
     def enable_buttons(self):
         # only enable buttons if a example is selected
@@ -263,9 +263,9 @@ class FemExamples(QtGui.QWidget):
 
 
 def show_examplegui():
-    QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+    QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
     mw = FreeCADGui.getMainWindow()
     example_widget = QtGui.QDockWidget("FEM Examples", mw)
     example_widget.setWidget(FemExamples())
     mw.addDockWidget(QtCore.Qt.RightDockWidgetArea, example_widget)
-    QtGui.QApplication.restoreOverrideCursor()
+    QtWidgets.QApplication.restoreOverrideCursor()

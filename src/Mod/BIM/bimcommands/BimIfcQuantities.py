@@ -83,7 +83,7 @@ class BIM_IfcQuantities:
         return v
 
     def Activated(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         # build objects list
         self.objectslist = {}
@@ -118,7 +118,7 @@ class BIM_IfcQuantities:
         self.qmodel = QtGui.QStandardItemModel()
         self.form.quantities.setModel(self.qmodel)
         self.form.quantities.setUniformRowHeights(True)
-        self.form.quantities.setItemDelegate(QtGui.QStyledItemDelegate())
+        self.form.quantities.setItemDelegate(QtWidgets.QStyledItemDelegate())
         self.qmodel.dataChanged.connect(self.setChecked)
         self.form.buttonBox.accepted.connect(self.accept)
         self.form.quantities.clicked.connect(self.onClickTree)
@@ -232,7 +232,7 @@ class BIM_IfcQuantities:
         """updates the tree widgets in all tabs. Index is not used,
         it is just there to match a qt slot requirement"""
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         import Draft
 
         # quantities tab
@@ -334,7 +334,7 @@ class BIM_IfcQuantities:
         """Updates a single line of the table, without updating
         the actual object"""
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         i = self.get_row(name)
         if i == -1:
@@ -461,7 +461,7 @@ class BIM_IfcQuantities:
                         item.setCheckState(state)
 
     def quantHeaderClicked(self, col):
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         sel = self.form.quantities.selectedIndexes()
         state = None

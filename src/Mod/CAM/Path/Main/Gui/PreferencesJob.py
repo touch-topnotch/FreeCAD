@@ -27,7 +27,7 @@ from Path.Post.Processor import PostProcessor, PostProcessorFactory
 import json
 
 from FreeCAD import Units
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 
 Path.Log.setLevel(Path.Log.Level.INFO, Path.Log.thisModule())
@@ -321,7 +321,7 @@ class JobPreferencesPage:
         if not path:
             path = self.bestGuessForFilePath()
         foo = QtGui.QFileDialog.getOpenFileName(
-            QtGui.QApplication.activeWindow(), "Path - Job Template", path, "job_*.json"
+            QtWidgets.QApplication.activeWindow(), "Path - Job Template", path, "job_*.json"
         )[0]
         if foo:
             self.form.leDefaultJobTemplate.setText(foo)
@@ -329,7 +329,7 @@ class JobPreferencesPage:
     def browseDefaultFilePath(self):
         path = self.bestGuessForFilePath()
         foo = QtGui.QFileDialog.getExistingDirectory(
-            QtGui.QApplication.activeWindow(), "Path - External File Directory", path
+            QtWidgets.QApplication.activeWindow(), "Path - External File Directory", path
         )
         if foo:
             self.form.leDefaultFilePath.setText(foo)
@@ -337,7 +337,7 @@ class JobPreferencesPage:
     def browseOutputFile(self):
         path = self.form.leOutputFile.text()
         foo = QtGui.QFileDialog.getExistingDirectory(
-            QtGui.QApplication.activeWindow(), "Path - Output File/Directory", path
+            QtWidgets.QApplication.activeWindow(), "Path - Output File/Directory", path
         )
         if foo:
             self.form.leOutputFile.setText(foo)

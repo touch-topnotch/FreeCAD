@@ -30,7 +30,7 @@ import Path.Base.SetupSheet as PathSetupSheet
 import Path.Base.Util as PathUtil
 import PathGui
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 __title__ = "Setup Sheet Editor"
 __author__ = "sliptonic (Brad Collette)"
@@ -95,7 +95,7 @@ class ViewProvider:
         self.setEdit(vobj)
 
 
-class Delegate(QtGui.QStyledItemDelegate):
+class Delegate(QtWidgets.QStyledItemDelegate):
     PropertyRole = QtCore.Qt.UserRole + 1
     EditorRole = QtCore.Qt.UserRole + 2
 

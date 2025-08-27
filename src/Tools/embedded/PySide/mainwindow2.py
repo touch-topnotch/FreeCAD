@@ -2,14 +2,14 @@ import sys
 
 # sys.path.append("")
 
-from PySide import QtGui
+from PySide import QtWidgets, QtGui
 import FreeCADGui
 
 
 class MainWindow(QtGui.QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
-        from PySide import QtNetwork
+        from PySide import QtWidgets, QtNetwork
 
         QtNetwork.QNetworkConfigurationManager()
 
@@ -33,7 +33,7 @@ class MainWindow(QtGui.QMainWindow):
         FreeCADGui.activateWorkbench("BlankWorkbench")
 
 
-app = QtGui.QApplication(sys.argv)
+app = QtWidgets.QApplication(sys.argv)
 mw = MainWindow()
 mw.resize(1200, 800)
 mw.show()

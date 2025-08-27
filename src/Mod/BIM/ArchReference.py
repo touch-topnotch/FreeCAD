@@ -43,7 +43,7 @@ import FreeCAD
 from draftutils import params
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     from draftutils.translate import translate
@@ -869,8 +869,8 @@ class ArchReferenceTaskPanel:
         layout = QtGui.QVBoxLayout(self.form)
         label1 = QtGui.QLabel(translate("Arch","External file")+":")
         layout.addWidget(label1)
-        self.fileButton = QtGui.QPushButton(self.form)
-        self.openButton = QtGui.QPushButton(self.form)
+        self.fileButton = QtWidgets.QPushButton(self.form)
+        self.openButton = QtWidgets.QPushButton(self.form)
         self.openButton.setText(translate("Arch","Open"))
         if not self.obj.File:
             self.openButton.setEnabled(False)
@@ -884,7 +884,7 @@ class ArchReferenceTaskPanel:
             self.fileButton.setText(os.path.basename(self.obj.File))
         else:
             self.fileButton.setText(translate("Arch","Choose file..."))
-        self.partCombo = QtGui.QComboBox(self.form)
+        self.partCombo = QtWidgets.QComboBox(self.form)
         self.partCombo.setEnabled(False)
         layout.addWidget(self.partCombo)
         if hasattr(self.obj.Proxy,"parts"):
@@ -907,7 +907,7 @@ class ArchReferenceTaskPanel:
 
     def accept(self):
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         if self.filename:
             if self.filename != self.obj.File:

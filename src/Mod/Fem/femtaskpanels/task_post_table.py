@@ -29,7 +29,7 @@ __url__ = "https://www.freecad.org"
 #  \ingroup FEM
 #  \brief task panel for post histogram plot
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 import FreeCAD
 import FreeCADGui
@@ -50,7 +50,7 @@ class _TaskPanel(base_fempostpanel._BasePostTaskPanel):
 
         # data widget
         self.data_widget = QtGui.QWidget()
-        self.data_widget.show_table = QtGui.QPushButton()
+        self.data_widget.show_table = QtWidgets.QPushButton()
         self.data_widget.show_table.setText(translate("FEM", "Show Table"))
 
         vbox = QtGui.QVBoxLayout()

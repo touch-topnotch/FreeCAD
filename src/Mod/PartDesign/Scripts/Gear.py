@@ -10,7 +10,7 @@ import Draft
 import MeshPart
 import Mesh
 import math
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 
 App = FreeCAD
 Gui = FreeCADGui
@@ -21,11 +21,11 @@ def proceed():
         compute()
     except Exception:
         hide()
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
 
 
 def compute():
-    QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+    QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
 
     if FreeCAD.ActiveDocument is None:
         FreeCAD.newDocument("Gear")
@@ -240,7 +240,7 @@ def compute():
     App.ActiveDocument.recompute()
     Gui.SendMsgToActiveView("ViewFit")
 
-    QtGui.QApplication.restoreOverrideCursor()
+    QtWidgets.QApplication.restoreOverrideCursor()
 
 
     hide()
@@ -248,43 +248,43 @@ def compute():
 def hide():
     dialog.hide()
 
-dialog = QtGui.QDialog()
+dialog = QtWidgets.QDialog()
 dialog.resize(200,450)
 dialog.setWindowTitle("Gear")
 la = QtGui.QVBoxLayout(dialog)
 t1 = QtGui.QLabel("Number of teeth (N)")
 la.addWidget(t1)
-l1 = QtGui.QLineEdit()
+l1 = QtWidgets.QLineEdit()
 l1.setText("16")
 la.addWidget(l1)
 t2 = QtGui.QLabel("Circular pitch (p)")
 la.addWidget(t2)
-l2 = QtGui.QLineEdit()
+l2 = QtWidgets.QLineEdit()
 l2.setText("1.65")
 la.addWidget(l2)
 t3 = QtGui.QLabel("Pressure angle (alfa)")
 la.addWidget(t3)
-l3 = QtGui.QLineEdit()
+l3 = QtWidgets.QLineEdit()
 l3.setText("20")
 la.addWidget(l3)
 t4 = QtGui.QLabel("Tooth height factor (y)")
 la.addWidget(t4)
-l4 = QtGui.QLineEdit()
+l4 = QtWidgets.QLineEdit()
 l4.setText("1.0")
 la.addWidget(l4)
 t5 = QtGui.QLabel("Tooth clearance (c)")
 la.addWidget(t5)
-l5 = QtGui.QLineEdit()
+l5 = QtWidgets.QLineEdit()
 l5.setText("0.1")
 la.addWidget(l5)
 t6 = QtGui.QLabel("Tooth lateral clearance (j)")
 la.addWidget(t6)
-l6 = QtGui.QLineEdit()
+l6 = QtWidgets.QLineEdit()
 l6.setText("0.04")
 la.addWidget(l6)
 t7 = QtGui.QLabel("Gear width")
 la.addWidget(t7)
-l7 = QtGui.QLineEdit()
+l7 = QtWidgets.QLineEdit()
 l7.setText("6.0")
 la.addWidget(l7)
 c1 = QtGui.QCheckBox("Create as a Mesh")
@@ -294,9 +294,9 @@ commentFont = QtGui.QFont("Times", 8, True)
 e1.setFont(commentFont)
 la.addWidget(e1)
 
-okbox = QtGui.QDialogButtonBox(dialog)
+okbox = QtWidgets.QDialogButtonBox(dialog)
 okbox.setOrientation(QtCore.Qt.Horizontal)
-okbox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
+okbox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
 la.addWidget(okbox)
 QtCore.QObject.connect(okbox, QtCore.SIGNAL("accepted()"), proceed)
 QtCore.QObject.connect(okbox, QtCore.SIGNAL("rejected()"), hide)

@@ -247,7 +247,7 @@ def get_location(page) -> tuple:
 def show_browser(url):
     """opens the desktop browser with the given URL"""
 
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
     try:
         ret = QtGui.QDesktopServices.openUrl(QtCore.QUrl(url))
@@ -265,7 +265,7 @@ def show_browser(url):
 def show_dialog(html, baseurl, title, view=None):
     """opens a dock dialog with the given html"""
 
-    from PySide import QtCore
+    from PySide import QtWidgets, QtCore
 
     if view:  # reusing existing view
         view.setHtml(html, baseUrl=QtCore.QUrl(baseurl))
@@ -277,7 +277,7 @@ def show_dialog(html, baseurl, title, view=None):
 def show_tab(html, baseurl, title, view=None):
     """opens a MDI tab with the given html"""
 
-    from PySide import QtCore
+    from PySide import QtWidgets, QtCore
 
     if view:  # reusing existing view
         view.setHtml(html, baseUrl=QtCore.QUrl(baseurl))
@@ -290,7 +290,7 @@ def get_qtwebwidgets():
     """verifies if qtwebengine is available"""
 
     try:
-        from PySide import QtWebEngineWidgets
+        from PySide import QtWidgets, QtWebEngineWidgets
     except:
         FreeCAD.Console.PrintLog(LOGTXT + "\n")
         return False

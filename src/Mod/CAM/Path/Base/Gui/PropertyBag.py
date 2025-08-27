@@ -20,7 +20,7 @@
 # *                                                                         *
 # ***************************************************************************
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 import FreeCAD
 import FreeCADGui
 import Path
@@ -93,7 +93,7 @@ class ViewProvider(object):
         self.setEdit(vobj)
 
 
-class Delegate(QtGui.QStyledItemDelegate):
+class Delegate(QtWidgets.QStyledItemDelegate):
     RoleObject = QtCore.Qt.UserRole + 1
     RoleProperty = QtCore.Qt.UserRole + 2
     RoleEditor = QtCore.Qt.UserRole + 3
@@ -162,7 +162,7 @@ class PropertyCreate(object):
             if self.form.propertyEnum.text().strip():
                 self.form.propertyEnum.setText("")
 
-        ok = self.form.buttonBox.button(QtGui.QDialogButtonBox.Ok)
+        ok = self.form.buttonBox.button(QtWidgets.QDialogButtonBox.Ok)
 
         if not re.match("^[A-Za-z0-9_]*$", self.form.propertyName.text()):
             typeSet = False

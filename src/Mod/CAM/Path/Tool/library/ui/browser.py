@@ -23,7 +23,7 @@
 """Widget for browsing Tool Library assets with filtering and sorting."""
 
 from typing import cast
-from PySide import QtGui
+from PySide import QtWidgets, QtGui
 import Path
 from ...toolbit.ui.browser import ToolBitBrowserWidget
 from ...assets import AssetManager
@@ -43,7 +43,7 @@ class LibraryBrowserWidget(ToolBitBrowserWidget):
         parent=None,
         compact=True,
     ):
-        self._library_combo = QtGui.QComboBox()
+        self._library_combo = QtWidgets.QComboBox()
 
         super().__init__(
             asset_manager=asset_manager,
