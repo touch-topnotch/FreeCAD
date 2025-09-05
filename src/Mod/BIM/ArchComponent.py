@@ -211,7 +211,7 @@ class Component(ArchIFC.IfcProduct):
         if not "Tag" in pl:
             obj.addProperty("App::PropertyString","Tag","Component",QT_TRANSLATE_NOOP("App::Property","An optional tag for this component"), locked=True)
         if not "StandardCode" in pl:
-            obj.addProperty("App::PropertyString","StandardCode","Component",QT_TRANSLATE_NOOP("App::Property","An optional standard (OmniClass, etc...) code for this component"), locked=True)
+            obj.addProperty("App::PropertyString","StandardCode","Component",QT_TRANSLATE_NOOP("App::Property","An optional standard (OmniClass, etc…) code for this component"), locked=True)
         if not "Material" in pl:
             obj.addProperty("App::PropertyLink","Material","Component",QT_TRANSLATE_NOOP("App::Property","A material for this object"), locked=True)
         if "BaseMaterial" in pl:
@@ -1655,7 +1655,7 @@ class ViewProviderComponent:
 
     def contextMenuAddToggleSubcomponents(self, menu):
         actionToggleSubcomponents = QtGui.QAction(QtGui.QIcon(":/icons/Arch_ToggleSubs.svg"),
-                                                  translate("Arch", "Toggle subcomponents"),
+                                                  translate("Arch", "Toggle Subcomponents"),
                                                   menu)
         QtCore.QObject.connect(actionToggleSubcomponents,
                                QtCore.SIGNAL("triggered()"),

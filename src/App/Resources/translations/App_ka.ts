@@ -13,7 +13,7 @@ that reference the same configurable object</source>
   <context>
     <name>QObject</name>
     <message>
-      <location filename="../../Application.cpp" line="457"/>
+      <location filename="../../Application.cpp" line="458"/>
       <source>Unnamed</source>
       <translation>უსახელო</translation>
     </message>
@@ -29,7 +29,7 @@ that reference the same configurable object</source>
   <context>
     <name>Notifications</name>
     <message>
-      <location filename="../../Document.cpp" line="1095"/>
+      <location filename="../../Document.cpp" line="1112"/>
       <source>
 It is recommended that the user right-click the root of the document and select Mark to recompute.
 The user should then click the Refresh button in the main toolbar.
@@ -43,37 +43,37 @@ The user should then click the Refresh button in the main toolbar.
   <context>
     <name>App::LocalCoordinateSystem</name>
     <message>
-      <location filename="../../Datums.cpp" line="250"/>
+      <location filename="../../Datums.cpp" line="263"/>
       <source>X-axis</source>
       <translation>X ღერძი</translation>
     </message>
     <message>
-      <location filename="../../Datums.cpp" line="251"/>
+      <location filename="../../Datums.cpp" line="264"/>
       <source>Y-axis</source>
       <translation>Y ღერძი</translation>
     </message>
     <message>
-      <location filename="../../Datums.cpp" line="252"/>
+      <location filename="../../Datums.cpp" line="265"/>
       <source>Z-axis</source>
       <translation>Z ღერძი</translation>
     </message>
     <message>
-      <location filename="../../Datums.cpp" line="253"/>
+      <location filename="../../Datums.cpp" line="266"/>
       <source>XY-plane</source>
       <translation>XY-სიბრტყე</translation>
     </message>
     <message>
-      <location filename="../../Datums.cpp" line="254"/>
+      <location filename="../../Datums.cpp" line="267"/>
       <source>XZ-plane</source>
       <translation>XZ-სიბრტყე</translation>
     </message>
     <message>
-      <location filename="../../Datums.cpp" line="255"/>
+      <location filename="../../Datums.cpp" line="268"/>
       <source>YZ-plane</source>
       <translation>YZ-სიბრტყე</translation>
     </message>
     <message>
-      <location filename="../../Datums.cpp" line="256"/>
+      <location filename="../../Datums.cpp" line="269"/>
       <source>Origin</source>
       <translation>კოორდინატების საწყისი</translation>
     </message>

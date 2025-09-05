@@ -42,7 +42,7 @@ except ImportError as err:
 
 if App.GuiUp:
     import FreeCADGui as Gui
-    from PySide import QtWidgets, QtCore, QtGui
+    from PySide import QtCore, QtGui
     from FreeCADGui import PySideUic as uic
 
 #-------------------------- translation-related code ----------------------------------------
@@ -209,7 +209,7 @@ class AttachmentEditorTaskPanel(FrozenClass):
             mb = QtGui.QMessageBox()
             mb.setIcon(mb.Icon.Warning)
             mb.setText(translate('AttachmentEditor',
-                         "{} is not attachable. You can still use attachment editor dialog to align the object, but the attachment won't be parametric."
+                         "{} is not attachable. The attachment editor can still be used to align the object, but the attachment will not be parametric."
                          ,None)
                        .format(obj_to_attach.Label))
             mb.setWindowTitle(translate('AttachmentEditor',"Attachment",None))
@@ -306,10 +306,10 @@ class AttachmentEditorTaskPanel(FrozenClass):
 
     # task dialog handling
     def getStandardButtons(self):
-        return QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Apply
+        return QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.Apply
 
     def clicked(self,button):
-        if button == QtWidgets.QDialogButtonBox.Apply:
+        if button == QtGui.QDialogButtonBox.Apply:
             if self.obj_is_attachable:
                 self.writeParameters()
             if self.create_transaction:
@@ -554,7 +554,7 @@ class AttachmentEditorTaskPanel(FrozenClass):
                     typestr = self.last_sugr['references_Types']
                     if i < len(typestr):
                         typ = self.attacher.getRefTypeInfo(typestr[i])['UserFriendlyName']
-                btn.setText(translate('AttachmentEditor',"Selecting...",None) if self.i_active_ref == i else typ)
+                btn.setText(translate('AttachmentEditor',"Selecting…",None) if self.i_active_ref == i else typ)
         finally:
             self.block = old_selfblock
 

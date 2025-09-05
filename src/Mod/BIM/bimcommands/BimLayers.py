@@ -54,9 +54,9 @@ class BIM_Layers:
 
         return {
             "Pixmap": "BIM_Layers",
-            "MenuText": QT_TRANSLATE_NOOP("BIM_Layers", "Manage layers..."),
+            "MenuText": QT_TRANSLATE_NOOP("BIM_Layers", "Manage Layers"),
             "ToolTip": QT_TRANSLATE_NOOP(
-                "BIM_Layers", "Set/modify the different layers of your BIM project"
+                "BIM_Layers", "Sets/modifies the different layers of your BIM project"
             ),
         }
 
@@ -90,7 +90,7 @@ class BIM_Layers:
         self.dialog.buttonDelete.setIcon(QtGui.QIcon(":/icons/delete.svg"))
         self.dialog.buttonSelectAll.setIcon(QtGui.QIcon(":/icons/edit-select-all.svg"))
         self.dialog.buttonToggle.setIcon(QtGui.QIcon(":/icons/dagViewVisible.svg"))
-        self.dialog.buttonIsolate.setIcon(QtGui.QIcon(":/icons/view-refresh.svg"))
+        self.dialog.buttonIsolate.setIcon(QtGui.QIcon(":/icons/Std_ShowSelection.svg"))
         self.dialog.buttonCancel.setIcon(QtGui.QIcon(":/icons/edit_Cancel.svg"))
         self.dialog.buttonOK.setIcon(QtGui.QIcon(":/icons/edit_OK.svg"))
         self.dialog.buttonAssign.setIcon(QtGui.QIcon(":/icons/button_right.svg"))
