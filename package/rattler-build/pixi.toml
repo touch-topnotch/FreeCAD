@@ -7,11 +7,11 @@ platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64"]
 preview = ["pixi-build"]
 
 [package]
-name = "freecad"
+name = "archi"
 version = "1.1.0dev"
 homepage = "https://freecad.org"
 repository = "https://github.com/FreeCAD/FreeCAD"
-description = "FreeCAD"
+description = "ARCHI"
 
 [package.build]
 backend = { name = "pixi-build-rattler-build", version = "*" }

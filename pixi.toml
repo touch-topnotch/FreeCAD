@@ -1,7 +1,7 @@
 [workspace]
-name = "FreeCAD"
-version = "1.0.0"
-description = "pixi instructions for FreeCAD"
+name = "ARCHI"
+version = "1.1.0"
+description = "pixi instructions for ARCHI"
 authors = ["looooo <sppedflyer@gmail.com>"]
 channels = ["conda-forge"]
 platforms = [ "linux-64", "osx-64", "osx-arm64", "win-64" ]

@@ -48,7 +48,7 @@ class Ui_MainWindow(object):
         )
         self.menuFreeCAD.setTitle(
             QtWidgets.QApplication.translate(
-                "MainWindow", "FreeCAD", None, QtWidgets.QApplication.UnicodeUTF8
+                "MainWindow","ARCHI", None, QtWidgets.QApplication.UnicodeUTF8
             )
         )
         self.actionEmbed.setText(

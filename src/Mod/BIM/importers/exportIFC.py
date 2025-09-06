@@ -91,7 +91,7 @@ DATA;
 #1=IFCPERSON($,$,'$owner',$,$,$,$,$);
 #2=IFCORGANIZATION($,'$company',$,$,$);
 #3=IFCPERSONANDORGANIZATION(#1,#2,$);
-#4=IFCAPPLICATION(#2,'$version','FreeCAD','118df2cf_ed21_438e_a41');
+#4=IFCAPPLICATION(#2,'$version','ARCHI','118df2cf_ed21_438e_a41');
 #5=IFCOWNERHISTORY(#3,#4,$,.ADDED.,$now,#3,#4,$now);
 #6=IFCDIRECTION((1.,0.,0.));
 #7=IFCDIRECTION((0.,0.,1.));

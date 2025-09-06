@@ -2370,7 +2370,7 @@ void MainWindow::setWindowTitle(const QString& string)
     QString title;
     QString appname = QCoreApplication::applicationName();
     if (appname.isEmpty()) {
-        appname = QString::fromLatin1(App::Application::Config()["ExeName"].c_str());
+        appname = QString::fromLatin1("ARCHI");
     }
 
     // allow one to disable version number
