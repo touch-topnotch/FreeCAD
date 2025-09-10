@@ -74,3 +74,5 @@ files_to_translate.txt
 ARCHI.app
 *.dmg
 *SHA256.txt
+*_rc.py
+*.rc
