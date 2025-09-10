@@ -67,7 +67,7 @@ class Ui_Gui_Dialog_DownloadManager(object):
 
     def retranslateUi(self, Gui__Dialog__DownloadManager):
         Gui__Dialog__DownloadManager.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DownloadManager", u"Downloads", None))
-        self.cleanupButton.setText(QCoreApplication.translate("Gui::Dialog::DownloadManager", u"Clean Up", None))
+        self.cleanupButton.setText(QCoreApplication.translate("Gui::Dialog::DownloadManager", u"Clean up", None))
         self.itemCount.setText(QCoreApplication.translate("Gui::Dialog::DownloadManager", u"0 Items", None))
     # retranslateUi
 

@@ -119,6 +119,7 @@ class Ui_Gui_Dialog_DlgCustomActions(object):
         self.buttonChoosePixmap.setSizePolicy(sizePolicy1)
         self.buttonChoosePixmap.setMinimumSize(QSize(40, 30))
         self.buttonChoosePixmap.setMaximumSize(QSize(40, 30))
+        self.buttonChoosePixmap.setText(u"...")
 
         self.horizontalLayout.addWidget(self.buttonChoosePixmap)
 
@@ -222,14 +223,13 @@ class Ui_Gui_Dialog_DlgCustomActions(object):
     def retranslateUi(self, Gui__Dialog__DlgCustomActions):
         Gui__Dialog__DlgCustomActions.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Macros", None))
         self.GroupBox7.setTitle(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Setup Custom Macros", None))
-        self.TextLabel1_3.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Macro", None))
-        self.TextLabel3.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Menu text", None))
-        self.TextLabel2_2.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Tooltip", None))
-        self.TextLabel3_2.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Status text", None))
-        self.TextLabel2.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"What's this", None))
-        self.TextLabel1.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Accelerator", None))
+        self.TextLabel1_3.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Macro:", None))
+        self.TextLabel3.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Menu text:", None))
+        self.TextLabel2_2.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Tool tip:", None))
+        self.TextLabel3_2.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Status text:", None))
+        self.TextLabel2.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"What's this:", None))
+        self.TextLabel1.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Accelerator:", None))
         self.TextLabel5_2.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Pixmap", None))
-        self.buttonChoosePixmap.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Choose Icon", None))
         self.buttonAddAction.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Add", None))
         self.buttonRemoveAction.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Remove", None))
         self.buttonReplaceAction.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomActions", u"Replace", None))

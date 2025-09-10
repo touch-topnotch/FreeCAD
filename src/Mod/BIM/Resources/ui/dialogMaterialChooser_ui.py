@@ -47,6 +47,6 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Choose a Material", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Choose a material", None))
     # retranslateUi
 

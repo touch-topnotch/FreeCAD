@@ -209,7 +209,7 @@ class Ui_PathGui_DlgSettingsPathColor(object):
 
     def retranslateUi(self, PathGui__DlgSettingsPathColor):
         PathGui__DlgSettingsPathColor.setWindowTitle(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"GUI", None))
-        self.groupBoxDefaultColors.setTitle(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Default Path Colors", None))
+        self.groupBoxDefaultColors.setTitle(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Default Path colors", None))
 #if QT_CONFIG(tooltip)
         self.DefaultPathLineWidth.setToolTip(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"The default line thickness for new shapes", None))
 #endif // QT_CONFIG(tooltip)
@@ -243,19 +243,19 @@ class Ui_PathGui_DlgSettingsPathColor(object):
         self.DefaultBBoxSelectionColor.setToolTip(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"The default line color for new shapes", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox_3.setTitle(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"UI Settings", None))
-        self.label_12.setText(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Path selection style", None))
+        self.label_12.setText(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Path Selection Style", None))
         self.DefaultSelectionStyle.setItemText(0, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Shape", None))
-        self.DefaultSelectionStyle.setItemText(1, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Bounding box", None))
+        self.DefaultSelectionStyle.setItemText(1, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Bounding Box", None))
         self.DefaultSelectionStyle.setItemText(2, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"None", None))
 
 #if QT_CONFIG(tooltip)
         self.DefaultSelectionStyle.setToolTip(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Default path shape selection behavior in 3D viewer", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_2.setText(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Task panel layout", None))
+        self.label_2.setText(QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Task Panel Layout", None))
         self.DefaultTaskPanelLayout.setItemText(0, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Classic", None))
         self.DefaultTaskPanelLayout.setItemText(1, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Classic - reversed", None))
-        self.DefaultTaskPanelLayout.setItemText(2, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Multi-panel", None))
-        self.DefaultTaskPanelLayout.setItemText(3, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Multi-panel - reversed", None))
+        self.DefaultTaskPanelLayout.setItemText(2, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Multi Panel", None))
+        self.DefaultTaskPanelLayout.setItemText(3, QCoreApplication.translate("PathGui::DlgSettingsPathColor", u"Multi Panel - reversed", None))
 
     # retranslateUi
 

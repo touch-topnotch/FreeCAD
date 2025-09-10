@@ -42,7 +42,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Post Processor", None))
 #if QT_CONFIG(tooltip)
-        self.lwPostProcessor.setToolTip(QCoreApplication.translate("Dialog", u"Displays available post processors. FreeCAD includes several pre-installed post processors. At least one post processor must be enabled in preferences.", None))
+        self.lwPostProcessor.setToolTip(QCoreApplication.translate("Dialog", u"Select one of the post processors. FreeCAD comes with several post processors pre-installed, please make sure at least one of them is enabled in your preferences.", None))
 #endif // QT_CONFIG(tooltip)
     # retranslateUi
 

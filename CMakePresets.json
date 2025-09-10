@@ -188,7 +188,19 @@
           },
           "OCC_LIBRARY_DIR": {
             "type": "FILEPATH",
-            "value": "$env{CONDA_PREFIX}/lib"
+            "value": "$env{CONDA_PREFIX}/bin/python3"
+          },
+          "FREECAD_CREATE_APP_BUNDLE": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "FREECAD_APPLE_BUNDLE": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "FREECAD_CREATE_QSS_RCC": {
+            "type": "BOOL",
+            "value": "ON"
           }
         }
       },
@@ -201,33 +213,9 @@
             "rhs": "Windows"
         },
         "cacheVariables": {
-          "CMAKE_C_COMPILER": {
-            "type": "FILEPATH",
-            "value": "$env{CONDA_PREFIX}/Library/bin/clang-cl.exe"
-          },
-          "CMAKE_CXX_COMPILER": {
-            "type": "FILEPATH",
-            "value": "$env{CONDA_PREFIX}/Library/bin/clang-cl.exe"
-          },
-          "CMAKE_LINKER": {
-            "type": "FILEPATH",
-            "value": "$env{CONDA_PREFIX}/Library/bin/lld-link.exe"
-          },
-          "CMAKE_C_FLAGS": {
-            "type": "STRING",
-            "value": "-m64"
-          },
-          "CMAKE_CXX_FLAGS": {
-            "type": "STRING",
-            "value": "-m64"
-          },
-          "CMAKE_EXE_LINKER_FLAGS": {
-            "type": "STRING",
-            "value": ""
-          },
-          "CMAKE_SHARED_LINKER_FLAGS": {
-            "type": "STRING",
-            "value": ""
+          "THREADS_PREFER_PTHREAD_FLAG": {
+            "type": "BOOL",
+            "value": "OFF"
           },
           "CMAKE_INSTALL_PREFIX": {
             "type": "FILEPATH",

@@ -32,28 +32,43 @@ class Ui_DraftPolarArrayTaskPanel(object):
         DraftPolarArrayTaskPanel.setMinimumSize(QSize(250, 0))
         self.gridLayout_3 = QGridLayout(DraftPolarArrayTaskPanel)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.main_group = QGroupBox(DraftPolarArrayTaskPanel)
+        self.main_group.setObjectName(u"main_group")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.main_group.sizePolicy().hasHeightForWidth())
+        self.main_group.setSizePolicy(sizePolicy1)
+        self.gridLayout_4 = QGridLayout(self.main_group)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_icon = QLabel(self.main_group)
+        self.label_icon.setObjectName(u"label_icon")
+        self.label_icon.setText(u"(Placeholder for the icon)")
+
+        self.gridLayout_4.addWidget(self.label_icon, 0, 0, 1, 1)
+
         self.grid_values = QGridLayout()
         self.grid_values.setObjectName(u"grid_values")
-        self.label_angle = QLabel(DraftPolarArrayTaskPanel)
+        self.label_angle = QLabel(self.main_group)
         self.label_angle.setObjectName(u"label_angle")
 
         self.grid_values.addWidget(self.label_angle, 0, 0, 1, 1)
 
-        self.spinbox_angle = Gui_QuantitySpinBox(DraftPolarArrayTaskPanel)
+        self.spinbox_angle = Gui_QuantitySpinBox(self.main_group)
         self.spinbox_angle.setObjectName(u"spinbox_angle")
-        self.spinbox_angle.setProperty(u"unit", u"\u00b0")
+        self.spinbox_angle.setProperty(u"unit", u"")
         self.spinbox_angle.setMinimum(-360.000000000000000)
         self.spinbox_angle.setMaximum(360.000000000000000)
         self.spinbox_angle.setValue(360.000000000000000)
 
         self.grid_values.addWidget(self.spinbox_angle, 0, 1, 1, 1)
 
-        self.label_number = QLabel(DraftPolarArrayTaskPanel)
+        self.label_number = QLabel(self.main_group)
         self.label_number.setObjectName(u"label_number")
 
         self.grid_values.addWidget(self.label_number, 1, 0, 1, 1)
 
-        self.spinbox_number = QSpinBox(DraftPolarArrayTaskPanel)
+        self.spinbox_number = QSpinBox(self.main_group)
         self.spinbox_number.setObjectName(u"spinbox_number")
         self.spinbox_number.setMinimum(2)
         self.spinbox_number.setMaximum(1000000)
@@ -62,9 +77,9 @@ class Ui_DraftPolarArrayTaskPanel(object):
         self.grid_values.addWidget(self.spinbox_number, 1, 1, 1, 1)
 
 
-        self.gridLayout_3.addLayout(self.grid_values, 0, 0, 1, 1)
+        self.gridLayout_4.addLayout(self.grid_values, 1, 0, 1, 1)
 
-        self.group_center = QGroupBox(DraftPolarArrayTaskPanel)
+        self.group_center = QGroupBox(self.main_group)
         self.group_center.setObjectName(u"group_center")
         self.gridLayout_2 = QGridLayout(self.group_center)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
@@ -77,12 +92,12 @@ class Ui_DraftPolarArrayTaskPanel(object):
 
         self.input_c_x = Gui_InputField(self.group_center)
         self.input_c_x.setObjectName(u"input_c_x")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.input_c_x.sizePolicy().hasHeightForWidth())
-        self.input_c_x.setSizePolicy(sizePolicy1)
-        self.input_c_x.setProperty(u"unit", u"mm")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.input_c_x.sizePolicy().hasHeightForWidth())
+        self.input_c_x.setSizePolicy(sizePolicy2)
+        self.input_c_x.setProperty(u"unit", u"")
 
         self.grid_center.addWidget(self.input_c_x, 0, 1, 1, 1)
 
@@ -93,9 +108,9 @@ class Ui_DraftPolarArrayTaskPanel(object):
 
         self.input_c_y = Gui_InputField(self.group_center)
         self.input_c_y.setObjectName(u"input_c_y")
-        sizePolicy1.setHeightForWidth(self.input_c_y.sizePolicy().hasHeightForWidth())
-        self.input_c_y.setSizePolicy(sizePolicy1)
-        self.input_c_y.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_c_y.sizePolicy().hasHeightForWidth())
+        self.input_c_y.setSizePolicy(sizePolicy2)
+        self.input_c_y.setProperty(u"unit", u"")
 
         self.grid_center.addWidget(self.input_c_y, 1, 1, 1, 1)
 
@@ -106,9 +121,9 @@ class Ui_DraftPolarArrayTaskPanel(object):
 
         self.input_c_z = Gui_InputField(self.group_center)
         self.input_c_z.setObjectName(u"input_c_z")
-        sizePolicy1.setHeightForWidth(self.input_c_z.sizePolicy().hasHeightForWidth())
-        self.input_c_z.setSizePolicy(sizePolicy1)
-        self.input_c_z.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_c_z.sizePolicy().hasHeightForWidth())
+        self.input_c_z.setSizePolicy(sizePolicy2)
+        self.input_c_z.setProperty(u"unit", u"")
 
         self.grid_center.addWidget(self.input_c_z, 2, 1, 1, 1)
 
@@ -121,27 +136,30 @@ class Ui_DraftPolarArrayTaskPanel(object):
         self.gridLayout_2.addWidget(self.button_reset, 1, 0, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.group_center, 1, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.group_center, 5, 0, 1, 1)
 
         self.vertical_layout = QVBoxLayout()
         self.vertical_layout.setObjectName(u"vertical_layout")
-        self.checkbox_fuse = QCheckBox(DraftPolarArrayTaskPanel)
+        self.checkbox_fuse = QCheckBox(self.main_group)
         self.checkbox_fuse.setObjectName(u"checkbox_fuse")
 
         self.vertical_layout.addWidget(self.checkbox_fuse)
 
-        self.checkbox_link = QCheckBox(DraftPolarArrayTaskPanel)
+        self.checkbox_link = QCheckBox(self.main_group)
         self.checkbox_link.setObjectName(u"checkbox_link")
         self.checkbox_link.setChecked(True)
 
         self.vertical_layout.addWidget(self.checkbox_link)
 
 
-        self.gridLayout_3.addLayout(self.vertical_layout, 2, 0, 1, 1)
+        self.gridLayout_4.addLayout(self.vertical_layout, 6, 0, 1, 1)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout_3.addItem(self.verticalSpacer, 3, 0, 1, 1)
+        self.gridLayout_4.addItem(self.verticalSpacer, 9, 0, 1, 1)
+
+
+        self.gridLayout_3.addWidget(self.main_group, 1, 0, 1, 1)
 
         QWidget.setTabOrder(self.spinbox_angle, self.spinbox_number)
         QWidget.setTabOrder(self.spinbox_number, self.input_c_x)
@@ -157,7 +175,8 @@ class Ui_DraftPolarArrayTaskPanel(object):
     # setupUi
 
     def retranslateUi(self, DraftPolarArrayTaskPanel):
-        DraftPolarArrayTaskPanel.setWindowTitle(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Polar Array", None))
+        DraftPolarArrayTaskPanel.setWindowTitle(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Polar array", None))
+        self.main_group.setTitle("")
 #if QT_CONFIG(tooltip)
         self.label_angle.setToolTip(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Sweeping angle of the polar distribution.\n"
 "A negative angle produces a polar pattern in the opposite direction.\n"
@@ -182,14 +201,14 @@ class Ui_DraftPolarArrayTaskPanel(object):
         self.group_center.setToolTip(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"The coordinates of the point through which the axis of rotation passes.\n"
 "Change the direction of the axis itself in the property editor.", None))
 #endif // QT_CONFIG(tooltip)
-        self.group_center.setTitle(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Center of Rotation", None))
+        self.group_center.setTitle(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Center of rotation", None))
         self.label_c_x.setText(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"X", None))
         self.label_c_y.setText(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Y", None))
         self.label_c_z.setText(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Z", None))
 #if QT_CONFIG(tooltip)
-        self.button_reset.setToolTip(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Resets the coordinates of the center of rotation", None))
+        self.button_reset.setToolTip(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Reset the coordinates of the center of rotation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.button_reset.setText(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Reset Point", None))
+        self.button_reset.setText(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"Reset point", None))
 #if QT_CONFIG(tooltip)
         self.checkbox_fuse.setToolTip(QCoreApplication.translate("DraftPolarArrayTaskPanel", u"If checked, the resulting objects in the array will be fused if they touch each other.\n"
 "This only works if \"Link array\" is off.", None))

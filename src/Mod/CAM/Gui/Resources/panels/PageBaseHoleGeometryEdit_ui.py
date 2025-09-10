@@ -83,9 +83,9 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.baseList.setToolTip(QCoreApplication.translate("Form", u"Table of hole features and the determined radius of the associated hole.\n"
 "\n"
-"Add features for processing by selecting them and then pressing 'Add'. If a feature is accidentally added to the list, it can be removed through 'Remove' and will no longer be processed.\n"
+"You can add feature for processing by selecting them and then pressing Add. If a feature is accidentally added to the list it can be removed through Remove and will no longer be processed.\n"
 "\n"
-"Reset deletes all current items from the list and fills the list with all circular holes eligible for the operation from the model. Refine the list afterwards by enabling/disabling, removing and adding features.", None))
+"Reset deletes all current items from the list and fills the list with all circular holes eligible for the operation from the model. You can again refine the list afterwards by enabling/disabling, removing and adding features.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.addBase.setToolTip(QCoreApplication.translate("Form", u"Add selected items from 3D view to the list of base geometries", None))

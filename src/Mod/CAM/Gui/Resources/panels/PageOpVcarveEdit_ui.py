@@ -54,11 +54,6 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.coolantController, 1, 1, 1, 1)
 
-        self.editToolController = QCheckBox(self.frame_2)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout.addWidget(self.editToolController, 2, 0, 1, 2)
-
 
         self.verticalLayout.addWidget(self.frame_2)
 
@@ -136,7 +131,6 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
 #endif // QT_CONFIG(tooltip)
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
 #if QT_CONFIG(tooltip)
         self.label_2.setToolTip("")
 #endif // QT_CONFIG(tooltip)
@@ -147,9 +141,9 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.label_3.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.label_3.setText(QCoreApplication.translate("Form", u"Filter colinear lines", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Filter Colinear lines", None))
 #if QT_CONFIG(tooltip)
-        self.colinearFilter.setToolTip(QCoreApplication.translate("Form", u"Sets how aggressively colinear segments are filtered from the voronoi diagram. Valid values are 0 - 90 degrees (larger numbers filter more). Default = 10", None))
+        self.colinearFilter.setToolTip(QCoreApplication.translate("Form", u"Sets how aggressively colinear segments are filtered from the Voronoi diagram. Valid values are 0 - 90 degrees (larger numbers filter more). Default = 10", None))
 #endif // QT_CONFIG(tooltip)
         self.finishingPassZOffsetLabel.setText(QCoreApplication.translate("Form", u"Finishing pass Z offset", None))
 #if QT_CONFIG(tooltip)
@@ -163,7 +157,7 @@ class Ui_Form(object):
 #endif // QT_CONFIG(statustip)
         self.finishingPassEnabled.setText(QCoreApplication.translate("Form", u"Finishing pass", None))
 #if QT_CONFIG(tooltip)
-        self.optimizeMovementsEnabled.setToolTip(QCoreApplication.translate("Form", u"Optimize path to avoid raising endmill when moving to adjacent edges. May result in sub-millimeter inaccuracies.", None))
+        self.optimizeMovementsEnabled.setToolTip(QCoreApplication.translate("Form", u"Optimize path to avoid raising endmill when moving to adjacent edges. May result in sub-millimeter inaccuracies. ", None))
 #endif // QT_CONFIG(tooltip)
         self.optimizeMovementsEnabled.setText(QCoreApplication.translate("Form", u"Optimize movements", None))
         pass

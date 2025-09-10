@@ -196,19 +196,19 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC Properties Manager", None))
-        self.labelinfo.setText(QCoreApplication.translate("Dialog", u"Display and manage IFC properties common to all selected BIM objects", None))
+        self.labelinfo.setText(QCoreApplication.translate("Dialog", u"This dialog allows you to display and manage IFC properties attached to BIM objects. Only properties and sets present in all selected objects will be displayed and editable.", None))
         self.onlySelected.setText(QCoreApplication.translate("Dialog", u"Only selected objects", None))
         self.onlyVisible.setText(QCoreApplication.translate("Dialog", u"Only visible BIM objects", None))
-        self.label_6.setText(QCoreApplication.translate("Dialog", u"Order by", None))
+        self.label_6.setText(QCoreApplication.translate("Dialog", u"Order by:", None))
         self.groupMode.setItemText(0, QCoreApplication.translate("Dialog", u"Alphabetical", None))
         self.groupMode.setItemText(1, QCoreApplication.translate("Dialog", u"IFC type", None))
         self.groupMode.setItemText(2, QCoreApplication.translate("Dialog", u"Model structure", None))
 
-        self.label_7.setText(QCoreApplication.translate("Dialog", u"Search for a property or property set", None))
+        self.label_7.setText(QCoreApplication.translate("Dialog", u"Search for a property or property set:", None))
         self.onlyMatches.setText(QCoreApplication.translate("Dialog", u"Only show matches", None))
         self.buttonSelectAll.setText(QCoreApplication.translate("Dialog", u"Select All", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"List of IFC properties for the selected objects. Double-click to edit. Drag and drop to reorganize.", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"List of IFC properties for the selected objects. Double-click to edit, drag and drop to reorganize", None))
         self.GroupBoxIfcProperties.setTitle(QCoreApplication.translate("Dialog", u"IFC Properties", None))
-        self.buttonIFCPropertiesDelete.setText(QCoreApplication.translate("Dialog", u"Delete Selected Property/Property Set", None))
+        self.buttonIFCPropertiesDelete.setText(QCoreApplication.translate("Dialog", u"Delete selected property/set", None))
     # retranslateUi
 

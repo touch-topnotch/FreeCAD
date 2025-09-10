@@ -80,10 +80,10 @@ class Ui_Form(object):
         ___qtablewidgetitem1 = self.baseList.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"Y", None));
 #if QT_CONFIG(tooltip)
-        self.baseList.setToolTip(QCoreApplication.translate("Form", u"List of locations to be processed", None))
+        self.baseList.setToolTip(QCoreApplication.translate("Form", u"List of locations to be processed.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.addLocation.setToolTip(QCoreApplication.translate("Form", u"Opens a dialog to add arbitrary locations", None))
+        self.addLocation.setToolTip(QCoreApplication.translate("Form", u"Opens a dialog to add arbitrary locations.", None))
 #endif // QT_CONFIG(tooltip)
         self.addLocation.setText(QCoreApplication.translate("Form", u"Add", None))
 #if QT_CONFIG(tooltip)
@@ -91,10 +91,10 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.removeLocation.setText(QCoreApplication.translate("Form", u"Remove", None))
 #if QT_CONFIG(tooltip)
-        self.editLocation.setToolTip(QCoreApplication.translate("Form", u"Edit selected location", None))
+        self.editLocation.setToolTip(QCoreApplication.translate("Form", u"Edit selected location.", None))
 #endif // QT_CONFIG(tooltip)
         self.editLocation.setText(QCoreApplication.translate("Form", u"Edit", None))
-        self.label.setText(QCoreApplication.translate("Form", u"All locations will be processed using the same operation properties", None))
+        self.label.setText(QCoreApplication.translate("Form", u"All locations will be processed using the same operation properties.", None))
         pass
     # retranslateUi
 

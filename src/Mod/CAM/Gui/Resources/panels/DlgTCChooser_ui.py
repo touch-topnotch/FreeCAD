@@ -58,7 +58,7 @@ class Ui_DlgJobChooser(object):
     # setupUi
 
     def retranslateUi(self, DlgJobChooser):
-        DlgJobChooser.setWindowTitle(QCoreApplication.translate("DlgJobChooser", u"Tool Controller Selection", None))
-        self.label.setText(QCoreApplication.translate("DlgJobChooser", u"Tool controller", None))
+        DlgJobChooser.setWindowTitle(QCoreApplication.translate("DlgJobChooser", u"Choose a Tool Controller", None))
+        self.label.setText(QCoreApplication.translate("DlgJobChooser", u"Tool Controller", None))
     # retranslateUi
 

@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QGridLayout, QLabel, QSizePolicy, QSpacerItem,
-    QSpinBox, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
+    QFrame, QGridLayout, QLabel, QSizePolicy,
+    QSpacerItem, QSpinBox, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -31,50 +31,45 @@ class Ui_Form(object):
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
-        self.gridLayout = QGridLayout(self.frame_2)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.formLayout = QFormLayout(self.frame_2)
+        self.formLayout.setObjectName(u"formLayout")
         self.toolController_label = QLabel(self.frame_2)
         self.toolController_label.setObjectName(u"toolController_label")
 
-        self.gridLayout.addWidget(self.toolController_label, 0, 0, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.toolController_label)
 
         self.toolController = QComboBox(self.frame_2)
         self.toolController.setObjectName(u"toolController")
 
-        self.gridLayout.addWidget(self.toolController, 0, 1, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.toolController)
 
         self.coolantController = QComboBox(self.frame_2)
         self.coolantController.setObjectName(u"coolantController")
 
-        self.gridLayout.addWidget(self.coolantController, 1, 1, 1, 1)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.coolantController)
 
         self.coolantController_label = QLabel(self.frame_2)
         self.coolantController_label.setObjectName(u"coolantController_label")
 
-        self.gridLayout.addWidget(self.coolantController_label, 1, 0, 1, 1)
-
-        self.editToolController = QCheckBox(self.frame_2)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout.addWidget(self.editToolController, 2, 0, 1, 2)
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.coolantController_label)
 
 
         self.verticalLayout.addWidget(self.frame_2)
 
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
-        self.gridLayout1 = QGridLayout(self.widget)
-        self.gridLayout1.setObjectName(u"gridLayout1")
-        self.gridLayout1.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout = QGridLayout(self.widget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.algorithmSelect_label = QLabel(self.widget)
         self.algorithmSelect_label.setObjectName(u"algorithmSelect_label")
 
-        self.gridLayout1.addWidget(self.algorithmSelect_label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.algorithmSelect_label, 0, 0, 1, 1)
 
         self.algorithmSelect = QComboBox(self.widget)
         self.algorithmSelect.setObjectName(u"algorithmSelect")
 
-        self.gridLayout1.addWidget(self.algorithmSelect, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.algorithmSelect, 0, 1, 1, 1)
 
         self.boundBoxSelect_label = QLabel(self.widget)
         self.boundBoxSelect_label.setObjectName(u"boundBoxSelect_label")
@@ -84,7 +79,7 @@ class Ui_Form(object):
         sizePolicy.setHeightForWidth(self.boundBoxSelect_label.sizePolicy().hasHeightForWidth())
         self.boundBoxSelect_label.setSizePolicy(sizePolicy)
 
-        self.gridLayout1.addWidget(self.boundBoxSelect_label, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.boundBoxSelect_label, 1, 0, 1, 1)
 
         self.boundBoxSelect = QComboBox(self.widget)
         self.boundBoxSelect.setObjectName(u"boundBoxSelect")
@@ -92,47 +87,47 @@ class Ui_Form(object):
         font.setPointSize(12)
         self.boundBoxSelect.setFont(font)
 
-        self.gridLayout1.addWidget(self.boundBoxSelect, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.boundBoxSelect, 1, 1, 1, 1)
 
         self.layerMode_label = QLabel(self.widget)
         self.layerMode_label.setObjectName(u"layerMode_label")
 
-        self.gridLayout1.addWidget(self.layerMode_label, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.layerMode_label, 2, 0, 1, 1)
 
         self.layerMode = QComboBox(self.widget)
         self.layerMode.setObjectName(u"layerMode")
         self.layerMode.setFont(font)
 
-        self.gridLayout1.addWidget(self.layerMode, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.layerMode, 2, 1, 1, 1)
 
         self.cutPattern_label = QLabel(self.widget)
         self.cutPattern_label.setObjectName(u"cutPattern_label")
 
-        self.gridLayout1.addWidget(self.cutPattern_label, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.cutPattern_label, 3, 0, 1, 1)
 
         self.cutPattern = QComboBox(self.widget)
         self.cutPattern.setObjectName(u"cutPattern")
         self.cutPattern.setFont(font)
 
-        self.gridLayout1.addWidget(self.cutPattern, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.cutPattern, 3, 1, 1, 1)
 
         self.boundaryAdjustment_label = QLabel(self.widget)
         self.boundaryAdjustment_label.setObjectName(u"boundaryAdjustment_label")
         sizePolicy.setHeightForWidth(self.boundaryAdjustment_label.sizePolicy().hasHeightForWidth())
         self.boundaryAdjustment_label.setSizePolicy(sizePolicy)
 
-        self.gridLayout1.addWidget(self.boundaryAdjustment_label, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.boundaryAdjustment_label, 4, 0, 1, 1)
 
         self.boundaryAdjustment = Gui_InputField(self.widget)
         self.boundaryAdjustment.setObjectName(u"boundaryAdjustment")
         self.boundaryAdjustment.setProperty(u"unit", u"mm")
 
-        self.gridLayout1.addWidget(self.boundaryAdjustment, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.boundaryAdjustment, 4, 1, 1, 1)
 
         self.stepOver_label = QLabel(self.widget)
         self.stepOver_label.setObjectName(u"stepOver_label")
 
-        self.gridLayout1.addWidget(self.stepOver_label, 5, 0, 1, 1)
+        self.gridLayout.addWidget(self.stepOver_label, 5, 0, 1, 1)
 
         self.stepOver = QSpinBox(self.widget)
         self.stepOver.setObjectName(u"stepOver")
@@ -141,23 +136,23 @@ class Ui_Form(object):
         self.stepOver.setMinimum(1)
         self.stepOver.setMaximum(100)
 
-        self.gridLayout1.addWidget(self.stepOver, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.stepOver, 5, 1, 1, 1)
 
         self.sampleInterval_label = QLabel(self.widget)
         self.sampleInterval_label.setObjectName(u"sampleInterval_label")
 
-        self.gridLayout1.addWidget(self.sampleInterval_label, 6, 0, 1, 1)
+        self.gridLayout.addWidget(self.sampleInterval_label, 6, 0, 1, 1)
 
         self.sampleInterval = Gui_InputField(self.widget)
         self.sampleInterval.setObjectName(u"sampleInterval")
         self.sampleInterval.setProperty(u"unit", u"mm")
 
-        self.gridLayout1.addWidget(self.sampleInterval, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.sampleInterval, 6, 1, 1, 1)
 
         self.optimizeEnabled = QCheckBox(self.widget)
         self.optimizeEnabled.setObjectName(u"optimizeEnabled")
 
-        self.gridLayout1.addWidget(self.optimizeEnabled, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.optimizeEnabled, 7, 1, 1, 1)
 
 
         self.verticalLayout.addWidget(self.widget)
@@ -181,31 +176,30 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.toolController_label.setText(QCoreApplication.translate("Form", u"Tool controller", None))
+        self.toolController_label.setText(QCoreApplication.translate("Form", u"Tool Controller", None))
 #if QT_CONFIG(tooltip)
-        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
+        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.coolantController_label.setText(QCoreApplication.translate("Form", u"Coolant mode", None))
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
+        self.coolantController_label.setText(QCoreApplication.translate("Form", u"Coolant Mode", None))
         self.algorithmSelect_label.setText(QCoreApplication.translate("Form", u"Algorithm", None))
 #if QT_CONFIG(tooltip)
-        self.algorithmSelect.setToolTip(QCoreApplication.translate("Form", u"Select the algorithm to use: 'OCL Dropcutter*', or 'Experimental' (not OCL based).", None))
+        self.algorithmSelect.setToolTip(QCoreApplication.translate("Form", u"Select the algorithm to use: OCL Dropcutter*, or Experimental (Not OCL based).", None))
 #endif // QT_CONFIG(tooltip)
-        self.boundBoxSelect_label.setText(QCoreApplication.translate("Form", u"Bounding box", None))
+        self.boundBoxSelect_label.setText(QCoreApplication.translate("Form", u"Bounding Box", None))
 #if QT_CONFIG(tooltip)
-        self.boundBoxSelect.setToolTip(QCoreApplication.translate("Form", u"Select the overall boundary for the operation", None))
+        self.boundBoxSelect.setToolTip(QCoreApplication.translate("Form", u"Select the overall boundary for the operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.layerMode_label.setText(QCoreApplication.translate("Form", u"Layer mode", None))
+        self.layerMode_label.setText(QCoreApplication.translate("Form", u"Layer Mode", None))
 #if QT_CONFIG(tooltip)
-        self.layerMode.setToolTip(QCoreApplication.translate("Form", u"Complete the operation in a single pass at depth, or multiple passes to final depth", None))
+        self.layerMode.setToolTip(QCoreApplication.translate("Form", u"Complete the operation in a single pass at depth, or multiple passes to final depth.", None))
 #endif // QT_CONFIG(tooltip)
-        self.cutPattern_label.setText(QCoreApplication.translate("Form", u"Cut pattern", None))
+        self.cutPattern_label.setText(QCoreApplication.translate("Form", u"Cut Pattern", None))
 #if QT_CONFIG(tooltip)
-        self.cutPattern.setToolTip(QCoreApplication.translate("Form", u"Set the geometric clearing pattern to use for the operation", None))
+        self.cutPattern.setToolTip(QCoreApplication.translate("Form", u"Set the geometric clearing pattern to use for the operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.boundaryAdjustment_label.setText(QCoreApplication.translate("Form", u"Boundary adjustment", None))
+        self.boundaryAdjustment_label.setText(QCoreApplication.translate("Form", u"Boundary Adjustment", None))
 #if QT_CONFIG(tooltip)
-        self.boundaryAdjustment.setToolTip(QCoreApplication.translate("Form", u"Set the Z-axis depth offset from the target surface", None))
+        self.boundaryAdjustment.setToolTip(QCoreApplication.translate("Form", u"Set the Z-axis depth offset from the target surface.", None))
 #endif // QT_CONFIG(tooltip)
         self.stepOver_label.setText(QCoreApplication.translate("Form", u"Step over", None))
 #if QT_CONFIG(tooltip)
@@ -220,7 +214,7 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.optimizeEnabled.setToolTip(QCoreApplication.translate("Form", u"Enable optimization of linear paths (co-linear points). Removes unnecessary co-linear points from G-code output.", None))
 #endif // QT_CONFIG(tooltip)
-        self.optimizeEnabled.setText(QCoreApplication.translate("Form", u"Optimize linear paths", None))
+        self.optimizeEnabled.setText(QCoreApplication.translate("Form", u"Optimize Linear Paths", None))
         pass
     # retranslateUi
 

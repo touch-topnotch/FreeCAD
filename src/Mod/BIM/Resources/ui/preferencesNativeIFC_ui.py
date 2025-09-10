@@ -78,13 +78,6 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addWidget(self.checkBox_7)
 
-        self.checkBox_9 = Gui_PrefCheckBox(self.groupBox)
-        self.checkBox_9.setObjectName(u"checkBox_9")
-        self.checkBox_9.setProperty(u"prefEntry", u"LoadTypes")
-        self.checkBox_9.setProperty(u"prefPath", u"Mod/NativeIFC")
-
-        self.verticalLayout_2.addWidget(self.checkBox_9)
-
         self.checkBox_8 = Gui_PrefCheckBox(self.groupBox)
         self.checkBox_8.setObjectName(u"checkBox_8")
         self.checkBox_8.setProperty(u"prefEntry", u"LoadMaterials")
@@ -176,28 +169,6 @@ class Ui_Form(object):
 
         self.verticalLayout.addWidget(self.groupBox_3)
 
-        self.groupBox_5 = QGroupBox(Form)
-        self.groupBox_5.setObjectName(u"groupBox_5")
-        self.verticalLayout_6 = QVBoxLayout(self.groupBox_5)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.checkBox_14 = Gui_PrefCheckBox(self.groupBox_5)
-        self.checkBox_14.setObjectName(u"checkBox_14")
-        self.checkBox_14.setProperty(u"prefEntry", u"ConvertTypeKeepOriginal")
-        self.checkBox_14.setProperty(u"prefPath", u"Mod/NativeIFC")
-
-        self.verticalLayout_6.addWidget(self.checkBox_14)
-
-        self.checkBox_15 = Gui_PrefCheckBox(self.groupBox_5)
-        self.checkBox_15.setObjectName(u"checkBox_15")
-        self.checkBox_15.setChecked(True)
-        self.checkBox_15.setProperty(u"prefEntry", u"ConvertTypeAskAgain")
-        self.checkBox_15.setProperty(u"prefPath", u"Mod/NativeIFC")
-
-        self.verticalLayout_6.addWidget(self.checkBox_15)
-
-
-        self.verticalLayout.addWidget(self.groupBox_5)
-
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
@@ -225,10 +196,10 @@ class Ui_Form(object):
         self.label_2.setText(QCoreApplication.translate("Form", u"Representation type", None))
         self.comboBox_2.setItemText(0, QCoreApplication.translate("Form", u"Load full shape (slower)", None))
         self.comboBox_2.setItemText(1, QCoreApplication.translate("Form", u"Load 3D representation only, no shape (default)", None))
-        self.comboBox_2.setItemText(2, QCoreApplication.translate("Form", u"No 3D representation", None))
+        self.comboBox_2.setItemText(2, QCoreApplication.translate("Form", u"No 3D representation at all", None))
 
 #if QT_CONFIG(tooltip)
-        self.comboBox_2.setToolTip(QCoreApplication.translate("Form", u"The type of object created at import. Coin only is much faster, but does not provide the full shape information. Convert between the two anytime by right-clicking the object tree", None))
+        self.comboBox_2.setToolTip(QCoreApplication.translate("Form", u"The type of object created at import. Coin only is much faster, but you don't get the full shape information. You can convert between the two anytime by right-clicking the object tree", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.checkBox_3.setToolTip(QCoreApplication.translate("Form", u"If this is checked, the BIM workbench will be loaded after import", None))
@@ -239,10 +210,6 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.checkBox_7.setText(QCoreApplication.translate("Form", u"Preload property sets", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_9.setToolTip(QCoreApplication.translate("Form", u"Load all types automatically when opening an IFC file", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkBox_9.setText(QCoreApplication.translate("Form", u"Preload types", None))
-#if QT_CONFIG(tooltip)
         self.checkBox_8.setToolTip(QCoreApplication.translate("Form", u"Load all materials automatically when opening an IFC file", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_8.setText(QCoreApplication.translate("Form", u"Preload materials", None))
@@ -251,7 +218,7 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.checkBox_11.setText(QCoreApplication.translate("Form", u"Preload layers", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_10.setToolTip(QCoreApplication.translate("Form", u"When enabling this, the original version of objects dropped onto an IFC project tree will not be deleted", None))
+        self.checkBox_10.setToolTip(QCoreApplication.translate("Form", u"When enabling this, the original version of objects dropped onto an IFC project tree will not be deleted.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_10.setText(QCoreApplication.translate("Form", u"Keep original version of aggregated objects", None))
 #if QT_CONFIG(tooltip)
@@ -260,26 +227,17 @@ class Ui_Form(object):
         self.checkBox.setText(QCoreApplication.translate("Form", u"Show options dialog when importing", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("Form", u"Export", None))
         self.checkBox_2.setText(QCoreApplication.translate("Form", u"Show warning when saving", None))
-        self.groupBox_4.setTitle(QCoreApplication.translate("Form", u"New Document", None))
+        self.groupBox_4.setTitle(QCoreApplication.translate("Form", u"New document", None))
         self.checkBox_13.setText(QCoreApplication.translate("Form", u"Always lock new documents", None))
         self.checkBox_12.setText(QCoreApplication.translate("Form", u"Ask every time", None))
-        self.groupBox_3.setTitle(QCoreApplication.translate("Form", u"New Project", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("Form", u"New project", None))
 #if QT_CONFIG(accessibility)
         self.checkBox_4.setAccessibleName(QCoreApplication.translate("Form", u"If this is checked, when creating a new projects, a default structure (site, building and storey) will be added under the project", None))
 #endif // QT_CONFIG(accessibility)
         self.checkBox_4.setText(QCoreApplication.translate("Form", u"Create a default structure", None))
 #if QT_CONFIG(accessibility)
-        self.checkBox_5.setAccessibleName(QCoreApplication.translate("Form", u"Enables asking the above question every time a project is created", None))
+        self.checkBox_5.setAccessibleName(QCoreApplication.translate("Form", u"Check this to ask the above question every time a project is created", None))
 #endif // QT_CONFIG(accessibility)
         self.checkBox_5.setText(QCoreApplication.translate("Form", u"Ask every time", None))
-        self.groupBox_5.setTitle(QCoreApplication.translate("Form", u"New Type", None))
-#if QT_CONFIG(tooltip)
-        self.checkBox_14.setToolTip(QCoreApplication.translate("Form", u"When enabled, converting objects to IFC types will always keep the original object", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkBox_14.setText(QCoreApplication.translate("Form", u"Always keep original object when converting to type", None))
-#if QT_CONFIG(tooltip)
-        self.checkBox_15.setToolTip(QCoreApplication.translate("Form", u"When enabled, a dialog will be shown each time when converting objects to IFC types", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkBox_15.setText(QCoreApplication.translate("Form", u"Show dialog when converting to type", None))
     # retranslateUi
 

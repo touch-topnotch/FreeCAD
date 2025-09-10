@@ -71,7 +71,7 @@ class Ui_TaskPanel(object):
 #if QT_CONFIG(tooltip)
         self.radius.setToolTip(QCoreApplication.translate("TaskPanel", u"The radius of the wrapped axis", None))
 #endif // QT_CONFIG(tooltip)
-        self.lblAxisMapInput.setText(QCoreApplication.translate("TaskPanel", u"Axis mapping", None))
+        self.lblAxisMapInput.setText(QCoreApplication.translate("TaskPanel", u"Axis Mapping", None))
         self.axisMapInput.setItemText(0, QCoreApplication.translate("TaskPanel", u"X->A", None))
         self.axisMapInput.setItemText(1, QCoreApplication.translate("TaskPanel", u"Y->A", None))
         self.axisMapInput.setItemText(2, QCoreApplication.translate("TaskPanel", u"X->B", None))

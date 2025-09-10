@@ -122,14 +122,14 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC Elements Manager", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p>This dialog lets you change the IFC type and material associated with any BIM object in this document. Double-click the IFC type to change, or use the drop-down menu below the list.</p></body></html>", None))
-        self.onlyVisible.setText(QCoreApplication.translate("Dialog", u"Only visible BIM objects", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Order by", None))
+        self.onlyVisible.setText(QCoreApplication.translate("Dialog", u"only visible BIM objects", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"order by:", None))
         self.groupMode.setItemText(0, QCoreApplication.translate("Dialog", u"Alphabetical", None))
         self.groupMode.setItemText(1, QCoreApplication.translate("Dialog", u"IFC type", None))
         self.groupMode.setItemText(2, QCoreApplication.translate("Dialog", u"Material", None))
         self.groupMode.setItemText(3, QCoreApplication.translate("Dialog", u"Model structure", None))
 
-        self.label_3.setText(QCoreApplication.translate("Dialog", u"Change type", None))
-        self.label_4.setText(QCoreApplication.translate("Dialog", u"Change material", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"Change type to:", None))
+        self.label_4.setText(QCoreApplication.translate("Dialog", u"Change material to:", None))
     # retranslateUi
 

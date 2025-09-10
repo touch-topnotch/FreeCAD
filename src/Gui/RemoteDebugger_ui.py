@@ -102,11 +102,11 @@ class Ui_Gui_Dialog_RemoteDebugger(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__RemoteDebugger):
-        Gui__Dialog__RemoteDebugger.setWindowTitle(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Attach to Remote Debugger", None))
-        self.labelPassword.setText(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Password", None))
+        Gui__Dialog__RemoteDebugger.setWindowTitle(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Attach to remote debugger", None))
+        self.labelPassword.setText(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Password:", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabWinpdb), QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"winpdb", None))
-        self.labelAddress.setText(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Address", None))
-        self.labelPort.setText(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Port", None))
+        self.labelAddress.setText(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Address:", None))
+        self.labelPort.setText(QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"Port:", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabVSCode), QCoreApplication.translate("Gui::Dialog::RemoteDebugger", u"VS Code", None))
     # retranslateUi
 

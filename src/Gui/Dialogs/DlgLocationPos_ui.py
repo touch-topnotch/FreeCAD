@@ -111,10 +111,10 @@ class Ui_Position(object):
     # setupUi
 
     def retranslateUi(self, Position):
-        self.label.setText(QCoreApplication.translate("Position", u"X", None))
-        self.label_2.setText(QCoreApplication.translate("Position", u"Y", None))
-        self.label_3.setText(QCoreApplication.translate("Position", u"Z", None))
-        self.checkBox.setText(QCoreApplication.translate("Position", u"Grid snap in", None))
+        self.label.setText(QCoreApplication.translate("Position", u"X:", None))
+        self.label_2.setText(QCoreApplication.translate("Position", u"Y:", None))
+        self.label_3.setText(QCoreApplication.translate("Position", u"Z:", None))
+        self.checkBox.setText(QCoreApplication.translate("Position", u"Grid Snap in", None))
         self.comboBoxGridSize.setItemText(0, QCoreApplication.translate("Position", u"0.1 mm", None))
         self.comboBoxGridSize.setItemText(1, QCoreApplication.translate("Position", u"0.5 mm", None))
         self.comboBoxGridSize.setItemText(2, QCoreApplication.translate("Position", u"1 mm", None))

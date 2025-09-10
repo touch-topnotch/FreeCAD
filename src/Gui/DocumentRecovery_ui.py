@@ -27,38 +27,42 @@ class Ui_Gui_Dialog_DocumentRecovery(object):
         Gui__Dialog__DocumentRecovery.resize(576, 495)
         self.gridLayout = QGridLayout(Gui__Dialog__DocumentRecovery)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.verticalSpacer_2 = QSpacerItem(20, 84, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 0, 0, 1, 2)
+
         self.label = QLabel(Gui__Dialog__DocumentRecovery)
         self.label.setObjectName(u"label")
 
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 2)
+        self.gridLayout.addWidget(self.label, 1, 0, 1, 2)
 
-        self.buttonBox = QDialogButtonBox(Gui__Dialog__DocumentRecovery)
-        self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setOrientation(Qt.Orientation.Horizontal)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Cancel|QDialogButtonBox.StandardButton.Ok)
+        self.verticalSpacer = QSpacerItem(20, 84, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout.addWidget(self.buttonBox, 4, 1, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 2, 0, 1, 2)
+
+        self.label_2 = QLabel(Gui__Dialog__DocumentRecovery)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout.addWidget(self.label_2, 3, 0, 1, 2)
+
+        self.treeWidget = QTreeWidget(Gui__Dialog__DocumentRecovery)
+        self.treeWidget.setObjectName(u"treeWidget")
+        self.treeWidget.setSelectionMode(QAbstractItemView.ExtendedSelection)
+
+        self.gridLayout.addWidget(self.treeWidget, 4, 0, 1, 2)
 
         self.buttonCleanup = QPushButton(Gui__Dialog__DocumentRecovery)
         self.buttonCleanup.setObjectName(u"buttonCleanup")
         self.buttonCleanup.setEnabled(True)
 
-        self.gridLayout.addWidget(self.buttonCleanup, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.buttonCleanup, 5, 0, 1, 1)
 
-        self.label_2 = QLabel(Gui__Dialog__DocumentRecovery)
-        self.label_2.setObjectName(u"label_2")
+        self.buttonBox = QDialogButtonBox(Gui__Dialog__DocumentRecovery)
+        self.buttonBox.setObjectName(u"buttonBox")
+        self.buttonBox.setOrientation(Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
 
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 2)
-
-        self.treeWidget = QTreeWidget(Gui__Dialog__DocumentRecovery)
-        self.treeWidget.setObjectName(u"treeWidget")
-        self.treeWidget.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
-
-        self.gridLayout.addWidget(self.treeWidget, 3, 0, 1, 2)
-
-        self.verticalSpacer = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-
-        self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.buttonBox, 5, 1, 1, 1)
 
 
         self.retranslateUi(Gui__Dialog__DocumentRecovery)
@@ -73,10 +77,10 @@ class Ui_Gui_Dialog_DocumentRecovery(object):
         self.label.setText(QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Press 'Start Recovery' to start the recovery process of the document listed below.\n"
 "\n"
 "The 'Status' column shows whether the document could be recovered.", None))
-        self.buttonCleanup.setText(QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Cleanup", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Status of recovered documents", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Status of recovered documents:", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Status", None));
-        ___qtreewidgetitem.setText(0, QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Document name", None));
+        ___qtreewidgetitem.setText(0, QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Document Name", None));
+        self.buttonCleanup.setText(QCoreApplication.translate("Gui::Dialog::DocumentRecovery", u"Cleanup...", None))
     # retranslateUi
 

@@ -48,7 +48,7 @@ class Ui_TaskDlgPathCompound(object):
     # setupUi
 
     def retranslateUi(self, TaskDlgPathCompound):
-        TaskDlgPathCompound.setWindowTitle(QCoreApplication.translate("TaskDlgPathCompound", u"Paths List", None))
+        TaskDlgPathCompound.setWindowTitle(QCoreApplication.translate("TaskDlgPathCompound", u"Paths list", None))
         self.label.setText(QCoreApplication.translate("TaskDlgPathCompound", u"Reorder children by dragging and dropping them to their correct location", None))
     # retranslateUi
 

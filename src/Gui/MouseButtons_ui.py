@@ -102,15 +102,15 @@ class Ui_Gui_Dialog_MouseButtons(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__MouseButtons):
-        Gui__Dialog__MouseButtons.setWindowTitle(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Mouse Buttons", None))
+        Gui__Dialog__MouseButtons.setWindowTitle(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Mouse buttons", None))
         self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Configuration", None))
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Selection", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Selection:", None))
         self.selectionLabel.setText("")
-        self.label_3.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Panning", None))
+        self.label_3.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Panning:", None))
         self.panningLabel.setText("")
-        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Rotation", None))
+        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Rotation:", None))
         self.rotationLabel.setText("")
-        self.label_5.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Zooming", None))
+        self.label_5.setText(QCoreApplication.translate("Gui::Dialog::MouseButtons", u"Zooming:", None))
         self.zoomingLabel.setText("")
     # retranslateUi
 

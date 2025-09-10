@@ -74,11 +74,6 @@ class Ui_Dialog(object):
 
         self.verticalLayout.addWidget(self.checkSwitchWB)
 
-        self.checkLoadTypes = QCheckBox(Dialog)
-        self.checkLoadTypes.setObjectName(u"checkLoadTypes")
-
-        self.verticalLayout.addWidget(self.checkLoadTypes)
-
         self.checkLoadPsets = QCheckBox(Dialog)
         self.checkLoadPsets.setObjectName(u"checkLoadPsets")
 
@@ -123,7 +118,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC Import Options", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC import options", None))
         self.comboStrategy.setItemText(0, QCoreApplication.translate("Dialog", u"Only root object (default)", None))
         self.comboStrategy.setItemText(1, QCoreApplication.translate("Dialog", u"Project structure (levels)", None))
         self.comboStrategy.setItemText(2, QCoreApplication.translate("Dialog", u"All individual IFC objects", None))
@@ -136,13 +131,13 @@ class Ui_Dialog(object):
         self.comboSingleDoc.setItemText(1, QCoreApplication.translate("Dialog", u"Unlocked (non-IFC objects permitted)", None))
 
 #if QT_CONFIG(tooltip)
-        self.comboSingleDoc.setToolTip(QCoreApplication.translate("Dialog", u"Defines how IFC data is stored in the FreeCAD document. 'Single IFC document' treats the FreeCAD document itself as the IFC document, with all created content belonging to it. 'Use IFC document object' creates a separate object representing the IFC document, allowing both IFC and non-IFC content to coexist.", None))
+        self.comboSingleDoc.setToolTip(QCoreApplication.translate("Dialog", u"This defines how the IFC data is stored in the FreeCAD document. 'Single IFC document' means that the FreeCAD document is the IFC document, anything you create in it belongs to the IFC document too. 'Use IFC document object' means that an object will be created inside the FreeCAD document to represent the IFC document. You will be able to add non-IFC objects alongside.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_3.setText(QCoreApplication.translate("Dialog", u"Lock document", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Representation type", None))
         self.comboShapeMode.setItemText(0, QCoreApplication.translate("Dialog", u"Load the shape (slower)", None))
         self.comboShapeMode.setItemText(1, QCoreApplication.translate("Dialog", u"Load 3D representation only, no shape (default)", None))
-        self.comboShapeMode.setItemText(2, QCoreApplication.translate("Dialog", u"No 3D representation", None))
+        self.comboShapeMode.setItemText(2, QCoreApplication.translate("Dialog", u"No 3D representation at all", None))
 
 #if QT_CONFIG(tooltip)
         self.comboShapeMode.setToolTip(QCoreApplication.translate("Dialog", u"The type of object created at import. Mesh is faster, but Shapes are more precise. You can convert between the two anytime by right-clicking the object tree", None))
@@ -151,10 +146,6 @@ class Ui_Dialog(object):
         self.checkSwitchWB.setToolTip(QCoreApplication.translate("Dialog", u"If this is checked, the workbench specified in Start preferences will be loaded after import", None))
 #endif // QT_CONFIG(tooltip)
         self.checkSwitchWB.setText(QCoreApplication.translate("Dialog", u"Switch workbench after import", None))
-#if QT_CONFIG(tooltip)
-        self.checkLoadTypes.setToolTip(QCoreApplication.translate("Dialog", u"Preloads IFC types that are connected to the objects. It is also possible to leave this setting disabled and double click later on the object to load the types.", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkLoadTypes.setText(QCoreApplication.translate("Dialog", u"Preload types", None))
 #if QT_CONFIG(tooltip)
         self.checkLoadPsets.setToolTip(QCoreApplication.translate("Dialog", u"Preload property sets of all objects. It is advised to leave this unchecked and load property sets later, only when needed", None))
 #endif // QT_CONFIG(tooltip)
@@ -168,8 +159,8 @@ class Ui_Dialog(object):
 #endif // QT_CONFIG(tooltip)
         self.checkLoadLayers.setText(QCoreApplication.translate("Dialog", u"Preload layers", None))
 #if QT_CONFIG(tooltip)
-        self.checkAskAgain.setToolTip(QCoreApplication.translate("Dialog", u"If this is unchecked, these settings will be applied automatically next time. This can be changed later under menu Edit -> Preferences -> BIM -> Native IFC", None))
+        self.checkAskAgain.setToolTip(QCoreApplication.translate("Dialog", u"If this is unchecked, these settings will be applied automatically next time. You can change this later under menu Edit -> Preferences -> BIM -> Native IFC", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkAskAgain.setText(QCoreApplication.translate("Dialog", u"Ask again next time", None))
+        self.checkAskAgain.setText(QCoreApplication.translate("Dialog", u"Ask me again next time", None))
     # retranslateUi
 

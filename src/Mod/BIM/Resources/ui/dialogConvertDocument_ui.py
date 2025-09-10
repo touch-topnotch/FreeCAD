@@ -59,14 +59,17 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Single IFC Document", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Convert this document to an IFC document? Selecting 'Yes' will enable automatic creation of IFC objects. Selecting 'No' will allow a mix of IFC and non-IFC elements within the file.", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Single IFC document", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Do you wish to convert this document to an IFC document? Replying 'Yes' will automatically turn all new objects to IFC, while 'No' will allow you to have both IFC and non-IFC elements in the file.", None))
 #if QT_CONFIG(tooltip)
-        self.checkStructure.setToolTip(QCoreApplication.translate("Dialog", u"Adds a default building structure consisting of IfcSite, IfcBuilding, and IfcBuildingStorey. The structure can also be added manually at a later stage.", None))
+        self.checkStructure.setToolTip(QCoreApplication.translate("Dialog", u"Add a default building structure (IfcSite, IfcBuilding and IfcBuildingStorey). You can also add the structure manually later.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkStructure.setText(QCoreApplication.translate("Dialog", u"Also create a default structure", None))
 #if QT_CONFIG(tooltip)
-        self.checkAskAgain.setToolTip(QCoreApplication.translate("Dialog", u"Prevents further prompts when creating new FreeCAD documents. New documents will not be converted to IFC automatically, but conversion remains possible later via Utils \u2192 Create IFC Project.", None))
+        self.checkAskAgain.setToolTip(QCoreApplication.translate("Dialog", u"If this is checked, you won't be asked again when creating a new FreeCAD document,\n"
+"and that document won't be turned into an IFC document automatically.\n"
+"You can still turn a FreeCAD document into an IFC document manually, using\n"
+"Utils -> Make IFC project", None))
 #endif // QT_CONFIG(tooltip)
         self.checkAskAgain.setText(QCoreApplication.translate("Dialog", u"Do not ask again", None))
     # retranslateUi

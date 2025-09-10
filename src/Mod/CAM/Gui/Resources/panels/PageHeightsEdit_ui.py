@@ -67,11 +67,11 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.label_7.setText(QCoreApplication.translate("Form", u"Safe height", None))
+        self.label_7.setText(QCoreApplication.translate("Form", u"Safe Height", None))
 #if QT_CONFIG(tooltip)
         self.safeHeight.setToolTip(QCoreApplication.translate("Form", u"The height above which it is safe to move the tool bit with rapid movements. Below this height all lateral and downward movements are performed with feed rate speeds.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_9.setText(QCoreApplication.translate("Form", u"Clearance height", None))
+        self.label_9.setText(QCoreApplication.translate("Form", u"Clearance Height", None))
 #if QT_CONFIG(tooltip)
         self.clearanceHeight.setToolTip(QCoreApplication.translate("Form", u"The height where lateral movement of the toolbit is not obstructed by any fixtures or the part / stock material itself.", None))
 #endif // QT_CONFIG(tooltip)

@@ -42,11 +42,6 @@ class Ui_Dialog(object):
 
         self.verticalLayout.addWidget(self.checkKeepObject)
 
-        self.checkDoNotAskAgain = QCheckBox(Dialog)
-        self.checkDoNotAskAgain.setObjectName(u"checkDoNotAskAgain")
-
-        self.verticalLayout.addWidget(self.checkDoNotAskAgain)
-
         self.buttonBox = QDialogButtonBox(Dialog)
         self.buttonBox.setObjectName(u"buttonBox")
         self.buttonBox.setOrientation(Qt.Horizontal)
@@ -63,9 +58,8 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Convert to IFC Type", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Convert to IFC type", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"This object will be converted to a %1 type. Types can be used to give common attributes and properties to several objects at once.", None))
         self.checkKeepObject.setText(QCoreApplication.translate("Dialog", u"Keep original object. The object will adopt the new type", None))
-        self.checkDoNotAskAgain.setText(QCoreApplication.translate("Dialog", u"Do not ask again and use this setting", None))
     # retranslateUi
 

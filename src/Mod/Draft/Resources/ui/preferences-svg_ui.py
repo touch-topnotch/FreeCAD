@@ -197,13 +197,13 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsDraft):
         Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"SVG", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import Options", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import options", None))
         self.textLabel1_5.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import style", None))
         self.gui__prefcombobox_3.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use default style from Part/PartDesign", None))
         self.gui__prefcombobox_3.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use original SVG style", None))
 
 #if QT_CONFIG(tooltip)
-        self.gui__prefcombobox_3.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Method for importing SVG object colors", None))
+        self.gui__prefcombobox_3.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Method for importing SVG object colors into FreeCAD", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.checkBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, no unit conversion will occur.\n"
@@ -212,11 +212,11 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.checkBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Disable unit scaling", None))
 #if QT_CONFIG(tooltip)
         self.checkBox1.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If face generation results in a degenerated face,\n"
-"a raw wire from the original shape is added", None))
+"a raw Wire from the original Shape is added.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox1.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Add wires for invalid faces", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Check to cut shapes according to the even/odd SVG fill rule", None))
+        self.checkBox2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Check to cut shapes according to the even/odd SVG fill rule.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Apply Cuts", None))
         self.label_3.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Coordinate precision (crucial for detecting closed paths)", None))
@@ -224,7 +224,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.spinBox_precisionSVG.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"The number of decimal places used in internal coordinate operations (for example 3 = 0.001).\n"
 "	The optimal value depends on the absolute size of the import. Typical values are between 1 and 5.", None))
 #endif // QT_CONFIG(tooltip)
-        self.GroupBox12_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Export Options", None))
+        self.GroupBox12_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Export options", None))
         self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Export style", None))
         self.svg_export_style_combobox.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Translated (for print & display)", None))
         self.svg_export_style_combobox.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Raw (for CAM)", None))
@@ -235,8 +235,8 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 #if QT_CONFIG(tooltip)
         self.gui__prefcheckbox_6.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"All white lines will appear in black in the SVG for better readability against white backgrounds", None))
 #endif // QT_CONFIG(tooltip)
-        self.gui__prefcheckbox_6.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Convert white line color to black", None))
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Maximum segment length for discretized arcs", None))
+        self.gui__prefcheckbox_6.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Translate white line color to black", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Max segment length for discretized arcs", None))
 #if QT_CONFIG(tooltip)
         self.doubleSpinBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Versions of OpenCASCADE older than version 6.8 don't support arc projection.\n"
 "In this case arcs will be discretized into small line segments.\n"

@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
-    QFrame, QGridLayout, QGroupBox, QLabel,
-    QSizePolicy, QSlider, QSpacerItem, QSpinBox,
+    QGridLayout, QGroupBox, QLabel, QSizePolicy,
+    QSlider, QSpacerItem, QSpinBox, QVBoxLayout,
     QWidget)
 
 class Ui_Form(object):
@@ -28,29 +28,17 @@ class Ui_Form(object):
         Form.setWindowTitle(u"Form")
         self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.frame = QFrame(Form)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.gridLayout1 = QGridLayout(self.frame)
-        self.gridLayout1.setObjectName(u"gridLayout1")
-        self.label = QLabel(self.frame)
-        self.label.setObjectName(u"label")
-
-        self.gridLayout1.addWidget(self.label, 0, 0, 1, 1)
-
-        self.toolController = QComboBox(self.frame)
+        self.groupBox_2 = QGroupBox(Form)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.verticalLayout = QVBoxLayout(self.groupBox_2)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.toolController = QComboBox(self.groupBox_2)
         self.toolController.setObjectName(u"toolController")
 
-        self.gridLayout1.addWidget(self.toolController, 0, 1, 1, 1)
-
-        self.editToolController = QCheckBox(self.frame)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout1.addWidget(self.editToolController, 1, 0, 1, 2)
+        self.verticalLayout.addWidget(self.toolController)
 
 
-        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.groupBox_2, 0, 0, 1, 1)
 
         self.groupBox = QGroupBox(Form)
         self.groupBox.setObjectName(u"groupBox")
@@ -94,10 +82,10 @@ class Ui_Form(object):
 
         self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.threadFit)
 
-        self.label1 = QLabel(self.groupBox)
-        self.label1.setObjectName(u"label1")
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
 
-        self.formLayout_2.setWidget(4, QFormLayout.LabelRole, self.label1)
+        self.formLayout_2.setWidget(4, QFormLayout.LabelRole, self.label)
 
         self.threadMajor = Gui_QuantitySpinBox(self.groupBox)
         self.threadMajor.setObjectName(u"threadMajor")
@@ -189,23 +177,19 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.label.setText(QCoreApplication.translate("Form", u"Tool Controller", None))
-#if QT_CONFIG(tooltip)
-        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
-#endif // QT_CONFIG(tooltip)
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Form", u"Tool Controller", None))
         self.groupBox.setTitle(QCoreApplication.translate("Form", u"Thread", None))
         self.label_9.setText(QCoreApplication.translate("Form", u"Orientation", None))
         self.label_4.setText(QCoreApplication.translate("Form", u"Type", None))
         self.threadFitLabel.setText(QCoreApplication.translate("Form", u"Fit", None))
-        self.label1.setText(QCoreApplication.translate("Form", u"Major diameter", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Minor diameter", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Major Diameter", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Minor Diameter", None))
         self.threadPitchLabel.setText(QCoreApplication.translate("Form", u"Pitch", None))
         self.threadTPILabel.setText(QCoreApplication.translate("Form", u"TPI", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("Form", u"Operation", None))
         self.label_7.setText(QCoreApplication.translate("Form", u"Passes", None))
         self.label_8.setText(QCoreApplication.translate("Form", u"Direction", None))
-        self.leadInOut.setText(QCoreApplication.translate("Form", u"Lead in/out", None))
+        self.leadInOut.setText(QCoreApplication.translate("Form", u"Lead In/Out", None))
         pass
     # retranslateUi
 

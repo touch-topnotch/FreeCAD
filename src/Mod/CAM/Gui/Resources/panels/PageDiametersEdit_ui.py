@@ -42,7 +42,7 @@ class Ui_Form(object):
 
         self.startDepthSet = QToolButton(Form)
         self.startDepthSet.setObjectName(u"startDepthSet")
-        self.startDepthSet.setText(u"\u2026")
+        self.startDepthSet.setText(u"...")
         icon = QIcon()
         icon.addFile(u":/icons/button_left.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.startDepthSet.setIcon(icon)
@@ -64,7 +64,7 @@ class Ui_Form(object):
 
         self.finalDepthSet = QToolButton(Form)
         self.finalDepthSet.setObjectName(u"finalDepthSet")
-        self.finalDepthSet.setText(u"\u2026")
+        self.finalDepthSet.setText(u"...")
         self.finalDepthSet.setIcon(icon)
 
         self.gridLayout.addWidget(self.finalDepthSet, 1, 2, 1, 1)
@@ -89,17 +89,17 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         self.startDepthLabel.setText(QCoreApplication.translate("Form", u"Min Diameter", None))
 #if QT_CONFIG(tooltip)
-        self.minDiameter.setToolTip(QCoreApplication.translate("Form", u"Start depth of the operation. The highest point in Z-axis the operation needs to process.", None))
+        self.minDiameter.setToolTip(QCoreApplication.translate("Form", u"Start Depth of the operation. The highest point in Z-axis the operation needs to process.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.startDepthSet.setToolTip(QCoreApplication.translate("Form", u"Transfer the Z value of the selected feature as the start depth for the operation", None))
+        self.startDepthSet.setToolTip(QCoreApplication.translate("Form", u"Transfer the Z value of the selected feature as the Start Depth for the operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.finalDepthLabel.setText(QCoreApplication.translate("Form", u"Max diameter", None))
+        self.finalDepthLabel.setText(QCoreApplication.translate("Form", u"Max Diameter", None))
 #if QT_CONFIG(tooltip)
         self.maxDiameter.setToolTip(QCoreApplication.translate("Form", u"The depth of the operation which corresponds to the lowest value in Z-axis the operation needs to process.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.finalDepthSet.setToolTip(QCoreApplication.translate("Form", u"Transfer the Z value of the selected feature as the final depth for the operation.", None))
+        self.finalDepthSet.setToolTip(QCoreApplication.translate("Form", u"Transfer the Z value of the selected feature as the Final Depth for the operation.", None))
 #endif // QT_CONFIG(tooltip)
         pass
     # retranslateUi

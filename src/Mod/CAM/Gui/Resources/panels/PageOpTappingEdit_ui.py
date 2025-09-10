@@ -92,11 +92,6 @@ class Ui_Form(object):
 
         self.gridLayout_2.addWidget(self.toolController, 0, 1, 1, 1)
 
-        self.editToolController = QCheckBox(self.frame)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout_2.addWidget(self.editToolController, 2, 0, 1, 2)
-
 
         self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 3)
 
@@ -116,18 +111,17 @@ class Ui_Form(object):
         self.dwellTimelabel.setText(QCoreApplication.translate("Form", u"Time", None))
         self.dwellEnabled.setText(QCoreApplication.translate("Form", u"Dwell", None))
         self.ExtraOffset.setItemText(0, QCoreApplication.translate("Form", u"None", None))
-        self.ExtraOffset.setItemText(1, QCoreApplication.translate("Form", u"Tap tip", None))
-        self.ExtraOffset.setItemText(2, QCoreApplication.translate("Form", u"2x tap tip", None))
+        self.ExtraOffset.setItemText(1, QCoreApplication.translate("Form", u"Tap Tip", None))
+        self.ExtraOffset.setItemText(2, QCoreApplication.translate("Form", u"2x Tap Tip", None))
 
-        self.Offsetlabel.setText(QCoreApplication.translate("Form", u"Extend depth", None))
+        self.Offsetlabel.setText(QCoreApplication.translate("Form", u"Extend Depth", None))
 #if QT_CONFIG(tooltip)
         self.coolantController.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>The tool and its settings to be used for this operation.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_3.setText(QCoreApplication.translate("Form", u"Coolant mode", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Coolant Mode", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"ToolController", None))
 #if QT_CONFIG(tooltip)
         self.toolController.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>The tool and its settings to be used for this operation.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
     # retranslateUi
 

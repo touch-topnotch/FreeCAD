@@ -62,9 +62,9 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsDraft):
         Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"OCA", None))
-        self.GroupBox12_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import Options", None))
+        self.GroupBox12_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import options", None))
 #if QT_CONFIG(tooltip)
-        self.gui__prefcheckbox_4.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Imports the areas (3D faces) too", None))
+        self.gui__prefcheckbox_4.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Check this if you want the areas (3D faces) to be imported too.", None))
 #endif // QT_CONFIG(tooltip)
         self.gui__prefcheckbox_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import OCA areas", None))
     # retranslateUi

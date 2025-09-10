@@ -355,7 +355,7 @@ class Ui_Gui_Dialog_AboutApplication(object):
         self.labelDate.setText(QCoreApplication.translate("Gui::Dialog::AboutApplication", u"Release date", None))
         self.labelOS.setText(QCoreApplication.translate("Gui::Dialog::AboutApplication", u"Operating system", None))
         self.labelArchitecture.setText(QCoreApplication.translate("Gui::Dialog::AboutApplication", u"Architecture", None))
-        self.copyButton.setText(QCoreApplication.translate("Gui::Dialog::AboutApplication", u"Copy to Clipboard", None))
+        self.copyButton.setText(QCoreApplication.translate("Gui::Dialog::AboutApplication", u"Copy to clipboard", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_about), QCoreApplication.translate("Gui::Dialog::AboutApplication", u"About", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_license), QCoreApplication.translate("Gui::Dialog::AboutApplication", u"License", None))
         self.okButton.setText(QCoreApplication.translate("Gui::Dialog::AboutApplication", u"OK", None))

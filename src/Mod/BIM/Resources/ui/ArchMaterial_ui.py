@@ -212,13 +212,13 @@ class Ui_ArchMaterial(object):
     # setupUi
 
     def retranslateUi(self, ArchMaterial):
-        ArchMaterial.setWindowTitle(QCoreApplication.translate("ArchMaterial", u"BIM Material", None))
-        self.comboBox_MaterialsInDir.setItemText(0, QCoreApplication.translate("ArchMaterial", u"Choose preset", None))
+        ArchMaterial.setWindowTitle(QCoreApplication.translate("ArchMaterial", u"BIM material", None))
+        self.comboBox_MaterialsInDir.setItemText(0, QCoreApplication.translate("ArchMaterial", u"Choose preset...", None))
 
 #if QT_CONFIG(tooltip)
         self.comboBox_MaterialsInDir.setToolTip(QCoreApplication.translate("ArchMaterial", u"Choose a preset card", None))
 #endif // QT_CONFIG(tooltip)
-        self.comboBox_FromExisting.setItemText(0, QCoreApplication.translate("ArchMaterial", u"Copy existing\u2026", None))
+        self.comboBox_FromExisting.setItemText(0, QCoreApplication.translate("ArchMaterial", u"Copy existing...", None))
 
 #if QT_CONFIG(tooltip)
         self.comboBox_FromExisting.setToolTip(QCoreApplication.translate("ArchMaterial", u"Copy values from an existing material in the document", None))
@@ -237,7 +237,7 @@ class Ui_ArchMaterial(object):
         self.ButtonColor.setToolTip(QCoreApplication.translate("ArchMaterial", u"The color of this material", None))
 #endif // QT_CONFIG(tooltip)
         self.ButtonColor.setText("")
-        self.label_8.setText(QCoreApplication.translate("ArchMaterial", u"Section color", None))
+        self.label_8.setText(QCoreApplication.translate("ArchMaterial", u"Section Color", None))
         self.ButtonSectionColor.setText("")
         self.label_6.setText(QCoreApplication.translate("ArchMaterial", u"Transparency", None))
 #if QT_CONFIG(tooltip)
@@ -245,7 +245,7 @@ class Ui_ArchMaterial(object):
 #endif // QT_CONFIG(tooltip)
         self.label_3.setText(QCoreApplication.translate("ArchMaterial", u"Standard code", None))
 #if QT_CONFIG(tooltip)
-        self.FieldCode.setToolTip(QCoreApplication.translate("ArchMaterial", u"A standard (MasterFormat, Omniclass\u2026) code for this material", None))
+        self.FieldCode.setToolTip(QCoreApplication.translate("ArchMaterial", u"A standard (MasterFormat, Omniclass...) code for this material", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.ButtonCode.setToolTip(QCoreApplication.translate("ArchMaterial", u"Opens a browser dialog to choose a class from a BIM standard", None))

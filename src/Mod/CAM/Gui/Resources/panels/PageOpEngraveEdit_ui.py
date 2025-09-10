@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QGridLayout, QLabel, QSizePolicy, QSpacerItem,
-    QSpinBox, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
+    QLabel, QSizePolicy, QSpacerItem, QSpinBox,
+    QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -53,11 +53,6 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.coolantController, 1, 1, 1, 1)
 
-        self.editToolController = QCheckBox(self.frame_2)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout.addWidget(self.editToolController, 2, 0, 1, 2)
-
 
         self.gridLayout_3.addWidget(self.frame_2, 0, 0, 1, 1)
 
@@ -91,18 +86,17 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.label.setText(QCoreApplication.translate("Form", u"Tool controller", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Tool Controller", None))
 #if QT_CONFIG(tooltip)
-        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
+        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_3.setText(QCoreApplication.translate("Form", u"Coolant mode", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Coolant Mode", None))
 #if QT_CONFIG(tooltip)
-        self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
+        self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Start at vertex", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Start at Vertex", None))
 #if QT_CONFIG(tooltip)
-        self.startVertex.setToolTip(QCoreApplication.translate("Form", u"Specify the vertex number of the underlying shape string at which engraving should start", None))
+        self.startVertex.setToolTip(QCoreApplication.translate("Form", u"Specify the vertex number of the underlying shape string at which engraving should start.", None))
 #endif // QT_CONFIG(tooltip)
         pass
     # retranslateUi

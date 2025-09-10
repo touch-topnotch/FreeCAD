@@ -169,10 +169,10 @@ class Ui_bimDialogClassification(object):
     # setupUi
 
     def retranslateUi(self, bimDialogClassification):
-        bimDialogClassification.setWindowTitle(QCoreApplication.translate("bimDialogClassification", u"Classification Manager", None))
+        bimDialogClassification.setWindowTitle(QCoreApplication.translate("bimDialogClassification", u"Classification manager", None))
         self.groupMaterials.setTitle(QCoreApplication.translate("bimDialogClassification", u"Objects && Materials", None))
         self.onlyVisible.setText(QCoreApplication.translate("bimDialogClassification", u"Only visible objects", None))
-        self.label.setText(QCoreApplication.translate("bimDialogClassification", u"Sort by", None))
+        self.label.setText(QCoreApplication.translate("bimDialogClassification", u"Sort by:", None))
         self.groupMode.setItemText(0, QCoreApplication.translate("bimDialogClassification", u"Alphabetical", None))
         self.groupMode.setItemText(1, QCoreApplication.translate("bimDialogClassification", u"IFC type", None))
         self.groupMode.setItemText(2, QCoreApplication.translate("bimDialogClassification", u"Material", None))
@@ -180,7 +180,7 @@ class Ui_bimDialogClassification(object):
 
         ___qtreewidgetitem = self.treeObjects.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("bimDialogClassification", u"Class", None));
-        ___qtreewidgetitem.setText(0, QCoreApplication.translate("bimDialogClassification", u"Object/Material", None));
+        ___qtreewidgetitem.setText(0, QCoreApplication.translate("bimDialogClassification", u"Object / Material", None));
         self.groupClasses.setTitle(QCoreApplication.translate("bimDialogClassification", u"Available classification systems", None))
 #if QT_CONFIG(tooltip)
         self.comboSystem.setToolTip(QCoreApplication.translate("bimDialogClassification", u"Classification systems found on this computer", None))
@@ -188,11 +188,11 @@ class Ui_bimDialogClassification(object):
 #if QT_CONFIG(tooltip)
         self.buttonApply.setToolTip(QCoreApplication.translate("bimDialogClassification", u"Apply the selected class to selected objects", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonApply.setText(QCoreApplication.translate("bimDialogClassification", u"<< Apply to Selected", None))
+        self.buttonApply.setText(QCoreApplication.translate("bimDialogClassification", u"<< Apply to selected", None))
 #if QT_CONFIG(tooltip)
         self.buttonRename.setToolTip(QCoreApplication.translate("bimDialogClassification", u"Use this class as object name", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonRename.setText(QCoreApplication.translate("bimDialogClassification", u"<< Set as Name", None))
+        self.buttonRename.setText(QCoreApplication.translate("bimDialogClassification", u"<< Set as name", None))
         self.checkPrefix.setText(QCoreApplication.translate("bimDialogClassification", u"Prefix with classification system name", None))
         self.labelDownload.setText(QCoreApplication.translate("bimDialogClassification", u"XML or IFC files of several classification systems can be downloaded from <a href=\"https://github.com/Moult/IfcClassification\">https://github.com/Moult/IfcClassification</a> and placed in %s", None))
     # retranslateUi

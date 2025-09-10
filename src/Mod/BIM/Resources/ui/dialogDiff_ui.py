@@ -46,6 +46,6 @@ class Ui_IFCdiff(object):
     # setupUi
 
     def retranslateUi(self, IFCdiff):
-        IFCdiff.setWindowTitle(QCoreApplication.translate("IFCdiff", u"IFC Difference", None))
+        IFCdiff.setWindowTitle(QCoreApplication.translate("IFCdiff", u"IFC diff", None))
     # retranslateUi
 

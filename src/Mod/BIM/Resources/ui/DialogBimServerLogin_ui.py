@@ -93,9 +93,9 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"BimServer Login", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"BIM server URL", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Login (email)", None))
-        self.label_3.setText(QCoreApplication.translate("Dialog", u"Password", None))
-        self.checkStore.setText(QCoreApplication.translate("Dialog", u"Stay logged in across FreeCAD sessions", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"BimServer URL:", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Login (email):", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"Password:", None))
+        self.checkStore.setText(QCoreApplication.translate("Dialog", u"Keep me logged in across FreeCAD sessions", None))
     # retranslateUi
 

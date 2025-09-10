@@ -212,17 +212,17 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Doors and Windows", None))
-        self.label.setText(QCoreApplication.translate("Form", u"This screen lists all the windows of the current document. They can modified individually or together", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Group by", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Doors and windows", None))
+        self.label.setText(QCoreApplication.translate("Form", u"This screen lists all the windows of the current document. You can modify them individually or together", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Group by:", None))
         self.groupMode.setItemText(0, QCoreApplication.translate("Form", u"Do not group", None))
         self.groupMode.setItemText(1, QCoreApplication.translate("Form", u"Size", None))
         self.groupMode.setItemText(2, QCoreApplication.translate("Form", u"Clone", None))
         self.groupMode.setItemText(3, QCoreApplication.translate("Form", u"Tag", None))
         self.groupMode.setItemText(4, QCoreApplication.translate("Form", u"Material", None))
 
-        self.label_10.setText(QCoreApplication.translate("Form", u"Total number of doors", None))
-        self.label_9.setText(QCoreApplication.translate("Form", u"Total number of windows", None))
+        self.label_10.setText(QCoreApplication.translate("Form", u"Total number of doors:", None))
+        self.label_9.setText(QCoreApplication.translate("Form", u"Total number of windows:", None))
         self.windowsCount.setText(QCoreApplication.translate("Form", u"0", None))
         self.doorsCount.setText(QCoreApplication.translate("Form", u"0", None))
         ___qtreewidgetitem = self.windows.headerItem()

@@ -80,7 +80,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Base Model Selection", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Select Base Models", None))
         self.models.setTabText(self.models.indexOf(self.tab), QCoreApplication.translate("Dialog", u"Solids", None))
         self.models.setTabText(self.models.indexOf(self.tab_3), QCoreApplication.translate("Dialog", u"2D", None))
         self.models.setTabText(self.models.indexOf(self.tab_2), QCoreApplication.translate("Dialog", u"Base Models", None))

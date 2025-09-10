@@ -356,11 +356,11 @@ class Ui_DlgCustomizeSpNavSettings(object):
 
     def retranslateUi(self, DlgCustomizeSpNavSettings):
         DlgCustomizeSpNavSettings.setWindowTitle(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Spaceball Motion", None))
-        self.labelSlow.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Global sensitivity", None))
-        self.CBDominant.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Dominant mode", None))
+        self.labelSlow.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Global Sensitivity:", None))
+        self.CBDominant.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Dominant Mode", None))
         self.CBFlipYZ.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Flip Y/Z", None))
-        self.CBTranslations.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Enable translations", None))
-        self.CBRotations.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Enable rotations", None))
+        self.CBTranslations.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Enable Translations", None))
+        self.CBRotations.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Enable Rotations", None))
         self.ButtonCalibrate.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Calibrate", None))
         self.ButtonDefaultSpNavMotions.setText(QCoreApplication.translate("DlgCustomizeSpNavSettings", u"Default", None))
         self.ImagePanLR.setText("")

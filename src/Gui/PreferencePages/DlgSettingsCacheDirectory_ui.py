@@ -113,7 +113,7 @@ class Ui_Gui_Dialog_DlgSettingsCacheDirectory(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.labelCurrentCache.sizePolicy().hasHeightForWidth())
         self.labelCurrentCache.setSizePolicy(sizePolicy2)
-        self.labelCurrentCache.setText(u"Current cache size")
+        self.labelCurrentCache.setText(u"Current cache size:")
 
         self.gridLayout_3.addWidget(self.labelCurrentCache, 1, 0, 1, 1)
 
@@ -141,12 +141,12 @@ class Ui_Gui_Dialog_DlgSettingsCacheDirectory(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsCacheDirectory):
         Gui__Dialog__DlgSettingsCacheDirectory.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Cache", None))
-        self.GroupBox5.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Cache Directory", None))
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Location (read-only)", None))
+        self.GroupBox5.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Cache directory", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Location (read-only):", None))
 #if QT_CONFIG(tooltip)
         self.openButton.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Browse cache directory", None))
 #endif // QT_CONFIG(tooltip)
-        self.labelPeriod.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Check periodically at program start", None))
+        self.labelPeriod.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Check periodically at program start:", None))
         self.comboBoxPeriod.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Always", None))
         self.comboBoxPeriod.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Daily", None))
         self.comboBoxPeriod.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Weekly", None))
@@ -154,7 +154,7 @@ class Ui_Gui_Dialog_DlgSettingsCacheDirectory(object):
         self.comboBoxPeriod.setItemText(4, QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Yearly", None))
         self.comboBoxPeriod.setItemText(5, QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Never", None))
 
-        self.labelCache.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Cache size limit", None))
-        self.pushButtonCheck.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Check Now", None))
+        self.labelCache.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Cache size limit:", None))
+        self.pushButtonCheck.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsCacheDirectory", u"Check now...", None))
     # retranslateUi
 

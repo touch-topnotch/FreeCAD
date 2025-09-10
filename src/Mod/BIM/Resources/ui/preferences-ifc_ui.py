@@ -258,8 +258,8 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsArch):
-        Gui__Dialog__DlgSettingsArch.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"IFC Import", None))
-        self.groupBox_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"General Options", None))
+        Gui__Dialog__DlgSettingsArch.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"IFC import", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"General options", None))
         self.checkBox_7.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Show this dialog when importing", None))
 #if QT_CONFIG(tooltip)
         self.gui__prefcheckbox_5.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Shows verbose debug messages during import and export\n"
@@ -275,35 +275,35 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         self.spinBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"EXPERIMENTAL\n"
 "The number of cores to use in multicore mode.\n"
 "Keep 0 to disable multicore mode.\n"
-"The maximum value should be the number of cores in the CPU minus 1,\n"
-"for example, 3 cores for a 4-core CPU.\n"
+"The maximum value should be your number of cores minus 1,\n"
+"for example, 3 if you have a 4-core CPU.\n"
 "\n"
 "Set it to 1 to use multicore mode in single-core mode; this is safer\n"
-"if crashes occur when multiple cores are set.", None))
+"if you start getting crashes when you set multiple cores.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.label.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"EXPERIMENTAL\n"
 "The number of cores to use in multicore mode.\n"
 "Keep 0 to disable multicore mode.\n"
-"The maximum value should be the number of cores in the CPU minus 1,\n"
-"for example, 3 cores for a 4-core CPU.\n"
+"The maximum value should be your number of cores minus 1,\n"
+"for example, 3 if you have a 4-core CPU.\n"
 "\n"
 "Set it to 1 to use multicore mode in single-core mode; this is safer\n"
-"if crashes occur when multiple cores are set.", None))
+"if you start getting crashes when you set multiple cores.", None))
 #endif // QT_CONFIG(tooltip)
         self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Number of cores to use (experimental)", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Import Options", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Import options", None))
         self.label_5.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Import arch IFC objects as", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Parametric BIM objects", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Non-parametric BIM objects", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Simple Part shapes", None))
         self.comboBox.setItemText(3, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"One compound per floor", None))
-        self.comboBox.setItemText(4, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Do not import BIM objects", None))
+        self.comboBox.setItemText(4, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Do not import Arch objects", None))
 
 #if QT_CONFIG(tooltip)
         self.comboBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Specifies what kind of objects will be created in FreeCAD", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_6.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Import structure IFC objects as", None))
+        self.label_6.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Import struct IFC objects as", None))
         self.comboBox_2.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Non-parametric BIM objects", None))
         self.comboBox_2.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Simple Part shapes", None))
         self.comboBox_2.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"One compound for all", None))
@@ -348,7 +348,7 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         self.checkBox_22.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"IFC files can contain unclean or non-solid geometry. If this option is checked, all the geometry is imported, regardless of their validity.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_22.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Allow invalid shapes", None))
-        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Exclude list", None))
+        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Exclude list:", None))
 #if QT_CONFIG(tooltip)
         self.gui__preflineedit.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Comma-separated list of IFC entities to be excluded from imports", None))
 #endif // QT_CONFIG(tooltip)

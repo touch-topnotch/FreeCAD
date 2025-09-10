@@ -84,17 +84,17 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"OK", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"This display lists all the components of the current document. Select them to create a FreeCAD spreadsheet containing information from them.", None))
-        self.label_3.setText(QCoreApplication.translate("Dialog", u"This dialog window will help generate a list of components, dimensions, and materials from an opened BIM file for quantity surveyor purposes.", None))
-        self.label_4.setText(QCoreApplication.translate("Dialog", u"Select from these options the values desired from each component. FreeCAD will generate a line in the spreadsheet with these values (if they are present).", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"This screen lists all the components of the current document. You can select them to create a FreeCAD spreadsheet containing information from them.", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"This dialogue window will help you to generate list of components, dimensions, materials from a opened BIM file for Quantity Surveyor purposes.", None))
+        self.label_4.setText(QCoreApplication.translate("Dialog", u"Select from these options the values you want from each component. FreeCAD will generate a line in the spreadsheet with these values (if they are present).", None))
         self.checkBox.setText(QCoreApplication.translate("Dialog", u"object.Length", None))
         self.checkBox_2.setText(QCoreApplication.translate("Dialog", u"Shape.Volume", None))
         self.checkBox_3.setText(QCoreApplication.translate("Dialog", u"object.Label", None))
         self.checkBox_4.setText(QCoreApplication.translate("Dialog", u"count", None))
         self.checkBox_5.setText("")
-        self.label_5.setText(QCoreApplication.translate("Dialog", u"Select these components from the list to hide the rest of them and move to survey mode.", None))
+        self.label_5.setText(QCoreApplication.translate("Dialog", u"Select these components from the list if you want to hide the rest of them and move to Survey mode.", None))
         self.checkBox_6.setText("")
         self.checkBox_7.setText("")
-        self.label_6.setText(QCoreApplication.translate("Dialog", u"Select these components from the list to hide the rest of them and move to schedule definition mode.", None))
+        self.label_6.setText(QCoreApplication.translate("Dialog", u"Select these components from the list if you want to hide the rest of them and move to schedule definition mode.", None))
     # retranslateUi
 

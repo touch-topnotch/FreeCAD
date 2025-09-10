@@ -178,8 +178,8 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Spaces Manager", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"This screen enables checking the spaces configuration and editing of attributes in the project.", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Spaces manager", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"This screen will allow you to check the spaces configuration of your project and change some attributes.", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(2, QCoreApplication.translate("Dialog", u"Area", None));
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Dialog", u"Color", None));
@@ -191,7 +191,7 @@ class Ui_Dialog(object):
         self.label_14.setText(QCoreApplication.translate("Dialog", u"Electric consumption", None))
         self.label_15.setText(QCoreApplication.translate("Dialog", u"0", None))
         self.label_16.setText(QCoreApplication.translate("Dialog", u"0 W", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Dialog", u"Space Information", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Dialog", u"Space information", None))
         self.label_10.setText(QCoreApplication.translate("Dialog", u"Color", None))
         self.label_3.setText(QCoreApplication.translate("Dialog", u"Area", None))
         self.label_6.setText(QCoreApplication.translate("Dialog", u"Occupants", None))

@@ -95,17 +95,18 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"BIM Tutorial", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"BIM tutorial", None))
         self.textEdit.setHtml(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Fira Sans'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Loading tutorial contents from the FreeCAD wiki. Please wait\u2026</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Loading tutorials contents from the FreeCAD wiki. Please wait...</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">If this is the first time viewing the tutorial, this can take a while. Subsequent runs will complete more quickly.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px;"
-                        " margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>", None))
-        self.labelTasks.setText(QCoreApplication.translate("Form", u"Tasks to complete", None))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">If this is the first time you are using the tutorial, this can take a while, since we need to download many images. On next runs, this will be faster as the images are cached locally.</p>\n"
+"<p style=\"-qt-paragr"
+                        "aph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">When the tutorial is fully written, we'll think of a faster system to avoid this annoying loading time. Please bear with us in the meantime! ;)</p></body></html>", None))
+        self.labelTasks.setText(QCoreApplication.translate("Form", u"Tasks to complete:", None))
         self.labelGoal1.setText(QCoreApplication.translate("Form", u"Goal1", None))
         self.labelIcon1.setText(QCoreApplication.translate("Form", u"icon", None))
         self.labelGoal2.setText(QCoreApplication.translate("Form", u"Goal2", None))

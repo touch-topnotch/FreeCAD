@@ -185,24 +185,25 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Working Plane Setup", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Choose an option below. Or define a working plane by selecting 3 vertices, 1 or more shapes, or a working plane proxy, and then confirm with a click in the 3D view.", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Working plane setup", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Select 3 vertices, one or more shapes or a WP Proxy. Then confirm by clicking in the 3D view.\n"
+"Or choose one of the options below.", None))
 #if QT_CONFIG(tooltip)
-        self.buttonTop.setToolTip(QCoreApplication.translate("Form", u"Sets the working plane to the XY-plane (ground plane)", None))
+        self.buttonTop.setToolTip(QCoreApplication.translate("Form", u"Sets the working plane to the XY plane (ground plane)", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonTop.setText(QCoreApplication.translate("Form", u"Top (XY)", None))
 #if QT_CONFIG(tooltip)
-        self.buttonFront.setToolTip(QCoreApplication.translate("Form", u"Sets the working plane to the XZ-plane (front plane)", None))
+        self.buttonFront.setToolTip(QCoreApplication.translate("Form", u"Sets the working plane to the XZ plane (front plane)", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonFront.setText(QCoreApplication.translate("Form", u"Front (XZ)", None))
 #if QT_CONFIG(tooltip)
-        self.buttonSide.setToolTip(QCoreApplication.translate("Form", u"Sets the working plane to the YZ-plane (side plane)", None))
+        self.buttonSide.setToolTip(QCoreApplication.translate("Form", u"Sets the working plane to the YZ plane (side plane)", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonSide.setText(QCoreApplication.translate("Form", u"Side (YZ)", None))
 #if QT_CONFIG(tooltip)
         self.buttonAlign.setToolTip(QCoreApplication.translate("Form", u"Sets the working plane facing the current view", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonAlign.setText(QCoreApplication.translate("Form", u"Align to View", None))
+        self.buttonAlign.setText(QCoreApplication.translate("Form", u"Align to view", None))
 #if QT_CONFIG(tooltip)
         self.buttonAuto.setToolTip(QCoreApplication.translate("Form", u"The working plane will align to the current\n"
 "view each time a command is started", None))
@@ -224,7 +225,8 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.label_5.setText(QCoreApplication.translate("Form", u"Center plane on view", None))
 #if QT_CONFIG(tooltip)
-        self.checkCenter.setToolTip(QCoreApplication.translate("Form", u"Centers the working plane on the current view when pressing one\n"
+        self.checkCenter.setToolTip(QCoreApplication.translate("Form", u"If this is selected, the working plane will be\n"
+"centered on the current view when pressing one\n"
 "of the buttons above", None))
 #endif // QT_CONFIG(tooltip)
         self.checkCenter.setText("")
@@ -234,7 +236,7 @@ class Ui_Form(object):
 "orientation. If no point is selected, the plane\n"
 "will be moved to the center of the view.", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonMove.setText(QCoreApplication.translate("Form", u"Move Working Plane", None))
+        self.buttonMove.setText(QCoreApplication.translate("Form", u"Move working plane", None))
 #if QT_CONFIG(tooltip)
         self.label_9.setToolTip(QCoreApplication.translate("Form", u"The color of the grid", None))
 #endif // QT_CONFIG(tooltip)
@@ -258,11 +260,11 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.fieldGridMainLine.setSuffix(QCoreApplication.translate("Form", u" squares", None))
 #if QT_CONFIG(tooltip)
-        self.label_8.setToolTip(QCoreApplication.translate("Form", u"The number of squares in the X- and Y-direction of the grid", None))
+        self.label_8.setToolTip(QCoreApplication.translate("Form", u"The number of squares in the X and Y direction of the grid", None))
 #endif // QT_CONFIG(tooltip)
         self.label_8.setText(QCoreApplication.translate("Form", u"Grid size", None))
 #if QT_CONFIG(tooltip)
-        self.fieldGridExtension.setToolTip(QCoreApplication.translate("Form", u"The number of squares in the X- and Y-direction of the grid", None))
+        self.fieldGridExtension.setToolTip(QCoreApplication.translate("Form", u"The number of squares in the X and Y direction of the grid", None))
 #endif // QT_CONFIG(tooltip)
         self.fieldGridExtension.setSuffix(QCoreApplication.translate("Form", u" squares", None))
 #if QT_CONFIG(tooltip)
@@ -276,7 +278,7 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.buttonCenter.setToolTip(QCoreApplication.translate("Form", u"Centers the view on the current working plane", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonCenter.setText(QCoreApplication.translate("Form", u"Center View", None))
+        self.buttonCenter.setText(QCoreApplication.translate("Form", u"Center view", None))
 #if QT_CONFIG(tooltip)
         self.buttonPrevious.setToolTip(QCoreApplication.translate("Form", u"Resets the working plane to its previous position", None))
 #endif // QT_CONFIG(tooltip)

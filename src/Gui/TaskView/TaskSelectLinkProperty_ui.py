@@ -30,19 +30,19 @@ class Ui_Gui_TaskView_TaskSelectLinkProperty(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.Remove = QToolButton(Gui__TaskView__TaskSelectLinkProperty)
         self.Remove.setObjectName(u"Remove")
-        self.Remove.setText(u"\u2026")
+        self.Remove.setText(u"...")
 
         self.horizontalLayout.addWidget(self.Remove)
 
         self.Add = QToolButton(Gui__TaskView__TaskSelectLinkProperty)
         self.Add.setObjectName(u"Add")
-        self.Add.setText(u"\u2026")
+        self.Add.setText(u"...")
 
         self.horizontalLayout.addWidget(self.Add)
 
         self.Invert = QToolButton(Gui__TaskView__TaskSelectLinkProperty)
         self.Invert.setObjectName(u"Invert")
-        self.Invert.setText(u"\u2026")
+        self.Invert.setText(u"...")
 
         self.horizontalLayout.addWidget(self.Invert)
 
@@ -52,7 +52,7 @@ class Ui_Gui_TaskView_TaskSelectLinkProperty(object):
 
         self.Help = QToolButton(Gui__TaskView__TaskSelectLinkProperty)
         self.Help.setObjectName(u"Help")
-        self.Help.setText(u"\u2026")
+        self.Help.setText(u"...")
 
         self.horizontalLayout.addWidget(self.Help)
 

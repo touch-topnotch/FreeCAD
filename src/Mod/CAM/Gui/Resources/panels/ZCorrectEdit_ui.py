@@ -50,7 +50,7 @@ class Ui_TaskPanel(object):
 
         self.SetProbePointFileName = QToolButton(self.groupBox_3)
         self.SetProbePointFileName.setObjectName(u"SetProbePointFileName")
-        self.SetProbePointFileName.setText(u"\u2026")
+        self.SetProbePointFileName.setText(u"...")
 
         self.gridLayout_3.addWidget(self.SetProbePointFileName, 0, 2, 1, 1)
 

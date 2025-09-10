@@ -106,10 +106,10 @@ class Ui_TaskPathSimulator(object):
 
     def retranslateUi(self, TaskPathSimulator):
         TaskPathSimulator.setWindowTitle(QCoreApplication.translate("TaskPathSimulator", u"Path Simulator", None))
-        self.label_4.setText(QCoreApplication.translate("TaskPathSimulator", u"Accuracy", None))
-        self.label.setText(QCoreApplication.translate("TaskPathSimulator", u"Job", None))
+        self.label_4.setText(QCoreApplication.translate("TaskPathSimulator", u"Accuracy:", None))
+        self.label.setText(QCoreApplication.translate("TaskPathSimulator", u"Job:", None))
 #if QT_CONFIG(tooltip)
-        self.toolButtonPlay.setToolTip(QCoreApplication.translate("TaskPathSimulator", u"Activate/resume simulation", None))
+        self.toolButtonPlay.setToolTip(QCoreApplication.translate("TaskPathSimulator", u"Activate / resume simulation", None))
 #endif // QT_CONFIG(tooltip)
         self.toolButtonPlay.setText(QCoreApplication.translate("TaskPathSimulator", u"Play", None))
     # retranslateUi

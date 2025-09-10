@@ -268,7 +268,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsDraft):
-        Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Grid and Snapping", None))
+        Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Grid and snapping", None))
         self.groupBox_1.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Grid", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_alwaysShowGrid.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the grid will always be visible in new views.\n"
@@ -307,7 +307,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 #endif // QT_CONFIG(tooltip)
         self.label_gridSize.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Grid size", None))
 #if QT_CONFIG(tooltip)
-        self.spinBox_gridSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"The number of squares in the X- and Y-direction of the grid", None))
+        self.spinBox_gridSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"The number of squares in the X and Y direction of the grid", None))
 #endif // QT_CONFIG(tooltip)
         self.spinBox_gridSize.setSuffix(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u" squares", None))
         self.label_gridTransparency.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Grid transparency", None))
@@ -319,7 +319,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 #if QT_CONFIG(tooltip)
         self.colorButton_gridColor.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"The color of the grid", None))
 #endif // QT_CONFIG(tooltip)
-        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Snapping and Modifier Keys", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Snapping and modifier keys", None))
         self.label_snapStyle.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Snap symbol style", None))
         self.comboBox_snapStyle.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Draft classic style", None))
         self.comboBox_snapStyle.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Bitsnpieces style", None))
@@ -349,7 +349,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.comboBox_modconstrain.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Alt", None))
 
 #if QT_CONFIG(tooltip)
-        self.comboBox_modconstrain.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"The constrain modifier key", None))
+        self.comboBox_modconstrain.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"The Constrain modifier key", None))
 #endif // QT_CONFIG(tooltip)
         self.label_modalt.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Alt modifier", None))
         self.comboBox_modalt.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Shift", None))

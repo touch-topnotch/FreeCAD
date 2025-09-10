@@ -57,7 +57,7 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
 
         self.tbDefaultFilePath = QToolButton(self.groupBox_4)
         self.tbDefaultFilePath.setObjectName(u"tbDefaultFilePath")
-        self.tbDefaultFilePath.setText(u"\u2026")
+        self.tbDefaultFilePath.setText(u"...")
 
         self.gridLayout_2.addWidget(self.tbDefaultFilePath, 0, 3, 1, 1)
 
@@ -73,7 +73,7 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
 
         self.tbDefaultJobTemplate = QToolButton(self.groupBox_4)
         self.tbDefaultJobTemplate.setObjectName(u"tbDefaultJobTemplate")
-        self.tbDefaultJobTemplate.setText(u"\u2026")
+        self.tbDefaultJobTemplate.setText(u"...")
 
         self.gridLayout_2.addWidget(self.tbDefaultJobTemplate, 1, 3, 1, 1)
 
@@ -160,7 +160,7 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
 
         self.tbOutputFile = QToolButton(self.groupBox_2)
         self.tbOutputFile.setObjectName(u"tbOutputFile")
-        self.tbOutputFile.setText(u"\u2026")
+        self.tbOutputFile.setText(u"...")
 
         self.horizontalLayout_2.addWidget(self.tbOutputFile)
 
@@ -250,7 +250,7 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
 
         self.verticalLayout.addItem(self.verticalSpacer_2)
 
-        self.toolBox.addItem(self.page_2, u"Post processor")
+        self.toolBox.addItem(self.page_2, u"Post Processor")
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
         self.page_3.setGeometry(QRect(0, 0, 662, 755))
@@ -557,21 +557,21 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
 #endif // QT_CONFIG(tooltip)
         self.label_8.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Template", None))
 #if QT_CONFIG(tooltip)
-        self.leDefaultJobTemplate.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"The default template to be selected when creating a new job.\n"
+        self.leDefaultJobTemplate.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"The default template to be selected when creating a new Job.\n"
 "\n"
 "This can be helpful when almost all jobs will be processed by the same machine with a similar setup.\n"
 "\n"
 "If left empty no template will be preselected.", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Geometry", None))
-        self.label_6.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default geometry tolerance", None))
+        self.label_6.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default Geometry Tolerance", None))
 #if QT_CONFIG(tooltip)
-        self.geometryTolerance.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default value for new jobs, used for computing Paths. Smaller increases accuracy, but slows down computation", None))
+        self.geometryTolerance.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default value for new Jobs, used for computing Paths.  Smaller increases accuracy, but slows down computation", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_12.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default curve accuracy", None))
+        self.label_12.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default Curve Accuracy", None))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"General", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Output File", None))
-        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default path", None))
+        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default Path", None))
 #if QT_CONFIG(tooltip)
         self.leOutputFile.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Enter a path and optionally file name (see below) to be used as the default for the post processor export.\n"
 "The following substitutions are performed before the name is resolved at the time of the post processing:\n"
@@ -600,9 +600,9 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
 "&quot;/home/cnc/%d.g-code&quot;\n"
 "See the file save policy below on how to deal with name conflicts.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_5.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"File save policy", None))
-        self.cboOutputPolicy.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Open file dialog", None))
-        self.cboOutputPolicy.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Open file dialog on conflict", None))
+        self.label_5.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"File Save Policy", None))
+        self.cboOutputPolicy.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Open File Dialog", None))
+        self.cboOutputPolicy.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Open File Dialog on conflict", None))
         self.cboOutputPolicy.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Overwrite existing file", None))
         self.cboOutputPolicy.setItemText(3, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Append Unique ID on conflict", None))
 
@@ -610,23 +610,23 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
         self.cboOutputPolicy.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Choose how to deal with potential file name conflicts. Always open a dialog, only open a dialog if the output file already exists, overwrite any existing file or add a unique (3 digit) sequential ID to the file name.", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Post Processor", None))
-        self.label_3.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Post processors selection", None))
+        self.label_3.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Post Processors Selection", None))
 #if QT_CONFIG(tooltip)
         self.postProcessorList.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"It doesn't seem there are any post processor scripts installed. Please add some into your macro directory and make sure the file name ends with &quot;_post.py&quot;.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default post processor", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default Post Processor", None))
 #if QT_CONFIG(tooltip)
-        self.defaultPostProcessor.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Select one of the post processors as the default", None))
+        self.defaultPostProcessor.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Select one of the post processors as the default.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default arguments", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Default Arguments", None))
 #if QT_CONFIG(tooltip)
-        self.defaultPostProcessorArgs.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Optional arguments passed to the default post processor specified above. See the post processor's documentation for supported arguments.", None))
+        self.defaultPostProcessorArgs.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Optional arguments passed to the default Post Processor specified above. See the Post Processor's documentation for supported arguments.", None))
 #endif // QT_CONFIG(tooltip)
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Post processor", None))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Post Processor", None))
         self.stockGroup.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Stock", None))
-        self.stock.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Create box", None))
-        self.stock.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Create cylinder", None))
-        self.stock.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Extend model's bounding box", None))
+        self.stock.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Create Box", None))
+        self.stock.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Create Cylinder", None))
+        self.stock.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Extend Model's Bounding Box", None))
 
         self.stockExtXLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Ext. X", None))
         self.stockExtYLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Ext. Y", None))
@@ -642,7 +642,7 @@ class Ui_Gui_Dialog_DlgSettingsPath(object):
         self.label_10.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Position", None))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_3), QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"Setup", None))
 #if QT_CONFIG(tooltip)
-        self.toolsAbsolutePaths.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"References to tool bits and their shapes can either be stored with an absolute path or with a relative path to the search path.\n"
+        self.toolsAbsolutePaths.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPath", u"References to Tool Bits and their shapes can either be stored with an absolute path or with a relative path to the search path.\n"
 "Generally it is recommended to use relative paths due to their flexibility and robustness to layout changes.\n"
 "Should multiple tools or tool shapes with the same name exist in different directories it can be required to use absolute paths.", None))
 #endif // QT_CONFIG(tooltip)

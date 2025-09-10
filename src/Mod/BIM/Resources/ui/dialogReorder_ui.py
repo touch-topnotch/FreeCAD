@@ -53,7 +53,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Drag items to reorder them", None))
-        self.pushButton.setText(QCoreApplication.translate("Form", u"Order Alphabetically", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Drag items to reorder then press OK to accept", None))
+        self.pushButton.setText(QCoreApplication.translate("Form", u"Order alphabetically", None))
     # retranslateUi
 

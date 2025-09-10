@@ -59,8 +59,8 @@ class Ui_Gui_Dialog_DlgOnlineHelp(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgOnlineHelp):
-        Gui__Dialog__DlgOnlineHelp.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgOnlineHelp", u"Online Help", None))
-        self.GroupBoxOther.setTitle(QCoreApplication.translate("Gui::Dialog::DlgOnlineHelp", u"Help Viewer", None))
+        Gui__Dialog__DlgOnlineHelp.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgOnlineHelp", u"On-line help", None))
+        self.GroupBoxOther.setTitle(QCoreApplication.translate("Gui::Dialog::DlgOnlineHelp", u"Help viewer", None))
         self.TextLabelURL.setText(QCoreApplication.translate("Gui::Dialog::DlgOnlineHelp", u"Location of start page", None))
     # retranslateUi
 

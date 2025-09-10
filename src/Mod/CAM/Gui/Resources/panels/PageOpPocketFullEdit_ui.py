@@ -53,11 +53,6 @@ class Ui_Form(object):
 
         self.gridLayout_3.addWidget(self.coolantController, 1, 1, 1, 1)
 
-        self.editToolController = QCheckBox(self.frame)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout_3.addWidget(self.editToolController, 2, 0, 1, 2)
-
 
         self.gridLayout_4.addWidget(self.frame, 0, 0, 1, 1)
 
@@ -196,7 +191,7 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.toolController_label.setText(QCoreApplication.translate("Form", u"Tool controller", None))
+        self.toolController_label.setText(QCoreApplication.translate("Form", u"Tool Controller", None))
 #if QT_CONFIG(tooltip)
         self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
 #endif // QT_CONFIG(tooltip)
@@ -204,12 +199,11 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
 #endif // QT_CONFIG(tooltip)
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
         self.boundaryShape_label.setText(QCoreApplication.translate("Form", u"Boundary Shape", None))
 #if QT_CONFIG(tooltip)
         self.boundaryShape.setToolTip(QCoreApplication.translate("Form", u"Specify if the facing should be restricted by the actual shape of the selected face (or the part if no face is selected), or if the bounding box should be faced off.\n"
 "\n"
-"The latter can be used to face of the entire stock area to ensure uniform heights for the following operations.", None))
+"The latter can be used to face of the entire stock area to ensure uniform heights for the following operations", None))
 #endif // QT_CONFIG(tooltip)
         self.cutMode_label.setText(QCoreApplication.translate("Form", u"Cut Mode", None))
         self.cutMode.setItemText(0, QCoreApplication.translate("Form", u"Climb", None))
@@ -233,28 +227,28 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.zigZagAngle.setToolTip(QCoreApplication.translate("Form", u"Angle in which the pattern is applied", None))
 #endif // QT_CONFIG(tooltip)
-        self.stepOverPercent_label.setText(QCoreApplication.translate("Form", u"Step over percent", None))
+        self.stepOverPercent_label.setText(QCoreApplication.translate("Form", u"Step Over Percent", None))
 #if QT_CONFIG(tooltip)
         self.stepOverPercent.setToolTip(QCoreApplication.translate("Form", u"The amount by which the tool is laterally displaced on each cycle of the pattern, specified in percent of the tool diameter. A step over of 100% results in no overlap between two different cycles", None))
 #endif // QT_CONFIG(tooltip)
-        self.extraOffset_label.setText(QCoreApplication.translate("Form", u"Material allowance", None))
+        self.extraOffset_label.setText(QCoreApplication.translate("Form", u"Material Allowance", None))
 #if QT_CONFIG(tooltip)
         self.extraOffset.setToolTip(QCoreApplication.translate("Form", u"The amount of material that should be left by this operation in relation to the target shape", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.useStartPoint.setToolTip(QCoreApplication.translate("Form", u"Specify if this operation uses a starting point", None))
 #endif // QT_CONFIG(tooltip)
-        self.useStartPoint.setText(QCoreApplication.translate("Form", u"Use start point", None))
+        self.useStartPoint.setText(QCoreApplication.translate("Form", u"Use Start Point", None))
 #if QT_CONFIG(tooltip)
         self.useOutline.setToolTip(QCoreApplication.translate("Form", u"If selected the operation uses the outline of the selected base geometry and ignores all holes and islands", None))
 #endif // QT_CONFIG(tooltip)
-        self.useOutline.setText(QCoreApplication.translate("Form", u"Use outline", None))
-        self.clearEdges.setText(QCoreApplication.translate("Form", u"Clear edges", None))
-        self.minTravel.setText(QCoreApplication.translate("Form", u"Min travel", None))
+        self.useOutline.setText(QCoreApplication.translate("Form", u"Use Outline", None))
+        self.clearEdges.setText(QCoreApplication.translate("Form", u"Clear Edges", None))
+        self.minTravel.setText(QCoreApplication.translate("Form", u"Min Travel", None))
 #if QT_CONFIG(tooltip)
         self.useRestMachining.setToolTip(QCoreApplication.translate("Form", u"Check to skip machining regions that have already been cleared by previous operations", None))
 #endif // QT_CONFIG(tooltip)
-        self.useRestMachining.setText(QCoreApplication.translate("Form", u"Use rest machining", None))
+        self.useRestMachining.setText(QCoreApplication.translate("Form", u"Use Rest Machining", None))
         pass
     # retranslateUi
 

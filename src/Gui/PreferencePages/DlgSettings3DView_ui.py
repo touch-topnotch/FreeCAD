@@ -300,12 +300,12 @@ class Ui_Gui_Dialog_DlgSettings3DView(object):
 "lower right corner within opened files", None))
 #endif // QT_CONFIG(tooltip)
         self.CheckBox_CornerCoordSystem.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Show coordinate system in the corner", None))
-        self.labelCoordSize.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Relative size", None))
+        self.labelCoordSize.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Relative size:", None))
 #if QT_CONFIG(tooltip)
         self.SpinBox_CornerCoordSystemSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Size of main coordinate system representation\n"
-"in the corner in % of height/width of the viewport", None))
+"in the corner -- in % of height/width of viewport", None))
 #endif // QT_CONFIG(tooltip)
-        self.axisLetterColorLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Letter color", None))
+        self.axisLetterColorLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Letter color:", None))
 #if QT_CONFIG(tooltip)
         self.axisLetterColor.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Axis letter and FPS counter color", None))
 #endif // QT_CONFIG(tooltip)
@@ -328,6 +328,7 @@ class Ui_Gui_Dialog_DlgSettings3DView(object):
         self.GroupBox12.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Rendering", None))
 #if QT_CONFIG(tooltip)
         self.CheckBox_use_SW_OpenGL.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"This option is useful for troubleshooting graphics card and driver problems.\n"
+"\n"
 "Changing this option requires a restart of the application.", None))
 #endif // QT_CONFIG(tooltip)
         self.CheckBox_use_SW_OpenGL.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Use software OpenGL", None))
@@ -337,25 +338,25 @@ class Ui_Gui_Dialog_DlgSettings3DView(object):
 "vertex data (position, normal vector, color, etc.) to the graphics card.\n"
 "VBOs offer substantial performance gains because the data resides\n"
 "in the graphics memory rather than the system memory and so it\n"
-"can be rendered directly by the GPU.\n"
+"can be rendered directly by GPU.\n"
 "\n"
 "Note: Sometimes this feature may lead to a host of different\n"
 "issues ranging from graphical anomalies to GPU crash bugs. Remember to\n"
-"report this setting as enabled when seeking support.", None))
+"report this setting as enabled when seeking support on the FreeCAD forums", None))
 #endif // QT_CONFIG(tooltip)
         self.CheckBox_useVBO.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Use OpenGL VBO (Vertex Buffer Object)", None))
 #if QT_CONFIG(tooltip)
-        self.comboAliasing.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Method of multisample anti-aliasing", None))
+        self.comboAliasing.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"What kind of multisample anti-aliasing is used", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.markerSizeLabel.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.markerSizeLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Marker size", None))
-        self.aliasingLAbel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Anti-aliasing", None))
+        self.markerSizeLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Marker size:", None))
+        self.aliasingLAbel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Anti-Aliasing", None))
 #if QT_CONFIG(tooltip)
         self.transparentRenderLabel.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.transparentRenderLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Transparent objects", None))
+        self.transparentRenderLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Transparent objects:", None))
         self.comboTransparentRender.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"One pass", None))
         self.comboTransparentRender.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Backface pass", None))
 
@@ -367,7 +368,7 @@ class Ui_Gui_Dialog_DlgSettings3DView(object):
         self.renderCache.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Centralized", None))
 
 #if QT_CONFIG(tooltip)
-        self.renderCache.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"'Render caching' is another way to say 'Rendering acceleration'.\n"
+        self.renderCache.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"'Render Caching' is another way to say 'Rendering Acceleration'.\n"
 "There are 3 options available to achieve this:\n"
 "1) 'Auto' (default), let Coin3D decide where to cache.\n"
 "2) 'Distributed', manually turn on cache for all view provider root node.\n"
@@ -385,13 +386,13 @@ class Ui_Gui_Dialog_DlgSettings3DView(object):
 "The specified value is a factor that will be multiplied with the\n"
 "bounding box size of the 3D object that is currently displayed.", None))
 #endif // QT_CONFIG(tooltip)
-        self.groupBoxCamera.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Camera Type", None))
+        self.groupBoxCamera.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Camera type", None))
 #if QT_CONFIG(tooltip)
         self.radioPerspective.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Objects will appear in a perspective projection", None))
 #endif // QT_CONFIG(tooltip)
         self.radioPerspective.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Perspective renderin&g", None))
 #if QT_CONFIG(tooltip)
-        self.radioOrthographic.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Objects will be in orthographic projection", None))
+        self.radioOrthographic.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Objects will be projected in orthographic projection", None))
 #endif // QT_CONFIG(tooltip)
         self.radioOrthographic.setText(QCoreApplication.translate("Gui::Dialog::DlgSettings3DView", u"Or&thographic rendering", None))
     # retranslateUi

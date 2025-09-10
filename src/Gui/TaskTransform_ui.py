@@ -136,128 +136,10 @@ class Ui_Gui_TaskTransformDialog(object):
         self.verticalLayout.setSpacing(6)
         self.verticalLayout.setContentsMargins(11, 11, 11, 11)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(6)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(-1, 6, -1, -1)
         self.alignToOtherObjectButton = QPushButton(self.groupBox)
         self.alignToOtherObjectButton.setObjectName(u"alignToOtherObjectButton")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.alignToOtherObjectButton.sizePolicy().hasHeightForWidth())
-        self.alignToOtherObjectButton.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout_2.addWidget(self.alignToOtherObjectButton)
-
-        self.moveOptionsButton = QPushButton(self.groupBox)
-        self.moveOptionsButton.setObjectName(u"moveOptionsButton")
-        icon = QIcon(QIcon.fromTheme(u"preferences-other"))
-        self.moveOptionsButton.setIcon(icon)
-        self.moveOptionsButton.setCheckable(True)
-        self.moveOptionsButton.setChecked(False)
-
-        self.horizontalLayout_2.addWidget(self.moveOptionsButton)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-
-        self.frameMoveOptions = QFrame(self.groupBox)
-        self.frameMoveOptions.setObjectName(u"frameMoveOptions")
-        self.frameMoveOptions.setVisible(False)
-        self.frameMoveOptions.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frameMoveOptions.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frameMoveOptions)
-        self.verticalLayout_2.setSpacing(6)
-        self.verticalLayout_2.setContentsMargins(11, 11, 11, 11)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setSpacing(6)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(-1, 6, -1, -1)
-        self.translateCheckbox = QCheckBox(self.frameMoveOptions)
-        self.translateCheckbox.setObjectName(u"translateCheckbox")
-        self.translateCheckbox.setChecked(True)
-
-        self.horizontalLayout.addWidget(self.translateCheckbox)
-
-        self.rotateCheckbox = QCheckBox(self.frameMoveOptions)
-        self.rotateCheckbox.setObjectName(u"rotateCheckbox")
-        self.rotateCheckbox.setChecked(True)
-
-        self.horizontalLayout.addWidget(self.rotateCheckbox)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout)
-
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setSpacing(6)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(-1, 0, -1, 6)
-        self.matchXcheckbox = QCheckBox(self.frameMoveOptions)
-        self.matchXcheckbox.setObjectName(u"matchXcheckbox")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.matchXcheckbox.sizePolicy().hasHeightForWidth())
-        self.matchXcheckbox.setSizePolicy(sizePolicy2)
-        self.matchXcheckbox.setChecked(True)
-
-        self.gridLayout_2.addWidget(self.matchXcheckbox, 0, 1, 1, 1)
-
-        self.matchYcheckbox = QCheckBox(self.frameMoveOptions)
-        self.matchYcheckbox.setObjectName(u"matchYcheckbox")
-        sizePolicy2.setHeightForWidth(self.matchYcheckbox.sizePolicy().hasHeightForWidth())
-        self.matchYcheckbox.setSizePolicy(sizePolicy2)
-        self.matchYcheckbox.setChecked(True)
-
-        self.gridLayout_2.addWidget(self.matchYcheckbox, 1, 1, 1, 1)
-
-        self.matchZcheckbox = QCheckBox(self.frameMoveOptions)
-        self.matchZcheckbox.setObjectName(u"matchZcheckbox")
-        sizePolicy2.setHeightForWidth(self.matchZcheckbox.sizePolicy().hasHeightForWidth())
-        self.matchZcheckbox.setSizePolicy(sizePolicy2)
-        self.matchZcheckbox.setChecked(True)
-
-        self.gridLayout_2.addWidget(self.matchZcheckbox, 2, 1, 1, 1)
-
-        self.alignXcheckbox = QCheckBox(self.frameMoveOptions)
-        self.alignXcheckbox.setObjectName(u"alignXcheckbox")
-        sizePolicy2.setHeightForWidth(self.alignXcheckbox.sizePolicy().hasHeightForWidth())
-        self.alignXcheckbox.setSizePolicy(sizePolicy2)
-        self.alignXcheckbox.setChecked(True)
-
-        self.gridLayout_2.addWidget(self.alignXcheckbox, 0, 3, 1, 1)
-
-        self.alignYcheckbox = QCheckBox(self.frameMoveOptions)
-        self.alignYcheckbox.setObjectName(u"alignYcheckbox")
-        sizePolicy2.setHeightForWidth(self.alignYcheckbox.sizePolicy().hasHeightForWidth())
-        self.alignYcheckbox.setSizePolicy(sizePolicy2)
-        self.alignYcheckbox.setChecked(True)
-
-        self.gridLayout_2.addWidget(self.alignYcheckbox, 1, 3, 1, 1)
-
-        self.alignZcheckbox = QCheckBox(self.frameMoveOptions)
-        self.alignZcheckbox.setObjectName(u"alignZcheckbox")
-        sizePolicy2.setHeightForWidth(self.alignZcheckbox.sizePolicy().hasHeightForWidth())
-        self.alignZcheckbox.setSizePolicy(sizePolicy2)
-        self.alignZcheckbox.setChecked(True)
-
-        self.gridLayout_2.addWidget(self.alignZcheckbox, 2, 3, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(18, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer, 0, 0, 1, 1)
-
-        self.horizontalSpacer_2 = QSpacerItem(18, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer_2, 1, 2, 1, 1)
-
-
-        self.verticalLayout_2.addLayout(self.gridLayout_2)
-
-
-        self.verticalLayout.addWidget(self.frameMoveOptions)
+        self.verticalLayout.addWidget(self.alignToOtherObjectButton)
 
         self.frame = QFrame(self.groupBox)
         self.frame.setObjectName(u"frame")
@@ -288,6 +170,9 @@ class Ui_Gui_TaskTransformDialog(object):
 
         self.snappingLabel = QLabel(self.transformOriginGroupBox)
         self.snappingLabel.setObjectName(u"snappingLabel")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.snappingLabel.sizePolicy().hasHeightForWidth())
         self.snappingLabel.setSizePolicy(sizePolicy1)
         self.snappingLabel.setFrameShape(QFrame.Shape.NoFrame)
@@ -458,32 +343,23 @@ class Ui_Gui_TaskTransformDialog(object):
 
     def retranslateUi(self, Gui__TaskTransformDialog):
         Gui__TaskTransformDialog.setWindowTitle(QCoreApplication.translate("Gui::TaskTransformDialog", u"Placement", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Coordinate system", None))
-        self.positionModeComboBox.setItemText(0, QCoreApplication.translate("Gui::TaskTransformDialog", u"Local coordinate system", None))
-        self.positionModeComboBox.setItemText(1, QCoreApplication.translate("Gui::TaskTransformDialog", u"Global coordinate system", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Coordinate System", None))
+        self.positionModeComboBox.setItemText(0, QCoreApplication.translate("Gui::TaskTransformDialog", u"Local Coordinate System", None))
+        self.positionModeComboBox.setItemText(1, QCoreApplication.translate("Gui::TaskTransformDialog", u"Global Coordinate System", None))
 
-        self.alignRotationCheckBox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Align dragger rotation with selected coordinate system", None))
+        self.alignRotationCheckBox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"align dragger rotation with selected coordinate system", None))
         self.positionGroupBox.setTitle(QCoreApplication.translate("Gui::TaskTransformDialog", u"Translation", None))
         self.xPositionLabel.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"X", None))
         self.yPositionLabel.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Y", None))
         self.zPositionLabel.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Z", None))
         self.groupBox.setTitle(QCoreApplication.translate("Gui::TaskTransformDialog", u"Utilities", None))
-        self.alignToOtherObjectButton.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Move to Other Object", None))
-        self.moveOptionsButton.setText("")
-        self.translateCheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Translate", None))
-        self.rotateCheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Rotate", None))
-        self.matchXcheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Match U/X", None))
-        self.matchYcheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Match V/Y", None))
-        self.matchZcheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Match W/Z", None))
-        self.alignXcheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Align U/X", None))
-        self.alignYcheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Align V/Y", None))
-        self.alignZcheckbox.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Align W/Z", None))
+        self.alignToOtherObjectButton.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Move to other object", None))
         self.flipPartButton.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Flip", None))
         self.transformOriginGroupBox.setTitle(QCoreApplication.translate("Gui::TaskTransformDialog", u"Dragger", None))
         self.snappingLabel.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"<b>Snapping</b>", None))
         self.translationIncrementLabel.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Translation", None))
         self.referenceLabel.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Reference", None))
-        self.pickTransformOriginButton.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Pick Reference", None))
+        self.pickTransformOriginButton.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"pick reference", None))
         self.label.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Mode", None))
         self.rotationIncrementLabel.setText(QCoreApplication.translate("Gui::TaskTransformDialog", u"Rotation", None))
         self.rotationGroupBox.setTitle(QCoreApplication.translate("Gui::TaskTransformDialog", u"Rotation", None))

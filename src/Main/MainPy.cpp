@@ -83,8 +83,8 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID /*lpReser
 PyMOD_INIT_FUNC(FreeCAD)
 {
     // Init phase ===========================================================
-    App::Application::Config()["ExeName"] = "FreeCAD";
-    App::Application::Config()["ExeVendor"] = "FreeCAD";
+    App::Application::Config()["ExeName"] = "ARCHI";
+    App::Application::Config()["ExeVendor"] = "ARCHI";
     App::Application::Config()["AppDataSkipVendor"] = "true";
 
     QByteArray path;
@@ -187,7 +187,7 @@ PyMOD_INIT_FUNC(FreeCAD)
     std::cerr.rdbuf(&stdcerr);
 
     PyObject* modules = PyImport_GetModuleDict();
-    PyObject* module = PyDict_GetItemString(modules, "FreeCAD");
+    PyObject* module = PyDict_GetItemString(modules, "ARCHI");
     if (!module) {
         PyErr_SetString(PyExc_ImportError, "Failed to load FreeCAD module!");
     }

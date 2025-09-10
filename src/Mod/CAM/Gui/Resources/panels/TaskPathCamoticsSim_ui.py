@@ -84,6 +84,6 @@ class Ui_TaskPathSimulator(object):
         TaskPathSimulator.setWindowTitle(QCoreApplication.translate("TaskPathSimulator", u"Path Simulator", None))
         self.txtStatus.setText(QCoreApplication.translate("TaskPathSimulator", u"TextLabel", None))
         self.btnLaunchCamotics.setText(QCoreApplication.translate("TaskPathSimulator", u"Launch CAMotics", None))
-        self.btnMakeFile.setText(QCoreApplication.translate("TaskPathSimulator", u"New CAMotics File", None))
+        self.btnMakeFile.setText(QCoreApplication.translate("TaskPathSimulator", u"Make CAMotics File", None))
     # retranslateUi
 

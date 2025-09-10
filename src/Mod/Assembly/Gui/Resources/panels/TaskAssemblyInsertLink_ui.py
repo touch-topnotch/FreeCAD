@@ -79,12 +79,12 @@ class Ui_TaskAssemblyInsertLink(object):
     # setupUi
 
     def retranslateUi(self, TaskAssemblyInsertLink):
-        TaskAssemblyInsertLink.setWindowTitle(QCoreApplication.translate("TaskAssemblyInsertLink", u"Insert", None))
-        self.filterPartList.setPlaceholderText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Search parts\u2026", None))
-        self.label1.setText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Cannot find the part? ", None))
-        self.openFileButton.setText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Open File", None))
+        TaskAssemblyInsertLink.setWindowTitle(QCoreApplication.translate("TaskAssemblyInsertLink", u"Insert Component", None))
+        self.filterPartList.setPlaceholderText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Search parts...", None))
+        self.label1.setText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Don't find your part? ", None))
+        self.openFileButton.setText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Open file", None))
 #if QT_CONFIG(tooltip)
-        self.CheckBox_ShowOnlyParts.setToolTip(QCoreApplication.translate("TaskAssemblyInsertLink", u"Shows only parts in the list", None))
+        self.CheckBox_ShowOnlyParts.setToolTip(QCoreApplication.translate("TaskAssemblyInsertLink", u"If checked, the list will show only Parts.", None))
 #endif // QT_CONFIG(tooltip)
         self.CheckBox_ShowOnlyParts.setText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Show only parts", None))
 #if QT_CONFIG(tooltip)
@@ -92,7 +92,7 @@ class Ui_TaskAssemblyInsertLink(object):
 "Rigid means that the added sub-assembly will be considered as a solid unit within the parent assembly.\n"
 "Flexible means that the added sub-assembly will allow movement of its individual components' joints within the parent assembly.\n"
 "You can change this behavior at any time by either right-clicking the sub-assembly on the document tree and toggling the\n"
-"'Turn rigid'/'Turn flexible' command there, or by editing its Rigid property in the property editor.", None))
+"Turn rigid/Turn flexible command there, or by editing its Rigid property in the Property Editor.", None))
 #endif // QT_CONFIG(tooltip)
         self.CheckBox_RigidSubAsm.setText(QCoreApplication.translate("TaskAssemblyInsertLink", u"Rigid sub-assemblies", None))
     # retranslateUi

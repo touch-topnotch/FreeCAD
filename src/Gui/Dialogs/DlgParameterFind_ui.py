@@ -101,11 +101,11 @@ class Ui_Gui_Dialog_DlgParameterFind(object):
     def retranslateUi(self, Gui__Dialog__DlgParameterFind):
         Gui__Dialog__DlgParameterFind.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Find", None))
         self.groupBox_2.setTitle("")
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Find What", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Look At", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Find what:", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Look at", None))
         self.checkGroups.setText(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Groups", None))
         self.checkNames.setText(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Names", None))
         self.checkValues.setText(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Values", None))
-        self.checkMatch.setText(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Match exact string", None))
+        self.checkMatch.setText(QCoreApplication.translate("Gui::Dialog::DlgParameterFind", u"Match whole string only", None))
     # retranslateUi
 

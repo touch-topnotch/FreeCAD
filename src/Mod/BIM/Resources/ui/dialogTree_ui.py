@@ -78,7 +78,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC Representation", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC representation of", None))
         self.groupBox.setTitle(QCoreApplication.translate("Dialog", u"GroupBox", None))
         ___qtablewidgetitem = self.proptree.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Dialog", u"Property", None));

@@ -53,6 +53,6 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Nudge", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"New nudge value", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"New nudge value:", None))
     # retranslateUi
 

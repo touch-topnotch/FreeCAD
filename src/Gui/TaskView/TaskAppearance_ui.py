@@ -169,10 +169,10 @@ class Ui_Gui_TaskView_TaskAppearance(object):
 
     def retranslateUi(self, Gui__TaskView__TaskAppearance):
         Gui__TaskView__TaskAppearance.setWindowTitle(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Appearance", None))
-        self.textLabel1.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Document window", None))
-        self.textLabel1_3.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Plot mode", None))
-        self.textLabel2.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Point size", None))
-        self.textLabel3.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Line width", None))
-        self.textLabel1_2.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Transparency", None))
+        self.textLabel1.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Document window:", None))
+        self.textLabel1_3.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Plot mode:", None))
+        self.textLabel2.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Point size:", None))
+        self.textLabel3.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Line width:", None))
+        self.textLabel1_2.setText(QCoreApplication.translate("Gui::TaskView::TaskAppearance", u"Transparency:", None))
     # retranslateUi
 

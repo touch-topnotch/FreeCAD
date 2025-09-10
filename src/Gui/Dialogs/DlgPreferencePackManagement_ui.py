@@ -71,6 +71,6 @@ class Ui_Gui_Dialog_DlgPreferencePackManagement(object):
 
     def retranslateUi(self, Gui__Dialog__DlgPreferencePackManagement):
         Gui__Dialog__DlgPreferencePackManagement.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgPreferencePackManagement", u"Manage Preference Packs", None))
-        self.pushButtonOpenAddonManager.setText(QCoreApplication.translate("Gui::Dialog::DlgPreferencePackManagement", u"Open Addon Manager", None))
+        self.pushButtonOpenAddonManager.setText(QCoreApplication.translate("Gui::Dialog::DlgPreferencePackManagement", u"Open Addon Manager...", None))
     # retranslateUi
 

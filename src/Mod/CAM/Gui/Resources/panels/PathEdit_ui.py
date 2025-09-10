@@ -100,7 +100,7 @@ class Ui_pathEdit(object):
         self.templateExport.setGeometry(QRect(0, 0, 100, 30))
         self.verticalLayout_13 = QVBoxLayout(self.templateExport)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.jobBox.addItem(self.templateExport, u"Template export")
+        self.jobBox.addItem(self.templateExport, u"Template Export")
 
         self.verticalLayout_12.addWidget(self.jobBox)
 
@@ -121,7 +121,7 @@ class Ui_pathEdit(object):
 
         self.postProcessorSetOutputFile = QToolButton(self.tabOutput)
         self.postProcessorSetOutputFile.setObjectName(u"postProcessorSetOutputFile")
-        self.postProcessorSetOutputFile.setText(u"\u2026")
+        self.postProcessorSetOutputFile.setText(u"...")
 
         self.gridLayout.addWidget(self.postProcessorSetOutputFile, 0, 2, 1, 1)
 
@@ -766,7 +766,7 @@ class Ui_pathEdit(object):
 
         self.gridLayout_13.addItem(self.verticalSpacer_5, 3, 0, 1, 1)
 
-        self.toolBox_2.addItem(self.page_4, u"Default values")
+        self.toolBox_2.addItem(self.page_4, u"Default Values")
 
         self.verticalLayout.addWidget(self.toolBox_2)
 
@@ -1038,9 +1038,9 @@ class Ui_pathEdit(object):
         self.jobModelEdit.setText(QCoreApplication.translate("pathEdit", u"Edit", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("pathEdit", u"Description", None))
         self.jobBox.setItemText(self.jobBox.indexOf(self.page_5), QCoreApplication.translate("pathEdit", u"Job", None))
-        self.jobBox.setItemText(self.jobBox.indexOf(self.templateExport), QCoreApplication.translate("pathEdit", u"Template export", None))
+        self.jobBox.setItemText(self.jobBox.indexOf(self.templateExport), QCoreApplication.translate("pathEdit", u"Template Export", None))
         pathEdit.setTabText(pathEdit.indexOf(self.tabGeneral), QCoreApplication.translate("pathEdit", u"General", None))
-        self.label_9.setText(QCoreApplication.translate("pathEdit", u"Output file", None))
+        self.label_9.setText(QCoreApplication.translate("pathEdit", u"Output File", None))
 #if QT_CONFIG(tooltip)
         self.postProcessorOutputFile.setToolTip(QCoreApplication.translate("pathEdit", u"Enter a path and optionally file name (see below) to be used as the default for the post processor export.\n"
 "The following substitutions are performed before the name is resolved at the time of the post processing:\n"
@@ -1072,7 +1072,7 @@ class Ui_pathEdit(object):
         self.label_10.setText(QCoreApplication.translate("pathEdit", u"Processor", None))
         self.label_11.setText(QCoreApplication.translate("pathEdit", u"Arguments", None))
 #if QT_CONFIG(tooltip)
-        self.postProcessorArguments.setToolTip(QCoreApplication.translate("pathEdit", u"Optional arguments passed to the post processor. The arguments are specific for each post processor, please see its documentation for details.", None))
+        self.postProcessorArguments.setToolTip(QCoreApplication.translate("pathEdit", u"Optional arguments passed to the Post Processor. The arguments are specific for each Post Processor, please see its documentation for details.", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox_7.setTitle(QCoreApplication.translate("pathEdit", u"Work Coordinate Systems", None))
 #if QT_CONFIG(tooltip)
@@ -1085,7 +1085,7 @@ class Ui_pathEdit(object):
 "Ordering by operation will do each operation in all coordinate systems before moving to the next operation. This is especially useful in conjunction with the 'split output' even with only a single work coordinate system since it will put each operation into a separate file.", None))
 #endif // QT_CONFIG(tooltip)
         self.label.setText(QCoreApplication.translate("pathEdit", u"Systems", None))
-        self.label_2.setText(QCoreApplication.translate("pathEdit", u"Order by", None))
+        self.label_2.setText(QCoreApplication.translate("pathEdit", u"Order By", None))
 
         __sortingEnabled = self.wcslist.isSortingEnabled()
         self.wcslist.setSortingEnabled(False)
@@ -1096,7 +1096,7 @@ class Ui_pathEdit(object):
 "FreeCAD has no knowledge of where a particular coordinate system exists within the machine coordinate system so adding additional coordinate systems to your job will have no visual change within your job. It will, however, change your G-code output. The exact way in which the output is affected is controlled by the 'order by' setting.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.splitOutput.setToolTip(QCoreApplication.translate("pathEdit", u"If multiple coordinate systems are in use, setting this to TRUE will cause the G-code to be written to multiple output files as controlled by the 'order by' property. For example, if ordering by fixture, the first output file will be for the first fixture and separate file for the second.", None))
+        self.splitOutput.setToolTip(QCoreApplication.translate("pathEdit", u"If multiple coordinate systems are in use, setting this to TRUE will cause the G-code to be written to multiple output files as controlled by the 'order by' property. For example, if ordering by Fixture, the first output file will be for the first fixture and separate file for the second.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
         self.splitOutput.setWhatsThis(QCoreApplication.translate("pathEdit", u"<html><head/><body><p>If True, post processing will create multiple output files based on the <span style=\" font-style:italic;\">order by</span> setting.\n"
@@ -1110,14 +1110,14 @@ class Ui_pathEdit(object):
         self.splitOutput.setText(QCoreApplication.translate("pathEdit", u"Split Output", None))
         pathEdit.setTabText(pathEdit.indexOf(self.tabOutput), QCoreApplication.translate("pathEdit", u"Output", None))
         self.stockGroup.setTitle(QCoreApplication.translate("pathEdit", u"Stock", None))
-        self.stock.setItemText(0, QCoreApplication.translate("pathEdit", u"Create box", None))
-        self.stock.setItemText(1, QCoreApplication.translate("pathEdit", u"Create cylinder", None))
-        self.stock.setItemText(2, QCoreApplication.translate("pathEdit", u"Extend model's bounding box", None))
-        self.stock.setItemText(3, QCoreApplication.translate("pathEdit", u"Use existing solid", None))
+        self.stock.setItemText(0, QCoreApplication.translate("pathEdit", u"Create Box", None))
+        self.stock.setItemText(1, QCoreApplication.translate("pathEdit", u"Create Cylinder", None))
+        self.stock.setItemText(2, QCoreApplication.translate("pathEdit", u"Extend Model's Bounding Box", None))
+        self.stock.setItemText(3, QCoreApplication.translate("pathEdit", u"Use Existing Solid", None))
 
         self.refreshStock.setText(QCoreApplication.translate("pathEdit", u"Refresh", None))
 #if QT_CONFIG(tooltip)
-        self.btnMaterial.setToolTip(QCoreApplication.translate("pathEdit", u"Assign stock material", None))
+        self.btnMaterial.setToolTip(QCoreApplication.translate("pathEdit", u"Assign Stock Material", None))
 #endif // QT_CONFIG(tooltip)
         self.btnMaterial.setText("")
         self.stockExtXLabel.setText(QCoreApplication.translate("pathEdit", u"Ext. X", None))
@@ -1140,7 +1140,7 @@ class Ui_pathEdit(object):
         self.modelSetX0.setText(QCoreApplication.translate("pathEdit", u"X=0", None))
         self.modelSetY0.setText(QCoreApplication.translate("pathEdit", u"Y=0", None))
         self.modelSetZ0.setText(QCoreApplication.translate("pathEdit", u"Z=0", None))
-        self.linkStockAndModel.setText(QCoreApplication.translate("pathEdit", u"Link stock and model", None))
+        self.linkStockAndModel.setText(QCoreApplication.translate("pathEdit", u"Link Stock and Model", None))
         self.modelMoveGroup.setTitle(QCoreApplication.translate("pathEdit", u"Move - XY", None))
         self.modelMoveLeftUp.setText("")
         self.modelMoveUp.setText("")
@@ -1156,19 +1156,19 @@ class Ui_pathEdit(object):
         self.modelRotateRight.setText("")
         self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_3), QCoreApplication.translate("pathEdit", u"Layout", None))
         self.groupBox.setTitle(QCoreApplication.translate("pathEdit", u"Depths", None))
-        self.label_3.setText(QCoreApplication.translate("pathEdit", u"Start depth", None))
+        self.label_3.setText(QCoreApplication.translate("pathEdit", u"Start Depth", None))
 #if QT_CONFIG(tooltip)
         self.setupStartDepthExpr.setToolTip(QCoreApplication.translate("pathEdit", u"Expression set as the StartDepth of a newly created operation.\n"
 "\n"
 "Default: OpStartDepth", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_4.setText(QCoreApplication.translate("pathEdit", u"Final depth", None))
+        self.label_4.setText(QCoreApplication.translate("pathEdit", u"Final Depth", None))
 #if QT_CONFIG(tooltip)
         self.setupFinalDepthExpr.setToolTip(QCoreApplication.translate("pathEdit", u"Expression set as the FinalDepth for a newly created operation.\n"
 "\n"
 "Default: OpFinalDepth", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_6.setText(QCoreApplication.translate("pathEdit", u"Step down", None))
+        self.label_6.setText(QCoreApplication.translate("pathEdit", u"Step Down", None))
 #if QT_CONFIG(tooltip)
         self.setupStepDownExpr.setToolTip(QCoreApplication.translate("pathEdit", u"Expression set as the StepDown of a newly created operation.\n"
 "\n"
@@ -1200,8 +1200,8 @@ class Ui_pathEdit(object):
 "Default: \"5mm\"", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox_8.setTitle(QCoreApplication.translate("pathEdit", u"Coolant", None))
-        self.label_17.setText(QCoreApplication.translate("pathEdit", u"Coolant mode", None))
-        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_4), QCoreApplication.translate("pathEdit", u"Default values", None))
+        self.label_17.setText(QCoreApplication.translate("pathEdit", u"Coolant Mode", None))
+        self.toolBox_2.setItemText(self.toolBox_2.indexOf(self.page_4), QCoreApplication.translate("pathEdit", u"Default Values", None))
         pathEdit.setTabText(pathEdit.indexOf(self.tabSetup), QCoreApplication.translate("pathEdit", u"Setup", None))
         ___qtablewidgetitem = self.toolControllerList.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("pathEdit", u"Name", None));
@@ -1210,12 +1210,12 @@ class Ui_pathEdit(object):
         ___qtablewidgetitem2 = self.toolControllerList.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("pathEdit", u"Feed", None));
 #if QT_CONFIG(tooltip)
-        ___qtablewidgetitem2.setToolTip(QCoreApplication.translate("pathEdit", u"Horizontal feed", None));
+        ___qtablewidgetitem2.setToolTip(QCoreApplication.translate("pathEdit", u"Horizontal Feed", None));
 #endif // QT_CONFIG(tooltip)
         ___qtablewidgetitem3 = self.toolControllerList.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("pathEdit", u"Feed", None));
 #if QT_CONFIG(tooltip)
-        ___qtablewidgetitem3.setToolTip(QCoreApplication.translate("pathEdit", u"Vertical feed", None));
+        ___qtablewidgetitem3.setToolTip(QCoreApplication.translate("pathEdit", u"Vertical Feed", None));
 #endif // QT_CONFIG(tooltip)
         ___qtablewidgetitem4 = self.toolControllerList.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("pathEdit", u"Spindle", None));
@@ -1226,11 +1226,11 @@ class Ui_pathEdit(object):
         self.groupBox_3.setTitle(QCoreApplication.translate("pathEdit", u"Rapid Speeds", None))
         self.label_8.setText(QCoreApplication.translate("pathEdit", u"Horizontal", None))
 #if QT_CONFIG(tooltip)
-        self.setupRapidHorizontal.setToolTip(QCoreApplication.translate("pathEdit", u"Rapid horizontal speed assigned as HorizRapid to new ToolController", None))
+        self.setupRapidHorizontal.setToolTip(QCoreApplication.translate("pathEdit", u"Rapid horizontal speed assigned as HorizRapid to new ToolController.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_12.setText(QCoreApplication.translate("pathEdit", u"Vertical", None))
 #if QT_CONFIG(tooltip)
-        self.setupRapidVertical.setToolTip(QCoreApplication.translate("pathEdit", u"Rapid vertical speed assigned to VertRapid of new ToolController", None))
+        self.setupRapidVertical.setToolTip(QCoreApplication.translate("pathEdit", u"Rapid vertical speed assigned to VertRapid of new ToolController.", None))
 #endif // QT_CONFIG(tooltip)
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), QCoreApplication.translate("pathEdit", u"Default Values", None))
         pathEdit.setTabText(pathEdit.indexOf(self.tabTools), QCoreApplication.translate("pathEdit", u"Tools", None))

@@ -22,7 +22,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
     def setupUi(self, Gui__Dialog__DlgSettingsDraft):
         if not Gui__Dialog__DlgSettingsDraft.objectName():
             Gui__Dialog__DlgSettingsDraft.setObjectName(u"Gui__Dialog__DlgSettingsDraft")
-        Gui__Dialog__DlgSettingsDraft.resize(513, 516)
+        Gui__Dialog__DlgSettingsDraft.resize(456, 338)
         self.vboxLayout = QVBoxLayout(Gui__Dialog__DlgSettingsDraft)
         self.vboxLayout.setSpacing(6)
         self.vboxLayout.setContentsMargins(11, 11, 11, 11)
@@ -42,7 +42,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutRelative.setObjectName(u"lineEdit_inCommandShortcutRelative")
         self.lineEdit_inCommandShortcutRelative.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutRelative.setMaxLength(1)
-        self.lineEdit_inCommandShortcutRelative.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutRelative.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutRelative.setProperty(u"prefEntry", u"inCommandShortcutRelative")
         self.lineEdit_inCommandShortcutRelative.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -61,7 +61,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutGlobal.setObjectName(u"lineEdit_inCommandShortcutGlobal")
         self.lineEdit_inCommandShortcutGlobal.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutGlobal.setMaxLength(1)
-        self.lineEdit_inCommandShortcutGlobal.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutGlobal.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutGlobal.setProperty(u"prefEntry", u"inCommandShortcutGlobal")
         self.lineEdit_inCommandShortcutGlobal.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -80,7 +80,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutLength.setObjectName(u"lineEdit_inCommandShortcutLength")
         self.lineEdit_inCommandShortcutLength.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutLength.setMaxLength(1)
-        self.lineEdit_inCommandShortcutLength.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutLength.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutLength.setProperty(u"prefEntry", u"inCommandShortcutLength")
         self.lineEdit_inCommandShortcutLength.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -99,7 +99,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutMakeFace.setObjectName(u"lineEdit_inCommandShortcutMakeFace")
         self.lineEdit_inCommandShortcutMakeFace.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutMakeFace.setMaxLength(1)
-        self.lineEdit_inCommandShortcutMakeFace.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutMakeFace.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutMakeFace.setProperty(u"prefEntry", u"inCommandShortcutMakeFace")
         self.lineEdit_inCommandShortcutMakeFace.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -114,7 +114,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutSelectEdge.setObjectName(u"lineEdit_inCommandShortcutSelectEdge")
         self.lineEdit_inCommandShortcutSelectEdge.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutSelectEdge.setMaxLength(1)
-        self.lineEdit_inCommandShortcutSelectEdge.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutSelectEdge.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutSelectEdge.setProperty(u"prefEntry", u"inCommandShortcutSelectEdge")
         self.lineEdit_inCommandShortcutSelectEdge.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -129,7 +129,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutSubelementMode.setObjectName(u"lineEdit_inCommandShortcutSubelementMode")
         self.lineEdit_inCommandShortcutSubelementMode.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutSubelementMode.setMaxLength(1)
-        self.lineEdit_inCommandShortcutSubelementMode.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutSubelementMode.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutSubelementMode.setProperty(u"prefEntry", u"inCommandShortcutSubelementMode")
         self.lineEdit_inCommandShortcutSubelementMode.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -144,7 +144,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutCopy.setObjectName(u"lineEdit_inCommandShortcutCopy")
         self.lineEdit_inCommandShortcutCopy.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutCopy.setMaxLength(1)
-        self.lineEdit_inCommandShortcutCopy.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutCopy.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutCopy.setProperty(u"prefEntry", u"inCommandShortcutCopy")
         self.lineEdit_inCommandShortcutCopy.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -160,7 +160,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutUndo.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutUndo.setText(u"/")
         self.lineEdit_inCommandShortcutUndo.setMaxLength(1)
-        self.lineEdit_inCommandShortcutUndo.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutUndo.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutUndo.setProperty(u"prefEntry", u"inCommandShortcutUndo")
         self.lineEdit_inCommandShortcutUndo.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -175,7 +175,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutWipe.setObjectName(u"lineEdit_inCommandShortcutWipe")
         self.lineEdit_inCommandShortcutWipe.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutWipe.setMaxLength(1)
-        self.lineEdit_inCommandShortcutWipe.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutWipe.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutWipe.setProperty(u"prefEntry", u"inCommandShortcutWipe")
         self.lineEdit_inCommandShortcutWipe.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -190,7 +190,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutClose.setObjectName(u"lineEdit_inCommandShortcutClose")
         self.lineEdit_inCommandShortcutClose.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutClose.setMaxLength(1)
-        self.lineEdit_inCommandShortcutClose.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutClose.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutClose.setProperty(u"prefEntry", u"inCommandShortcutClose")
         self.lineEdit_inCommandShortcutClose.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -205,7 +205,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutExit.setObjectName(u"lineEdit_inCommandShortcutExit")
         self.lineEdit_inCommandShortcutExit.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutExit.setMaxLength(1)
-        self.lineEdit_inCommandShortcutExit.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutExit.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutExit.setProperty(u"prefEntry", u"inCommandShortcutExit")
         self.lineEdit_inCommandShortcutExit.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -220,7 +220,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutContinue.setObjectName(u"lineEdit_inCommandShortcutContinue")
         self.lineEdit_inCommandShortcutContinue.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutContinue.setMaxLength(1)
-        self.lineEdit_inCommandShortcutContinue.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutContinue.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutContinue.setProperty(u"prefEntry", u"inCommandShortcutContinue")
         self.lineEdit_inCommandShortcutContinue.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -236,7 +236,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutCycleSnap.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutCycleSnap.setText(u"`")
         self.lineEdit_inCommandShortcutCycleSnap.setMaxLength(1)
-        self.lineEdit_inCommandShortcutCycleSnap.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutCycleSnap.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutCycleSnap.setProperty(u"prefEntry", u"inCommandShortcutCycleSnap")
         self.lineEdit_inCommandShortcutCycleSnap.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -251,7 +251,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutAddHold.setObjectName(u"lineEdit_inCommandShortcutAddHold")
         self.lineEdit_inCommandShortcutAddHold.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutAddHold.setMaxLength(1)
-        self.lineEdit_inCommandShortcutAddHold.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutAddHold.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutAddHold.setProperty(u"prefEntry", u"inCommandShortcutAddHold")
         self.lineEdit_inCommandShortcutAddHold.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -266,7 +266,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutSetWP.setObjectName(u"lineEdit_inCommandShortcutSetWP")
         self.lineEdit_inCommandShortcutSetWP.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutSetWP.setMaxLength(1)
-        self.lineEdit_inCommandShortcutSetWP.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutSetWP.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutSetWP.setProperty(u"prefEntry", u"inCommandShortcutSetWP")
         self.lineEdit_inCommandShortcutSetWP.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -281,7 +281,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutSnap.setObjectName(u"lineEdit_inCommandShortcutSnap")
         self.lineEdit_inCommandShortcutSnap.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutSnap.setMaxLength(1)
-        self.lineEdit_inCommandShortcutSnap.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutSnap.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutSnap.setProperty(u"prefEntry", u"inCommandShortcutSnap")
         self.lineEdit_inCommandShortcutSnap.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -297,7 +297,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutIncreaseRadius.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutIncreaseRadius.setText(u"P")
         self.lineEdit_inCommandShortcutIncreaseRadius.setMaxLength(1)
-        self.lineEdit_inCommandShortcutIncreaseRadius.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutIncreaseRadius.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutIncreaseRadius.setProperty(u"prefEntry", u"inCommandShortcutIncreaseRadius")
         self.lineEdit_inCommandShortcutIncreaseRadius.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -313,7 +313,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutDecreaseRadius.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutDecreaseRadius.setText(u"M")
         self.lineEdit_inCommandShortcutDecreaseRadius.setMaxLength(1)
-        self.lineEdit_inCommandShortcutDecreaseRadius.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutDecreaseRadius.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutDecreaseRadius.setProperty(u"prefEntry", u"inCommandShortcutDecreaseRadius")
         self.lineEdit_inCommandShortcutDecreaseRadius.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -328,7 +328,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutRestrictX.setObjectName(u"lineEdit_inCommandShortcutRestrictX")
         self.lineEdit_inCommandShortcutRestrictX.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutRestrictX.setMaxLength(1)
-        self.lineEdit_inCommandShortcutRestrictX.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutRestrictX.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutRestrictX.setProperty(u"prefEntry", u"inCommandShortcutRestrictX")
         self.lineEdit_inCommandShortcutRestrictX.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -343,7 +343,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutRestrictY.setObjectName(u"lineEdit_inCommandShortcutRestrictY")
         self.lineEdit_inCommandShortcutRestrictY.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutRestrictY.setMaxLength(1)
-        self.lineEdit_inCommandShortcutRestrictY.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutRestrictY.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutRestrictY.setProperty(u"prefEntry", u"inCommandShortcutRestrictY")
         self.lineEdit_inCommandShortcutRestrictY.setProperty(u"prefPath", u"Mod/Draft")
 
@@ -358,26 +358,11 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutRestrictZ.setObjectName(u"lineEdit_inCommandShortcutRestrictZ")
         self.lineEdit_inCommandShortcutRestrictZ.setMaximumSize(QSize(25, 16777215))
         self.lineEdit_inCommandShortcutRestrictZ.setMaxLength(1)
-        self.lineEdit_inCommandShortcutRestrictZ.setClearButtonEnabled(False)
+        self.lineEdit_inCommandShortcutRestrictZ.setProperty(u"clearButtonEnabled", False)
         self.lineEdit_inCommandShortcutRestrictZ.setProperty(u"prefEntry", u"inCommandShortcutRestrictZ")
         self.lineEdit_inCommandShortcutRestrictZ.setProperty(u"prefPath", u"Mod/Draft")
 
         self.gridLayout_1.addWidget(self.lineEdit_inCommandShortcutRestrictZ, 6, 7, 1, 1)
-
-        self.label_inCommandShortcutRecenter = QLabel(self.groupBox_1)
-        self.label_inCommandShortcutRecenter.setObjectName(u"label_inCommandShortcutRecenter")
-
-        self.gridLayout_1.addWidget(self.label_inCommandShortcutRecenter, 7, 0, 1, 1)
-
-        self.lineEdit_inCommandShortcutRecenter = Gui_PrefLineEdit(self.groupBox_1)
-        self.lineEdit_inCommandShortcutRecenter.setObjectName(u"lineEdit_inCommandShortcutRecenter")
-        self.lineEdit_inCommandShortcutRecenter.setMaximumSize(QSize(25, 16777215))
-        self.lineEdit_inCommandShortcutRecenter.setMaxLength(1)
-        self.lineEdit_inCommandShortcutRecenter.setClearButtonEnabled(False)
-        self.lineEdit_inCommandShortcutRecenter.setProperty(u"prefEntry", u"inCommandShortcutRecenter")
-        self.lineEdit_inCommandShortcutRecenter.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_1.addWidget(self.lineEdit_inCommandShortcutRecenter, 7, 1, 1, 1)
 
 
         self.vboxLayout.addWidget(self.groupBox_1)
@@ -427,7 +412,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsDraft):
         Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Interface", None))
-        self.groupBox_1.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"In-Command Shortcuts", None))
+        self.groupBox_1.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"In-command shortcuts", None))
         self.label_inCommandShortcutRelative.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Relative", None))
         self.lineEdit_inCommandShortcutRelative.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"R", None))
         self.label_inCommandShortcutGlobal.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Global", None))
@@ -466,20 +451,18 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.lineEdit_inCommandShortcutRestrictY.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Y", None))
         self.label_inCommandShortcutRestrictZ.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Restrict Z", None))
         self.lineEdit_inCommandShortcutRestrictZ.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Z", None))
-        self.label_inCommandShortcutRecenter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Recenter", None))
-        self.lineEdit_inCommandShortcutRecenter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"D", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"UI Options", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"UI options", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_SnapBarShowOnlyDuringCommands.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the Draft Snap toolbar will only be visible during commands", None))
+        self.checkBox_SnapBarShowOnlyDuringCommands.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the Draft snap toolbar will only be visible during commands", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_SnapBarShowOnlyDuringCommands.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Only show the Draft Snap toolbar during commands", None))
+        self.checkBox_SnapBarShowOnlyDuringCommands.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Only show the Draft snap toolbar during commands", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_DisplayStatusbarSnapWidget.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the Draft Snap Widget is displayed in the Draft Status Bar", None))
+        self.checkBox_DisplayStatusbarSnapWidget.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the Snap widget is displayed in the Draft status bar", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_DisplayStatusbarSnapWidget.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Show the Draft Snap Widget in the Draft Workbench", None))
+        self.checkBox_DisplayStatusbarSnapWidget.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Show the Snap widget in the Draft Workbench", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_DisplayStatusbarScaleWidget.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the Draft Scale Widget is displayed in the Draft Status Bar", None))
+        self.checkBox_DisplayStatusbarScaleWidget.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the Annotation scale widget is displayed in the Draft status bar", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_DisplayStatusbarScaleWidget.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Show the Draft Scale Widget in the Draft Workbench", None))
+        self.checkBox_DisplayStatusbarScaleWidget.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Show the Annotation scale widget in the Draft Workbench", None))
     # retranslateUi
 

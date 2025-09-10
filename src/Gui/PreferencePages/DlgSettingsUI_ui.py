@@ -16,8 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QGroupBox, QLabel,
-    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_Gui_Dialog_DlgSettingsUI(object):
     def setupUi(self, Gui__Dialog__DlgSettingsUI):
@@ -98,16 +97,16 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
 
         self.StyleSheets = Gui_PrefComboBox(self.groupBox)
         self.StyleSheets.setObjectName(u"StyleSheets")
-        self.StyleSheets.setProperty(u"prefEntry", u"StyleSheet")
         self.StyleSheets.setProperty(u"prefPath", u"MainWindow")
+        self.StyleSheets.setProperty(u"prefEntry", u"StyleSheet")
         self.StyleSheets.setProperty(u"prefType", u"")
 
         self.gridLayout.addWidget(self.StyleSheets, 3, 1, 1, 1)
 
         self.OverlayStyleSheets = Gui_PrefComboBox(self.groupBox)
         self.OverlayStyleSheets.setObjectName(u"OverlayStyleSheets")
-        self.OverlayStyleSheets.setProperty(u"prefEntry", u"OverlayActiveStyleSheet")
         self.OverlayStyleSheets.setProperty(u"prefPath", u"MainWindow")
+        self.OverlayStyleSheets.setProperty(u"prefEntry", u"OverlayActiveStyleSheet")
         self.OverlayStyleSheets.setProperty(u"prefType", u"")
 
         self.gridLayout.addWidget(self.OverlayStyleSheets, 4, 1, 1, 1)
@@ -116,11 +115,6 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
         self.gridLayout.setColumnStretch(1, 1)
 
         self.verticalLayout_2.addLayout(self.gridLayout)
-
-        self.themeEditorButton = QPushButton(self.groupBox)
-        self.themeEditorButton.setObjectName(u"themeEditorButton")
-
-        self.verticalLayout_2.addWidget(self.themeEditorButton)
 
 
         self.verticalLayout.addWidget(self.groupBox)
@@ -141,8 +135,8 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
         self.iconSizeSpinBox.setObjectName(u"iconSizeSpinBox")
         self.iconSizeSpinBox.setSingleStep(1)
         self.iconSizeSpinBox.setValue(16)
-        self.iconSizeSpinBox.setProperty(u"prefEntry", u"IconSize")
         self.iconSizeSpinBox.setProperty(u"prefPath", u"TreeView")
+        self.iconSizeSpinBox.setProperty(u"prefEntry", u"IconSize")
 
         self.gridLayout1.addWidget(self.iconSizeSpinBox, 0, 1, 1, 1)
 
@@ -167,8 +161,8 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
         self.rowSpacingSpinBox.setObjectName(u"rowSpacingSpinBox")
         self.rowSpacingSpinBox.setSingleStep(1)
         self.rowSpacingSpinBox.setValue(0)
-        self.rowSpacingSpinBox.setProperty(u"prefEntry", u"ItemSpacing")
         self.rowSpacingSpinBox.setProperty(u"prefPath", u"TreeView")
+        self.rowSpacingSpinBox.setProperty(u"prefEntry", u"ItemSpacing")
 
         self.gridLayout1.addWidget(self.rowSpacingSpinBox, 1, 1, 1, 1)
 
@@ -262,22 +256,7 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
 
         self.verticalLayout.addWidget(self.groupBox_3)
 
-        self.groupBox_4 = QGroupBox(Gui__Dialog__DlgSettingsUI)
-        self.groupBox_4.setObjectName(u"groupBox_4")
-        self.gridLayout_3 = QGridLayout(self.groupBox_4)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.showTaskWatcherCheckBox = Gui_PrefCheckBox(self.groupBox_4)
-        self.showTaskWatcherCheckBox.setObjectName(u"showTaskWatcherCheckBox")
-        self.showTaskWatcherCheckBox.setChecked(True)
-        self.showTaskWatcherCheckBox.setProperty(u"prefEntry", u"ShowTaskWatcher")
-        self.showTaskWatcherCheckBox.setProperty(u"prefPath", u"General")
-
-        self.gridLayout_3.addWidget(self.showTaskWatcherCheckBox, 0, 0, 1, 1)
-
-
-        self.verticalLayout.addWidget(self.groupBox_4)
-
-        self.spacer_3 = QSpacerItem(20, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.spacer_3 = QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.spacer_3)
 
@@ -316,16 +295,16 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsUI):
         Gui__Dialog__DlgSettingsUI.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"UI", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Theme Customization", None))
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Customize the current theme. The offered settings are optional for theme developers so they may or may not have an effect in the current theme.", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Theme customization", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"This section lets you customize your current theme. The offered settings are optional for theme developers so they may or may not have an effect in your current theme.", None))
         self.label1.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Accent color 1", None))
 #if QT_CONFIG(tooltip)
         self.ThemeAccentColor1.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"This color might be used by your theme to let you customize it.", None))
 #endif // QT_CONFIG(tooltip)
         self.label2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Accent color 2", None))
         self.label3.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Accent color 3", None))
-        self.styleSheetLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Style sheet (advanced)", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Overlay style sheet", None))
+        self.styleSheetLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Style sheet (advanced):", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Overlay style sheet:", None))
 #if QT_CONFIG(tooltip)
         self.ThemeAccentColor2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"This color might be used by your theme to let you customize it.", None))
 #endif // QT_CONFIG(tooltip)
@@ -335,12 +314,11 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
 #if QT_CONFIG(tooltip)
         self.StyleSheets.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Style sheet how user interface will look like", None))
 #endif // QT_CONFIG(tooltip)
-        self.themeEditorButton.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Open Theme Editor", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Tree View", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Tree view", None))
 #if QT_CONFIG(tooltip)
-        self.hideInternalNamesCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Hide extra tree view column for internal names", None))
+        self.hideInternalNamesCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Hide extra tree view column - Internal Names.", None))
 #endif // QT_CONFIG(tooltip)
-        self.hideInternalNamesCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Hide internal names", None))
+        self.hideInternalNamesCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Hide Internal Names", None))
 #if QT_CONFIG(tooltip)
         self.iconSizeSpinBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Icon size override, set to 0 for the default value.", None))
 #endif // QT_CONFIG(tooltip)
@@ -354,7 +332,7 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
         self.rowSpacingSpinBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Additional spacing for tree view rows. Bigger values will increase row item heights.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.showVisibilityIconCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Displays an eye icon in front of the tree view items, showing their visibility status. When clicked the visibility is toggled.", None))
+        self.showVisibilityIconCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"If enabled, show an eye icon before the tree view items, showing their visibility status. When clicked the visibility is toggled.", None))
 #endif // QT_CONFIG(tooltip)
         self.showVisibilityIconCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Show visibility icon", None))
 #if QT_CONFIG(tooltip)
@@ -383,18 +361,16 @@ class Ui_Gui_Dialog_DlgSettingsUI(object):
 #endif // QT_CONFIG(tooltip)
         self.hidePropertyViewScrollBarCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Hide property view scroll bar", None))
 #if QT_CONFIG(tooltip)
-        self.overlayAutoHideCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Automatically hide overlaid dock panels when in non 3D view (e.g. TechDraw or Spreadsheet)", None))
+        self.overlayAutoHideCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Automatically hide overlaid dock panels when in non 3D view (like TechDraw or Spreadsheet).", None))
 #endif // QT_CONFIG(tooltip)
-        self.overlayAutoHideCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Automatically hide in non-3D view", None))
+        self.overlayAutoHideCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Auto hide in non 3D view", None))
 #if QT_CONFIG(tooltip)
         self.mouseClickPassThroughCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Auto mouse click through transparent part of dock overlay.", None))
 #endif // QT_CONFIG(tooltip)
-        self.mouseClickPassThroughCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Automatically pass through of the mouse cursor", None))
+        self.mouseClickPassThroughCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Auto mouse pass through", None))
 #if QT_CONFIG(tooltip)
-        self.mouseWheelPassThroughCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Automatically passes mouse wheel events through the transparent areas of an overlay panel", None))
+        self.mouseWheelPassThroughCheckBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Auto pass through mouse wheel event on transparent dock overlay.", None))
 #endif // QT_CONFIG(tooltip)
-        self.mouseWheelPassThroughCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Automatically pass through of the mouse wheel", None))
-        self.groupBox_4.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Suggested Actions", None))
-        self.showTaskWatcherCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Suggest actions in the task view based on the selection", None))
+        self.mouseWheelPassThroughCheckBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsUI", u"Auto mouse wheel pass through", None))
     # retranslateUi
 

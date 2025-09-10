@@ -207,19 +207,19 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Setup Global", None))
         self.groupBox.setTitle(QCoreApplication.translate("Form", u"Depths", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Start depth", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Start Depth", None))
 #if QT_CONFIG(tooltip)
         self.setupStartDepthExpr.setToolTip(QCoreApplication.translate("Form", u"Expression set as the StartDepth of a newly created operation.\n"
 "\n"
 "Default: OpStartDepth", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_2.setText(QCoreApplication.translate("Form", u"Final depth", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Final Depth", None))
 #if QT_CONFIG(tooltip)
         self.setupFinalDepthExpr.setToolTip(QCoreApplication.translate("Form", u"Expression set as the FinalDepth for a newly created operation.\n"
 "\n"
 "Default: OpFinalDepth", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_3.setText(QCoreApplication.translate("Form", u"Step down", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Step Down", None))
 #if QT_CONFIG(tooltip)
         self.setupStepDownExpr.setToolTip(QCoreApplication.translate("Form", u"Expression set as the StepDown of a newly created operation.\n"
 "\n"
@@ -254,7 +254,7 @@ class Ui_Form(object):
         self.groupBox_3.setTitle(QCoreApplication.translate("Form", u"Rapid Speeds", None))
         self.label_8.setText(QCoreApplication.translate("Form", u"Horizontal", None))
 #if QT_CONFIG(tooltip)
-        self.setupRapidHorizontal.setToolTip(QCoreApplication.translate("Form", u"Rapid horizontal speed assigned as HorizRapid to new ToolController", None))
+        self.setupRapidHorizontal.setToolTip(QCoreApplication.translate("Form", u"Rapid horizontal speed assigned as HorizRapid to new ToolController.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_9.setText(QCoreApplication.translate("Form", u"Vertical", None))
 #if QT_CONFIG(tooltip)
@@ -262,7 +262,7 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabWidgetPage2), QCoreApplication.translate("Form", u"Tool Controller", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("Form", u"Coolant Mode", None))
-        self.label_10.setText(QCoreApplication.translate("Form", u"Coolant mode", None))
+        self.label_10.setText(QCoreApplication.translate("Form", u"Coolant Mode", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabWidgetPage3), QCoreApplication.translate("Form", u"Coolant", None))
     # retranslateUi
 

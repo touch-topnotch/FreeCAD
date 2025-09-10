@@ -97,7 +97,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
 #if QT_CONFIG(tooltip)
-        self.geometryImportList.setToolTip(QCoreApplication.translate("Form", u"List of operations with base geometry in the current job", None))
+        self.geometryImportList.setToolTip(QCoreApplication.translate("Form", u"List of operations with Base Geometry in current Job", None))
 #endif // QT_CONFIG(tooltip)
         self.geometryImportButton.setText(QCoreApplication.translate("Form", u"Import", None))
 #if QT_CONFIG(tooltip)
@@ -115,7 +115,7 @@ class Ui_Form(object):
         self.clearBase.setToolTip(QCoreApplication.translate("Form", u"Clears list of base geometries", None))
 #endif // QT_CONFIG(tooltip)
         self.clearBase.setText(QCoreApplication.translate("Form", u"Clear", None))
-        self.label.setText(QCoreApplication.translate("Form", u"All objects will be processed using the same operation properties", None))
+        self.label.setText(QCoreApplication.translate("Form", u"All objects will be processed using the same operation properties.", None))
         pass
     # retranslateUi
 

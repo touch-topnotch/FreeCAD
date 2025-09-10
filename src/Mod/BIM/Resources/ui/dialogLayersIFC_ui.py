@@ -93,15 +93,15 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Layers Manager", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Layers manager", None))
         self.buttonNew.setText(QCoreApplication.translate("Dialog", u"New", None))
 #if QT_CONFIG(tooltip)
         self.buttonIFC.setToolTip(QCoreApplication.translate("Dialog", u"Adds this layer to an IFC project", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonIFC.setText("")
         self.buttonDelete.setText(QCoreApplication.translate("Dialog", u"Delete", None))
-        self.buttonSelectAll.setText(QCoreApplication.translate("Dialog", u"Select All", None))
-        self.buttonToggle.setText(QCoreApplication.translate("Dialog", u"Toggle Visibility", None))
+        self.buttonSelectAll.setText(QCoreApplication.translate("Dialog", u"Select all", None))
+        self.buttonToggle.setText(QCoreApplication.translate("Dialog", u"Toggle on/off", None))
         self.buttonIsolate.setText(QCoreApplication.translate("Dialog", u"Isolate", None))
 #if QT_CONFIG(tooltip)
         self.buttonAssign.setToolTip(QCoreApplication.translate("Dialog", u"Assign selected objects to the selected layer", None))

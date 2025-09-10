@@ -83,7 +83,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Add IFC Property", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Add IFC property", None))
         self.field_type.setItemText(0, QCoreApplication.translate("Dialog", u"IfcLabel", None))
         self.field_type.setItemText(1, QCoreApplication.translate("Dialog", u"IfcBoolean", None))
         self.field_type.setItemText(2, QCoreApplication.translate("Dialog", u"IfcInteger", None))

@@ -65,6 +65,6 @@ class Ui_Gui_Dialog_DlgChooseIcon(object):
 
     def retranslateUi(self, Gui__Dialog__DlgChooseIcon):
         Gui__Dialog__DlgChooseIcon.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgChooseIcon", u"Choose Icon", None))
-        self.addButton.setText(QCoreApplication.translate("Gui::Dialog::DlgChooseIcon", u"Icon Folders", None))
+        self.addButton.setText(QCoreApplication.translate("Gui::Dialog::DlgChooseIcon", u"Icon folders...", None))
     # retranslateUi
 

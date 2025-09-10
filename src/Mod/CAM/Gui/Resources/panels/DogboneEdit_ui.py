@@ -131,9 +131,9 @@ class Ui_TaskPanel(object):
         self.sideCombo.setToolTip(QCoreApplication.translate("TaskPanel", u"On which side of the profile bones are inserted - this also determines which corners are dressed up. The default value is determined based on the profile being dressed up.", None))
 #endif // QT_CONFIG(tooltip)
         self.incisionLabel.setText(QCoreApplication.translate("TaskPanel", u"Incision", None))
-        self.incisionCombo.setItemText(0, QCoreApplication.translate("TaskPanel", u"Adaptive", None))
-        self.incisionCombo.setItemText(1, QCoreApplication.translate("TaskPanel", u"Custom", None))
-        self.incisionCombo.setItemText(2, QCoreApplication.translate("TaskPanel", u"Fixed", None))
+        self.incisionCombo.setItemText(0, QCoreApplication.translate("TaskPanel", u"adaptive", None))
+        self.incisionCombo.setItemText(1, QCoreApplication.translate("TaskPanel", u"custom", None))
+        self.incisionCombo.setItemText(2, QCoreApplication.translate("TaskPanel", u"fixed", None))
 
 #if QT_CONFIG(tooltip)
         self.incisionCombo.setToolTip(QCoreApplication.translate("TaskPanel", u"<html><head/><body><p>Determines the incision length of the bone to be inserted into the profile.</p><p><span style=\" font-weight:600; font-style:italic;\">adaptive</span> ... the length is adapted to cover the corner based on the angle of its edges, taking the current tool radius into account (default)</p><p><span style=\" font-weight:600; font-style:italic;\">fixed</span> ... is the same as adaptive for straight angles. For T-bones it's the radius of the tool (R) and for dogbones it's R * (2/\u221a2 - 1).</p><p><span style=\" font-weight:600; font-style:italic;\">custom</span> ... lets you specify a custom (fixed) length below</p></body></html>", None))

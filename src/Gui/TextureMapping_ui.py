@@ -55,7 +55,7 @@ class Ui_Gui_Dialog_TextureMapping(object):
 
     def retranslateUi(self, Gui__Dialog__TextureMapping):
         Gui__Dialog__TextureMapping.setWindowTitle(QCoreApplication.translate("Gui::Dialog::TextureMapping", u"Texture", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::TextureMapping", u"Texture Mapping", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::TextureMapping", u"Texture mapping", None))
         self.checkGlobal.setText(QCoreApplication.translate("Gui::Dialog::TextureMapping", u"Global", None))
         self.checkEnv.setText(QCoreApplication.translate("Gui::Dialog::TextureMapping", u"Environment", None))
     # retranslateUi

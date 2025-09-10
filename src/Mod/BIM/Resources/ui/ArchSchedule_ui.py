@@ -174,8 +174,8 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Schedule Definition", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Schedule name", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Schedule definition", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Schedule name:", None))
         self.lineEditName.setText(QCoreApplication.translate("Dialog", u"Unnamed schedule", None))
         ___qtablewidgetitem = self.list.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Dialog", u"Description", None));
@@ -196,7 +196,7 @@ class Ui_Dialog(object):
         ___qtablewidgetitem2 = self.list.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"Unit", None));
 #if QT_CONFIG(tooltip)
-        ___qtablewidgetitem2.setToolTip(QCoreApplication.translate("Dialog", u"Optional unit for the result, e.g. m\u00b3, m^3, or m3", None));
+        ___qtablewidgetitem2.setToolTip(QCoreApplication.translate("Dialog", u"An optional unit to express the resulting value. Ex: m^3 (you can also write m\u00b3 or m3)", None));
 #endif // QT_CONFIG(tooltip)
         ___qtablewidgetitem3 = self.list.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"Objects", None));
@@ -219,10 +219,10 @@ class Ui_Dialog(object):
 #if QT_CONFIG(tooltip)
         ___qtablewidgetitem4.setToolTip(QCoreApplication.translate("Dialog", u"An optional semicolon (;) separated list of property:value filters. Prepend ! to a property name to invert the effect of the filter (exclude objects that match the filter). Objects whose property contains the value will be matched.\n"
 "\n"
-"Examples of valid filters (everything is case-insensitive): Name:Wall - Will only consider objects with 'wall' in their name (internal name); !Name:Wall - Will only consider objects which DO NOT have 'wall' in their name (internal name); Description:Win - Will only consider objects with 'win' in their description; !Label:Win - Will only consider objects which DO NOT have 'win' in their label; IfcType:Wall - Will only consider objects which Ifc Type is 'Wall'; !Tag:Wall - Will only consider objects which tag is NOT 'Wall'. If you leave this field empty, no filtering is applied\n"
+"Examples of valid filters (everything is case-insensitive): Name:Wall - Will only consider objects with 'wall' in their name (internal name); !Name:Wall - Will only consider objects which DON'T have 'wall' in their name (internal name); Description:Win - Will only consider objects with 'win' in their description; !Label:Win - Will only consider objects which DO NOT have 'win' in their label; IfcType:Wall - Will only consider objects which Ifc Type is 'Wall'; !Tag:Wall - Will only consider objects which tag is NOT 'Wall'. If you leave this field empty, no filtering is applied\n"
 "\n"
-"When dealing with native IFC objects, you can use FreeCAD properties name, ex: 'Class:IfcWall' or any other IFC attribute (ex. 'IsTypedBy:#455'). If the 'Objects' column has been set to an IFC"
-                        " project or document, all the IFC entities of that project will be considered.", None));
+"When dealing with native IFC objects, you can use FreeCAD properties name, ex: 'Class:IfcWall' or any other IFC attribute (ex. 'IsTypedBy:#455'). If the 'Objects' column has been set to an IFC "
+                        "project or document, all the IFC entities of that project will be considered.", None));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.checkSpreadsheet.setToolTip(QCoreApplication.translate("Dialog", u"If this is enabled, an associated spreadsheet containing the results will be maintained together with this schedule object", None))
@@ -235,15 +235,15 @@ class Ui_Dialog(object):
 #if QT_CONFIG(tooltip)
         self.checkAutoUpdate.setToolTip(QCoreApplication.translate("Dialog", u"If this is enabled, the schedule and the associated spreadsheet are updated whenever the document is recomputed.", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkAutoUpdate.setText(QCoreApplication.translate("Dialog", u"Auto-update", None))
+        self.checkAutoUpdate.setText(QCoreApplication.translate("Dialog", u"Auto update", None))
 #if QT_CONFIG(tooltip)
         self.buttonAdd.setToolTip(QCoreApplication.translate("Dialog", u"Adds a line below the selected line/cell", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonAdd.setText(QCoreApplication.translate("Dialog", u"Add Row", None))
+        self.buttonAdd.setText(QCoreApplication.translate("Dialog", u"Add row", None))
 #if QT_CONFIG(tooltip)
         self.buttonDel.setToolTip(QCoreApplication.translate("Dialog", u"Deletes the selected line", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonDel.setText(QCoreApplication.translate("Dialog", u"Delete Row", None))
+        self.buttonDel.setText(QCoreApplication.translate("Dialog", u"Del row", None))
 #if QT_CONFIG(tooltip)
         self.buttonClear.setToolTip(QCoreApplication.translate("Dialog", u"Clears the whole list", None))
 #endif // QT_CONFIG(tooltip)
@@ -251,13 +251,13 @@ class Ui_Dialog(object):
 #if QT_CONFIG(tooltip)
         self.buttonSelect.setToolTip(QCoreApplication.translate("Dialog", u"Put selected objects into the 'Objects' column of the selected row", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonSelect.setText(QCoreApplication.translate("Dialog", u"Add Selection", None))
+        self.buttonSelect.setText(QCoreApplication.translate("Dialog", u"Add selection", None))
 #if QT_CONFIG(tooltip)
         self.buttonImport.setToolTip(QCoreApplication.translate("Dialog", u"Imports the contents of a CSV file", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonImport.setText(QCoreApplication.translate("Dialog", u"Import", None))
 #if QT_CONFIG(tooltip)
-        self.buttonExport.setToolTip(QCoreApplication.translate("Dialog", u"Exports results to a CSV or Markdown file. For CSV export in LibreOffice: maintain a live link by right-clicking the Sheets tab bar \u2192 New Sheet \u2192 From File \u2192 Link. In LibreOffice v6.x and later: use Sheet \u2192 Insert Sheet\u2026 \u2192 From File \u2192 Browse\u2026", None))
+        self.buttonExport.setToolTip(QCoreApplication.translate("Dialog", u"This exports the results to a CSV or Markdown file. Note for CSV export: In Libreoffice, you can keep this CSV file linked by right-clicking the Sheets tab bar, New sheet, From file, Link (Note: as of LibreOffice v6.x the correct path now is: Sheet, Insert Sheet..., From file, Browse...)", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonExport.setText(QCoreApplication.translate("Dialog", u"Export", None))
     # retranslateUi

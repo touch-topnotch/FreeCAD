@@ -15,17 +15,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QCheckBox, QComboBox,
-    QDialog, QDialogButtonBox, QFormLayout, QFrame,
-    QGroupBox, QHBoxLayout, QLabel, QLayout,
-    QLineEdit, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog,
+    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_DlgExpressionInput(object):
     def setupUi(self, DlgExpressionInput):
         if not DlgExpressionInput.objectName():
             DlgExpressionInput.setObjectName(u"DlgExpressionInput")
-        DlgExpressionInput.resize(414, 298)
+        DlgExpressionInput.resize(414, 272)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -36,7 +35,71 @@ class Ui_DlgExpressionInput(object):
         self.verticalLayout.setSpacing(3)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
+        self.groupBoxVarSets = QGroupBox(DlgExpressionInput)
+        self.groupBoxVarSets.setObjectName(u"groupBoxVarSets")
+        self.horizontalLayout_8 = QHBoxLayout(self.groupBoxVarSets)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.gridLayoutVarSets = QGridLayout()
+        self.gridLayoutVarSets.setObjectName(u"gridLayoutVarSets")
+        self.lineEditGroup = QLineEdit(self.groupBoxVarSets)
+        self.lineEditGroup.setObjectName(u"lineEditGroup")
+
+        self.gridLayoutVarSets.addWidget(self.lineEditGroup, 1, 2, 1, 1)
+
+        self.labelGroup = QLabel(self.groupBoxVarSets)
+        self.labelGroup.setObjectName(u"labelGroup")
+
+        self.gridLayoutVarSets.addWidget(self.labelGroup, 1, 0, 1, 1)
+
+        self.labelInfoActive = QLabel(self.groupBoxVarSets)
+        self.labelInfoActive.setObjectName(u"labelInfoActive")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.labelInfoActive.sizePolicy().hasHeightForWidth())
+        self.labelInfoActive.setSizePolicy(sizePolicy1)
+        self.labelInfoActive.setMinimumSize(QSize(0, 70))
+
+        self.gridLayoutVarSets.addWidget(self.labelInfoActive, 3, 2, 1, 1)
+
+        self.labelVarSet = QLabel(self.groupBoxVarSets)
+        self.labelVarSet.setObjectName(u"labelVarSet")
+
+        self.gridLayoutVarSets.addWidget(self.labelVarSet, 0, 0, 1, 1)
+
+        self.comboBoxVarSet = QComboBox(self.groupBoxVarSets)
+        self.comboBoxVarSet.setObjectName(u"comboBoxVarSet")
+
+        self.gridLayoutVarSets.addWidget(self.comboBoxVarSet, 0, 2, 1, 1)
+
+        self.labelInfo = QLabel(self.groupBoxVarSets)
+        self.labelInfo.setObjectName(u"labelInfo")
+
+        self.gridLayoutVarSets.addWidget(self.labelInfo, 3, 0, 1, 1)
+
+        self.LabelPropNew = QLabel(self.groupBoxVarSets)
+        self.LabelPropNew.setObjectName(u"LabelPropNew")
+
+        self.gridLayoutVarSets.addWidget(self.LabelPropNew, 2, 0, 1, 1)
+
+        self.lineEditPropNew = QLineEdit(self.groupBoxVarSets)
+        self.lineEditPropNew.setObjectName(u"lineEditPropNew")
+        sizePolicy.setHeightForWidth(self.lineEditPropNew.sizePolicy().hasHeightForWidth())
+        self.lineEditPropNew.setSizePolicy(sizePolicy)
+
+        self.gridLayoutVarSets.addWidget(self.lineEditPropNew, 2, 2, 1, 1)
+
+
+        self.horizontalLayout_8.addLayout(self.gridLayoutVarSets)
+
+
+        self.verticalLayout.addWidget(self.groupBoxVarSets)
+
+        self.checkBoxVarSets = QCheckBox(DlgExpressionInput)
+        self.checkBoxVarSets.setObjectName(u"checkBoxVarSets")
+
+        self.verticalLayout.addWidget(self.checkBoxVarSets)
+
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.verticalLayout_2 = QVBoxLayout()
@@ -47,14 +110,9 @@ class Ui_DlgExpressionInput(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.ctrlArea = QFrame(DlgExpressionInput)
         self.ctrlArea.setObjectName(u"ctrlArea")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.ctrlArea.sizePolicy().hasHeightForWidth())
-        self.ctrlArea.setSizePolicy(sizePolicy1)
         self.ctrlArea.setAutoFillBackground(True)
-        self.ctrlArea.setFrameShape(QFrame.Shape.StyledPanel)
-        self.ctrlArea.setFrameShadow(QFrame.Shadow.Raised)
+        self.ctrlArea.setFrameShape(QFrame.StyledPanel)
+        self.ctrlArea.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.ctrlArea)
         self.horizontalLayout_4.setSpacing(4)
         self.horizontalLayout_4.setContentsMargins(2, 2, 2, 2)
@@ -113,123 +171,64 @@ class Ui_DlgExpressionInput(object):
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.checkBoxVarSets = QCheckBox(DlgExpressionInput)
-        self.checkBoxVarSets.setObjectName(u"checkBoxVarSets")
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setSpacing(2)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.discardBtn = QPushButton(DlgExpressionInput)
+        self.discardBtn.setObjectName(u"discardBtn")
+        self.discardBtn.setAutoDefault(True)
 
-        self.horizontalLayout_3.addWidget(self.checkBoxVarSets)
+        self.horizontalLayout.addWidget(self.discardBtn)
+
+        self.okBtn = QPushButton(DlgExpressionInput)
+        self.okBtn.setObjectName(u"okBtn")
+        self.okBtn.setAutoDefault(True)
+
+        self.horizontalLayout.addWidget(self.okBtn)
+
+
+        self.horizontalLayout_3.addLayout(self.horizontalLayout)
+
+        self.horizontalSpacer_2 = QSpacerItem(0, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_3)
 
-        self.groupBoxVarSets = QGroupBox(DlgExpressionInput)
-        self.groupBoxVarSets.setObjectName(u"groupBoxVarSets")
-        self.verticalLayout_3 = QVBoxLayout(self.groupBoxVarSets)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.errorFrame = QFrame(self.groupBoxVarSets)
-        self.errorFrame.setObjectName(u"errorFrame")
-        self.errorFrame.setEnabled(True)
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.errorFrame.sizePolicy().hasHeightForWidth())
-        self.errorFrame.setSizePolicy(sizePolicy3)
-        self.errorFrame.setMinimumSize(QSize(0, 0))
-        self.errorFrame.setStyleSheet(u"#errorFrame { border: 1px solid red; border-radius: 5px; background-color: #f8d7da; color: #721c24; } #errorTextLabel { color: #721c24; }")
-        self.errorFrame.setFrameShape(QFrame.Shape.StyledPanel)
-        self.errorFrame.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout = QHBoxLayout(self.errorFrame)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(5, 5, 5, 5)
-        self.errorIconLabel = QLabel(self.errorFrame)
-        self.errorIconLabel.setObjectName(u"errorIconLabel")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.errorIconLabel.sizePolicy().hasHeightForWidth())
-        self.errorIconLabel.setSizePolicy(sizePolicy4)
+        self.verticalSpacer = QSpacerItem(20, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.horizontalLayout.addWidget(self.errorIconLabel)
+        self.verticalLayout.addItem(self.verticalSpacer)
 
-        self.errorTextLabel = QLabel(self.errorFrame)
-        self.errorTextLabel.setObjectName(u"errorTextLabel")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.MinimumExpanding)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.errorTextLabel.sizePolicy().hasHeightForWidth())
-        self.errorTextLabel.setSizePolicy(sizePolicy5)
-        self.errorTextLabel.setTextFormat(Qt.TextFormat.PlainText)
-        self.errorTextLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
-        self.errorTextLabel.setWordWrap(True)
-        self.errorTextLabel.setMargin(0)
-
-        self.horizontalLayout.addWidget(self.errorTextLabel)
-
-
-        self.verticalLayout_3.addWidget(self.errorFrame)
-
-        self.formLayout = QFormLayout()
-        self.formLayout.setObjectName(u"formLayout")
-        self.labelVarSet = QLabel(self.groupBoxVarSets)
-        self.labelVarSet.setObjectName(u"labelVarSet")
-
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.labelVarSet)
-
-        self.comboBoxVarSet = QComboBox(self.groupBoxVarSets)
-        self.comboBoxVarSet.setObjectName(u"comboBoxVarSet")
-
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.comboBoxVarSet)
-
-        self.labelGroup = QLabel(self.groupBoxVarSets)
-        self.labelGroup.setObjectName(u"labelGroup")
-
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.labelGroup)
-
-        self.LabelPropNew = QLabel(self.groupBoxVarSets)
-        self.LabelPropNew.setObjectName(u"LabelPropNew")
-
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.LabelPropNew)
-
-        self.lineEditPropNew = QLineEdit(self.groupBoxVarSets)
-        self.lineEditPropNew.setObjectName(u"lineEditPropNew")
-        sizePolicy1.setHeightForWidth(self.lineEditPropNew.sizePolicy().hasHeightForWidth())
-        self.lineEditPropNew.setSizePolicy(sizePolicy1)
-
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.lineEditPropNew)
-
-
-        self.verticalLayout_3.addLayout(self.formLayout)
-
-
-        self.verticalLayout.addWidget(self.groupBoxVarSets)
-
-        self.buttonBox = QDialogButtonBox(DlgExpressionInput)
-        self.buttonBox.setObjectName(u"buttonBox")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.buttonBox.sizePolicy().hasHeightForWidth())
-        self.buttonBox.setSizePolicy(sizePolicy6)
-        self.buttonBox.setStandardButtons(QDialogButtonBox.StandardButton.Ok|QDialogButtonBox.StandardButton.Reset)
-
-        self.verticalLayout.addWidget(self.buttonBox)
-
+        QWidget.setTabOrder(self.expression, self.okBtn)
+        QWidget.setTabOrder(self.okBtn, self.discardBtn)
+        QWidget.setTabOrder(self.discardBtn, self.checkBoxVarSets)
 
         self.retranslateUi(DlgExpressionInput)
-        self.buttonBox.accepted.connect(DlgExpressionInput.accept)
+        self.okBtn.clicked.connect(DlgExpressionInput.accept)
+
+        self.discardBtn.setDefault(False)
+        self.okBtn.setDefault(True)
+
 
         QMetaObject.connectSlotsByName(DlgExpressionInput)
     # setupUi
 
     def retranslateUi(self, DlgExpressionInput):
-        DlgExpressionInput.setWindowTitle(QCoreApplication.translate("DlgExpressionInput", u"Expression Editor", None))
-        self.label.setText(QCoreApplication.translate("DlgExpressionInput", u"Result", None))
+        DlgExpressionInput.setWindowTitle(QCoreApplication.translate("DlgExpressionInput", u"Expression editor", None))
+        self.groupBoxVarSets.setTitle(QCoreApplication.translate("DlgExpressionInput", u"Variable Sets", None))
+        self.labelGroup.setText(QCoreApplication.translate("DlgExpressionInput", u"Group:", None))
+        self.labelInfoActive.setText("")
+        self.labelVarSet.setText(QCoreApplication.translate("DlgExpressionInput", u"Variable Set:", None))
+        self.labelInfo.setText(QCoreApplication.translate("DlgExpressionInput", u"Info:", None))
+        self.LabelPropNew.setText(QCoreApplication.translate("DlgExpressionInput", u"New Property:", None))
+        self.checkBoxVarSets.setText(QCoreApplication.translate("DlgExpressionInput", u"Show variable sets", None))
+        self.label.setText(QCoreApplication.translate("DlgExpressionInput", u"Result:", None))
         self.msg.setText("")
-        self.checkBoxVarSets.setText(QCoreApplication.translate("DlgExpressionInput", u"Store in VarSet...", None))
-        self.groupBoxVarSets.setTitle("")
-        self.errorIconLabel.setText("")
-        self.errorTextLabel.setText(QCoreApplication.translate("DlgExpressionInput", u"Error", None))
-        self.labelVarSet.setText(QCoreApplication.translate("DlgExpressionInput", u"Variable Set", None))
-        self.labelGroup.setText(QCoreApplication.translate("DlgExpressionInput", u"Group", None))
-        self.LabelPropNew.setText(QCoreApplication.translate("DlgExpressionInput", u"Name", None))
+#if QT_CONFIG(tooltip)
+        self.discardBtn.setToolTip(QCoreApplication.translate("DlgExpressionInput", u"Revert to last calculated value (as constant)", None))
+#endif // QT_CONFIG(tooltip)
+        self.discardBtn.setText(QCoreApplication.translate("DlgExpressionInput", u"&Clear", None))
+        self.okBtn.setText(QCoreApplication.translate("DlgExpressionInput", u"&OK", None))
     # retranslateUi
 

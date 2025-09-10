@@ -60,13 +60,15 @@ class Ui_TaskAssemblyCreateView(object):
     # setupUi
 
     def retranslateUi(self, TaskAssemblyCreateView):
-        TaskAssemblyCreateView.setWindowTitle(QCoreApplication.translate("TaskAssemblyCreateView", u"Exploded View", None))
+        TaskAssemblyCreateView.setWindowTitle(QCoreApplication.translate("TaskAssemblyCreateView", u"Create Exploded View", None))
 #if QT_CONFIG(tooltip)
-        self.CheckBox_PartsAsSingleSolid.setToolTip(QCoreApplication.translate("TaskAssemblyCreateView", u"If checked, parts will be selected as a single solid", None))
+        self.CheckBox_PartsAsSingleSolid.setToolTip(QCoreApplication.translate("TaskAssemblyCreateView", u"If checked, Parts will be selected as a single solid.", None))
 #endif // QT_CONFIG(tooltip)
         self.CheckBox_PartsAsSingleSolid.setText(QCoreApplication.translate("TaskAssemblyCreateView", u"Parts as single solid", None))
-        self.btnAlignDragger.setText(QCoreApplication.translate("TaskAssemblyCreateView", u"Align Dragger", None))
-        self.LabelAlignDragger.setText(QCoreApplication.translate("TaskAssemblyCreateView", u"Select a feature to align. Press Esc to cancel.", None))
-        self.btnRadialExplosion.setText(QCoreApplication.translate("TaskAssemblyCreateView", u"Explode Radially", None))
+        self.btnAlignDragger.setText(QCoreApplication.translate("TaskAssemblyCreateView", u"Align dragger", None))
+        self.LabelAlignDragger.setText(QCoreApplication.translate("TaskAssemblyCreateView", u"Aligning dragger:\n"
+"Select a feature.\n"
+"Press ESC to cancel.", None))
+        self.btnRadialExplosion.setText(QCoreApplication.translate("TaskAssemblyCreateView", u"Explode radially", None))
     # retranslateUi
 

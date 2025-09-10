@@ -94,8 +94,8 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsDraft):
         Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DWG", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DWG Conversion", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Conversion method", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DWG conversion", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Conversion method:", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Automatic", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"LibreDWG", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"ODA Converter", None))

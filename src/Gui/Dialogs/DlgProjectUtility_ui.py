@@ -131,12 +131,12 @@ class Ui_Gui_Dialog_DlgProjectUtility(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgProjectUtility):
-        Gui__Dialog__DlgProjectUtility.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Document Utility", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Extract Document", None))
+        Gui__Dialog__DlgProjectUtility.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Document utility", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Extract document", None))
         self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Source", None))
         self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Destination", None))
         self.extractButton.setText(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Extract", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Create Document", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Create document", None))
         self.label_3.setText(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Source", None))
         self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Destination", None))
         self.createButton.setText(QCoreApplication.translate("Gui::Dialog::DlgProjectUtility", u"Create", None))

@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox,
-    QLabel, QPushButton, QRadioButton, QSizePolicy,
-    QSpacerItem, QSpinBox, QVBoxLayout, QWidget)
+    QLabel, QPushButton, QSizePolicy, QSpacerItem,
+    QSpinBox, QVBoxLayout, QWidget)
 
 class Ui_DraftOrthoArrayTaskPanel(object):
     def setupUi(self, DraftOrthoArrayTaskPanel):
@@ -32,36 +32,22 @@ class Ui_DraftOrthoArrayTaskPanel(object):
         DraftOrthoArrayTaskPanel.setMinimumSize(QSize(250, 0))
         self.gridLayout_3 = QGridLayout(DraftOrthoArrayTaskPanel)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.button_linear_mode = QPushButton(DraftOrthoArrayTaskPanel)
-        self.button_linear_mode.setObjectName(u"button_linear_mode")
-        self.button_linear_mode.setCheckable(True)
+        self.main_group = QGroupBox(DraftOrthoArrayTaskPanel)
+        self.main_group.setObjectName(u"main_group")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.main_group.sizePolicy().hasHeightForWidth())
+        self.main_group.setSizePolicy(sizePolicy1)
+        self.gridLayout_4 = QGridLayout(self.main_group)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_icon = QLabel(self.main_group)
+        self.label_icon.setObjectName(u"label_icon")
+        self.label_icon.setText(u"(Placeholder for the icon)")
 
-        self.gridLayout_3.addWidget(self.button_linear_mode, 0, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.label_icon, 0, 0, 1, 1)
 
-        self.grid_axis_select = QGridLayout()
-        self.grid_axis_select.setObjectName(u"grid_axis_select")
-        self.radiobutton_x_axis = QRadioButton(DraftOrthoArrayTaskPanel)
-        self.radiobutton_x_axis.setObjectName(u"radiobutton_x_axis")
-        self.radiobutton_x_axis.setChecked(True)
-
-        self.grid_axis_select.addWidget(self.radiobutton_x_axis, 0, 0, 1, 1)
-
-        self.radiobutton_y_axis = QRadioButton(DraftOrthoArrayTaskPanel)
-        self.radiobutton_y_axis.setObjectName(u"radiobutton_y_axis")
-        self.radiobutton_y_axis.setChecked(False)
-
-        self.grid_axis_select.addWidget(self.radiobutton_y_axis, 1, 0, 1, 1)
-
-        self.radiobutton_z_axis = QRadioButton(DraftOrthoArrayTaskPanel)
-        self.radiobutton_z_axis.setObjectName(u"radiobutton_z_axis")
-        self.radiobutton_z_axis.setChecked(False)
-
-        self.grid_axis_select.addWidget(self.radiobutton_z_axis, 2, 0, 1, 1)
-
-
-        self.gridLayout_3.addLayout(self.grid_axis_select, 1, 0, 1, 1)
-
-        self.group_copies = QGroupBox(DraftOrthoArrayTaskPanel)
+        self.group_copies = QGroupBox(self.main_group)
         self.group_copies.setObjectName(u"group_copies")
         self.gridLayout_5 = QGridLayout(self.group_copies)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
@@ -110,16 +96,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
         self.gridLayout_5.addLayout(self.grid_number, 0, 0, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.group_copies, 2, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.group_copies, 1, 0, 1, 1)
 
-        self.group_linearmode = QGroupBox(DraftOrthoArrayTaskPanel)
-        self.group_linearmode.setObjectName(u"group_linearmode")
-        self.gridLayout_51 = QGridLayout(self.group_linearmode)
-        self.gridLayout_51.setObjectName(u"gridLayout_51")
-
-        self.gridLayout_3.addWidget(self.group_linearmode, 3, 0, 1, 1)
-
-        self.group_X = QGroupBox(DraftOrthoArrayTaskPanel)
+        self.group_X = QGroupBox(self.main_group)
         self.group_X.setObjectName(u"group_X")
         self.gridLayout_2 = QGridLayout(self.group_X)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
@@ -132,12 +111,12 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_X_x = Gui_InputField(self.group_X)
         self.input_X_x.setObjectName(u"input_X_x")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.input_X_x.sizePolicy().hasHeightForWidth())
-        self.input_X_x.setSizePolicy(sizePolicy1)
-        self.input_X_x.setProperty(u"unit", u"mm")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.input_X_x.sizePolicy().hasHeightForWidth())
+        self.input_X_x.setSizePolicy(sizePolicy2)
+        self.input_X_x.setProperty(u"unit", u"")
         self.input_X_x.setProperty(u"quantity", 100.000000000000000)
 
         self.grid_X.addWidget(self.input_X_x, 0, 1, 1, 1)
@@ -149,9 +128,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_X_y = Gui_InputField(self.group_X)
         self.input_X_y.setObjectName(u"input_X_y")
-        sizePolicy1.setHeightForWidth(self.input_X_y.sizePolicy().hasHeightForWidth())
-        self.input_X_y.setSizePolicy(sizePolicy1)
-        self.input_X_y.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_X_y.sizePolicy().hasHeightForWidth())
+        self.input_X_y.setSizePolicy(sizePolicy2)
+        self.input_X_y.setProperty(u"unit", u"")
 
         self.grid_X.addWidget(self.input_X_y, 1, 1, 1, 1)
 
@@ -162,9 +141,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_X_z = Gui_InputField(self.group_X)
         self.input_X_z.setObjectName(u"input_X_z")
-        sizePolicy1.setHeightForWidth(self.input_X_z.sizePolicy().hasHeightForWidth())
-        self.input_X_z.setSizePolicy(sizePolicy1)
-        self.input_X_z.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_X_z.sizePolicy().hasHeightForWidth())
+        self.input_X_z.setSizePolicy(sizePolicy2)
+        self.input_X_z.setProperty(u"unit", u"")
 
         self.grid_X.addWidget(self.input_X_z, 2, 1, 1, 1)
 
@@ -177,12 +156,12 @@ class Ui_DraftOrthoArrayTaskPanel(object):
         self.gridLayout_2.addWidget(self.button_reset_X, 1, 0, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.group_X, 4, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.group_X, 4, 0, 1, 1)
 
-        self.group_Y = QGroupBox(DraftOrthoArrayTaskPanel)
+        self.group_Y = QGroupBox(self.main_group)
         self.group_Y.setObjectName(u"group_Y")
-        self.gridLayout_1 = QGridLayout(self.group_Y)
-        self.gridLayout_1.setObjectName(u"gridLayout_1")
+        self.gridLayout_6 = QGridLayout(self.group_Y)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.grid_Y = QGridLayout()
         self.grid_Y.setObjectName(u"grid_Y")
         self.label_Y_x = QLabel(self.group_Y)
@@ -192,9 +171,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_Y_x = Gui_InputField(self.group_Y)
         self.input_Y_x.setObjectName(u"input_Y_x")
-        sizePolicy1.setHeightForWidth(self.input_Y_x.sizePolicy().hasHeightForWidth())
-        self.input_Y_x.setSizePolicy(sizePolicy1)
-        self.input_Y_x.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_Y_x.sizePolicy().hasHeightForWidth())
+        self.input_Y_x.setSizePolicy(sizePolicy2)
+        self.input_Y_x.setProperty(u"unit", u"")
 
         self.grid_Y.addWidget(self.input_Y_x, 0, 1, 1, 1)
 
@@ -205,9 +184,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_Y_y = Gui_InputField(self.group_Y)
         self.input_Y_y.setObjectName(u"input_Y_y")
-        sizePolicy1.setHeightForWidth(self.input_Y_y.sizePolicy().hasHeightForWidth())
-        self.input_Y_y.setSizePolicy(sizePolicy1)
-        self.input_Y_y.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_Y_y.sizePolicy().hasHeightForWidth())
+        self.input_Y_y.setSizePolicy(sizePolicy2)
+        self.input_Y_y.setProperty(u"unit", u"")
         self.input_Y_y.setProperty(u"quantity", 100.000000000000000)
 
         self.grid_Y.addWidget(self.input_Y_y, 1, 1, 1, 1)
@@ -219,24 +198,24 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_Y_z = Gui_InputField(self.group_Y)
         self.input_Y_z.setObjectName(u"input_Y_z")
-        sizePolicy1.setHeightForWidth(self.input_Y_z.sizePolicy().hasHeightForWidth())
-        self.input_Y_z.setSizePolicy(sizePolicy1)
-        self.input_Y_z.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_Y_z.sizePolicy().hasHeightForWidth())
+        self.input_Y_z.setSizePolicy(sizePolicy2)
+        self.input_Y_z.setProperty(u"unit", u"")
 
         self.grid_Y.addWidget(self.input_Y_z, 2, 1, 1, 1)
 
 
-        self.gridLayout_1.addLayout(self.grid_Y, 0, 0, 1, 1)
+        self.gridLayout_6.addLayout(self.grid_Y, 0, 0, 1, 1)
 
         self.button_reset_Y = QPushButton(self.group_Y)
         self.button_reset_Y.setObjectName(u"button_reset_Y")
 
-        self.gridLayout_1.addWidget(self.button_reset_Y, 1, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.button_reset_Y, 1, 0, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.group_Y, 5, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.group_Y, 5, 0, 1, 1)
 
-        self.group_Z = QGroupBox(DraftOrthoArrayTaskPanel)
+        self.group_Z = QGroupBox(self.main_group)
         self.group_Z.setObjectName(u"group_Z")
         self.gridLayout = QGridLayout(self.group_Z)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -249,9 +228,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_Z_x = Gui_InputField(self.group_Z)
         self.input_Z_x.setObjectName(u"input_Z_x")
-        sizePolicy1.setHeightForWidth(self.input_Z_x.sizePolicy().hasHeightForWidth())
-        self.input_Z_x.setSizePolicy(sizePolicy1)
-        self.input_Z_x.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_Z_x.sizePolicy().hasHeightForWidth())
+        self.input_Z_x.setSizePolicy(sizePolicy2)
+        self.input_Z_x.setProperty(u"unit", u"")
 
         self.grid_Z.addWidget(self.input_Z_x, 0, 1, 1, 1)
 
@@ -262,9 +241,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_Z_y = Gui_InputField(self.group_Z)
         self.input_Z_y.setObjectName(u"input_Z_y")
-        sizePolicy1.setHeightForWidth(self.input_Z_y.sizePolicy().hasHeightForWidth())
-        self.input_Z_y.setSizePolicy(sizePolicy1)
-        self.input_Z_y.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_Z_y.sizePolicy().hasHeightForWidth())
+        self.input_Z_y.setSizePolicy(sizePolicy2)
+        self.input_Z_y.setProperty(u"unit", u"")
 
         self.grid_Z.addWidget(self.input_Z_y, 1, 1, 1, 1)
 
@@ -275,9 +254,9 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 
         self.input_Z_z = Gui_InputField(self.group_Z)
         self.input_Z_z.setObjectName(u"input_Z_z")
-        sizePolicy1.setHeightForWidth(self.input_Z_z.sizePolicy().hasHeightForWidth())
-        self.input_Z_z.setSizePolicy(sizePolicy1)
-        self.input_Z_z.setProperty(u"unit", u"mm")
+        sizePolicy2.setHeightForWidth(self.input_Z_z.sizePolicy().hasHeightForWidth())
+        self.input_Z_z.setSizePolicy(sizePolicy2)
+        self.input_Z_z.setProperty(u"unit", u"")
         self.input_Z_z.setProperty(u"quantity", 100.000000000000000)
 
         self.grid_Z.addWidget(self.input_Z_z, 2, 1, 1, 1)
@@ -291,27 +270,30 @@ class Ui_DraftOrthoArrayTaskPanel(object):
         self.gridLayout.addWidget(self.button_reset_Z, 1, 0, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.group_Z, 6, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.group_Z, 6, 0, 1, 1)
 
         self.vertical_layout = QVBoxLayout()
         self.vertical_layout.setObjectName(u"vertical_layout")
-        self.checkbox_fuse = QCheckBox(DraftOrthoArrayTaskPanel)
+        self.checkbox_fuse = QCheckBox(self.main_group)
         self.checkbox_fuse.setObjectName(u"checkbox_fuse")
 
         self.vertical_layout.addWidget(self.checkbox_fuse)
 
-        self.checkbox_link = QCheckBox(DraftOrthoArrayTaskPanel)
+        self.checkbox_link = QCheckBox(self.main_group)
         self.checkbox_link.setObjectName(u"checkbox_link")
         self.checkbox_link.setChecked(True)
 
         self.vertical_layout.addWidget(self.checkbox_link)
 
 
-        self.gridLayout_3.addLayout(self.vertical_layout, 7, 0, 1, 1)
+        self.gridLayout_4.addLayout(self.vertical_layout, 8, 0, 1, 1)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout_3.addItem(self.verticalSpacer, 8, 0, 1, 1)
+        self.gridLayout_4.addItem(self.verticalSpacer, 11, 0, 1, 1)
+
+
+        self.gridLayout_3.addWidget(self.main_group, 1, 0, 1, 1)
 
         QWidget.setTabOrder(self.spinbox_n_X, self.spinbox_n_Y)
         QWidget.setTabOrder(self.spinbox_n_Y, self.spinbox_n_Z)
@@ -336,50 +318,40 @@ class Ui_DraftOrthoArrayTaskPanel(object):
     # setupUi
 
     def retranslateUi(self, DraftOrthoArrayTaskPanel):
-        DraftOrthoArrayTaskPanel.setWindowTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Orthogonal Array", None))
-#if QT_CONFIG(tooltip)
-        self.button_linear_mode.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Toggles between orthogonal and linear mode", None))
-#endif // QT_CONFIG(tooltip)
-        self.button_linear_mode.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Switch to Linear Mode", None))
-        self.radiobutton_x_axis.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"X axis", None))
-        self.radiobutton_y_axis.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Y axis", None))
-        self.radiobutton_z_axis.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Z axis", None))
+        DraftOrthoArrayTaskPanel.setWindowTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Orthogonal array", None))
+        self.main_group.setTitle("")
 #if QT_CONFIG(tooltip)
         self.group_copies.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Number of elements in the array in the specified direction, including a copy of the original object.\n"
 "The number must be at least 1 in each direction.", None))
 #endif // QT_CONFIG(tooltip)
-        self.group_copies.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Number of Elements", None))
+        self.group_copies.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Number of elements", None))
         self.label_n_X.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"X", None))
         self.label_n_Y.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Y", None))
         self.label_n_Z.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Z", None))
 #if QT_CONFIG(tooltip)
-        self.group_linearmode.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Currently selected axis", None))
-#endif // QT_CONFIG(tooltip)
-        self.group_linearmode.setTitle("")
-#if QT_CONFIG(tooltip)
-        self.group_X.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Distance between the elements in the X-direction.\n"
+        self.group_X.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Distance between the elements in the X direction.\n"
 "Normally, only the X value is necessary; the other two values can give an additional shift in their respective directions.\n"
 "Negative values will result in copies produced in the negative direction.", None))
 #endif // QT_CONFIG(tooltip)
-        self.group_X.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"X Intervals", None))
+        self.group_X.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"X intervals", None))
         self.label_X_x.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"X", None))
         self.label_X_y.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Y", None))
         self.label_X_z.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Z", None))
 #if QT_CONFIG(tooltip)
-        self.button_reset_X.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Resets the distances", None))
+        self.button_reset_X.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Reset the distances.", None))
 #endif // QT_CONFIG(tooltip)
         self.button_reset_X.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Reset X", None))
 #if QT_CONFIG(tooltip)
-        self.group_Y.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Distance between the elements in the Y-direction.\n"
+        self.group_Y.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Distance between the elements in the Y direction.\n"
 "Normally, only the Y value is necessary; the other two values can give an additional shift in their respective directions.\n"
 "Negative values will result in copies produced in the negative direction.", None))
 #endif // QT_CONFIG(tooltip)
-        self.group_Y.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Y Intervals", None))
+        self.group_Y.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Y intervals", None))
         self.label_Y_x.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"X", None))
         self.label_Y_y.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Y", None))
         self.label_Y_z.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Z", None))
 #if QT_CONFIG(tooltip)
-        self.button_reset_Y.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Resets the distances", None))
+        self.button_reset_Y.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Reset the distances.", None))
 #endif // QT_CONFIG(tooltip)
         self.button_reset_Y.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Reset Y", None))
 #if QT_CONFIG(tooltip)
@@ -387,12 +359,12 @@ class Ui_DraftOrthoArrayTaskPanel(object):
 "Normally, only the Z value is necessary; the other two values can give an additional shift in their respective directions.\n"
 "Negative values will result in copies produced in the negative direction.", None))
 #endif // QT_CONFIG(tooltip)
-        self.group_Z.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Z Intervals", None))
+        self.group_Z.setTitle(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Z intervals", None))
         self.label_Z_x.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"X", None))
         self.label_Z_y.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Y", None))
         self.label_Z_z.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Z", None))
 #if QT_CONFIG(tooltip)
-        self.button_reset_Z.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Resets the distances", None))
+        self.button_reset_Z.setToolTip(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Reset the distances.", None))
 #endif // QT_CONFIG(tooltip)
         self.button_reset_Z.setText(QCoreApplication.translate("DraftOrthoArrayTaskPanel", u"Reset Z", None))
 #if QT_CONFIG(tooltip)

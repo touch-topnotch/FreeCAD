@@ -60,6 +60,7 @@ class Ui_Gui_Dialog_DlgMacroRecord(object):
         self.pushButtonChooseDir = QPushButton(self.groupBox_2)
         self.pushButtonChooseDir.setObjectName(u"pushButtonChooseDir")
         self.pushButtonChooseDir.setMaximumSize(QSize(35, 16777215))
+        self.pushButtonChooseDir.setText(u"...")
 
         self.hboxLayout.addWidget(self.pushButtonChooseDir)
 
@@ -106,10 +107,9 @@ class Ui_Gui_Dialog_DlgMacroRecord(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgMacroRecord):
-        Gui__Dialog__DlgMacroRecord.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Record Macro", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Macro Name", None))
-        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Macro Path", None))
-        self.pushButtonChooseDir.setText(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Choose Folder", None))
+        Gui__Dialog__DlgMacroRecord.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Macro recording", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Macro name:", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Macro path:", None))
         self.buttonStart.setText(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Record", None))
         self.buttonStop.setText(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Stop", None))
         self.buttonClose.setText(QCoreApplication.translate("Gui::Dialog::DlgMacroRecord", u"Close", None))

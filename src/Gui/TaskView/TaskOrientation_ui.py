@@ -88,12 +88,12 @@ class Ui_Gui_TaskOrientation(object):
     # setupUi
 
     def retranslateUi(self, Gui__TaskOrientation):
-        Gui__TaskOrientation.setWindowTitle(QCoreApplication.translate("Gui::TaskOrientation", u"Choose Orientation", None))
+        Gui__TaskOrientation.setWindowTitle(QCoreApplication.translate("Gui::TaskOrientation", u"Choose orientation", None))
         self.groupBox.setTitle(QCoreApplication.translate("Gui::TaskOrientation", u"Planes", None))
-        self.XY_radioButton.setText(QCoreApplication.translate("Gui::TaskOrientation", u"XY-plane", None))
-        self.XZ_radioButton.setText(QCoreApplication.translate("Gui::TaskOrientation", u"XZ-plane", None))
-        self.YZ_radioButton.setText(QCoreApplication.translate("Gui::TaskOrientation", u"YZ-plane", None))
+        self.XY_radioButton.setText(QCoreApplication.translate("Gui::TaskOrientation", u"XY-Plane", None))
+        self.XZ_radioButton.setText(QCoreApplication.translate("Gui::TaskOrientation", u"XZ-Plane", None))
+        self.YZ_radioButton.setText(QCoreApplication.translate("Gui::TaskOrientation", u"YZ-Plane", None))
         self.Reverse_checkBox.setText(QCoreApplication.translate("Gui::TaskOrientation", u"Reverse direction", None))
-        self.label.setText(QCoreApplication.translate("Gui::TaskOrientation", u"Offset", None))
+        self.label.setText(QCoreApplication.translate("Gui::TaskOrientation", u"Offset:", None))
     # retranslateUi
 

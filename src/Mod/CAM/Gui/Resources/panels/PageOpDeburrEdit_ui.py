@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QGridLayout, QHBoxLayout, QLabel, QSizePolicy,
-    QSpacerItem, QToolButton, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
+    QHBoxLayout, QLabel, QSizePolicy, QSpacerItem,
+    QToolButton, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -48,12 +48,12 @@ class Ui_Form(object):
         self.label.setMinimumSize(QSize(125, 0))
         self.label.setMaximumSize(QSize(16777215, 16777215))
 
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.label, 1, 0, 1, 1)
 
         self.toolController = QComboBox(self.frame)
         self.toolController.setObjectName(u"toolController")
 
-        self.gridLayout_2.addWidget(self.toolController, 0, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.toolController, 1, 1, 1, 1)
 
         self.label_5 = QLabel(self.frame)
         self.label_5.setObjectName(u"label_5")
@@ -62,17 +62,12 @@ class Ui_Form(object):
         self.label_5.setMinimumSize(QSize(125, 0))
         self.label_5.setMaximumSize(QSize(16777215, 16777215))
 
-        self.gridLayout_2.addWidget(self.label_5, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.label_5, 2, 0, 1, 1)
 
         self.coolantController = QComboBox(self.frame)
         self.coolantController.setObjectName(u"coolantController")
 
-        self.gridLayout_2.addWidget(self.coolantController, 1, 1, 1, 1)
-
-        self.editToolController = QCheckBox(self.frame)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout_2.addWidget(self.editToolController, 2, 0, 1, 2)
+        self.gridLayout_2.addWidget(self.coolantController, 2, 1, 1, 1)
 
 
         self.gridLayout_4.addWidget(self.frame, 0, 0, 1, 1)
@@ -239,29 +234,28 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.label.setText(QCoreApplication.translate("Form", u"Tool controller", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Tool Controller", None))
 #if QT_CONFIG(tooltip)
-        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
+        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_5.setText(QCoreApplication.translate("Form", u"Coolant mode", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u"Coolant Mode", None))
 #if QT_CONFIG(tooltip)
-        self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
+        self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
         self.direction_label.setText(QCoreApplication.translate("Form", u"Direction", None))
         self.direction.setItemText(0, QCoreApplication.translate("Form", u"CW", None))
         self.direction.setItemText(1, QCoreApplication.translate("Form", u"CCW", None))
 
 #if QT_CONFIG(tooltip)
-        self.direction.setToolTip(QCoreApplication.translate("Form", u"The direction in which the profile is performed, clockwise or counterclockwise", None))
+        self.direction.setToolTip(QCoreApplication.translate("Form", u"The direction in which the profile is performed, clockwise or counterclockwise.", None))
 #endif // QT_CONFIG(tooltip)
         self.direction.setCurrentText(QCoreApplication.translate("Form", u"CW", None))
 #if QT_CONFIG(tooltip)
-        self.value_W.setToolTip(QCoreApplication.translate("Form", u"Width of chamfer cut", None))
+        self.value_W.setToolTip(QCoreApplication.translate("Form", u"Width of chamfer cut.", None))
 #endif // QT_CONFIG(tooltip)
         self.value_W.setProperty(u"unit", QCoreApplication.translate("Form", u"mm", None))
 #if QT_CONFIG(tooltip)
-        self.value_h.setToolTip(QCoreApplication.translate("Form", u"Extra depth of tool immersion", None))
+        self.value_h.setToolTip(QCoreApplication.translate("Form", u"Extra depth of tool immersion.", None))
 #endif // QT_CONFIG(tooltip)
         self.value_h.setProperty(u"unit", QCoreApplication.translate("Form", u"mm", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Join:", None))

@@ -77,14 +77,14 @@ class Ui_Gui_Dialog_DlgSettingsPDF(object):
     def retranslateUi(self, Gui__Dialog__DlgSettingsPDF):
         Gui__Dialog__DlgSettingsPDF.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF", None))
         self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF Export", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF version", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF Version:", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF/1.4", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF/A-1b", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF/1.6", None))
         self.comboBox.setItemText(3, QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"PDF/X-4", None))
 
 #if QT_CONFIG(tooltip)
-        self.comboBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"This is the PDF Version FreeCAD will use to export to PDF", None))
+        self.comboBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsPDF", u"This is the PDF Version FreeCAD will use to export to PDF.", None))
 #endif // QT_CONFIG(tooltip)
     # retranslateUi
 

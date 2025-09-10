@@ -89,23 +89,23 @@ class Ui_Gui_Dialog_DlgAddProperty(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgAddProperty):
-        Gui__Dialog__DlgAddProperty.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Add Property", None))
+        Gui__Dialog__DlgAddProperty.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Add property", None))
         self.label_type.setText(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Type", None))
         self.label_group.setText(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Group", None))
         self.label_name.setText(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Name", None))
 #if QT_CONFIG(tooltip)
-        self.label_doc.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Verbose description of the new property", None))
+        self.label_doc.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Verbose description of the new property.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_doc.setText(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Documentation", None))
 #if QT_CONFIG(tooltip)
-        self.edtDoc.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Verbose description of the new property", None))
+        self.edtDoc.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Verbose description of the new property.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.chkAppend.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Prefix the property name with the group name in the form 'Group_Name' to avoid conflicts with an existing property.\n"
 "In this case the prefix will be automatically trimmed when shown in the property editor.\n"
 "However, the property is still used in a script with the full name, like 'obj.Group_Name'.\n"
 "\n"
-"If this is not checked, the property must be uniquely named, and it is accessed like 'obj.Name'.", None))
+"If this is not ticked, then the property must be uniquely named, and it is accessed like 'obj.Name'.", None))
 #endif // QT_CONFIG(tooltip)
         self.chkAppend.setText(QCoreApplication.translate("Gui::Dialog::DlgAddProperty", u"Prefix group name", None))
     # retranslateUi

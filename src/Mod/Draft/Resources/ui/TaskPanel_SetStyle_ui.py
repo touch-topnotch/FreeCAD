@@ -25,7 +25,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(290, 968)
+        Form.resize(287, 945)
         self.verticalLayout_1 = QVBoxLayout(Form)
         self.verticalLayout_1.setObjectName(u"verticalLayout_1")
         self.horizontalLayout_1 = QHBoxLayout()
@@ -308,69 +308,41 @@ class Ui_Form(object):
 
         self.gridLayout_5.addWidget(self.AnnoLineWidth, 0, 1, 1, 1)
 
-        self.label_ArrowStyleStart = QLabel(self.groupBox_5)
-        self.label_ArrowStyleStart.setObjectName(u"label_ArrowStyleStart")
+        self.label_ArrowStyle = QLabel(self.groupBox_5)
+        self.label_ArrowStyle.setObjectName(u"label_ArrowStyle")
 
-        self.gridLayout_5.addWidget(self.label_ArrowStyleStart, 1, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.label_ArrowStyle, 1, 0, 1, 1)
 
-        self.ArrowStyleStart = QComboBox(self.groupBox_5)
-        self.ArrowStyleStart.addItem("")
-        self.ArrowStyleStart.addItem("")
-        self.ArrowStyleStart.addItem("")
-        self.ArrowStyleStart.addItem("")
-        self.ArrowStyleStart.addItem("")
-        self.ArrowStyleStart.addItem("")
-        self.ArrowStyleStart.setObjectName(u"ArrowStyleStart")
+        self.ArrowStyle = QComboBox(self.groupBox_5)
+        self.ArrowStyle.addItem("")
+        self.ArrowStyle.addItem("")
+        self.ArrowStyle.addItem("")
+        self.ArrowStyle.addItem("")
+        self.ArrowStyle.addItem("")
+        self.ArrowStyle.setObjectName(u"ArrowStyle")
 
-        self.gridLayout_5.addWidget(self.ArrowStyleStart, 1, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.ArrowStyle, 1, 1, 1, 1)
 
-        self.label_ArrowSizeStart = QLabel(self.groupBox_5)
-        self.label_ArrowSizeStart.setObjectName(u"label_ArrowSizeStart")
+        self.label_ArrowSize = QLabel(self.groupBox_5)
+        self.label_ArrowSize.setObjectName(u"label_ArrowSize")
 
-        self.gridLayout_5.addWidget(self.label_ArrowSizeStart, 2, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.label_ArrowSize, 2, 0, 1, 1)
 
-        self.ArrowSizeStart = Gui_InputField(self.groupBox_5)
-        self.ArrowSizeStart.setObjectName(u"ArrowSizeStart")
-        self.ArrowSizeStart.setProperty(u"unit", u"")
+        self.ArrowSize = Gui_InputField(self.groupBox_5)
+        self.ArrowSize.setObjectName(u"ArrowSize")
+        self.ArrowSize.setProperty(u"unit", u"")
 
-        self.gridLayout_5.addWidget(self.ArrowSizeStart, 2, 1, 1, 1)
-
-        self.label_ArrowStyleEnd = QLabel(self.groupBox_5)
-        self.label_ArrowStyleEnd.setObjectName(u"label_ArrowStyleEnd")
-
-        self.gridLayout_5.addWidget(self.label_ArrowStyleEnd, 3, 0, 1, 1)
-
-        self.ArrowStyleEnd = QComboBox(self.groupBox_5)
-        self.ArrowStyleEnd.addItem("")
-        self.ArrowStyleEnd.addItem("")
-        self.ArrowStyleEnd.addItem("")
-        self.ArrowStyleEnd.addItem("")
-        self.ArrowStyleEnd.addItem("")
-        self.ArrowStyleEnd.addItem("")
-        self.ArrowStyleEnd.setObjectName(u"ArrowStyleEnd")
-
-        self.gridLayout_5.addWidget(self.ArrowStyleEnd, 3, 1, 1, 1)
-
-        self.label_ArrowSizeEnd = QLabel(self.groupBox_5)
-        self.label_ArrowSizeEnd.setObjectName(u"label_ArrowSizeEnd")
-
-        self.gridLayout_5.addWidget(self.label_ArrowSizeEnd, 4, 0, 1, 1)
-
-        self.ArrowSizeEnd = Gui_InputField(self.groupBox_5)
-        self.ArrowSizeEnd.setObjectName(u"ArrowSizeEnd")
-        self.ArrowSizeEnd.setProperty(u"unit", u"")
-
-        self.gridLayout_5.addWidget(self.ArrowSizeEnd, 4, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.ArrowSize, 2, 1, 1, 1)
 
         self.label_AnnoLineColor = QLabel(self.groupBox_5)
         self.label_AnnoLineColor.setObjectName(u"label_AnnoLineColor")
 
-        self.gridLayout_5.addWidget(self.label_AnnoLineColor, 5, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.label_AnnoLineColor, 3, 0, 1, 1)
 
         self.AnnoLineColor = Gui_ColorButton(self.groupBox_5)
         self.AnnoLineColor.setObjectName(u"AnnoLineColor")
 
-        self.gridLayout_5.addWidget(self.AnnoLineColor, 5, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.AnnoLineColor, 3, 1, 1, 1)
 
         self.gridLayout_5.setColumnStretch(0, 1)
         self.gridLayout_5.setColumnMinimumWidth(1, 100)
@@ -484,17 +456,17 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Style Settings", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Style settings", None))
         self.comboPresets.setItemText(0, QCoreApplication.translate("Form", u"Load preset", None))
 
 #if QT_CONFIG(tooltip)
         self.comboPresets.setToolTip(QCoreApplication.translate("Form", u"Fill the values below from a stored style preset", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.saveButton.setToolTip(QCoreApplication.translate("Form", u"Saves the current style as a preset", None))
+        self.saveButton.setToolTip(QCoreApplication.translate("Form", u"Save the current style as a preset...", None))
 #endif // QT_CONFIG(tooltip)
         self.saveButton.setText("")
-        self.groupBox_1.setTitle(QCoreApplication.translate("Form", u"Shape Appearance", None))
+        self.groupBox_1.setTitle(QCoreApplication.translate("Form", u"Shape appearance", None))
         self.label_ShapeColor.setText(QCoreApplication.translate("Form", u"Shape color", None))
         self.label_AmbientColor.setText(QCoreApplication.translate("Form", u"Ambient shape color", None))
         self.label_EmissiveColor.setText(QCoreApplication.translate("Form", u"Emissive shape color", None))
@@ -544,50 +516,40 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.TextColor.setToolTip(QCoreApplication.translate("Form", u"The color for texts, dimension texts and label texts", None))
 #endif // QT_CONFIG(tooltip)
-        self.groupBox_5.setTitle(QCoreApplication.translate("Form", u"Lines and Arrows", None))
+        self.groupBox_5.setTitle(QCoreApplication.translate("Form", u"Lines and arrows", None))
         self.label_AnnoLineWidth.setText(QCoreApplication.translate("Form", u"Line width", None))
         self.AnnoLineWidth.setSuffix(QCoreApplication.translate("Form", u" px", None))
-        self.label_ArrowStyleStart.setText(QCoreApplication.translate("Form", u"Start arrow type", None))
-        self.ArrowStyleStart.setItemText(0, QCoreApplication.translate("Form", u"Dot", None))
-        self.ArrowStyleStart.setItemText(1, QCoreApplication.translate("Form", u"Circle", None))
-        self.ArrowStyleStart.setItemText(2, QCoreApplication.translate("Form", u"Arrow", None))
-        self.ArrowStyleStart.setItemText(3, QCoreApplication.translate("Form", u"Tick", None))
-        self.ArrowStyleStart.setItemText(4, QCoreApplication.translate("Form", u"Tick-2", None))
-        self.ArrowStyleStart.setItemText(5, QCoreApplication.translate("Form", u"None", None))
+        self.label_ArrowStyle.setText(QCoreApplication.translate("Form", u"Arrow type", None))
+        self.ArrowStyle.setItemText(0, QCoreApplication.translate("Form", u"Dot", None))
+        self.ArrowStyle.setItemText(1, QCoreApplication.translate("Form", u"Circle", None))
+        self.ArrowStyle.setItemText(2, QCoreApplication.translate("Form", u"Arrow", None))
+        self.ArrowStyle.setItemText(3, QCoreApplication.translate("Form", u"Tick", None))
+        self.ArrowStyle.setItemText(4, QCoreApplication.translate("Form", u"Tick-2", None))
 
-        self.label_ArrowSizeStart.setText(QCoreApplication.translate("Form", u"Start arrow size", None))
-        self.label_ArrowStyleEnd.setText(QCoreApplication.translate("Form", u"End arrow type", None))
-        self.ArrowStyleEnd.setItemText(0, QCoreApplication.translate("Form", u"Dot", None))
-        self.ArrowStyleEnd.setItemText(1, QCoreApplication.translate("Form", u"Circle", None))
-        self.ArrowStyleEnd.setItemText(2, QCoreApplication.translate("Form", u"Arrow", None))
-        self.ArrowStyleEnd.setItemText(3, QCoreApplication.translate("Form", u"Tick", None))
-        self.ArrowStyleEnd.setItemText(4, QCoreApplication.translate("Form", u"Tick-2", None))
-        self.ArrowStyleEnd.setItemText(5, QCoreApplication.translate("Form", u"None", None))
-
-        self.label_ArrowSizeEnd.setText(QCoreApplication.translate("Form", u"End arrow size", None))
+        self.label_ArrowSize.setText(QCoreApplication.translate("Form", u"Arrow size", None))
         self.label_AnnoLineColor.setText(QCoreApplication.translate("Form", u"Line and arrow color", None))
         self.groupBox_6.setTitle(QCoreApplication.translate("Form", u"Dimensions", None))
         self.label_ShowUnit.setText(QCoreApplication.translate("Form", u"Show unit", None))
 #if QT_CONFIG(tooltip)
-        self.ShowUnit.setToolTip(QCoreApplication.translate("Form", u"Adds a unit symbol to dimension texts", None))
+        self.ShowUnit.setToolTip(QCoreApplication.translate("Form", u"If checked, a unit symbol is added to dimension texts", None))
 #endif // QT_CONFIG(tooltip)
         self.ShowUnit.setText("")
         self.label_UnitOverride.setText(QCoreApplication.translate("Form", u"Unit override", None))
 #if QT_CONFIG(tooltip)
         self.UnitOverride.setToolTip(QCoreApplication.translate("Form", u"The unit override for dimensions. Leave blank to use the current FreeCAD unit.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_DimOvershoot.setText(QCoreApplication.translate("Form", u"Dimension line overshoot", None))
+        self.label_DimOvershoot.setText(QCoreApplication.translate("Form", u"Dim line overshoot", None))
 #if QT_CONFIG(tooltip)
         self.DimOvershoot.setToolTip(QCoreApplication.translate("Form", u"The distance the dimension line is extended past the extension lines", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_ExtLines.setText(QCoreApplication.translate("Form", u"Extension line length", None))
+        self.label_ExtLines.setText(QCoreApplication.translate("Form", u"Ext line length", None))
 #if QT_CONFIG(tooltip)
         self.ExtLines.setToolTip(QCoreApplication.translate("Form", u"The length of extension lines. Use 0 for full extension lines. A negative value\n"
 "defines the gap between the ends of the extension lines and the measured points.\n"
 "A positive value defines the maximum length of the extension lines. Only used\n"
 "for linear dimensions.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_ExtOvershoot.setText(QCoreApplication.translate("Form", u"Extension line overshoot", None))
+        self.label_ExtOvershoot.setText(QCoreApplication.translate("Form", u"Ext line overshoot", None))
 #if QT_CONFIG(tooltip)
         self.ExtOvershoot.setToolTip(QCoreApplication.translate("Form", u"The length of extension lines above the dimension line", None))
 #endif // QT_CONFIG(tooltip)

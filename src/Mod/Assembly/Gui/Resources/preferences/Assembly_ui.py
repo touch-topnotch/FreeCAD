@@ -71,17 +71,17 @@ class Ui_AssemblyGui_DlgSettingsAssembly(object):
     def retranslateUi(self, AssemblyGui__DlgSettingsAssembly):
         AssemblyGui__DlgSettingsAssembly.setWindowTitle(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"General", None))
 #if QT_CONFIG(tooltip)
-        self.checkBoxEnableEscape.setToolTip(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Allows leaving edit mode when pressing the Esc key", None))
+        self.checkBoxEnableEscape.setToolTip(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Allows leaving edit mode when pressing Esc button", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBoxEnableEscape.setText(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Esc leaves edit mode", None))
 #if QT_CONFIG(tooltip)
-        self.checkBoxSolverDebug.setToolTip(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Log the dragging steps of the solver. Useful to report a bug.\n"
+        self.checkBoxSolverDebug.setToolTip(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Log the dragging steps of the solver. Useful if you want to report a bug.\n"
 "The files are named \"runPreDrag.asmt\" and \"dragging.log\" and are located in the default directory of std::ofstream (on Windows it's the desktop)", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBoxSolverDebug.setText(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Log dragging steps", None))
-        self.groundFirstPartLabel.setText(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Ground first part", None))
+        self.groundFirstPartLabel.setText(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"Ground first part:", None))
 #if QT_CONFIG(tooltip)
-        self.groundFirstPart.setToolTip(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"When inserting the first part in the assembly, it can be grounded automatically", None))
+        self.groundFirstPart.setToolTip(QCoreApplication.translate("AssemblyGui::DlgSettingsAssembly", u"When you insert the first part in the assembly, you can choose to ground the part automatically.", None))
 #endif // QT_CONFIG(tooltip)
     # retranslateUi
 

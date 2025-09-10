@@ -53,8 +53,8 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Default Structure", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Create a default structure (IfcProject, IfcSite, IfcBuilding and IfcBuildingStorey)? Replying \"No\" will only create an IfcProject. The structure can be added manually later.", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Default structure", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Create a default structure (IfcProject, IfcSite, IfcBuilding and IfcBuildingStorey)? Replying \"No\" will only create an IfcProject. You can then add the structure manually later.", None))
         self.checkBox.setText(QCoreApplication.translate("Dialog", u"Do not ask again", None))
     # retranslateUi
 

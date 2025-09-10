@@ -74,8 +74,8 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Below are the phases currently configured for this model", None))
-        self.pushButtonAdd.setText(QCoreApplication.translate("Dialog", u"Add", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Below are the phases currently configured for this model:", None))
+        self.pushButtonAdd.setText(QCoreApplication.translate("Dialog", u"Add...", None))
         self.pushButtonDelete.setText(QCoreApplication.translate("Dialog", u"Delete", None))
     # retranslateUi
 

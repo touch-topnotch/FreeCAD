@@ -15,265 +15,312 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QGroupBox, QHBoxLayout,
-    QLabel, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QGroupBox, QHBoxLayout, QLabel,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_Gui_Dialog_DlgSettingsDraft(object):
     def setupUi(self, Gui__Dialog__DlgSettingsDraft):
         if not Gui__Dialog__DlgSettingsDraft.objectName():
             Gui__Dialog__DlgSettingsDraft.setObjectName(u"Gui__Dialog__DlgSettingsDraft")
-        Gui__Dialog__DlgSettingsDraft.resize(600, 880)
-        self.verticalLayout_Main = QVBoxLayout(Gui__Dialog__DlgSettingsDraft)
-        self.verticalLayout_Main.setObjectName(u"verticalLayout_Main")
-        self.groupBox_General = QGroupBox(Gui__Dialog__DlgSettingsDraft)
-        self.groupBox_General.setObjectName(u"groupBox_General")
-        self.verticalLayout_General = QVBoxLayout(self.groupBox_General)
-        self.verticalLayout_General.setObjectName(u"verticalLayout_General")
-        self.checkBox_dxfShowDialog = Gui_PrefCheckBox(self.groupBox_General)
+        Gui__Dialog__DlgSettingsDraft.resize(649, 773)
+        self.vboxLayout = QVBoxLayout(Gui__Dialog__DlgSettingsDraft)
+        self.vboxLayout.setSpacing(6)
+        self.vboxLayout.setContentsMargins(9, 9, 9, 9)
+        self.vboxLayout.setObjectName(u"vboxLayout")
+        self.checkBox_dxfShowDialog = Gui_PrefCheckBox(Gui__Dialog__DlgSettingsDraft)
         self.checkBox_dxfShowDialog.setObjectName(u"checkBox_dxfShowDialog")
         self.checkBox_dxfShowDialog.setChecked(True)
         self.checkBox_dxfShowDialog.setProperty(u"prefEntry", u"dxfShowDialog")
         self.checkBox_dxfShowDialog.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.verticalLayout_General.addWidget(self.checkBox_dxfShowDialog)
+        self.vboxLayout.addWidget(self.checkBox_dxfShowDialog)
 
-        self.checkBox_dxfUseLegacyImporter = Gui_PrefCheckBox(self.groupBox_General)
+        self.checkBox_dxfUseLegacyImporter = Gui_PrefCheckBox(Gui__Dialog__DlgSettingsDraft)
         self.checkBox_dxfUseLegacyImporter.setObjectName(u"checkBox_dxfUseLegacyImporter")
+        self.checkBox_dxfUseLegacyImporter.setChecked(False)
         self.checkBox_dxfUseLegacyImporter.setProperty(u"prefEntry", u"dxfUseLegacyImporter")
         self.checkBox_dxfUseLegacyImporter.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.verticalLayout_General.addWidget(self.checkBox_dxfUseLegacyImporter)
+        self.vboxLayout.addWidget(self.checkBox_dxfUseLegacyImporter)
 
-        self.checkBox_dxfUseLegacyExporter = Gui_PrefCheckBox(self.groupBox_General)
+        self.checkBox_dxfUseLegacyExporter = Gui_PrefCheckBox(Gui__Dialog__DlgSettingsDraft)
         self.checkBox_dxfUseLegacyExporter.setObjectName(u"checkBox_dxfUseLegacyExporter")
         self.checkBox_dxfUseLegacyExporter.setProperty(u"prefEntry", u"dxfUseLegacyExporter")
         self.checkBox_dxfUseLegacyExporter.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.verticalLayout_General.addWidget(self.checkBox_dxfUseLegacyExporter)
+        self.vboxLayout.addWidget(self.checkBox_dxfUseLegacyExporter)
 
-
-        self.verticalLayout_Main.addWidget(self.groupBox_General)
-
-        self.groupBox_AutoUpdate = QGroupBox(Gui__Dialog__DlgSettingsDraft)
-        self.groupBox_AutoUpdate.setObjectName(u"groupBox_AutoUpdate")
-        self.verticalLayout_AutoUpdate = QVBoxLayout(self.groupBox_AutoUpdate)
-        self.verticalLayout_AutoUpdate.setObjectName(u"verticalLayout_AutoUpdate")
-        self.checkBox_dxfAllowDownload = Gui_PrefCheckBox(self.groupBox_AutoUpdate)
+        self.groupBox_1 = QGroupBox(Gui__Dialog__DlgSettingsDraft)
+        self.groupBox_1.setObjectName(u"groupBox_1")
+        self.verticalLayout_1 = QVBoxLayout(self.groupBox_1)
+        self.verticalLayout_1.setSpacing(6)
+        self.verticalLayout_1.setContentsMargins(11, 11, 11, 11)
+        self.verticalLayout_1.setObjectName(u"verticalLayout_1")
+        self.horizontalLayout_1 = QHBoxLayout()
+        self.horizontalLayout_1.setSpacing(6)
+        self.horizontalLayout_1.setObjectName(u"horizontalLayout_1")
+        self.checkBox_dxfAllowDownload = Gui_PrefCheckBox(self.groupBox_1)
         self.checkBox_dxfAllowDownload.setObjectName(u"checkBox_dxfAllowDownload")
         self.checkBox_dxfAllowDownload.setProperty(u"prefEntry", u"dxfAllowDownload")
         self.checkBox_dxfAllowDownload.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.verticalLayout_AutoUpdate.addWidget(self.checkBox_dxfAllowDownload)
+        self.horizontalLayout_1.addWidget(self.checkBox_dxfAllowDownload)
 
 
-        self.verticalLayout_Main.addWidget(self.groupBox_AutoUpdate)
-
-        self.groupBox_ImportAs = QGroupBox(Gui__Dialog__DlgSettingsDraft)
-        self.groupBox_ImportAs.setObjectName(u"groupBox_ImportAs")
-        self.verticalLayout_ImportAs = QVBoxLayout(self.groupBox_ImportAs)
-        self.verticalLayout_ImportAs.setObjectName(u"verticalLayout_ImportAs")
-        self.radio_ImportAs_Draft = Gui_PrefRadioButton(self.groupBox_ImportAs)
-        self.radio_ImportAs_Draft.setObjectName(u"radio_ImportAs_Draft")
-        self.radio_ImportAs_Draft.setEnabled(True)
-        self.radio_ImportAs_Draft.setProperty(u"prefEntry", u"dxfImportAsDraft")
-        self.radio_ImportAs_Draft.setProperty(u"prefPath", u"Mod/Draft")
-        self.radio_ImportAs_Draft.setProperty(u"prefRadioButtonValue", 0)
-
-        self.verticalLayout_ImportAs.addWidget(self.radio_ImportAs_Draft)
-
-        self.radio_ImportAs_Primitives = Gui_PrefRadioButton(self.groupBox_ImportAs)
-        self.radio_ImportAs_Primitives.setObjectName(u"radio_ImportAs_Primitives")
-        self.radio_ImportAs_Primitives.setEnabled(True)
-        self.radio_ImportAs_Primitives.setProperty(u"prefEntry", u"dxfImportAsPrimitives")
-        self.radio_ImportAs_Primitives.setProperty(u"prefPath", u"Mod/Draft")
-        self.radio_ImportAs_Primitives.setProperty(u"prefRadioButtonValue", 1)
-
-        self.verticalLayout_ImportAs.addWidget(self.radio_ImportAs_Primitives)
-
-        self.radio_ImportAs_Shapes = Gui_PrefRadioButton(self.groupBox_ImportAs)
-        self.radio_ImportAs_Shapes.setObjectName(u"radio_ImportAs_Shapes")
-        self.radio_ImportAs_Shapes.setChecked(True)
-        self.radio_ImportAs_Shapes.setProperty(u"prefEntry", u"dxfImportAsShapes")
-        self.radio_ImportAs_Shapes.setProperty(u"prefPath", u"Mod/Draft")
-        self.radio_ImportAs_Shapes.setProperty(u"prefRadioButtonValue", 2)
-
-        self.verticalLayout_ImportAs.addWidget(self.radio_ImportAs_Shapes)
-
-        self.radio_ImportAs_Fused = Gui_PrefRadioButton(self.groupBox_ImportAs)
-        self.radio_ImportAs_Fused.setObjectName(u"radio_ImportAs_Fused")
-        self.radio_ImportAs_Fused.setProperty(u"prefEntry", u"dxfImportAsFused")
-        self.radio_ImportAs_Fused.setProperty(u"prefPath", u"Mod/Draft")
-        self.radio_ImportAs_Fused.setProperty(u"prefRadioButtonValue", 3)
-
-        self.verticalLayout_ImportAs.addWidget(self.radio_ImportAs_Fused)
+        self.verticalLayout_1.addLayout(self.horizontalLayout_1)
 
 
-        self.verticalLayout_Main.addWidget(self.groupBox_ImportAs)
+        self.vboxLayout.addWidget(self.groupBox_1)
 
-        self.groupBox_ImportSettings = QGroupBox(Gui__Dialog__DlgSettingsDraft)
-        self.groupBox_ImportSettings.setObjectName(u"groupBox_ImportSettings")
-        self.verticalLayout_ImportSettings = QVBoxLayout(self.groupBox_ImportSettings)
-        self.verticalLayout_ImportSettings.setObjectName(u"verticalLayout_ImportSettings")
-        self.horizontalLayout_Scaling = QHBoxLayout()
-        self.horizontalLayout_Scaling.setObjectName(u"horizontalLayout_Scaling")
-        self.label_dxfScaling = QLabel(self.groupBox_ImportSettings)
+        self.GroupBox_2 = QGroupBox(Gui__Dialog__DlgSettingsDraft)
+        self.GroupBox_2.setObjectName(u"GroupBox_2")
+        self.vboxLayout1 = QVBoxLayout(self.GroupBox_2)
+        self.vboxLayout1.setSpacing(6)
+        self.vboxLayout1.setContentsMargins(11, 11, 11, 11)
+        self.vboxLayout1.setObjectName(u"vboxLayout1")
+        self.vboxLayout1.setContentsMargins(9, 9, 9, 9)
+        self.label_ImporterMissing = QLabel(self.GroupBox_2)
+        self.label_ImporterMissing.setObjectName(u"label_ImporterMissing")
+        font = QFont()
+        font.setItalic(True)
+        self.label_ImporterMissing.setFont(font)
+
+        self.vboxLayout1.addWidget(self.label_ImporterMissing)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(6)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.label_Import = QLabel(self.GroupBox_2)
+        self.label_Import.setObjectName(u"label_Import")
+
+        self.horizontalLayout_2.addWidget(self.label_Import)
+
+        self.checkBox_dxftext = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_dxftext.setObjectName(u"checkBox_dxftext")
+        self.checkBox_dxftext.setProperty(u"prefEntry", u"dxftext")
+        self.checkBox_dxftext.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_2.addWidget(self.checkBox_dxftext)
+
+        self.checkBox_dxfImportPoints = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_dxfImportPoints.setObjectName(u"checkBox_dxfImportPoints")
+        self.checkBox_dxfImportPoints.setProperty(u"prefEntry", u"dxfImportPoints")
+        self.checkBox_dxfImportPoints.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_2.addWidget(self.checkBox_dxfImportPoints)
+
+        self.checkBox_dxflayout = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_dxflayout.setObjectName(u"checkBox_dxflayout")
+        self.checkBox_dxflayout.setProperty(u"prefEntry", u"dxflayout")
+        self.checkBox_dxflayout.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_2.addWidget(self.checkBox_dxflayout)
+
+        self.checkBox_dxfstarblocks = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_dxfstarblocks.setObjectName(u"checkBox_dxfstarblocks")
+        self.checkBox_dxfstarblocks.setProperty(u"prefEntry", u"dxfstarblocks")
+        self.checkBox_dxfstarblocks.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_2.addWidget(self.checkBox_dxfstarblocks)
+
+
+        self.vboxLayout1.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setSpacing(6)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_Create = QLabel(self.GroupBox_2)
+        self.label_Create.setObjectName(u"label_Create")
+        self.label_Create.setEnabled(False)
+
+        self.horizontalLayout_3.addWidget(self.label_Create)
+
+        self.radioButton_dxfCreatePart = Gui_PrefRadioButton(self.GroupBox_2)
+        self.radioButton_dxfCreatePart.setObjectName(u"radioButton_dxfCreatePart")
+        self.radioButton_dxfCreatePart.setEnabled(False)
+        self.radioButton_dxfCreatePart.setChecked(True)
+        self.radioButton_dxfCreatePart.setProperty(u"prefEntry", u"dxfCreatePart")
+        self.radioButton_dxfCreatePart.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_3.addWidget(self.radioButton_dxfCreatePart)
+
+        self.radioButton_dxfCreateDraft = Gui_PrefRadioButton(self.GroupBox_2)
+        self.radioButton_dxfCreateDraft.setObjectName(u"radioButton_dxfCreateDraft")
+        self.radioButton_dxfCreateDraft.setEnabled(False)
+        self.radioButton_dxfCreateDraft.setProperty(u"prefEntry", u"dxfCreateDraft")
+        self.radioButton_dxfCreateDraft.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_3.addWidget(self.radioButton_dxfCreateDraft)
+
+        self.radioButton_dxfCreateSketch = Gui_PrefRadioButton(self.GroupBox_2)
+        self.radioButton_dxfCreateSketch.setObjectName(u"radioButton_dxfCreateSketch")
+        self.radioButton_dxfCreateSketch.setEnabled(False)
+        self.radioButton_dxfCreateSketch.setProperty(u"prefEntry", u"dxfCreateSketch")
+        self.radioButton_dxfCreateSketch.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_3.addWidget(self.radioButton_dxfCreateSketch)
+
+
+        self.vboxLayout1.addLayout(self.horizontalLayout_3)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(6)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.label_dxfScaling = QLabel(self.GroupBox_2)
         self.label_dxfScaling.setObjectName(u"label_dxfScaling")
 
-        self.horizontalLayout_Scaling.addWidget(self.label_dxfScaling)
+        self.horizontalLayout_4.addWidget(self.label_dxfScaling)
 
         self.horizontalSpacer_1 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_Scaling.addItem(self.horizontalSpacer_1)
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_1)
 
-        self.spinBox_dxfScaling = Gui_PrefDoubleSpinBox(self.groupBox_ImportSettings)
+        self.spinBox_dxfScaling = Gui_PrefDoubleSpinBox(self.GroupBox_2)
         self.spinBox_dxfScaling.setObjectName(u"spinBox_dxfScaling")
-        self.spinBox_dxfScaling.setDecimals(6)
+        self.spinBox_dxfScaling.setDecimals(12)
         self.spinBox_dxfScaling.setMaximum(999999.999998999992386)
         self.spinBox_dxfScaling.setValue(1.000000000000000)
         self.spinBox_dxfScaling.setProperty(u"prefEntry", u"dxfScaling")
         self.spinBox_dxfScaling.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.horizontalLayout_Scaling.addWidget(self.spinBox_dxfScaling)
+        self.horizontalLayout_4.addWidget(self.spinBox_dxfScaling)
 
 
-        self.verticalLayout_ImportSettings.addLayout(self.horizontalLayout_Scaling)
+        self.vboxLayout1.addLayout(self.horizontalLayout_4)
 
-        self.label_ImportContent = QLabel(self.groupBox_ImportSettings)
-        self.label_ImportContent.setObjectName(u"label_ImportContent")
-
-        self.verticalLayout_ImportSettings.addWidget(self.label_ImportContent)
-
-        self.gridLayout_Import = QGridLayout()
-        self.gridLayout_Import.setObjectName(u"gridLayout_Import")
-        self.checkBox_dxftext = Gui_PrefCheckBox(self.groupBox_ImportSettings)
-        self.checkBox_dxftext.setObjectName(u"checkBox_dxftext")
-        self.checkBox_dxftext.setProperty(u"prefEntry", u"dxftext")
-        self.checkBox_dxftext.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_Import.addWidget(self.checkBox_dxftext, 0, 0, 1, 1)
-
-        self.checkBox_dxfImportPoints = Gui_PrefCheckBox(self.groupBox_ImportSettings)
-        self.checkBox_dxfImportPoints.setObjectName(u"checkBox_dxfImportPoints")
-        self.checkBox_dxfImportPoints.setChecked(True)
-        self.checkBox_dxfImportPoints.setProperty(u"prefEntry", u"dxfImportPoints")
-        self.checkBox_dxfImportPoints.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_Import.addWidget(self.checkBox_dxfImportPoints, 0, 1, 1, 1)
-
-        self.checkBox_dxflayout = Gui_PrefCheckBox(self.groupBox_ImportSettings)
-        self.checkBox_dxflayout.setObjectName(u"checkBox_dxflayout")
-        self.checkBox_dxflayout.setProperty(u"prefEntry", u"dxflayout")
-        self.checkBox_dxflayout.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_Import.addWidget(self.checkBox_dxflayout, 1, 0, 1, 1)
-
-        self.checkBox_dxfstarblocks = Gui_PrefCheckBox(self.groupBox_ImportSettings)
-        self.checkBox_dxfstarblocks.setObjectName(u"checkBox_dxfstarblocks")
-        self.checkBox_dxfstarblocks.setProperty(u"prefEntry", u"dxfstarblocks")
-        self.checkBox_dxfstarblocks.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_Import.addWidget(self.checkBox_dxfstarblocks, 1, 1, 1, 1)
-
-        self.checkBox_importDxfHatches = Gui_PrefCheckBox(self.groupBox_ImportSettings)
-        self.checkBox_importDxfHatches.setObjectName(u"checkBox_importDxfHatches")
-        self.checkBox_importDxfHatches.setEnabled(False)
-        self.checkBox_importDxfHatches.setProperty(u"prefEntry", u"importDxfHatches")
-        self.checkBox_importDxfHatches.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_Import.addWidget(self.checkBox_importDxfHatches, 2, 0, 1, 1)
-
-
-        self.verticalLayout_ImportSettings.addLayout(self.gridLayout_Import)
-
-        self.label_Appearance = QLabel(self.groupBox_ImportSettings)
-        self.label_Appearance.setObjectName(u"label_Appearance")
-
-        self.verticalLayout_ImportSettings.addWidget(self.label_Appearance)
-
-        self.gridLayout_Appearance = QGridLayout()
-        self.gridLayout_Appearance.setObjectName(u"gridLayout_Appearance")
-        self.checkBox_dxfGetOriginalColors = Gui_PrefCheckBox(self.groupBox_ImportSettings)
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setSpacing(6)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.checkBox_dxfGetOriginalColors = Gui_PrefCheckBox(self.GroupBox_2)
         self.checkBox_dxfGetOriginalColors.setObjectName(u"checkBox_dxfGetOriginalColors")
-        self.checkBox_dxfGetOriginalColors.setChecked(True)
         self.checkBox_dxfGetOriginalColors.setProperty(u"prefEntry", u"dxfGetOriginalColors")
         self.checkBox_dxfGetOriginalColors.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.gridLayout_Appearance.addWidget(self.checkBox_dxfGetOriginalColors, 0, 0, 1, 1)
-
-        self.checkBox_dxfStdSize = Gui_PrefCheckBox(self.groupBox_ImportSettings)
-        self.checkBox_dxfStdSize.setObjectName(u"checkBox_dxfStdSize")
-        self.checkBox_dxfStdSize.setEnabled(False)
-        self.checkBox_dxfStdSize.setProperty(u"prefEntry", u"dxfStdSize")
-        self.checkBox_dxfStdSize.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_Appearance.addWidget(self.checkBox_dxfStdSize, 0, 1, 1, 1)
+        self.horizontalLayout_5.addWidget(self.checkBox_dxfGetOriginalColors)
 
 
-        self.verticalLayout_ImportSettings.addLayout(self.gridLayout_Appearance)
+        self.vboxLayout1.addLayout(self.horizontalLayout_5)
 
-        self.label_AdvancedProcessing = QLabel(self.groupBox_ImportSettings)
-        self.label_AdvancedProcessing.setObjectName(u"label_AdvancedProcessing")
-
-        self.verticalLayout_ImportSettings.addWidget(self.label_AdvancedProcessing)
-
-        self.gridLayout_Advanced = QGridLayout()
-        self.gridLayout_Advanced.setObjectName(u"gridLayout_Advanced")
-        self.checkBox_joingeometry = Gui_PrefCheckBox(self.groupBox_ImportSettings)
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setSpacing(6)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.checkBox_joingeometry = Gui_PrefCheckBox(self.GroupBox_2)
         self.checkBox_joingeometry.setObjectName(u"checkBox_joingeometry")
         self.checkBox_joingeometry.setEnabled(False)
         self.checkBox_joingeometry.setProperty(u"prefEntry", u"joingeometry")
         self.checkBox_joingeometry.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.gridLayout_Advanced.addWidget(self.checkBox_joingeometry, 0, 0, 1, 1)
+        self.horizontalLayout_6.addWidget(self.checkBox_joingeometry)
 
-        self.checkBox_renderPolylineWidth = Gui_PrefCheckBox(self.groupBox_ImportSettings)
+
+        self.vboxLayout1.addLayout(self.horizontalLayout_6)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setSpacing(6)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.checkBox_groupLayers = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_groupLayers.setObjectName(u"checkBox_groupLayers")
+        self.checkBox_groupLayers.setProperty(u"prefEntry", u"groupLayers")
+        self.checkBox_groupLayers.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_7.addWidget(self.checkBox_groupLayers)
+
+
+        self.vboxLayout1.addLayout(self.horizontalLayout_7)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setSpacing(6)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.checkBox_dxfStdSize = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_dxfStdSize.setObjectName(u"checkBox_dxfStdSize")
+        self.checkBox_dxfStdSize.setEnabled(False)
+        self.checkBox_dxfStdSize.setProperty(u"prefEntry", u"dxfStdSize")
+        self.checkBox_dxfStdSize.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_8.addWidget(self.checkBox_dxfStdSize)
+
+
+        self.vboxLayout1.addLayout(self.horizontalLayout_8)
+
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setSpacing(6)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.checkBox_dxfUseDraftVisGroups = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_dxfUseDraftVisGroups.setObjectName(u"checkBox_dxfUseDraftVisGroups")
+        self.checkBox_dxfUseDraftVisGroups.setChecked(True)
+        self.checkBox_dxfUseDraftVisGroups.setProperty(u"prefEntry", u"dxfUseDraftVisGroups")
+        self.checkBox_dxfUseDraftVisGroups.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_9.addWidget(self.checkBox_dxfUseDraftVisGroups)
+
+
+        self.vboxLayout1.addLayout(self.horizontalLayout_9)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setSpacing(6)
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.checkBox_importDxfHatches = Gui_PrefCheckBox(self.GroupBox_2)
+        self.checkBox_importDxfHatches.setObjectName(u"checkBox_importDxfHatches")
+        self.checkBox_importDxfHatches.setEnabled(False)
+        self.checkBox_importDxfHatches.setProperty(u"prefEntry", u"importDxfHatches")
+        self.checkBox_importDxfHatches.setProperty(u"prefPath", u"Mod/Draft")
+
+        self.horizontalLayout_10.addWidget(self.checkBox_importDxfHatches)
+
+
+        self.vboxLayout1.addLayout(self.horizontalLayout_10)
+
+        self.horizontalLayout_11 = QHBoxLayout()
+        self.horizontalLayout_11.setSpacing(6)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.checkBox_renderPolylineWidth = Gui_PrefCheckBox(self.GroupBox_2)
         self.checkBox_renderPolylineWidth.setObjectName(u"checkBox_renderPolylineWidth")
         self.checkBox_renderPolylineWidth.setEnabled(False)
         self.checkBox_renderPolylineWidth.setProperty(u"prefEntry", u"renderPolylineWidth")
         self.checkBox_renderPolylineWidth.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.gridLayout_Advanced.addWidget(self.checkBox_renderPolylineWidth, 0, 1, 1, 1)
-
-        self.checkBox_dxfCreateSketch = Gui_PrefCheckBox(self.groupBox_ImportSettings)
-        self.checkBox_dxfCreateSketch.setObjectName(u"checkBox_dxfCreateSketch")
-        self.checkBox_dxfCreateSketch.setEnabled(False)
-        self.checkBox_dxfCreateSketch.setProperty(u"prefEntry", u"dxfCreateSketch")
-        self.checkBox_dxfCreateSketch.setProperty(u"prefPath", u"Mod/Draft")
-
-        self.gridLayout_Advanced.addWidget(self.checkBox_dxfCreateSketch, 1, 0, 1, 1)
+        self.horizontalLayout_11.addWidget(self.checkBox_renderPolylineWidth)
 
 
-        self.verticalLayout_ImportSettings.addLayout(self.gridLayout_Advanced)
+        self.vboxLayout1.addLayout(self.horizontalLayout_11)
 
 
-        self.verticalLayout_Main.addWidget(self.groupBox_ImportSettings)
+        self.vboxLayout.addWidget(self.GroupBox_2)
 
-        self.groupBox_ExportOptions = QGroupBox(Gui__Dialog__DlgSettingsDraft)
-        self.groupBox_ExportOptions.setObjectName(u"groupBox_ExportOptions")
-        self.verticalLayout_Export = QVBoxLayout(self.groupBox_ExportOptions)
-        self.verticalLayout_Export.setObjectName(u"verticalLayout_Export")
-        self.horizontalLayout_Discretize = QHBoxLayout()
-        self.horizontalLayout_Discretize.setObjectName(u"horizontalLayout_Discretize")
-        self.checkBox_DiscretizeEllipses = Gui_PrefCheckBox(self.groupBox_ExportOptions)
+        self.groupBox_3 = QGroupBox(Gui__Dialog__DlgSettingsDraft)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.verticalLayout_2 = QVBoxLayout(self.groupBox_3)
+        self.verticalLayout_2.setSpacing(6)
+        self.verticalLayout_2.setContentsMargins(11, 11, 11, 11)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_ExporterMissing = QLabel(self.groupBox_3)
+        self.label_ExporterMissing.setObjectName(u"label_ExporterMissing")
+        self.label_ExporterMissing.setFont(font)
+
+        self.verticalLayout_2.addWidget(self.label_ExporterMissing)
+
+        self.horizontalLayout_12 = QHBoxLayout()
+        self.horizontalLayout_12.setSpacing(6)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.checkBox_DiscretizeEllipses = Gui_PrefCheckBox(self.groupBox_3)
         self.checkBox_DiscretizeEllipses.setObjectName(u"checkBox_DiscretizeEllipses")
         self.checkBox_DiscretizeEllipses.setChecked(True)
         self.checkBox_DiscretizeEllipses.setProperty(u"prefEntry", u"DiscretizeEllipses")
         self.checkBox_DiscretizeEllipses.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.horizontalLayout_Discretize.addWidget(self.checkBox_DiscretizeEllipses)
+        self.horizontalLayout_12.addWidget(self.checkBox_DiscretizeEllipses)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout_Discretize.addItem(self.horizontalSpacer_2)
+        self.horizontalLayout_12.addItem(self.horizontalSpacer_2)
 
-        self.label_maxsegmentlength = QLabel(self.groupBox_ExportOptions)
+        self.label_maxsegmentlength = QLabel(self.groupBox_3)
         self.label_maxsegmentlength.setObjectName(u"label_maxsegmentlength")
         self.label_maxsegmentlength.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.horizontalLayout_Discretize.addWidget(self.label_maxsegmentlength)
+        self.horizontalLayout_12.addWidget(self.label_maxsegmentlength)
 
-        self.spinBox_maxsegmentlength = Gui_PrefDoubleSpinBox(self.groupBox_ExportOptions)
+        self.spinBox_maxsegmentlength = Gui_PrefDoubleSpinBox(self.groupBox_3)
         self.spinBox_maxsegmentlength.setObjectName(u"spinBox_maxsegmentlength")
         self.spinBox_maxsegmentlength.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.spinBox_maxsegmentlength.setMaximum(9999.989999999999782)
@@ -281,67 +328,70 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.spinBox_maxsegmentlength.setProperty(u"prefEntry", u"maxsegmentlength")
         self.spinBox_maxsegmentlength.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.horizontalLayout_Discretize.addWidget(self.spinBox_maxsegmentlength)
+        self.horizontalLayout_12.addWidget(self.spinBox_maxsegmentlength)
 
 
-        self.verticalLayout_Export.addLayout(self.horizontalLayout_Discretize)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_12)
 
-        self.horizontalLayout_Export3D = QHBoxLayout()
-        self.horizontalLayout_Export3D.setObjectName(u"horizontalLayout_Export3D")
-        self.checkBox_dxfmesh = Gui_PrefCheckBox(self.groupBox_ExportOptions)
+        self.horizontalLayout_13 = QHBoxLayout()
+        self.horizontalLayout_13.setSpacing(6)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.checkBox_dxfmesh = Gui_PrefCheckBox(self.groupBox_3)
         self.checkBox_dxfmesh.setObjectName(u"checkBox_dxfmesh")
         self.checkBox_dxfmesh.setEnabled(False)
         self.checkBox_dxfmesh.setProperty(u"prefEntry", u"dxfmesh")
         self.checkBox_dxfmesh.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.horizontalLayout_Export3D.addWidget(self.checkBox_dxfmesh)
+        self.horizontalLayout_13.addWidget(self.checkBox_dxfmesh)
 
 
-        self.verticalLayout_Export.addLayout(self.horizontalLayout_Export3D)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_13)
 
-        self.horizontalLayout_ExportTechDraw = QHBoxLayout()
-        self.horizontalLayout_ExportTechDraw.setObjectName(u"horizontalLayout_ExportTechDraw")
-        self.checkBox_dxfExportBlocks = Gui_PrefCheckBox(self.groupBox_ExportOptions)
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setSpacing(6)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.checkBox_dxfExportBlocks = Gui_PrefCheckBox(self.groupBox_3)
         self.checkBox_dxfExportBlocks.setObjectName(u"checkBox_dxfExportBlocks")
         self.checkBox_dxfExportBlocks.setChecked(True)
         self.checkBox_dxfExportBlocks.setProperty(u"prefEntry", u"dxfExportBlocks")
         self.checkBox_dxfExportBlocks.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.horizontalLayout_ExportTechDraw.addWidget(self.checkBox_dxfExportBlocks)
+        self.horizontalLayout_14.addWidget(self.checkBox_dxfExportBlocks)
 
 
-        self.verticalLayout_Export.addLayout(self.horizontalLayout_ExportTechDraw)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_14)
 
-        self.horizontalLayout_Project = QHBoxLayout()
-        self.horizontalLayout_Project.setObjectName(u"horizontalLayout_Project")
-        self.checkBox_dxfproject = Gui_PrefCheckBox(self.groupBox_ExportOptions)
+        self.horizontalLayout_15 = QHBoxLayout()
+        self.horizontalLayout_15.setSpacing(6)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.checkBox_dxfproject = Gui_PrefCheckBox(self.groupBox_3)
         self.checkBox_dxfproject.setObjectName(u"checkBox_dxfproject")
         self.checkBox_dxfproject.setEnabled(False)
         self.checkBox_dxfproject.setProperty(u"prefEntry", u"dxfproject")
         self.checkBox_dxfproject.setProperty(u"prefPath", u"Mod/Draft")
 
-        self.horizontalLayout_Project.addWidget(self.checkBox_dxfproject)
+        self.horizontalLayout_15.addWidget(self.checkBox_dxfproject)
 
 
-        self.verticalLayout_Export.addLayout(self.horizontalLayout_Project)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_15)
 
 
-        self.verticalLayout_Main.addWidget(self.groupBox_ExportOptions)
+        self.vboxLayout.addWidget(self.groupBox_3)
 
-        self.verticalSpacer = QSpacerItem(20, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_1 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_Main.addItem(self.verticalSpacer)
+        self.vboxLayout.addItem(self.verticalSpacer_1)
 
 
         self.retranslateUi(Gui__Dialog__DlgSettingsDraft)
+        self.checkBox_dxfUseLegacyImporter.toggled.connect(self.label_Create.setEnabled)
+        self.checkBox_dxfUseLegacyImporter.toggled.connect(self.radioButton_dxfCreatePart.setEnabled)
+        self.checkBox_dxfUseLegacyImporter.toggled.connect(self.radioButton_dxfCreateDraft.setEnabled)
+        self.checkBox_dxfUseLegacyImporter.toggled.connect(self.radioButton_dxfCreateSketch.setEnabled)
         self.checkBox_dxfUseLegacyImporter.toggled.connect(self.checkBox_joingeometry.setEnabled)
-        self.checkBox_dxfUseLegacyImporter.toggled.connect(self.checkBox_renderPolylineWidth.setEnabled)
         self.checkBox_dxfUseLegacyImporter.toggled.connect(self.checkBox_dxfStdSize.setEnabled)
         self.checkBox_dxfUseLegacyImporter.toggled.connect(self.checkBox_importDxfHatches.setEnabled)
-        self.checkBox_dxfUseLegacyImporter.toggled.connect(self.checkBox_dxfCreateSketch.setEnabled)
-        self.checkBox_dxfCreateSketch.toggled.connect(self.groupBox_ImportAs.setDisabled)
-        self.checkBox_dxfUseLegacyExporter.toggled.connect(self.checkBox_dxfmesh.setEnabled)
-        self.checkBox_dxfUseLegacyExporter.toggled.connect(self.checkBox_dxfproject.setEnabled)
+        self.checkBox_dxfUseLegacyImporter.toggled.connect(self.checkBox_renderPolylineWidth.setEnabled)
         self.checkBox_dxfUseLegacyExporter.toggled.connect(self.checkBox_dxfmesh.setEnabled)
         self.checkBox_dxfUseLegacyExporter.toggled.connect(self.checkBox_dxfproject.setEnabled)
 
@@ -350,129 +400,116 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsDraft):
         Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DXF", None))
-        self.groupBox_General.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"General", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfShowDialog.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, this preferences dialog will be shown each time you import or export\n"
-"a DXF file.", None))
+        self.checkBox_dxfShowDialog.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"This preferences dialog will be shown when importing/ exporting DXF files", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_dxfShowDialog.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Show the importer dialog when importing a file", None))
+        self.checkBox_dxfShowDialog.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Show this dialog when importing and exporting", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfUseLegacyImporter.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use the legacy Python importer. This importer is more feature-complete but slower and requires an external library.", None))
+        self.checkBox_dxfUseLegacyImporter.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Python importer is used, otherwise the newer C++ is used.\n"
+"Note: C++ importer is faster, but is not as featureful yet", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_dxfUseLegacyImporter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use legacy importer", None))
+        self.checkBox_dxfUseLegacyImporter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use legacy Python importer", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfUseLegacyExporter.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use the legacy Python exporter. This exporter is more feature-complete but slower and requires an external library.", None))
+        self.checkBox_dxfUseLegacyExporter.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Python exporter is used, otherwise the newer C++ is used.\n"
+"Note: C++ exporter is faster, but is not as featureful yet", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_dxfUseLegacyExporter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use legacy exporter", None))
-        self.groupBox_AutoUpdate.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Automatic Update (Legacy Only)", None))
+        self.checkBox_dxfUseLegacyExporter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use legacy Python exporter", None))
+        self.groupBox_1.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Automatic update (legacy importer/exporter only)", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfAllowDownload.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, FreeCAD is allowed to download and update the Python libraries\n"
-"required by the legacy importer. This can also be done manually by installing\n"
-"the 'dxf_library' addon from the Addon Manager.", None))
+        self.checkBox_dxfAllowDownload.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Allow FreeCAD to download the Python converter for DXF import and export.\n"
+"You can also do this manually by installing the \"dxf_library\" workbench\n"
+"from the Addon Manager.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_dxfAllowDownload.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Allow FreeCAD to automatically download and update the DXF libraries", None))
-        self.groupBox_ImportAs.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import As", None))
+        self.GroupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import options", None))
+        self.label_ImporterMissing.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Some options are not yet available for the new importer", None))
+        self.label_Import.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import", None))
 #if QT_CONFIG(tooltip)
-        self.radio_ImportAs_Draft.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Creates fully parametric Draft objects. Block definitions are imported as\n"
-"reusable objects (Part Compounds) and instances become `App::Link` objects,\n"
-"maintaining the block structure. Best for full integration with the Draft\n"
-"workbench. ", None))
-#endif // QT_CONFIG(tooltip)
-        self.radio_ImportAs_Draft.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Editable Draft objects (highest fidelity, slowest)", None))
-        self.radio_ImportAs_Draft.setProperty(u"prefRadioButtonGroup", QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DxfImportMode", None))
-#if QT_CONFIG(tooltip)
-        self.radio_ImportAs_Primitives.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Creates parametric Part objects (e.g., Part::Line, Part::Circle). Block\n"
-"definitions are imported as reusable objects (Part Compounds) and instances\n"
-"become `App::Link` objects, maintaining the block structure. Best for\n"
-"script-based post-processing and Part workbench integration.", None))
-#endif // QT_CONFIG(tooltip)
-        self.radio_ImportAs_Primitives.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Editable Part primitives (high fidelity, slower)", None))
-        self.radio_ImportAs_Primitives.setProperty(u"prefRadioButtonGroup", QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DxfImportMode", None))
-#if QT_CONFIG(tooltip)
-        self.radio_ImportAs_Shapes.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Creates a non-parametric shape for each DXF entity. Block definitions are\n"
-"imported as reusable objects (Part Compounds) and instances become `App::Link`\n"
-"objects, maintaining the block structure. Good for referencing and measuring.", None))
-#endif // QT_CONFIG(tooltip)
-        self.radio_ImportAs_Shapes.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Individual Part shapes (balanced, recommended)", None))
-        self.radio_ImportAs_Shapes.setProperty(u"prefRadioButtonGroup", QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DxfImportMode", None))
-#if QT_CONFIG(tooltip)
-        self.radio_ImportAs_Fused.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Merges all geometry per layer into a single, non-editable shape. Block\n"
-"structures are not preserved; their geometry becomes part of the layer's\n"
-"shape. Best for importing and viewing very large files with maximum performance.", None))
-#endif // QT_CONFIG(tooltip)
-        self.radio_ImportAs_Fused.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Fused Part shapes (lowest fidelity, fastest)", None))
-        self.radio_ImportAs_Fused.setProperty(u"prefRadioButtonGroup", QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"DxfImportMode", None))
-        self.groupBox_ImportSettings.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import Settings", None))
-        self.label_dxfScaling.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Global scaling factor", None))
-#if QT_CONFIG(tooltip)
-        self.spinBox_dxfScaling.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Scale factor to apply to DXF files on import. The factor is the conversion\n"
-"between the DXF file's unit and millimeters. Example: for files in\n"
-"millimeters: 1, in centimeters: 10, in meters: 1000, in inches: 25.4,\n"
-"in feet: 304.8", None))
-#endif // QT_CONFIG(tooltip)
-        self.label_ImportContent.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import", None))
-#if QT_CONFIG(tooltip)
-        self.checkBox_dxftext.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, text, mtext, and dimension entities will be imported as Draft objects", None))
+        self.checkBox_dxftext.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If unchecked, texts and mtexts won't be imported", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_dxftext.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Texts and dimensions", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfImportPoints.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, point entities will be imported", None))
+        self.checkBox_dxfImportPoints.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If unchecked, points won't be imported", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_dxfImportPoints.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Points", None))
+        self.checkBox_dxfImportPoints.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"points", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxflayout.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, entities from the paper space will also be imported. By default,\n"
-"only model space is imported", None))
+        self.checkBox_dxflayout.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, paper space objects will be imported too", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_dxflayout.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Paper space objects", None))
+        self.checkBox_dxflayout.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Layouts", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfstarblocks.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, anonymous blocks (whose names begin with *) will also be imported.\n"
-"These are often used for hatches and dimensions", None))
+        self.checkBox_dxfstarblocks.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If you want the non-named blocks (beginning with a *) to be imported too", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_dxfstarblocks.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Anonymous blocks (*-blocks)", None))
+        self.checkBox_dxfstarblocks.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"*blocks", None))
+        self.label_Create.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Create", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_importDxfHatches.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the boundaries of hatch objects will be imported as closed wires.\n"
-"(Legacy importer only)", None))
+        self.radioButton_dxfCreatePart.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Only standard Part objects will be created (fastest)", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox_importDxfHatches.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Hatch boundaries", None))
-        self.label_Appearance.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Appearance", None))
+        self.radioButton_dxfCreatePart.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Simple Part shapes", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfGetOriginalColors.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, colors will be set as specified in the DXF file whenever\n"
-"possible. Otherwise, default FreeCAD colors are applied", None))
+        self.radioButton_dxfCreateDraft.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Parametric Draft objects will be created whenever possible", None))
+#endif // QT_CONFIG(tooltip)
+        self.radioButton_dxfCreateDraft.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Draft objects", None))
+#if QT_CONFIG(tooltip)
+        self.radioButton_dxfCreateSketch.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Sketches will be created whenever possible", None))
+#endif // QT_CONFIG(tooltip)
+        self.radioButton_dxfCreateSketch.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Sketches", None))
+#if QT_CONFIG(tooltip)
+        self.label_dxfScaling.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+        self.label_dxfScaling.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Scale factor to apply to imported files", None))
+#if QT_CONFIG(tooltip)
+        self.spinBox_dxfScaling.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Scale factor to apply to DXF files on import.\n"
+"The factor is the conversion between the unit of your DXF file and millimeters.\n"
+"Example: for files in millimeters: 1, in centimeters: 10,\n"
+"                             in meters: 1000, in inches: 25.4, in feet: 304.8", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.checkBox_dxfGetOriginalColors.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Colors will set as specified in the DXF file whenever possible.\n"
+"Otherwise default colors will be applied.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_dxfGetOriginalColors.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use colors from the DXF file", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfStdSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, imported texts will get the standard Draft text size, instead of\n"
-"the size defined in the DXF document. (Legacy importer only)", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkBox_dxfStdSize.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use standard font size for texts", None))
-        self.label_AdvancedProcessing.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Advanced processing", None))
-#if QT_CONFIG(tooltip)
-        self.checkBox_joingeometry.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the legacy importer will attempt to join coincident geometric\n"
-"objects into wires. This can be slow for large files. (Legacy importer only)", None))
+        self.checkBox_joingeometry.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"FreeCAD will try to join coincident objects into wires.\n"
+"Note that this can take a while!", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_joingeometry.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Join geometry", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_renderPolylineWidth.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, polylines that have a width property will be rendered as faces\n"
-"representing that width. (Legacy importer only)", None))
+        self.checkBox_groupLayers.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Objects from the same layers will be joined into Draft Blocks,\n"
+"turning the display faster, but making them less easily editable.", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_groupLayers.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Group layers into blocks", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_dxfStdSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Imported texts will get the standard Draft Text size,\n"
+"instead of the size they have in the DXF document", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_dxfStdSize.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use standard font size for texts", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_dxfUseDraftVisGroups.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If this is checked, DXF layers will be imported as Draft Layers", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_dxfUseDraftVisGroups.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Use layers", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_importDxfHatches.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Hatches will be converted into simple wires", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_importDxfHatches.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Import hatch boundaries as wires", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_renderPolylineWidth.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If polylines have a width defined, they will be rendered\n"
+"as closed wires with correct width", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_renderPolylineWidth.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Render polylines with width", None))
-#if QT_CONFIG(tooltip)
-        self.checkBox_dxfCreateSketch.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"If checked, the legacy importer will attempt to create Sketcher objects\n"
-"instead of Draft or Part objects. This overrides the 'Import As' setting", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkBox_dxfCreateSketch.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Create sketches", None))
-        self.groupBox_ExportOptions.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Export Options", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Export options", None))
+        self.label_ExporterMissing.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Some options are not yet available for the new exporter", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_DiscretizeEllipses.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Ellipse export is poorly supported. Use this to export them as polylines instead.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_DiscretizeEllipses.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Treat ellipses and splines as polylines", None))
-        self.label_maxsegmentlength.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Maximum spline segment", None))
+        self.label_maxsegmentlength.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Max Spline Segment:", None))
 #if QT_CONFIG(tooltip)
-        self.spinBox_maxsegmentlength.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Maximum length of each of the polyline segments. '0' treats the whole spline as a straight segment.", None))
+        self.spinBox_maxsegmentlength.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Maximum length of each of the polyline segments.\n"
+"If it is set to '0' the whole spline is treated as a straight segment.", None))
 #endif // QT_CONFIG(tooltip)
         self.spinBox_maxsegmentlength.setSuffix(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"mm", None))
 #if QT_CONFIG(tooltip)
-        self.checkBox_dxfmesh.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"All objects containing faces will be exported as 3D polyface meshes", None))
+        self.checkBox_dxfmesh.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"All objects containing faces will be exported as 3D polyfaces", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_dxfmesh.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Export 3D objects as polyface meshes", None))
 #if QT_CONFIG(tooltip)

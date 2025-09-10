@@ -15,9 +15,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDoubleSpinBox,
-    QGridLayout, QLabel, QSizePolicy, QSpacerItem,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QGridLayout,
+    QLabel, QSizePolicy, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -70,20 +69,6 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.Rotation, 3, 1, 1, 1)
 
-        self.label_5 = QLabel(Form)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout.addWidget(self.label_5, 4, 0, 1, 1)
-
-        self.Translate = QCheckBox(Form)
-        self.Translate.setObjectName(u"Translate")
-
-        self.gridLayout.addWidget(self.Translate, 4, 1, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 5, 0, 1, 1)
-
 
         self.retranslateUi(Form)
 
@@ -92,18 +77,11 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Hatch", None))
-        self.label.setText(QCoreApplication.translate("Form", u"PAT file", None))
+        self.label.setText(QCoreApplication.translate("Form", u"PAT file:", None))
         self.File.setFilter(QCoreApplication.translate("Form", u"Pattern files (*.pat *.PAT)", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Pattern", None))
-        self.label_3.setText(QCoreApplication.translate("Form", u"Scale", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Pattern:", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Scale:", None))
         self.Scale.setSuffix("")
-        self.label_4.setText(QCoreApplication.translate("Form", u"Rotation", None))
-        self.label_5.setText(QCoreApplication.translate("Form", u"Align to face", None))
-#if QT_CONFIG(tooltip)
-        self.Translate.setToolTip(QCoreApplication.translate("Form", u"Aligns the pattern with the base object.\n"
-"Otherwise, the pattern aligns with the global coordinate system.\n"
-"This setting modifies the Translate property.", None))
-#endif // QT_CONFIG(tooltip)
-        self.Translate.setText("")
+        self.label_4.setText(QCoreApplication.translate("Form", u"Rotation:", None))
     # retranslateUi
 

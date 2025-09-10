@@ -23,7 +23,7 @@ class Ui_Gui_Dialog_DlgAddPropertyVarSet(object):
     def setupUi(self, Gui__Dialog__DlgAddPropertyVarSet):
         if not Gui__Dialog__DlgAddPropertyVarSet.objectName():
             Gui__Dialog__DlgAddPropertyVarSet.setObjectName(u"Gui__Dialog__DlgAddPropertyVarSet")
-        Gui__Dialog__DlgAddPropertyVarSet.resize(418, 234)
+        Gui__Dialog__DlgAddPropertyVarSet.resize(418, 223)
         self.formLayout = QFormLayout(Gui__Dialog__DlgAddPropertyVarSet)
         self.formLayout.setObjectName(u"formLayout")
         self.labelName = QLabel(Gui__Dialog__DlgAddPropertyVarSet)
@@ -72,17 +72,12 @@ class Ui_Gui_Dialog_DlgAddPropertyVarSet(object):
 
         self.formLayout.setWidget(5, QFormLayout.FieldRole, self.lineEditToolTip)
 
-        self.labelError = QLabel(Gui__Dialog__DlgAddPropertyVarSet)
-        self.labelError.setObjectName(u"labelError")
-
-        self.formLayout.setWidget(6, QFormLayout.SpanningRole, self.labelError)
-
         self.buttonBox = QDialogButtonBox(Gui__Dialog__DlgAddPropertyVarSet)
         self.buttonBox.setObjectName(u"buttonBox")
         self.buttonBox.setOrientation(Qt.Horizontal)
         self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
 
-        self.formLayout.setWidget(7, QFormLayout.SpanningRole, self.buttonBox)
+        self.formLayout.setWidget(6, QFormLayout.SpanningRole, self.buttonBox)
 
 
         self.retranslateUi(Gui__Dialog__DlgAddPropertyVarSet)
@@ -93,13 +88,12 @@ class Ui_Gui_Dialog_DlgAddPropertyVarSet(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgAddPropertyVarSet):
-        Gui__Dialog__DlgAddPropertyVarSet.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Add Property", None))
+        Gui__Dialog__DlgAddPropertyVarSet.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Add property", None))
         self.labelName.setText(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Name", None))
         self.labelGroup.setText(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Group", None))
         self.labelType.setText(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Type", None))
         self.labelValue.setText(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Value", None))
         self.checkBoxAdd.setText(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Add another", None))
         self.labelToolTip.setText(QCoreApplication.translate("Gui::Dialog::DlgAddPropertyVarSet", u"Tooltip", None))
-        self.labelError.setText("")
     # retranslateUi
 

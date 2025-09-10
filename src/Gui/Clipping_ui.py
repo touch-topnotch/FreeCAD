@@ -206,7 +206,7 @@ class Ui_Gui_Dialog_Clipping(object):
         self.groupBoxZ.setTitle(QCoreApplication.translate("Gui::Dialog::Clipping", u"Clipping Z", None))
         self.label_3.setText(QCoreApplication.translate("Gui::Dialog::Clipping", u"Offset", None))
         self.flipClipZ.setText(QCoreApplication.translate("Gui::Dialog::Clipping", u"Flip", None))
-        self.groupBoxView.setTitle(QCoreApplication.translate("Gui::Dialog::Clipping", u"Custom Clipping Direction", None))
+        self.groupBoxView.setTitle(QCoreApplication.translate("Gui::Dialog::Clipping", u"Clipping custom direction", None))
         self.label_4.setText(QCoreApplication.translate("Gui::Dialog::Clipping", u"Offset", None))
         self.fromView.setText(QCoreApplication.translate("Gui::Dialog::Clipping", u"View", None))
         self.adjustViewdirection.setText(QCoreApplication.translate("Gui::Dialog::Clipping", u"Adjust to view direction", None))

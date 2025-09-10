@@ -65,7 +65,7 @@ class Ui_DlgProcessorChooser(object):
     # setupUi
 
     def retranslateUi(self, DlgProcessorChooser):
-        DlgProcessorChooser.setWindowTitle(QCoreApplication.translate("DlgProcessorChooser", u"Processor Selection", None))
+        DlgProcessorChooser.setWindowTitle(QCoreApplication.translate("DlgProcessorChooser", u"Choose a processor", None))
         self.label.setText(QCoreApplication.translate("DlgProcessorChooser", u"Processor", None))
         self.argsLabel.setText(QCoreApplication.translate("DlgProcessorChooser", u"Arguments", None))
     # retranslateUi

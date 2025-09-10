@@ -137,20 +137,20 @@ class Ui_Gui_Dialog_DlgMaterialProperties(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgMaterialProperties):
-        Gui__Dialog__DlgMaterialProperties.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Material Properties", None))
+        Gui__Dialog__DlgMaterialProperties.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Material properties", None))
         self.groupBox4.setTitle(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Material", None))
-        self.textLabel1.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Diffuse color", None))
-        self.textLabel4.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Shininess", None))
+        self.textLabel1.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Diffuse color:", None))
+        self.textLabel4.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Shininess:", None))
         self.ambientColor.setText("")
         self.buttonReset.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Reset", None))
-        self.textLabel2.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Ambient color", None))
+        self.textLabel2.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Ambient color:", None))
         self.emissiveColor.setText("")
-        self.textLabel3.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Specular color", None))
+        self.textLabel3.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Specular color:", None))
         self.specularColor.setText("")
         self.buttonDefault.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Default", None))
         self.diffuseColor.setText("")
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Emissive color", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Transparency", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Emissive color:", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"Transparency:", None))
         self.transparency.setSuffix(QCoreApplication.translate("Gui::Dialog::DlgMaterialProperties", u"%", None))
     # retranslateUi
 

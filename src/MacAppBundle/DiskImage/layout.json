@@ -1,8 +1,8 @@
 {
 
-  "title": "FreeCAD",
+  "title": "ARCHI",
 
-  "icon": "../FreeCAD.app/Contents/Resources/freecad.icns",
+  "icon": "../ARCHI.app/Contents/Resources/freecad.icns",
 
   "icon-size": 80,
 
@@ -10,7 +10,7 @@
 
   "contents": [
 
-    { "x": 250, "y": 150, "type": "file", "path": "/usr/local/FreeCAD.app" },
+    { "x": 250, "y": 150, "type": "file", "path": "/usr/local/ARCHI.app" },
     { "x": 475, "y": 150, "type": "link", "path": "/Applications" }
 
   ],

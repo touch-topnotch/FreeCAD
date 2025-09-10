@@ -66,7 +66,7 @@ class Ui_Gui_Dialog_DlgRevertToBackupConfig(object):
 
     def retranslateUi(self, Gui__Dialog__DlgRevertToBackupConfig):
         Gui__Dialog__DlgRevertToBackupConfig.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgRevertToBackupConfig", u"Revert to Backup Config", None))
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgRevertToBackupConfig", u"WARNING: this process will undo any preference changes made since the specified date, and will also reset your recent files and Macros to their state on that date.", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgRevertToBackupConfig", u"Available backup files", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgRevertToBackupConfig", u"WARNING: this process will undo any preference changes made since the specified date, and will also reset your Recent files and Macros to their state on that date.", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgRevertToBackupConfig", u"Available backup files:", None))
     # retranslateUi
 

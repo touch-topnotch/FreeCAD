@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
-    QFrame, QGridLayout, QLabel, QSizePolicy,
-    QSpacerItem, QSpinBox, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QFrame,
+    QGridLayout, QLabel, QSizePolicy, QSpacerItem,
+    QSpinBox, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -52,11 +52,6 @@ class Ui_Form(object):
         self.coolantController.setObjectName(u"coolantController")
 
         self.gridLayout.addWidget(self.coolantController, 1, 1, 1, 1)
-
-        self.editToolController = QCheckBox(self.frame)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout.addWidget(self.editToolController, 2, 0, 1, 2)
 
 
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
@@ -131,32 +126,31 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         self.label.setText(QCoreApplication.translate("Form", u"Tool Controller", None))
 #if QT_CONFIG(tooltip)
-        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
+        self.toolController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_5.setText(QCoreApplication.translate("Form", u"Coolant", None))
 #if QT_CONFIG(tooltip)
-        self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation", None))
+        self.coolantController.setToolTip(QCoreApplication.translate("Form", u"The tool and its settings to be used for this operation.", None))
 #endif // QT_CONFIG(tooltip)
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Start from", None))
         self.startSide.setItemText(0, QCoreApplication.translate("Form", u"Inside", None))
         self.startSide.setItemText(1, QCoreApplication.translate("Form", u"Outside", None))
 
 #if QT_CONFIG(tooltip)
-        self.startSide.setToolTip(QCoreApplication.translate("Form", u"Specify if the helix operation should start at the inside and work its way outwards, or start at the outside and work its way to the center", None))
+        self.startSide.setToolTip(QCoreApplication.translate("Form", u"Specify if the helix operation should start at the inside and work its way outwards, or start at the outside and work its way to the center.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_3.setText(QCoreApplication.translate("Form", u"Direction", None))
         self.cutMode.setItemText(0, QCoreApplication.translate("Form", u"Climb", None))
         self.cutMode.setItemText(1, QCoreApplication.translate("Form", u"Conventional", None))
 
 #if QT_CONFIG(tooltip)
-        self.cutMode.setToolTip(QCoreApplication.translate("Form", u"The direction for the helix, clockwise or counterclockwise", None))
+        self.cutMode.setToolTip(QCoreApplication.translate("Form", u"The direction for the helix, clockwise or counterclockwise.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_4.setText(QCoreApplication.translate("Form", u"Step over percent", None))
 #if QT_CONFIG(tooltip)
         self.stepOverPercent.setToolTip(QCoreApplication.translate("Form", u"Specify the percent of the tool diameter each helix will be offset to the previous one. A step over of 100% means no overlap of the individual cuts.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_6.setText(QCoreApplication.translate("Form", u"Extra offset", None))
+        self.label_6.setText(QCoreApplication.translate("Form", u"Extra Offset", None))
         pass
     # retranslateUi
 

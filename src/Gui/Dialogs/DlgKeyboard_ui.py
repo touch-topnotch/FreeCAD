@@ -24,7 +24,7 @@ class Ui_Gui_Dialog_DlgCustomKeyboard(object):
     def setupUi(self, Gui__Dialog__DlgCustomKeyboard):
         if not Gui__Dialog__DlgCustomKeyboard.objectName():
             Gui__Dialog__DlgCustomKeyboard.setObjectName(u"Gui__Dialog__DlgCustomKeyboard")
-        Gui__Dialog__DlgCustomKeyboard.resize(736, 376)
+        Gui__Dialog__DlgCustomKeyboard.resize(642, 376)
         self.verticalLayout = QVBoxLayout(Gui__Dialog__DlgCustomKeyboard)
         self.verticalLayout.setSpacing(6)
         self.verticalLayout.setContentsMargins(11, 11, 11, 11)
@@ -64,7 +64,7 @@ class Ui_Gui_Dialog_DlgCustomKeyboard(object):
         __qtreewidgetitem.setText(0, u"1");
         self.commandTreeWidget.setHeaderItem(__qtreewidgetitem)
         self.commandTreeWidget.setObjectName(u"commandTreeWidget")
-        self.commandTreeWidget.setMinimumSize(QSize(400, 0))
+        self.commandTreeWidget.setMinimumSize(QSize(220, 0))
         self.commandTreeWidget.setRootIsDecorated(False)
         self.commandTreeWidget.setSortingEnabled(True)
 
@@ -222,16 +222,16 @@ class Ui_Gui_Dialog_DlgCustomKeyboard(object):
 
     def retranslateUi(self, Gui__Dialog__DlgCustomKeyboard):
         Gui__Dialog__DlgCustomKeyboard.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Keyboard", None))
-        self.TextLabelCategory.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"&Category", None))
-        self.textLabelShortcut.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Current shortcut", None))
+        self.TextLabelCategory.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"&Category:", None))
+        self.textLabelShortcut.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Current shortcut:", None))
 #if QT_CONFIG(tooltip)
         self.accelLineEditShortcut.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"To change a current shortcut enter the new shortcut in the field below and press 'Assign'.", None))
 #endif // QT_CONFIG(tooltip)
-        self.textLabelNewShortcut.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"&New shortcut", None))
+        self.textLabelNewShortcut.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"&New shortcut:", None))
 #if QT_CONFIG(tooltip)
         self.label.setToolTip("")
 #endif // QT_CONFIG(tooltip)
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Multi-key sequence delay", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Multi-key sequence delay:", None))
 #if QT_CONFIG(tooltip)
         self.shortcutTimeout.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Time in milliseconds to wait for the next keystroke of the current key sequence.\n"
 "For example, pressing 'F' twice in less than the time delay setting here will be\n"
@@ -242,7 +242,7 @@ class Ui_Gui_Dialog_DlgCustomKeyboard(object):
 "to low. If more than one command with the same shortcut are active at the\n"
 "same time. The one with the highest priority will be triggered.", None))
 #endif // QT_CONFIG(tooltip)
-        self.textLabelAssigned.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Shortcut priority list", None))
+        self.textLabelAssigned.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Shortcut priority list:", None))
         self.buttonAssign.setText(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"&Assign", None))
 #if QT_CONFIG(shortcut)
         self.buttonAssign.setShortcut(QCoreApplication.translate("Gui::Dialog::DlgCustomKeyboard", u"Alt+A", None))

@@ -101,3 +101,5 @@ dependencies:
 - yaml-cpp
 - zlib
 - zstd
+- pydantic
+- keyring

@@ -92,10 +92,10 @@ class Ui_Gui_Dialog_InputVector(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__InputVector):
-        Gui__Dialog__InputVector.setWindowTitle(QCoreApplication.translate("Gui::Dialog::InputVector", u"Input Vector", None))
+        Gui__Dialog__InputVector.setWindowTitle(QCoreApplication.translate("Gui::Dialog::InputVector", u"Input vector", None))
         self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::InputVector", u"Vector", None))
-        self.label.setText(QCoreApplication.translate("Gui::Dialog::InputVector", u"X", None))
-        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::InputVector", u"Y", None))
-        self.label_3.setText(QCoreApplication.translate("Gui::Dialog::InputVector", u"Z", None))
+        self.label.setText(QCoreApplication.translate("Gui::Dialog::InputVector", u"X:", None))
+        self.label_2.setText(QCoreApplication.translate("Gui::Dialog::InputVector", u"Y:", None))
+        self.label_3.setText(QCoreApplication.translate("Gui::Dialog::InputVector", u"Z:", None))
     # retranslateUi
 

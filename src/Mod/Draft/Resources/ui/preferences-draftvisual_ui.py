@@ -135,7 +135,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsDraft):
         Gui__Dialog__DlgSettingsDraft.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Visual", None))
-        self.groupBox_1.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"SVG Patterns", None))
+        self.groupBox_1.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"SVG patterns", None))
         self.label_HatchPatternSize.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"SVG pattern size", None))
 #if QT_CONFIG(tooltip)
         self.spinBox_HatchPatternSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"The default size for SVG patterns. A higher value results in a denser pattern.", None))
@@ -145,7 +145,7 @@ class Ui_Gui_Dialog_DlgSettingsDraft(object):
         self.fileChooser_patternFile.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"An optional directory with custom SVG files containing\n"
 "pattern definitions to be added to the standard patterns", None))
 #endif // QT_CONFIG(tooltip)
-        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Drawing View Line Definitions", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Drawing view line definitions", None))
         self.label_svgDashedLine.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"Dashed line definition", None))
 #if QT_CONFIG(tooltip)
         self.lineEdit_svgDashedLine.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsDraft", u"An SVG linestyle definition", None))

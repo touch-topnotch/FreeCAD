@@ -79,10 +79,10 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"New Job", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Create Job", None))
         self.templateGroup.setTitle(QCoreApplication.translate("Dialog", u"Template", None))
 #if QT_CONFIG(tooltip)
-        self.jobTemplate.setToolTip(QCoreApplication.translate("Dialog", u"Select a template for the job. Templates are creatable from an existing job's context menu. Template files use the `job_*.json` naming convention and are stored in the macro or path directory (path configurable in preferences).", None))
+        self.jobTemplate.setToolTip(QCoreApplication.translate("Dialog", u"Select a template to be used for the job. In case there are no templates you can create one through the popup menu of an existing job. Name the file job_*.json and place it in the macro or the path directory (see preferences) in order to be selectable from this list.", None))
 #endif // QT_CONFIG(tooltip)
         self.modelGroup.setTitle(QCoreApplication.translate("Dialog", u"Model", None))
     # retranslateUi

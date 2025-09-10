@@ -83,11 +83,11 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Layers Manager", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Layers manager", None))
         self.buttonNew.setText(QCoreApplication.translate("Dialog", u"New", None))
         self.buttonDelete.setText(QCoreApplication.translate("Dialog", u"Delete", None))
-        self.buttonSelectAll.setText(QCoreApplication.translate("Dialog", u"Select All", None))
-        self.buttonToggle.setText(QCoreApplication.translate("Dialog", u"Toggle Visibility", None))
+        self.buttonSelectAll.setText(QCoreApplication.translate("Dialog", u"Select all", None))
+        self.buttonToggle.setText(QCoreApplication.translate("Dialog", u"Toggle on/off", None))
         self.buttonIsolate.setText(QCoreApplication.translate("Dialog", u"Isolate", None))
         self.buttonCancel.setText(QCoreApplication.translate("Dialog", u"Cancel", None))
         self.buttonOK.setText(QCoreApplication.translate("Dialog", u"OK", None))

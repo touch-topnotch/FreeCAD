@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QGridLayout, QLabel, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFormLayout,
+    QFrame, QGridLayout, QLabel, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -32,33 +32,28 @@ class Ui_Form(object):
         self.toolOptions.setObjectName(u"toolOptions")
         self.toolOptions.setFrameShape(QFrame.StyledPanel)
         self.toolOptions.setFrameShadow(QFrame.Raised)
-        self.gridLayout = QGridLayout(self.toolOptions)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(-1, -1, -1, 3)
+        self.formLayout = QFormLayout(self.toolOptions)
+        self.formLayout.setObjectName(u"formLayout")
+        self.formLayout.setContentsMargins(-1, -1, -1, 3)
         self.toolController_label = QLabel(self.toolOptions)
         self.toolController_label.setObjectName(u"toolController_label")
 
-        self.gridLayout.addWidget(self.toolController_label, 0, 0, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.toolController_label)
 
         self.toolController = QComboBox(self.toolOptions)
         self.toolController.setObjectName(u"toolController")
 
-        self.gridLayout.addWidget(self.toolController, 0, 1, 1, 1)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.toolController)
 
         self.coolantController = QComboBox(self.toolOptions)
         self.coolantController.setObjectName(u"coolantController")
 
-        self.gridLayout.addWidget(self.coolantController, 1, 1, 1, 1)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.coolantController)
 
         self.coolantController_label = QLabel(self.toolOptions)
         self.coolantController_label.setObjectName(u"coolantController_label")
 
-        self.gridLayout.addWidget(self.coolantController_label, 1, 0, 1, 1)
-
-        self.editToolController = QCheckBox(self.toolOptions)
-        self.editToolController.setObjectName(u"editToolController")
-
-        self.gridLayout.addWidget(self.editToolController, 2, 0, 1, 2)
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.coolantController_label)
 
 
         self.verticalLayout.addWidget(self.toolOptions)
@@ -194,13 +189,13 @@ class Ui_Form(object):
         self.pathOptions.setObjectName(u"pathOptions")
         self.pathOptions.setFrameShape(QFrame.StyledPanel)
         self.pathOptions.setFrameShadow(QFrame.Raised)
-        self.gridLayout1 = QGridLayout(self.pathOptions)
-        self.gridLayout1.setObjectName(u"gridLayout1")
-        self.gridLayout1.setContentsMargins(-1, 3, -1, 3)
+        self.gridLayout = QGridLayout(self.pathOptions)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(-1, 3, -1, 3)
         self.layerMode_label = QLabel(self.pathOptions)
         self.layerMode_label.setObjectName(u"layerMode_label")
 
-        self.gridLayout1.addWidget(self.layerMode_label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.layerMode_label, 0, 0, 1, 1)
 
         self.layerMode = QComboBox(self.pathOptions)
         self.layerMode.addItem("")
@@ -208,24 +203,24 @@ class Ui_Form(object):
         self.layerMode.setObjectName(u"layerMode")
         self.layerMode.setFont(font)
 
-        self.gridLayout1.addWidget(self.layerMode, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.layerMode, 0, 1, 1, 1)
 
         self.pathOrientation_label = QLabel(self.pathOptions)
         self.pathOrientation_label.setObjectName(u"pathOrientation_label")
 
-        self.gridLayout1.addWidget(self.pathOrientation_label, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.pathOrientation_label, 1, 0, 1, 1)
 
         self.pathOrientation = QComboBox(self.pathOptions)
         self.pathOrientation.addItem("")
         self.pathOrientation.addItem("")
         self.pathOrientation.setObjectName(u"pathOrientation")
 
-        self.gridLayout1.addWidget(self.pathOrientation, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.pathOrientation, 1, 1, 1, 1)
 
         self.reverseDirection = QCheckBox(self.pathOptions)
         self.reverseDirection.setObjectName(u"reverseDirection")
 
-        self.gridLayout1.addWidget(self.reverseDirection, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.reverseDirection, 2, 1, 1, 1)
 
 
         self.verticalLayout.addWidget(self.pathOptions)
@@ -249,43 +244,42 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.toolController_label.setText(QCoreApplication.translate("Form", u"Tool controller", None))
+        self.toolController_label.setText(QCoreApplication.translate("Form", u"Tool Controller", None))
 #if QT_CONFIG(tooltip)
-        self.toolController.setToolTip(QCoreApplication.translate("Form", u" The tool and its settings to be used for this operation", None))
+        self.toolController.setToolTip(QCoreApplication.translate("Form", u" The tool and its settings to be used for this operation ", None))
 #endif // QT_CONFIG(tooltip)
-        self.coolantController_label.setText(QCoreApplication.translate("Form", u"Coolant mode", None))
-        self.editToolController.setText(QCoreApplication.translate("Form", u"Edit Tool Controller", None))
-        self.geo1Reference_label.setText(QCoreApplication.translate("Form", u"Start feature reference", None))
-        self.geo1Reference.setItemText(0, QCoreApplication.translate("Form", u"Center of mass", None))
-        self.geo1Reference.setItemText(1, QCoreApplication.translate("Form", u"Center of bounding box", None))
-        self.geo1Reference.setItemText(2, QCoreApplication.translate("Form", u"Lowest point", None))
-        self.geo1Reference.setItemText(3, QCoreApplication.translate("Form", u"Highest point", None))
-        self.geo1Reference.setItemText(4, QCoreApplication.translate("Form", u"Long edge", None))
-        self.geo1Reference.setItemText(5, QCoreApplication.translate("Form", u"Short edge", None))
+        self.coolantController_label.setText(QCoreApplication.translate("Form", u"Coolant Mode", None))
+        self.geo1Reference_label.setText(QCoreApplication.translate("Form", u"Start Feature Reference", None))
+        self.geo1Reference.setItemText(0, QCoreApplication.translate("Form", u"Center of Mass", None))
+        self.geo1Reference.setItemText(1, QCoreApplication.translate("Form", u"Center of Bounding Box", None))
+        self.geo1Reference.setItemText(2, QCoreApplication.translate("Form", u"Lowest Point", None))
+        self.geo1Reference.setItemText(3, QCoreApplication.translate("Form", u"Highest Point", None))
+        self.geo1Reference.setItemText(4, QCoreApplication.translate("Form", u"Long Edge", None))
+        self.geo1Reference.setItemText(5, QCoreApplication.translate("Form", u"Short Edge", None))
         self.geo1Reference.setItemText(6, QCoreApplication.translate("Form", u"Vertex", None))
 
 #if QT_CONFIG(tooltip)
         self.geo1Reference.setToolTip(QCoreApplication.translate("Form", u"Choose what point to use on the first selected feature", None))
 #endif // QT_CONFIG(tooltip)
         self.geo2Reference_label.setText(QCoreApplication.translate("Form", u"End Feature Reference", None))
-        self.geo2Reference.setItemText(0, QCoreApplication.translate("Form", u"Center of mass", None))
-        self.geo2Reference.setItemText(1, QCoreApplication.translate("Form", u"Center of bounding box", None))
-        self.geo2Reference.setItemText(2, QCoreApplication.translate("Form", u"Lowest point", None))
-        self.geo2Reference.setItemText(3, QCoreApplication.translate("Form", u"Highest point", None))
+        self.geo2Reference.setItemText(0, QCoreApplication.translate("Form", u"Center of Mass", None))
+        self.geo2Reference.setItemText(1, QCoreApplication.translate("Form", u"Center of Bounding Box", None))
+        self.geo2Reference.setItemText(2, QCoreApplication.translate("Form", u"Lowest Point", None))
+        self.geo2Reference.setItemText(3, QCoreApplication.translate("Form", u"Highest Point", None))
         self.geo2Reference.setItemText(4, QCoreApplication.translate("Form", u"Vertex", None))
 
 #if QT_CONFIG(tooltip)
         self.geo2Reference.setToolTip(QCoreApplication.translate("Form", u"Choose what point to use on the second selected feature", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.noBaseGeometry.setToolTip(QCoreApplication.translate("Form", u"No base geometry Selected", None))
+        self.noBaseGeometry.setToolTip(QCoreApplication.translate("Form", u"No Base Geometry selected", None))
 #endif // QT_CONFIG(tooltip)
-        self.noBaseGeometry.setText(QCoreApplication.translate("Form", u"No base geometry selected", None))
+        self.noBaseGeometry.setText(QCoreApplication.translate("Form", u"No Base Geometry selected.", None))
 #if QT_CONFIG(tooltip)
-        self.usingCustomPoints.setToolTip(QCoreApplication.translate("Form", u"Currently using custom point inputs in the property view of the data tab", None))
+        self.usingCustomPoints.setToolTip(QCoreApplication.translate("Form", u"Currently using custom point inputs in the Property View of the Data tab", None))
 #endif // QT_CONFIG(tooltip)
-        self.usingCustomPoints.setText(QCoreApplication.translate("Form", u"Currently using custom point inputs available in the property view of the data tab", None))
-        self.geo1Extension_label.setText(QCoreApplication.translate("Form", u"Extend path start", None))
+        self.usingCustomPoints.setText(QCoreApplication.translate("Form", u"Currently using custom point inputs available in the Property View of the Data tab.", None))
+        self.geo1Extension_label.setText(QCoreApplication.translate("Form", u"Extend Path Start", None))
 #if QT_CONFIG(tooltip)
         self.geo1Extension.setToolTip(QCoreApplication.translate("Form", u"Positive extends the beginning of the path, negative shortens", None))
 #endif // QT_CONFIG(tooltip)
@@ -293,19 +287,19 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.geo2Extension.setToolTip(QCoreApplication.translate("Form", u"Positive extends the end of the path, negative shortens", None))
 #endif // QT_CONFIG(tooltip)
-        self.layerMode_label.setText(QCoreApplication.translate("Form", u"Layer mode", None))
+        self.layerMode_label.setText(QCoreApplication.translate("Form", u"Layer Mode", None))
         self.layerMode.setItemText(0, QCoreApplication.translate("Form", u"Single-pass", None))
         self.layerMode.setItemText(1, QCoreApplication.translate("Form", u"Multi-pass", None))
 
 #if QT_CONFIG(tooltip)
         self.layerMode.setToolTip(QCoreApplication.translate("Form", u"Complete the operation in a single pass at depth, or multiple passes to final depth", None))
 #endif // QT_CONFIG(tooltip)
-        self.pathOrientation_label.setText(QCoreApplication.translate("Form", u"Path orientation", None))
-        self.pathOrientation.setItemText(0, QCoreApplication.translate("Form", u"Start to end", None))
+        self.pathOrientation_label.setText(QCoreApplication.translate("Form", u"Path Orientation", None))
+        self.pathOrientation.setItemText(0, QCoreApplication.translate("Form", u"Start to End", None))
         self.pathOrientation.setItemText(1, QCoreApplication.translate("Form", u"Perpendicular", None))
 
 #if QT_CONFIG(tooltip)
-        self.pathOrientation.setToolTip(QCoreApplication.translate("Form", u"Choose the path orientation with regard to the features selected", None))
+        self.pathOrientation.setToolTip(QCoreApplication.translate("Form", u"Choose the path orientation with regard to the feature(s) selected", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.reverseDirection.setToolTip(QCoreApplication.translate("Form", u"Enable to reverse the cut direction of the slot path", None))

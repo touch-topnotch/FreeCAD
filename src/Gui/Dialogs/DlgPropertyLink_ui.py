@@ -103,7 +103,7 @@ class Ui_Gui_Dialog_DlgPropertyLink(object):
         Gui__Dialog__DlgPropertyLink.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgPropertyLink", u"Link", None))
         self.checkObjectType.setText(QCoreApplication.translate("Gui::Dialog::DlgPropertyLink", u"Filter by type", None))
 #if QT_CONFIG(tooltip)
-        self.checkSubObject.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgPropertyLink", u"Synchronizes the 3D view selection with the full object hierarchy", None))
+        self.checkSubObject.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgPropertyLink", u"If enabled, then 3D view selection will be synchronized with full object hierarchy.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkSubObject.setText(QCoreApplication.translate("Gui::Dialog::DlgPropertyLink", u"Sync sub-object selection", None))
         self.label.setText(QCoreApplication.translate("Gui::Dialog::DlgPropertyLink", u"Search", None))

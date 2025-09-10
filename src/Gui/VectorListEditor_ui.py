@@ -34,7 +34,7 @@ class Ui_Gui_VectorListEditor(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.label = QLabel(Gui__VectorListEditor)
         self.label.setObjectName(u"label")
-        self.label.setText(u"Id")
+        self.label.setText(u"Id:")
 
         self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
 
@@ -46,7 +46,7 @@ class Ui_Gui_VectorListEditor(object):
 
         self.label_2 = QLabel(Gui__VectorListEditor)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setText(u"X")
+        self.label_2.setText(u"x:")
 
         self.gridLayout_2.addWidget(self.label_2, 1, 0, 1, 1)
 
@@ -57,7 +57,7 @@ class Ui_Gui_VectorListEditor(object):
 
         self.label_3 = QLabel(Gui__VectorListEditor)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setText(u"Y")
+        self.label_3.setText(u"y:")
 
         self.gridLayout_2.addWidget(self.label_3, 2, 0, 1, 1)
 
@@ -68,7 +68,7 @@ class Ui_Gui_VectorListEditor(object):
 
         self.label_4 = QLabel(Gui__VectorListEditor)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setText(u"Z")
+        self.label_4.setText(u"z:")
 
         self.gridLayout_2.addWidget(self.label_4, 3, 0, 1, 1)
 
@@ -110,7 +110,7 @@ class Ui_Gui_VectorListEditor(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.toolButtonMouse = QToolButton(Gui__VectorListEditor)
         self.toolButtonMouse.setObjectName(u"toolButtonMouse")
-        self.toolButtonMouse.setText(u"\u2026")
+        self.toolButtonMouse.setText(u"...")
         icon = QIcon()
         icon.addFile(u":/icons/mouse_pointer.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.toolButtonMouse.setIcon(icon)
@@ -119,7 +119,7 @@ class Ui_Gui_VectorListEditor(object):
 
         self.toolButtonAdd = QToolButton(Gui__VectorListEditor)
         self.toolButtonAdd.setObjectName(u"toolButtonAdd")
-        self.toolButtonAdd.setText(u"\u2026")
+        self.toolButtonAdd.setText(u"...")
         icon1 = QIcon()
         icon1.addFile(u":/icons/list-add.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.toolButtonAdd.setIcon(icon1)
@@ -128,7 +128,7 @@ class Ui_Gui_VectorListEditor(object):
 
         self.toolButtonRemove = QToolButton(Gui__VectorListEditor)
         self.toolButtonRemove.setObjectName(u"toolButtonRemove")
-        self.toolButtonRemove.setText(u"\u2026")
+        self.toolButtonRemove.setText(u"...")
         icon2 = QIcon()
         icon2.addFile(u":/icons/list-remove.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.toolButtonRemove.setIcon(icon2)
@@ -137,7 +137,7 @@ class Ui_Gui_VectorListEditor(object):
 
         self.toolButtonAccept = QToolButton(Gui__VectorListEditor)
         self.toolButtonAccept.setObjectName(u"toolButtonAccept")
-        self.toolButtonAccept.setText(u"\u2026")
+        self.toolButtonAccept.setText(u"...")
         icon3 = QIcon()
         icon3.addFile(u":/icons/edit_OK.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.toolButtonAccept.setIcon(icon3)

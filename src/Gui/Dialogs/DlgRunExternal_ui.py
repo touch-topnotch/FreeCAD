@@ -81,7 +81,7 @@ class Ui_Gui_Dialog_DlgRunExternal(object):
 
         self.chooseProgram = QPushButton(self.extensionWidget)
         self.chooseProgram.setObjectName(u"chooseProgram")
-        self.chooseProgram.setText(u"Choose Program")
+        self.chooseProgram.setText(u"...")
 
         self.hboxLayout.addWidget(self.chooseProgram)
 
@@ -132,12 +132,12 @@ class Ui_Gui_Dialog_DlgRunExternal(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgRunExternal):
-        Gui__Dialog__DlgRunExternal.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Running External Program", None))
+        Gui__Dialog__DlgRunExternal.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Running external program", None))
         self.programName.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"TextLabel", None))
         self.buttonAdvanced.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Advanced >>", None))
-        self.buttonAccept.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Accept Changes", None))
-        self.buttonDiscard.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Discard Changes", None))
-        self.buttonAbort.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Abort Program", None))
+        self.buttonAccept.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Accept changes", None))
+        self.buttonDiscard.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Discard changes", None))
+        self.buttonAbort.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Abort program", None))
         self.buttonHelp.setText(QCoreApplication.translate("Gui::Dialog::DlgRunExternal", u"Help", None))
     # retranslateUi
 

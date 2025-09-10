@@ -133,8 +133,8 @@ class Ui_Gui_DlgObjectSelection(object):
     # setupUi
 
     def retranslateUi(self, Gui__DlgObjectSelection):
-        Gui__DlgObjectSelection.setWindowTitle(QCoreApplication.translate("Gui::DlgObjectSelection", u"Object Selection", None))
-        self.label.setText(QCoreApplication.translate("Gui::DlgObjectSelection", u"The selected objects contain other dependencies. Select which objects to export. All dependencies are auto-selected by default.", None))
+        Gui__DlgObjectSelection.setWindowTitle(QCoreApplication.translate("Gui::DlgObjectSelection", u"Object selection", None))
+        self.label.setText(QCoreApplication.translate("Gui::DlgObjectSelection", u"The selected objects contain other dependencies. Please select which objects to export. All dependencies are auto selected by default.", None))
         self.checkBoxAutoDeps.setText(QCoreApplication.translate("Gui::DlgObjectSelection", u"Auto select depending objects", None))
         self.checkBoxShowDeps.setText(QCoreApplication.translate("Gui::DlgObjectSelection", u"Show dependencies", None))
     # retranslateUi

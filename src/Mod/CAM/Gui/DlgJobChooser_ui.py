@@ -47,6 +47,6 @@ class Ui_DlgJobChooser(object):
     # setupUi
 
     def retranslateUi(self, DlgJobChooser):
-        DlgJobChooser.setWindowTitle(QCoreApplication.translate("DlgJobChooser", u"CAM Job Selection", None))
+        DlgJobChooser.setWindowTitle(QCoreApplication.translate("DlgJobChooser", u"Choose a CAM Job", None))
     # retranslateUi
 

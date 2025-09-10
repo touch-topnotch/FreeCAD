@@ -21,7 +21,8 @@ requirements:
     - ninja
     - noqt5
     - python>=3.11,<3.12
-    - qt6-main>=6.8,<6.9
+    - qt6-main>=6.7,<6.8
+    - qt6-3d>=6.7,<6.8
     - swig
 
     - if: linux and x86_64
@@ -105,13 +106,15 @@ requirements:
     - libboost-devel
     - matplotlib-base
     - noqt5
-    - numpy>=1.26,<2
+    - numpy
     - occt>=7.8,<7.9
     - pcl
     - pivy
     - ply
     - pybind11
     - pyside6
+    - pydantic
+    - keyring
     - python>=3.11,<3.12
     - qt6-main>=6.8,<6.9
     - six
@@ -120,6 +123,12 @@ requirements:
     - xerces-c
     - yaml-cpp
     - zlib
+    - if: osx
+      then:
+      - "libblas   * *_openblas"
+      - "libcblas  * *_openblas"
+      - "liblapack * *_openblas"
+
 
     - if: win
       then:
@@ -134,6 +143,10 @@ requirements:
       then:
         - libspnav
         - xorg-xproto
+
+    # - if: osx
+    #   then:
+    #     - blas * accelerate*
 
   run:
     - blas * openblas*
@@ -150,7 +163,7 @@ requirements:
     - matplotlib-base
     - nine
     - noqt5
-    - numpy>=1.26,<2
+    - numpy
     - occt>=7.8,<7.9
     - olefile
     - opencamlib
@@ -161,16 +174,24 @@ requirements:
     - ply
     - pycollada
     - pyside6
+    - pydantic
+    - keyring
     - python>=3.11,<3.12
     - pythonocc-core
     - pyyaml
-    - qt6-main>=6.8,<6.9
+    - qt6-main>=6.7,<6.8
+    - qt6-3d>=6.7,<6.8
     - requests
     - scipy
     - sympy
     - typing_extensions
     - vtk
     - xlutils
+    - if: osx
+      then:
+        - "libblas   * *_openblas"
+        - "libcblas  * *_openblas"
+        - "liblapack * *_openblas"
 
     - if: linux
       then:

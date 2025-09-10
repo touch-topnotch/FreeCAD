@@ -108,9 +108,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC Quantities Manager", None))
         self.label_5.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p>Checked quantities will be exported to IFC. Quantities marked with a warning sign indicate a zero value that you might need to check. Clicking a column header will apply to all selected items.</p><p><span style=\" font-weight:600;\">Warning</span>: Horizontal area is the area obtained when projecting the object on the ground (X,Y) plane, but vertical area is the sum of all areas of the faces that are vertical (orthogonal to the ground plane), so a wall will have its both faces counted.</p><p>Length, width and height values can be changed here, but beware, it might change the geometry!</p></body></html>", None))
-        self.onlyVisible.setText(QCoreApplication.translate("Dialog", u"Only visible BIM objects", None))
+        self.onlyVisible.setText(QCoreApplication.translate("Dialog", u"only visible BIM objects", None))
         self.buttonApply.setText(QCoreApplication.translate("Dialog", u"Apply", None))
         self.buttonRefresh.setText(QCoreApplication.translate("Dialog", u"Refresh", None))
-        self.buttonSelectAll.setText(QCoreApplication.translate("Dialog", u"Select All", None))
+        self.buttonSelectAll.setText(QCoreApplication.translate("Dialog", u"Select all", None))
     # retranslateUi
 

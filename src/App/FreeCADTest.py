@@ -38,6 +38,6 @@ testCase = FreeCAD.ConfigGet("TestCase")
 
 testResult = TestApp.TestText(testCase)
 
-Log("FreeCAD test done\n")
+Log("ARCHI test done\n")
 
 sys.exit(0 if testResult.wasSuccessful() else 1)

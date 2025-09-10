@@ -105,10 +105,10 @@ class Ui_Angle(object):
     # setupUi
 
     def retranslateUi(self, Angle):
-        self.label.setText(QCoreApplication.translate("Angle", u"A", None))
-        self.label_2.setText(QCoreApplication.translate("Angle", u"B", None))
-        self.label_3.setText(QCoreApplication.translate("Angle", u"C", None))
-        self.checkBoxSnap.setText(QCoreApplication.translate("Angle", u"Angle snap", None))
+        self.label.setText(QCoreApplication.translate("Angle", u"A:", None))
+        self.label_2.setText(QCoreApplication.translate("Angle", u"B:", None))
+        self.label_3.setText(QCoreApplication.translate("Angle", u"C:", None))
+        self.checkBoxSnap.setText(QCoreApplication.translate("Angle", u"Angle Snap", None))
 
         pass
     # retranslateUi

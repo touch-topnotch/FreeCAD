@@ -110,32 +110,32 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         self.groupBox.setTitle(QCoreApplication.translate("Form", u"Tag Parameters", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Default width", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Default Width", None))
 #if QT_CONFIG(tooltip)
         self.ifWidth.setToolTip(QCoreApplication.translate("Form", u"Set the default width of holding tags.\n"
 "\n"
 "If the width is set to 0 the dressup will try to guess a reasonable value based on the path itself.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_2.setText(QCoreApplication.translate("Form", u"Default height", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Default Height", None))
 #if QT_CONFIG(tooltip)
         self.ifHeight.setToolTip(QCoreApplication.translate("Form", u"Default height of holding tags.\n"
 "\n"
 "If the specified height is 0 the dressup will use half the height of the part. Should the height be bigger than the height of the part the dressup will reduce the height to the height of the part.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_3.setText(QCoreApplication.translate("Form", u"Default angle", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Default Angle", None))
 #if QT_CONFIG(tooltip)
-        self.dsbAngle.setToolTip(QCoreApplication.translate("Form", u"Plunge angle for ascent and descent of holding tag", None))
+        self.dsbAngle.setToolTip(QCoreApplication.translate("Form", u"Plunge angle for ascent and descent of holding tag.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_5.setText(QCoreApplication.translate("Form", u"Default radius", None))
+        self.label_5.setText(QCoreApplication.translate("Form", u"Default Radius", None))
 #if QT_CONFIG(tooltip)
         self.ifRadius.setToolTip(QCoreApplication.translate("Form", u"Radius of the fillet on the tag's top edge.\n"
 "\n"
 "If the radius is bigger than that which the tag shape itself supports, the resulting shape will be that of a dome.", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox_2.setTitle(QCoreApplication.translate("Form", u"Tag Generation", None))
-        self.label_4.setText(QCoreApplication.translate("Form", u"Initial # tags", None))
+        self.label_4.setText(QCoreApplication.translate("Form", u"Initial # Tags", None))
 #if QT_CONFIG(tooltip)
-        self.sbCount.setToolTip(QCoreApplication.translate("Form", u"Specify the number of tags generated when a new dressup is created", None))
+        self.sbCount.setToolTip(QCoreApplication.translate("Form", u"Specify the number of tags generated when a new dressup is created.", None))
 #endif // QT_CONFIG(tooltip)
         pass
     # retranslateUi

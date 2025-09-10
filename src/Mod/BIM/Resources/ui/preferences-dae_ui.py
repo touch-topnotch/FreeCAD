@@ -228,7 +228,7 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsArch):
         Gui__Dialog__DlgSettingsArch.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"DAE", None))
-        self.groupBox_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export Options", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export options", None))
         self.label_3.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Scaling factor", None))
 #if QT_CONFIG(tooltip)
         self.doubleSpinBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"All dimensions in the file will be scaled with this factor", None))
@@ -245,7 +245,7 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Builtin and Mefisto mesher options", None))
         self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Tessellation", None))
 #if QT_CONFIG(tooltip)
-        self.doubleSpinBox_2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Tessellation value to use with the Builtin and the Mefisto meshing program", None))
+        self.doubleSpinBox_2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Tessellation value to use with the Builtin and the Mefisto meshing program.", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Netgen mesher options", None))
         self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Grading", None))

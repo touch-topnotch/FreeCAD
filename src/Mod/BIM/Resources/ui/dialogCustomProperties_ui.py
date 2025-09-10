@@ -94,17 +94,17 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Custom Properties", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Custom properties", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Name", None))
 #if QT_CONFIG(tooltip)
         self.lineEdit.setToolTip(QCoreApplication.translate("Form", u"Can only contain alphanumerical characters and no spaces. Use CamelCase typing to define spaces automatically", None))
 #endif // QT_CONFIG(tooltip)
         self.label_3.setText(QCoreApplication.translate("Form", u"Description", None))
 #if QT_CONFIG(tooltip)
-        self.lineEdit_2.setToolTip(QCoreApplication.translate("Form", u"A description of this property. Supports any language.", None))
+        self.lineEdit_2.setToolTip(QCoreApplication.translate("Form", u"A description for this property, can be in any language.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.radioButton_2.setToolTip(QCoreApplication.translate("Form", u"The property will be hidden in the interface, and can only be modified via Python scripting", None))
+        self.radioButton_2.setToolTip(QCoreApplication.translate("Form", u"The property will be hidden in the interface, and can only be modified via Python script", None))
 #endif // QT_CONFIG(tooltip)
         self.radioButton_2.setText(QCoreApplication.translate("Form", u"Hidden", None))
 #if QT_CONFIG(tooltip)

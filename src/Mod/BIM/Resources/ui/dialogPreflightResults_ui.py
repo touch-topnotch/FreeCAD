@@ -92,9 +92,9 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Test Results", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Results of test", None))
-        self.buttonReport.setText(QCoreApplication.translate("Dialog", u"To Report Panel", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Test results", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Results of test:", None))
+        self.buttonReport.setText(QCoreApplication.translate("Dialog", u"to Report panel", None))
         self.buttonOK.setText(QCoreApplication.translate("Dialog", u"OK", None))
     # retranslateUi
 

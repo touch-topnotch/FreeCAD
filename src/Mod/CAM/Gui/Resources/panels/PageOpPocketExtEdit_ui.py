@@ -118,7 +118,7 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        self.enableExtensions.setText(QCoreApplication.translate("Form", u"Enable extensions", None))
+        self.enableExtensions.setText(QCoreApplication.translate("Form", u"Enable Extensions", None))
 #if QT_CONFIG(tooltip)
         self.showExtensions.setToolTip(QCoreApplication.translate("Form", u"If selected all potential extensions are visualised. Enabled extensions in purple and not enabled extensions in yellow", None))
 #endif // QT_CONFIG(tooltip)
@@ -126,10 +126,10 @@ class Ui_Form(object):
 #if QT_CONFIG(tooltip)
         self.extendCorners.setToolTip(QCoreApplication.translate("Form", u"Extend the corner between two edges of a pocket. Selected adjacent edges are combined.", None))
 #endif // QT_CONFIG(tooltip)
-        self.extendCorners.setText(QCoreApplication.translate("Form", u"Extend corners", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Default length", None))
+        self.extendCorners.setText(QCoreApplication.translate("Form", u"Extend Corners", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Default Length", None))
 #if QT_CONFIG(tooltip)
-        self.defaultLength.setToolTip(QCoreApplication.translate("Form", u"Set the extent of the dimension. The default value is half the tool diameter.", None))
+        self.defaultLength.setToolTip(QCoreApplication.translate("Form", u"Set the extent of the dimension -the default value is half the tool diameter", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.extensionTree.setToolTip(QCoreApplication.translate("Form", u"Tree of existing edges and their potential extensions", None))

@@ -83,9 +83,9 @@ class Ui_Gui_Dialog_DlgAuthorization(object):
 
     def retranslateUi(self, Gui__Dialog__DlgAuthorization):
         Gui__Dialog__DlgAuthorization.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"Authorization", None))
-        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"Site", None))
+        self.label_4.setText(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"Site:", None))
         self.siteDescription.setText(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"%1 at %2", None))
-        self.textLabel1.setText(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"Username", None))
-        self.textLabel2.setText(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"Password", None))
+        self.textLabel1.setText(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"Username:", None))
+        self.textLabel2.setText(QCoreApplication.translate("Gui::Dialog::DlgAuthorization", u"Password:", None))
     # retranslateUi
 

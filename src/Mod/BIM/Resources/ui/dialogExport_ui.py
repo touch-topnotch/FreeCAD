@@ -59,7 +59,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"One or more IFC documents contained in this FreeCAD document have been modified, but were not saved. They will automatically be saved now.", None))
-        self.checkAskBeforeSaving.setText(QCoreApplication.translate("Dialog", u"Ask again next time", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"One or more IFC documents contained in this FreeCAD document have been modified, but were not saved.  They will automatically be saved now.", None))
+        self.checkAskBeforeSaving.setText(QCoreApplication.translate("Dialog", u"Ask me again next time", None))
     # retranslateUi
 

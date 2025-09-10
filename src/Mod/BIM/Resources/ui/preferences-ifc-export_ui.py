@@ -25,9 +25,8 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         Gui__Dialog__DlgSettingsArch.resize(534, 718)
         self.vboxLayout = QVBoxLayout(Gui__Dialog__DlgSettingsArch)
         self.vboxLayout.setSpacing(6)
-        self.vboxLayout.setContentsMargins(11, 11, 11, 11)
-        self.vboxLayout.setObjectName(u"vboxLayout")
         self.vboxLayout.setContentsMargins(9, 9, 9, 9)
+        self.vboxLayout.setObjectName(u"vboxLayout")
         self.group_box_0 = QGroupBox(Gui__Dialog__DlgSettingsArch)
         self.group_box_0.setObjectName(u"group_box_0")
         self.verticalLayout = QVBoxLayout(self.group_box_0)
@@ -200,26 +199,13 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
 
         self.verticalLayout_3.addWidget(self.checkBox_21)
 
-        self.groupBox_ExportFreeCADGroups = Gui_PrefCheckableGroupBox(self.groupBox_2)
-        self.groupBox_ExportFreeCADGroups.setObjectName(u"groupBox_ExportFreeCADGroups")
-        self.groupBox_ExportFreeCADGroups.setCheckable(True)
-        self.groupBox_ExportFreeCADGroups.setChecked(False)
-        self.groupBox_ExportFreeCADGroups.setProperty(u"prefEntry", u"IfcExportStdGroups")
-        self.groupBox_ExportFreeCADGroups.setProperty(u"prefPath", u"Mod/Arch")
-        self.verticalLayout_4 = QVBoxLayout(self.groupBox_ExportFreeCADGroups)
-        self.verticalLayout_4.setSpacing(6)
-        self.verticalLayout_4.setContentsMargins(11, 11, 11, 11)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.checkBox_2 = Gui_PrefCheckBox(self.groupBox_ExportFreeCADGroups)
+        self.checkBox_2 = Gui_PrefCheckBox(self.groupBox_2)
         self.checkBox_2.setObjectName(u"checkBox_2")
         self.checkBox_2.setChecked(True)
         self.checkBox_2.setProperty(u"prefEntry", u"IfcGroupsAsAssemblies")
         self.checkBox_2.setProperty(u"prefPath", u"Mod/Arch")
 
-        self.verticalLayout_4.addWidget(self.checkBox_2)
-
-
-        self.verticalLayout_3.addWidget(self.groupBox_ExportFreeCADGroups)
+        self.verticalLayout_3.addWidget(self.checkBox_2)
 
 
         self.vboxLayout.addWidget(self.groupBox_2)
@@ -235,15 +221,15 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
     # setupUi
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsArch):
-        Gui__Dialog__DlgSettingsArch.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"IFC Export", None))
-        self.group_box_0.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"General Options", None))
+        Gui__Dialog__DlgSettingsArch.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"IFC export", None))
+        self.group_box_0.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"General options", None))
         self.checkBox_7.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Show this dialog when exporting", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export Options", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export options", None))
 #if QT_CONFIG(tooltip)
-        self.label_2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"The type of objects to export:\n"
-"- Standard model: solid objects\n"
-"- Structural analysis: wireframe model for structural calculations\n"
-"- Standard + structural: both types of models", None))
+        self.label_2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"The type of objects that you wish to export:\n"
+"- Standard model: solid objects.\n"
+"- Structural analysis: wireframe model for structural calculations.\n"
+"- Standard + structural: both types of models.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export type", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Standard model", None))
@@ -251,16 +237,16 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         self.comboBox.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Standard + structural", None))
 
 #if QT_CONFIG(tooltip)
-        self.comboBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"The type of objects to export:\n"
-"- Standard model: solid objects\n"
-"- Structural analysis: wireframe model for structural calculations\n"
-"- Standard + structural: both types of models", None))
+        self.comboBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"The type of objects that you wish to export:\n"
+"- Standard model: solid objects.\n"
+"- Structural analysis: wireframe model for structural calculations.\n"
+"- Standard + structural: both types of models.", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.checkBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Some IFC viewers do not like objects exported as extrusions.\n"
+        self.checkBox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Some IFC viewers don't like objects exported as extrusions.\n"
 "Use this to force all objects to be exported as BREP geometry.", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Force export as BREP", None))
+        self.checkBox.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Force export as Brep", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_4.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Use triangulation options set in the DAE options page", None))
 #endif // QT_CONFIG(tooltip)
@@ -295,14 +281,14 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         self.checkBox_13.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export full FreeCAD parametric model", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_15.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"When possible, similar entities will be used only once in the file if possible.\n"
-"This can reduce the file size considerably, but will make it less easily readable.", None))
+"This can reduce the file size a lot, but will make it less easily readable.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_15.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Reuse similar entities", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_16.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"When possible, IFC objects that are extruded rectangles will be\n"
 "exported as IfcRectangleProfileDef.\n"
 "However, some other applications might have problems importing that entity.\n"
-"If this is the case, it can disabled and then all profiles will be exported as IfcArbitraryClosedProfileDef.", None))
+"If this is your case, you can disable this and then all profiles will be exported as IfcArbitraryClosedProfileDef.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_16.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Disable IfcRectangleProfileDef", None))
 #if QT_CONFIG(tooltip)
@@ -321,7 +307,7 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
 #endif // QT_CONFIG(tooltip)
         self.checkBox_20.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Add default building storey if one is not found in the document", None))
 #if QT_CONFIG(tooltip)
-        self.label.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Desired units in the exported IFC file.\n"
+        self.label.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"The units you want your IFC file to be exported to.\n"
 "\n"
 "Note that IFC files are ALWAYS written in metric units; imperial units\n"
 "are only a conversion factor applied on top of them.\n"
@@ -333,7 +319,7 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         self.comboBox_3.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Imperial", None))
 
 #if QT_CONFIG(tooltip)
-        self.comboBox_3.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Desired units in the exported IFC file.\n"
+        self.comboBox_3.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"The units you want your IFC file to be exported to.\n"
 "\n"
 "Note that IFC files are ALWAYS written in metric units; imperial units\n"
 "are only a conversion factor applied on top of them.\n"
@@ -344,15 +330,12 @@ class Ui_Gui_Dialog_DlgSettingsArch(object):
         self.groupBox_2.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"IFC standard compliance", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_21.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"If no building is found in the FreeCAD document, a default one will be added.\n"
-"Warning: The IFC standard asks for at least one building in each file. By turning this option off, a non-standard IFC file will be produced.", None))
+"Warning: The IFC standard asks for at least one building in each file. By turning this option off, you will produce a non-standard IFC file.\n"
+"However, at FreeCAD, we believe having a building should not be mandatory, and this option is there to have a chance to demonstrate our point of view.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_21.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Add default building if one is not found in the document", None))
 #if QT_CONFIG(tooltip)
-        self.groupBox_ExportFreeCADGroups.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"If not checked, standard FreeCAD groups (App::DocumentObjectGroup) will not be exported as IfcGroup or IfcElementAssembly.\\nTheir children will be re-parented to the container of the skipped group in the IFC structure.", None))
-#endif // QT_CONFIG(tooltip)
-        self.groupBox_ExportFreeCADGroups.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export FreeCAD Groups", None))
-#if QT_CONFIG(tooltip)
-        self.checkBox_2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"In FreeCAD, it is possible to nest groups inside buildings or storeys. If this option is disabled, FreeCAD groups will be saved as IfcGroups and aggregated to the building structure. Aggregating non-building elements such as IfcGroups is however not recommended by the IFC standards. It is therefore also possible to export these groups as IfcElementAssemblies, which produces an IFC-compliant file.", None))
+        self.checkBox_2.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"In FreeCAD, it is possible to nest groups inside buildings or storeys. If this option is disabled, FreeCAD groups will be saved as IfcGroups and aggregated to the building structure. Aggregating non-building elements such as IfcGroups is however not recommended by the IFC standards. It is therefore also possible to export these groups as IfcElementAssemblies, which produces an IFC-compliant file. However, at FreeCAD, we believe nesting groups inside structures should be possible, and this option is there to have a chance to demonstrate our point of view.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsArch", u"Export nested groups as assemblies", None))
     # retranslateUi

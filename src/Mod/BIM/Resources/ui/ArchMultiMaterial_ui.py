@@ -106,12 +106,12 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Multi-Material Definition", None))
-        self.chooseCombo.setItemText(0, QCoreApplication.translate("Form", u"Copy existing\u2026", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Multi-material definition", None))
+        self.chooseCombo.setItemText(0, QCoreApplication.translate("Form", u"Copy existing...", None))
 
         self.groupBox_2.setTitle(QCoreApplication.translate("Form", u"Edit definition", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Name", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Composition", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Name:", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Composition:", None))
         self.labelTotalThickness.setText(QCoreApplication.translate("Form", u"Total thickness", None))
         self.addButton.setText(QCoreApplication.translate("Form", u"Add", None))
         self.upButton.setText(QCoreApplication.translate("Form", u"Up", None))

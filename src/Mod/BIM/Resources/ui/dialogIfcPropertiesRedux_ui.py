@@ -112,12 +112,12 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC Properties Editor", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"IFC UUID", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"IFC properties editor", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"IFC UUID:", None))
         self.labelUUID.setPlaceholderText(QCoreApplication.translate("Dialog", u"Leave this empty to generate one at export", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"List of IFC properties for this object. Double-click to edit. Drag and drop to reorganize.", None))
-        self.buttonDelete.setText(QCoreApplication.translate("Dialog", u"Delete Selected Property/Property Set", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"List of IFC properties for this object. Double-click to edit, drag and drop to reorganize", None))
+        self.buttonDelete.setText(QCoreApplication.translate("Dialog", u"Delete selected property/set", None))
         self.checkBrep.setText(QCoreApplication.translate("Dialog", u"Force exporting geometry as BREP", None))
-        self.checkParametric.setText(QCoreApplication.translate("Dialog", u"Force export of full FreeCAD parametric data", None))
+        self.checkParametric.setText(QCoreApplication.translate("Dialog", u"Force export full FreeCAD parametric data", None))
     # retranslateUi
 

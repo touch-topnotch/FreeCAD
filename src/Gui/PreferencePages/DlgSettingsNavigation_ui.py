@@ -407,7 +407,7 @@ class Ui_Gui_Dialog_DlgSettingsNavigation(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsNavigation):
         Gui__Dialog__DlgSettingsNavigation.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Navigation", None))
-        self.groupBoxNaviCube.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Navigation Cube", None))
+        self.groupBoxNaviCube.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Navigation cube", None))
         self.stepLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Steps by turn", None))
 #if QT_CONFIG(tooltip)
         self.prefStepByTurn.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Number of steps by turn when using arrows (default = 8 : step angle = 360/8 = 45 deg)", None))
@@ -419,10 +419,10 @@ class Ui_Gui_Dialog_DlgSettingsNavigation(object):
         self.naviCubeCorner.setItemText(3, QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Bottom right", None))
 
 #if QT_CONFIG(tooltip)
-        self.naviCubeCorner.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Corner where the navigation cube is displayed", None))
+        self.naviCubeCorner.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Corner where navigation cube is shown", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.naviCubeToNearest.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Rotates to nearest possible state when clicking a face of the cube", None))
+        self.naviCubeToNearest.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Rotates to nearest possible state when clicking a cube face", None))
 #endif // QT_CONFIG(tooltip)
         self.naviCubeToNearest.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Rotate to nearest", None))
         self.FontNameLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Font name", None))
@@ -443,7 +443,7 @@ class Ui_Gui_Dialog_DlgSettingsNavigation(object):
 #if QT_CONFIG(tooltip)
         self.naviCubeBaseColor.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Base color for all elements", None))
 #endif // QT_CONFIG(tooltip)
-        self.groupBoxRotationCenter.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Rotation Center Indicator", None))
+        self.groupBoxRotationCenter.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Rotation center indicator", None))
         self.sizeLabelRotationCenter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Sphere size", None))
         self.colorLabelRotationCenter.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Color and transparency", None))
 #if QT_CONFIG(tooltip)
@@ -453,12 +453,12 @@ class Ui_Gui_Dialog_DlgSettingsNavigation(object):
         self.rotationCenterColor.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"The color of the rotation center indicator", None))
 #endif // QT_CONFIG(tooltip)
         self.GroupBox12.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Navigation", None))
-        self.navigationLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"3D navigation", None))
+        self.navigationLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"3D Navigation", None))
 #if QT_CONFIG(tooltip)
-        self.mouseButton.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Lists the mouse button configs for each chosen navigation setting.\n"
+        self.mouseButton.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"List the mouse button configs for each chosen navigation setting.\n"
 "Select a set and then press the button to view said configurations.", None))
 #endif // QT_CONFIG(tooltip)
-        self.mouseButton.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Mouse Configuration", None))
+        self.mouseButton.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Mouse...", None))
 #if QT_CONFIG(tooltip)
         self.comboNavigationStyle.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Navigation settings set", None))
 #endif // QT_CONFIG(tooltip)
@@ -472,10 +472,10 @@ class Ui_Gui_Dialog_DlgSettingsNavigation(object):
 #if QT_CONFIG(tooltip)
         self.comboOrbitStyle.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Rotation orbit style.\n"
 "Rounded Arcball: moving the mouse in the corners of the screen will only roll the part.\n"
-"Trackball: moving the mouse horizontally will rotate the part around the Y-axis.\n"
+"Trackball: moving the mouse horizontally will rotate the part around the y-axis.\n"
 "Trackball Classic: moving the mouse will rotate the part allowing precession.\n"
-"Turntable: the part will be rotated around the Z-axis (with constrained axes).\n"
-"Free Turntable: the part will be rotated around the Z-axis.\n"
+"Turntable: the part will be rotated around the z-axis (with constrained axes).\n"
+"Free Turntable: the part will be rotated around the z-axis.\n"
 "         ", None))
 #endif // QT_CONFIG(tooltip)
         self.labelRotationMode.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Rotation mode", None))
@@ -510,12 +510,12 @@ class Ui_Gui_Dialog_DlgSettingsNavigation(object):
         self.checkBoxInvertZoom.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Invert zoom", None))
 #if QT_CONFIG(tooltip)
         self.checkBoxDisableTilt.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Prevents view tilting when pinch-zooming.\n"
-"Affects only Gesture navigation style.\n"
+"Affects only gesture navigation style.\n"
 "Mouse tilting is not disabled by this setting.", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBoxDisableTilt.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Disable touchscreen tilt gesture", None))
-        self.spaceMouseDevice.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Space Mouse", None))
-        self.legacySpaceMouseDevices.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Enable support of legacy SpaceMouse devices", None))
+        self.spaceMouseDevice.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Space mouse", None))
+        self.legacySpaceMouseDevices.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Enable support of legacy space mouse devices", None))
         self.groupBoxAnimations.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Animations", None))
 #if QT_CONFIG(tooltip)
         self.animationDurationLabel.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsNavigation", u"Duration of navigation animations that have a fixed duration", None))

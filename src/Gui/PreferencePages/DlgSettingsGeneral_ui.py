@@ -103,6 +103,9 @@ class Ui_Gui_Dialog_DlgSettingsGeneral(object):
         self.gridLayout.addWidget(self.TextLabel1_5, 4, 0, 1, 1)
 
         self.UseLocaleFormatting = Gui_PrefComboBox(self.GroupBox7)
+        self.UseLocaleFormatting.addItem("")
+        self.UseLocaleFormatting.addItem("")
+        self.UseLocaleFormatting.addItem("")
         self.UseLocaleFormatting.setObjectName(u"UseLocaleFormatting")
         self.UseLocaleFormatting.setProperty(u"prefEntry", u"UseLocaleFormatting")
         self.UseLocaleFormatting.setProperty(u"prefPath", u"General")
@@ -307,58 +310,65 @@ class Ui_Gui_Dialog_DlgSettingsGeneral(object):
 
     def retranslateUi(self, Gui__Dialog__DlgSettingsGeneral):
         Gui__Dialog__DlgSettingsGeneral.setWindowTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"General", None))
-        self.GroupBox7.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Language and Number Format", None))
-        self.TextLabel1_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Language", None))
+        self.GroupBox7.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Language and number format", None))
+        self.TextLabel1_4.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Language:", None))
 #if QT_CONFIG(tooltip)
         self.Languages.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Language of the application's user interface", None))
 #endif // QT_CONFIG(tooltip)
-        self.unitSystemLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Default unit system", None))
+        self.unitSystemLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Default unit system:", None))
 #if QT_CONFIG(tooltip)
         self.comboBox_UnitSystem.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Unit system for all parts of the application. Can be overridden by specifying a document unit system.", None))
 #endif // QT_CONFIG(tooltip)
-        self.decimalsLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Number of decimals", None))
+        self.decimalsLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Number of decimals:", None))
 #if QT_CONFIG(tooltip)
         self.spinBoxDecimals.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Number of decimals that should be shown for numbers and dimensions", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.checkBox_projectUnitSystemIgnore.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Ignores document unit systems", None))
+        self.checkBox_projectUnitSystemIgnore.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"If enabled, document unit systems are ignored", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBox_projectUnitSystemIgnore.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Ignore project unit system and use default", None))
-        self.fractionalInchLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Minimum fractional inch", None))
+        self.fractionalInchLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Minimum fractional inch:", None))
 
 #if QT_CONFIG(tooltip)
         self.comboBox_FracInch.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Minimum fractional inch to be displayed", None))
 #endif // QT_CONFIG(tooltip)
-        self.TextLabel1_5.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Number format", None))
+        self.TextLabel1_5.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Number format:", None))
+        self.UseLocaleFormatting.setItemText(0, QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Operating system", None))
+        self.UseLocaleFormatting.setItemText(1, QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Selected language", None))
+        self.UseLocaleFormatting.setItemText(2, QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"C/POSIX", None))
+
 #if QT_CONFIG(tooltip)
-        self.SubstituteDecimal.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Substitutes numerical keypad decimal separator with locale separator, except\n"
-"in the Python console and the macro editor where a\n"
-"dot/period will always be printed", None))
+        self.SubstituteDecimal.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"If enabled, numerical keypad decimal separator\n"
+"will be substituted with locale separator, except\n"
+"in Python Console and Macro Editor where a\n"
+"dot/period will always be printed.", None))
 #endif // QT_CONFIG(tooltip)
         self.SubstituteDecimal.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Substitute decimal separator", None))
         self.GroupBox3.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Application", None))
-        self.themesLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Theme", None))
+        self.themesLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Theme:", None))
 #if QT_CONFIG(tooltip)
-        self.themesCombobox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Customize the appearance of the user interface", None))
+        self.themesCombobox.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Customize how user interface will look like", None))
 #endif // QT_CONFIG(tooltip)
-        self.moreThemesLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Looking for more themes? You can obtain them using the <a href=\"freecad:Std_AddonMgr\">Addon Manager</a>.", None))
-        self.iconSizeLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Size of toolbar icons", None))
+        self.moreThemesLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Looking for more themes? You can obtain them using <a href=\"freecad:Std_AddonMgr\">Addon Manager</a>.", None))
+        self.iconSizeLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Size of toolbar icons:", None))
 #if QT_CONFIG(tooltip)
-        self.toolbarIconSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Icon size in the toolbar", None))
+        self.toolbarIconSize.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Choose your preference for toolbar icon size. You can adjust\n"
+"this according to your screen size or personal taste", None))
 #endif // QT_CONFIG(tooltip)
-        self.treeModeLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Tree View and Property View mode", None))
+        self.treeModeLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Tree view and Property view mode:", None))
 #if QT_CONFIG(tooltip)
-        self.treeMode.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Customize how the tree view is shown in the panel (restart required).\n"
+        self.treeMode.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Customize how tree view is shown in the panel (restart required).\n"
 "\n"
-"'Combined': combine tree and property view into one panel.\n"
-"'Independent': split tree and property view into separate panels.", None))
+"'Combined': combine Tree view and Property view into one panel.\n"
+"'Independent': split Tree view and Property view into separate panels.", None))
 #endif // QT_CONFIG(tooltip)
-        self.recentFileListLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Size of recent file list", None))
+        self.recentFileListLabel.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Size of recent file list:", None))
 #if QT_CONFIG(tooltip)
         self.RecentFiles.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"How many files should be listed in recent files list", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
-        self.tiledBackground.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Background of the main window (when no document is opened) will consist of tiles of an image.", None))
+        self.tiledBackground.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Background of the main window (when no document is opened) will consist of tiles of a special image.\n"
+"See the FreeCAD Wiki for details about the image.", None))
 #endif // QT_CONFIG(tooltip)
         self.tiledBackground.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Enable tiled background", None))
 #if QT_CONFIG(tooltip)
@@ -366,25 +376,25 @@ class Ui_Gui_Dialog_DlgSettingsGeneral(object):
 #endif // QT_CONFIG(tooltip)
         self.EnableCursorBlinking.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Enable cursor blinking", None))
 #if QT_CONFIG(tooltip)
-        self.SplashScreen.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"A splash screen is a small loading window that is shown\n"
+        self.SplashScreen.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"A Splash screen is a small loading window that is shown\n"
 "when FreeCAD is launching. If this option is checked, FreeCAD will\n"
-"display the splash screen.", None))
+"display the splash screen", None))
 #endif // QT_CONFIG(tooltip)
-        self.SplashScreen.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Enable splash screen at start-up", None))
+        self.SplashScreen.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Enable splash screen at start up", None))
 #if QT_CONFIG(tooltip)
-        self.ActivateOverlay.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Activate overlay handling of docked panels", None))
+        self.ActivateOverlay.setToolTip(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Activate overlay handling of dock windows", None))
 #endif // QT_CONFIG(tooltip)
-        self.ActivateOverlay.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Activate overlay panels", None))
-        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Preference Packs", None))
+        self.ActivateOverlay.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Activate overlay handling", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Preference packs", None))
         ___qtablewidgetitem = self.PreferencePacks.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Name", None));
         ___qtablewidgetitem1 = self.PreferencePacks.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Type", None));
         ___qtablewidgetitem2 = self.PreferencePacks.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Load", None));
-        self.ImportConfig.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Import Configuration", None))
-        self.SaveNewPreferencePack.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Save as New", None))
-        self.ManagePreferencePacks.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Manage", None))
-        self.RevertToSavedConfig.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Revert", None))
+        self.ImportConfig.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Import config...", None))
+        self.SaveNewPreferencePack.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Save new...", None))
+        self.ManagePreferencePacks.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Manage...", None))
+        self.RevertToSavedConfig.setText(QCoreApplication.translate("Gui::Dialog::DlgSettingsGeneral", u"Revert...", None))
     # retranslateUi
 

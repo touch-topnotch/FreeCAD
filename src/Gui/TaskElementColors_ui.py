@@ -89,14 +89,14 @@ class Ui_Gui_TaskElementColors(object):
     # setupUi
 
     def retranslateUi(self, Gui__TaskElementColors):
-        Gui__TaskElementColors.setWindowTitle(QCoreApplication.translate("Gui::TaskElementColors", u"Set Element Color", None))
+        Gui__TaskElementColors.setWindowTitle(QCoreApplication.translate("Gui::TaskElementColors", u"Set element color", None))
         self.objectLabel.setText(QCoreApplication.translate("Gui::TaskElementColors", u"TextLabel", None))
         self.addSelection.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Edit", None))
         self.hideSelection.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Hide", None))
         self.removeSelection.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Remove", None))
-        self.removeAll.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Remove All", None))
-        self.boxSelect.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Box Select", None))
+        self.removeAll.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Remove all", None))
+        self.boxSelect.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Box select", None))
         self.recompute.setText(QCoreApplication.translate("Gui::TaskElementColors", u"Recompute after commit", None))
-        self.onTop.setText(QCoreApplication.translate("Gui::TaskElementColors", u"On top when selected", None))
+        self.onTop.setText(QCoreApplication.translate("Gui::TaskElementColors", u"On-top when selected", None))
     # retranslateUi
 
