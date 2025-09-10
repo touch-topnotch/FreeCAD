@@ -69,3 +69,6 @@ files_to_translate.txt
 # pixi environments
 .pixi
 *.egg-info
+ARCHI.app
+*.dmg
+*SHA256.txt
