@@ -55,6 +55,45 @@ if [[ -d ../../../src/3rdParty ]]; then
 fi
 
 
+# Overlay repo Python modules to ensure latest sources are bundled (overrides env copies)
+if [[ -d ../../../src/Mod ]]; then
+    mkdir -p ${conda_env}/Mod
+    cp -a ../../../src/Mod/* ${conda_env}/Mod/ 2>/dev/null || true
+fi
+
+# Ensure all auxiliary Python modules (Ext) are available in the bundle
+# Merge from multiple known locations without special-casing per module.
+mkdir -p ${conda_env}/Ext
+
+# 1) Copy any Ext content produced by the main build
+if [[ -d ../../../build/release/Ext ]]; then
+    cp -a ../../../build/release/Ext/* ${conda_env}/Ext/ 2>/dev/null || true
+fi
+
+# 2) Copy any Ext content produced by pixi build helpers (e.g., PySide shims)
+if [[ -d ../.pixi/build/Ext ]]; then
+    cp -a ../.pixi/build/Ext/* ${conda_env}/Ext/ 2>/dev/null || true
+fi
+
+# 3) Fallback: copy pure-Python third-party modules from source tree into Ext if missing
+if [[ -d ../../../src/3rdParty ]]; then
+    for pkg in ../../../src/3rdParty/*; do
+        base_name=$(basename "$pkg")
+        # Skip non-directories and CMakeLists etc.
+        [[ -d "$pkg" ]] || continue
+        [[ -e "$pkg/CMakeLists.txt" ]] || true
+        # Only copy if it looks like a Python package/module and not already present in Ext
+        if [[ ! -e ${conda_env}/Ext/${base_name} ]]; then
+            if ls "$pkg"/*.py >/dev/null 2>&1 || [[ -f "$pkg/__init__.py" ]]; then
+                mkdir -p ${conda_env}/Ext/${base_name}
+                cp -a "$pkg"/*.py ${conda_env}/Ext/${base_name}/ 2>/dev/null || true
+                [[ -f "$pkg/__init__.py" ]] && cp -a "$pkg/__init__.py" ${conda_env}/Ext/${base_name}/ 2>/dev/null || true
+            fi
+        fi
+    done
+fi
+
+
 export PATH="${PWD}/${conda_env}/bin:${PATH}"
 export CONDA_PREFIX="${PWD}/${conda_env}"
 
