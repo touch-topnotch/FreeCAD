@@ -70,3 +70,15 @@ files_to_translate.txt
 # pixi environments
 .pixi
 *.egg-info
+# Ignore macOS disk images
+*.dmg
+
+# Ignore signature/hash files
+*SHA256.txt
+*.sig
+*.asc
+
+# Ignore ARCHI.app directory (case-insensitive)
+/ARCHI.app/
+/archi.app/
+/Archi.app/
