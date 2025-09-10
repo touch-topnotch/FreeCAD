@@ -77,6 +77,7 @@ files_to_translate.txt
 *SHA256.txt
 *.sig
 *.asc
+*.DS_Store
 
 # Ignore ARCHI.app directory (case-insensitive)
 /ARCHI.app/
