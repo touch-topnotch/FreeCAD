@@ -9,9 +9,9 @@
 	<key>CFBundleGetInfoString</key>
 	<string></string>
 	<key>CFBundleIconFile</key>
-	<string>archi.icns</string>
+	<string>ARCHI.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.archi</string>
+	<string>org.archi.ARCHI</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLongVersionString</key>

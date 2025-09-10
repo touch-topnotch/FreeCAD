@@ -10,7 +10,7 @@
 int main(int argc, char *argv[], char *const *envp) {
     char *cwd = dirname(realpath(argv[0], NULL));
 
-    std::string FreeCAD = realpath((std::string(cwd) + "/../Resources/bin/freecad").c_str(), NULL);
+    std::string ARCHI = realpath((std::string(cwd) + "/../Resources/bin/freecad").c_str(), NULL);
 
     std::map<std::string, std::string> env;
     for(int i = 0; envp[i] != NULL; ++i) {
@@ -23,8 +23,11 @@ int main(int argc, char *argv[], char *const *envp) {
 
     std::string prefix = realpath((std::string(cwd) + "/../Resources").c_str(), NULL);
     env["PREFIX"]               = prefix;
+    // On macOS use DYLD_LIBRARY_PATH; keep LD_LIBRARY_PATH as a no-op for parity
+    env["DYLD_LIBRARY_PATH"]    = prefix + "/lib";
     env["LD_LIBRARY_PATH"]      = prefix + "/lib";
-    env["PYTHONPATH"]           = prefix;
+    // Ensure Python can import compatibility shims like Ext/PySide and site-packages
+    env["PYTHONPATH"]           = prefix + ":" + prefix + "/Ext:" + prefix + "/lib/python3.11/site-packages";
     env["PYTHONHOME"]           = prefix;
     env["FONTCONFIG_FILE"]      = "/etc/fonts/fonts.conf";
     env["FONTCONFIG_PATH"]      = "/etc/fonts";
@@ -49,16 +52,16 @@ int main(int argc, char *argv[], char *const *envp) {
         i++;
     }
 
-    std::cout << "Running: " << FreeCAD << std::endl;
+    std::cout << "Running: " << ARCHI << std::endl;
     i = 0;
     while(argv[i] != NULL) {
         i++;
     }
 
     char **new_argv = new char*[i + 1];
-    new_argv[0] = new char[FreeCAD.length() + 1];
-    memset(new_argv[0], 0, FreeCAD.length() + 1);
-    strncpy(new_argv[0], FreeCAD.c_str(), FreeCAD.length());
+    new_argv[0] = new char[ARCHI.length() + 1];
+    memset(new_argv[0], 0, ARCHI.length() + 1);
+    strncpy(new_argv[0], ARCHI.c_str(), ARCHI.length());
 
     i = 1;
     while(argv[i] != NULL) {
@@ -69,5 +72,5 @@ int main(int argc, char *argv[], char *const *envp) {
     }
     new_argv[i] = NULL;
 
-    return execve(FreeCAD.c_str(), new_argv, new_env);
+    return execve(ARCHI.c_str(), new_argv, new_env);
 }
