@@ -69,3 +69,8 @@ files_to_translate.txt
 # pixi environments
 .pixi
 *.egg-info
+# auto-generated UI/RC Python files
+*_ui.py
+*_rc.py
+# macos build
+*SHA256.txt
