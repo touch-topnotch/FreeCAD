@@ -1,0 +1,6 @@
+# автоген от Qt/проектов — всегда берем incoming
+*_ui.py        merge=keepTheirs
+*_rc.py        merge=keepTheirs
+
+# если нужно — целые каталоги
+src/Mod/**     merge=keepTheirs

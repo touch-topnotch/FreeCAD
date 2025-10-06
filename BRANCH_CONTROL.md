@@ -8,12 +8,10 @@ git remote add upstream https://github.com/FreeCAD/FreeCAD.git   # если ещ
 git fetch --all
 
 # удобнее держать «зеркала» апстрима по сериям
-
-git checkout -B mirror/A  upstream/`<branch-or-tag-for-A>`   # напр. releases/FreeCAD-0-21
-git checkout -B mirror/B  upstream/`<branch-or-tag-for-B>`   # напр. upstream/main или 0-22
+git checkout -B mirror/A  upstream/<branch-or-tag-for-A>   # напр. releases/FreeCAD-0-21
+git checkout -B mirror/B  upstream/<branch-or-tag-for-B>   # напр. upstream/main или 0-22
 
 # включить «автопамять» конфликтов и удобный вид
-
 git config --global rerere.enabled true
 git config --global rerere.autoupdate true
 git config --global merge.conflictStyle zdiff3
@@ -29,14 +27,12 @@ git config --global merge.conflictStyle zdiff3
 
 git fetch upstream
 git checkout mirror/A
-git reset --hard upstream/`<A>`
+git reset --hard upstream/<A>
 git push -f origin mirror/A
 
 git checkout integration/A
 git rebase mirror/A -X theirs    # предпочесть изменения апстрима при коллизиях
-
 # если конфликты: правим → git add → git rebase --continue
-
 git push origin integration/A --force-with-lease
 
 Кейс 2: в integration_A были merge-коммиты
@@ -50,12 +46,9 @@ git push --force-with-lease
 → превратить в тонкий слой поверх апстрима:
 
 # найдём старую базу
-
 BASE=$(git merge-base integration/A mirror/A)
-
 # перепишем только наши коммиты поверх новой базы
-
-git rebase --onto mirror/main $BASE integration/main -X theirs
+git rebase --onto mirror/A $BASE integration/A -X theirs
 git push --force-with-lease
 
 Почему rebase, а не merge? — ребейз делает вид, что ваши коммиты написаны «после» апстрима; зона конфликтов сильно меньше.
@@ -67,7 +60,6 @@ git push --force-with-lease
 Старт фичи от integration_A
 
 git checkout -b feature/B integration/A
-
 # работа → коммиты
 
 Подтягиваем апстримные изменения в фичу (без обратных merge-петель):
@@ -75,21 +67,18 @@ git checkout -b feature/B integration/A
 git fetch origin
 git checkout feature/B
 git rebase origin/integration/A -X theirs
-
 # правим конфликты → add → rebase --continue
-
 git push --force-with-lease
 
 Возврат фичи в integration_A
 Рекомендация — через PR, «fast-forward» или «squash», чтобы не тащить техдолг:
 
 # локально (если без PR):
-
 git checkout integration/A
 git merge --ff-only feature/B    # или: git merge --squash feature/B && git commit
 git push
 
-    •	--ff-only исключает лишние merge-коммиты.
+	•	--ff-only исключает лишние merge-коммиты.
 	•	Если фича большая — --squash сведёт её к одному «интеграционному» коммиту.
 
 ⸻
@@ -102,17 +91,11 @@ git push
 
 git fetch origin
 git checkout feature/B
-
 # найдём старую базу фичи на A:
-
 OLD_BASE=$(git merge-base feature/B origin/integration/A)
-
 # перенесём фичу на новую базу B:
-
 git rebase --onto origin/integration/B $OLD_BASE feature/B -X theirs
-
 # тесты…
-
 git push --force-with-lease
 
 Возврат в integration/B — как в пункте 2 (PR, ff-only/squash).
@@ -125,7 +108,7 @@ git push --force-with-lease
 
 git checkout -b release/A integration/A
 git push -u origin release/A
-git tag -a engine-A.0 -m "Engine A.0 (based on FreeCAD A @ `<shortsha>`)"
+git tag -a engine-A.0 -m "Engine A.0 (based on FreeCAD A @ <shortsha>)"
 git push origin engine-A.0
 
 Вариант «выборочные фичи» (не всё из integration попадает в релиз):
@@ -148,9 +131,7 @@ engine-0.21.3+fc-0.21.2.
 Готовим хотфикс и выпускаем патч:
 
 git checkout -b hotfix/A-fix-123 release/A
-
 # правки → коммиты
-
 git checkout release/A
 git merge --ff-only hotfix/A-fix-123
 git tag -a engine-A.1 -m "Hotfix #123: …"
@@ -159,7 +140,6 @@ git push origin release/A engine-A.1
 Форвард-порт хотфикса (чтобы не потерялся в новых ветках):
 
 # та же правка должна попасть в integration/A и, возможно, в integration/B
-
 git checkout integration/A
 git cherry-pick -x <hash хотфикса из release/A>
 git push
@@ -183,7 +163,8 @@ for S in A B; do
   git push -f origin mirror/$S
 done
 
-    •	Авто-ребейз integration: если mirror/A обновился → бот делает
+
+	•	Авто-ребейз integration: если mirror/A обновился → бот делает
 git rebase --rebase-merges mirror/A -X theirs для integration/A.
 При конфликте — открывает PR «manual-resolve».
 	•	Гигиена фич: маленькие, изолированные коммиты; минимум правок в «горячих» файлах апстрима; по возможности — #ifdef ENGINE_FEATURE/плагины/модули.
@@ -212,13 +193,11 @@ git push origin release/A engine-A.0
 Хотфикс релиза + форвард-порт
 
 git checkout -b hotfix/A-xxx release/A
-
 # fix…
-
 git checkout release/A && git merge --ff-only hotfix/A-xxx && git push
 git tag -a engine-A.1 -m "…" && git push origin engine-A.1
-git checkout integration/A && git cherry-pick -x `<fix>` && git push
-git checkout integration/B && git cherry-pick -x `<fix>` && git push
+git checkout integration/A && git cherry-pick -x <fix> && git push
+git checkout integration/B && git cherry-pick -x <fix> && git push
 
 Если хочешь, напишу тебе два готовых GitHub Actions:
 	1.	sync mirror/* + auto-rebase integration/*,

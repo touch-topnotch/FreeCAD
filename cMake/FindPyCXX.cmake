@@ -41,6 +41,7 @@ else(PYCXX_INCLUDE_DIR)
     # check in 'standard' places
     find_path(PYCXX_INCLUDE_DIR CXX/Config.hxx
         ${PYTHON_INCLUDE_DIR}
+        "${CMAKE_SOURCE_DIR}/src/3rdParty/PyCXX"
         "${CMAKE_CURRENT_LIST_DIR}/..")
     if(NOT PYCXX_INCLUDE_DIR)
         if(PyCXX_FIND_REQUIRED)

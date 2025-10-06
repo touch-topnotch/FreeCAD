@@ -1125,7 +1125,7 @@ std::string Application::getExecutableName()
 
 std::string Application::getNameWithVersion()
 {
-    auto appname = QCoreApplication::applicationName().toStdString();
+    std::string appname = "ARCHI";
     auto config = Application::Config();
     auto major = config["BuildVersionMajor"];
     auto minor = config["BuildVersionMinor"];

@@ -1,7 +1,7 @@
 ﻿/*
 declaration.nsh
 
-Configuration and variables of FreeCAD installer
+Configuration and variables of Archi installer
 */
 
 #--------------------------------

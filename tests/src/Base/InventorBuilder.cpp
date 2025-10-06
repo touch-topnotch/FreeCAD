@@ -109,12 +109,12 @@ private Q_SLOTS:
     {
         auto result =
             R"(Label {
-  label "FreeCAD"
+  label "ARCHI"
 }
 )";
         QTest::addColumn<QString>("input");
         QTest::addColumn<QString>("result");
-        QTest::newRow("Label") << "FreeCAD" << result;
+        QTest::newRow("Label") << "ARCHI" << result;
     }
 
     void test_Label()
@@ -133,12 +133,12 @@ private Q_SLOTS:
     {
         auto result =
             R"(Info {
-  string "FreeCAD"
+  string "ARCHI"
 }
 )";
         QTest::addColumn<QString>("input");
         QTest::addColumn<QString>("result");
-        QTest::newRow("Info") << "FreeCAD" << result;
+        QTest::newRow("Info") << "ARCHI" << result;
     }
 
     void test_Info()
@@ -155,10 +155,10 @@ private Q_SLOTS:
 
     void test_Text2_data()
     {
-        auto result = "Text2 { string \"FreeCAD\" }\n";
+        auto result = "Text2 { string \"ARCHI\" }\n";
         QTest::addColumn<QString>("input");
         QTest::addColumn<QString>("result");
-        QTest::newRow("Text2") << "FreeCAD" << result;
+        QTest::newRow("Text2") << "ARCHI" << result;
     }
 
     void test_Text2()

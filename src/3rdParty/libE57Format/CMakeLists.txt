@@ -201,7 +201,7 @@ target_compile_definitions( E57Format
 include( Sanitizers )
 
 # Target Libraries
-target_link_libraries( E57Format PRIVATE XercesC::XercesC )
+ target_link_libraries( E57Format PRIVATE XercesC::XercesC )
 
 # Install
 install(
@@ -215,51 +215,21 @@ install(
 # Turns on ccache if found
 include( ccache )
 
-# Formatting
-include( ClangFormat )
+#install(
+#    FILES
+#        ${CMAKE_CURRENT_SOURCE_DIR}/cmake/e57format-config.cmake
+#    DESTINATION
+#        lib/cmake/E57Format
+#)
 
-# Testing
-option( E57_BUILD_TEST
-    "Build tests"
-    ${E57_BUILDING_SELF}
-)
+if(WIN32)
+    # --------  CRT = /MD  ---------------------------------
+    set_target_properties(E57Format PROPERTIES
+        MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")          # /MD
 
-if ( E57_BUILD_TEST )
-    message( STATUS "[${PROJECT_NAME}] Testing enabled" )
-
-    enable_testing()
-
-    add_subdirectory( test )
+    # --------  Явно подтягиваем то, что /NODEFAULTLIB убрал
+    target_link_libraries(E57Format PRIVATE
+        vcruntime.lib
+        ucrt.lib
+        msvcprt.lib)
 endif()
-
-# CMake package files
-include( GNUInstallDirs )
-set( E57_INSTALL_CMAKEDIR
-    "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-     CACHE STRING
-     "Install path for ${PROJECT_NAME} CMake files"
-)
-
-message( STATUS "[${PROJECT_NAME}] CMake files install to ${CMAKE_INSTALL_PREFIX}/${E57_INSTALL_CMAKEDIR}" )
-
-install(
-    EXPORT
-        E57Format-export
-    DESTINATION
-        "${E57_INSTALL_CMAKEDIR}"
-)
-
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file (
-    e57format-config-version.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY SameMajorVersion
-)
-
-install(
-    FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/cmake/e57format-config.cmake
-        ${CMAKE_CURRENT_BINARY_DIR}/e57format-config-version.cmake
-    DESTINATION
-        "${E57_INSTALL_CMAKEDIR}"
-)

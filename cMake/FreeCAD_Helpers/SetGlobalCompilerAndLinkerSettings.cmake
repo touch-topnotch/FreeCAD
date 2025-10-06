@@ -103,4 +103,10 @@ macro(SetGlobalCompilerAndLinkerSettings)
         endif()
     endif(MINGW)
 
+    if(WIN32)
+        set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /NODEFAULTLIB")
+        set (CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} /NODEFAULTLIB")
+        set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /NODEFAULTLIB")
+    endif()
+
 endmacro(SetGlobalCompilerAndLinkerSettings)

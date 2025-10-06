@@ -36,8 +36,8 @@ if system == "macOS":
         template_str = template_file.read()
     template = jinja2.Template(template_str)
     rendered_str = template.render( FREECAD_VERSION="{}-{}".format(dev_version, revision), 
-                                    APPLICATION_MENU_NAME="FreeCAD-{}-{}".format(dev_version, revision) )
-    with open(os.path.join(osx_directory, "FreeCAD.app", "Contents", "Info.plist"), "w") as rendered_file:
+                                    APPLICATION_MENU_NAME="ARCHI-{}-{}".format(dev_version, revision) )
+    with open(os.path.join(osx_directory, "ARCHI.app", "Contents", "Info.plist"), "w") as rendered_file:
         rendered_file.write(rendered_str)
 
 if "DEPLOY_RELEASE" in os.environ and os.environ["DEPLOY_RELEASE"] == "weekly-builds":
@@ -47,7 +47,7 @@ else:
     revision_separator = ""
     revision = ""
 
-bundle_name = f"FreeCAD_{dev_version}{revision_separator}{revision}-{package_manager}-{system}-{arch}-{python_version}"
+bundle_name = f"ARCHI_{dev_version}{revision_separator}{revision}-{package_manager}-{system}-{arch}-{python_version}"
 
 with open("bundle_name.txt", "w") as bundle_name_file:
     bundle_name_file.write(bundle_name)

@@ -10,8 +10,8 @@ static void initApplication()
 {
     if (App::Application::GetARGC() == 0) {
         constexpr int argc = 1;
-        std::array<const char*, argc> argv {"FreeCAD"};
-        App::Application::Config()["ExeName"] = "FreeCAD";
+        std::array<const char*, argc> argv {"ARCHI"};
+        App::Application::Config()["ExeName"] = "ARCHI";  
         App::Application::init(argc, const_cast<char**>(argv.data()));  // NOLINT
     }
 }

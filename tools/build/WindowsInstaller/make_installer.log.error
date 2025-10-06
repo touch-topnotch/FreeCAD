@@ -1,0 +1,7 @@
+out-file : The process cannot access the file 'C:\archi-ve\FreeCAD\tools\build\WindowsInstaller\make_installer.log' because it is being used by another process.
+At C:\archi-ve\FreeCAD\tools\build\WindowsInstaller\deploy\make_installer.ps1:80 char:1
++ & "$MakensisPath" /V4 /DCompress=LZMA "$NsiScriptPath" > "$logFile" 2 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+ 
