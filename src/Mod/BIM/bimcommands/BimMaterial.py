@@ -33,16 +33,16 @@ translate = FreeCAD.Qt.translate
 PARAMS = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/BIM")
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
-    class MatLineEdit(QtGui.QLineEdit):
+    class MatLineEdit(QtWidgets.QLineEdit):
         "custom QLineEdit widget that has the power to catch up/down arrow keypress"
 
         up = QtCore.Signal()
         down = QtCore.Signal()
 
         def __init__(self, parent=None):
-            QtGui.QLineEdit.__init__(self, parent)
+            QtWidgets.QLineEdit.__init__(self, parent)
 
         def keyPressEvent(self, event):
             if event.key() == QtCore.Qt.Key_Up:
@@ -50,7 +50,7 @@ if FreeCAD.GuiUp:
             elif event.key() == QtCore.Qt.Key_Down:
                 self.down.emit()
             else:
-                QtGui.QLineEdit.keyPressEvent(self, event)
+                QtWidgets.QLineEdit.keyPressEvent(self, event)
 
 
 class BIM_Material:
@@ -71,12 +71,8 @@ class BIM_Material:
 
     def Activated(self):
 
-        # only raise the dialog if it is already open
-        if getattr(self, "dlg", None):
-            self.dlg.raise_()
-            return
-
-        self.dlg = QtGui.QDialog()
+        self.dlg = None
+        self.dlg = QtWidgets.QDialog()
         self.dlg.objects = [
             obj
             for obj in FreeCADGui.Selection.getSelection()
@@ -106,8 +102,8 @@ class BIM_Material:
             searchLayout = QtGui.QHBoxLayout()
             searchLayout.setSpacing(2)
             searchBox = MatLineEdit(self.dlg)
-            searchBox.setPlaceholderText(translate("BIM", "Search Objects"))
-            searchBox.setToolTip(translate("BIM", "Searches for objects in the tree"))
+            searchBox.setPlaceholderText(translate("BIM", "Search..."))
+            searchBox.setToolTip(translate("BIM", "Searches object labels"))
             self.dlg.searchBox = searchBox
             searchLayout.addWidget(searchBox)
             searchBox.textChanged.connect(self.onSearch)
@@ -128,22 +124,22 @@ class BIM_Material:
             lay.addLayout(searchLayout)
 
             createButtonsLayoutBox = QtGui.QGroupBox(
-                translate("BIM", " Material Operations"), self.dlg
+                translate("BIM", " Material operations"), self.dlg
             )
             createButtonsLayoutBox.setObjectName("matOpsGrpBox")
             createButtonsLayout = QtGui.QGridLayout()
 
             # create
-            buttonCreate = QtGui.QPushButton(
-                translate("BIM", "New Material"), self.dlg
+            buttonCreate = QtWidgets.QPushButton(
+                translate("BIM", "Create new material"), self.dlg
             )
             buttonCreate.setIcon(QtGui.QIcon(":/icons/Arch_Material.svg"))
             createButtonsLayout.addWidget(buttonCreate, 0, 0)
             buttonCreate.clicked.connect(self.onCreate)
 
             # create multi
-            buttonMulti = QtGui.QPushButton(
-                translate("BIM", "Create new Multi-Material"), self.dlg
+            buttonMulti = QtWidgets.QPushButton(
+                translate("BIM", "Create new multi-material"), self.dlg
             )
             buttonMulti.setIcon(QtGui.QIcon(":/icons/Arch_Material_Multi.svg"))
             createButtonsLayout.addWidget(buttonMulti, 0, 1)
@@ -151,8 +147,8 @@ class BIM_Material:
 
             # merge dupes
             opsLayout = QtGui.QHBoxLayout()
-            buttonMergeDupes = QtGui.QPushButton(
-                translate("BIM", "Merge Duplicates"), self.dlg
+            buttonMergeDupes = QtWidgets.QPushButton(
+                translate("BIM", "Merge duplicates"), self.dlg
             )
             buttonMergeDupes.setIcon(QtGui.QIcon(":/icons/view-refresh.svg"))
             createButtonsLayout.addWidget(buttonMergeDupes, 1, 0)
@@ -162,8 +158,8 @@ class BIM_Material:
                 buttonMergeDupes.setEnabled(False)
 
             # delete unused
-            buttonDeleteUnused = QtGui.QPushButton(
-                translate("BIM", "Delete Unused"), self.dlg
+            buttonDeleteUnused = QtWidgets.QPushButton(
+                translate("BIM", "Delete unused"), self.dlg
             )
             buttonDeleteUnused.setIcon(QtGui.QIcon(":/icons/delete.svg"))
             createButtonsLayout.addWidget(buttonDeleteUnused, 1, 1)
@@ -173,22 +169,22 @@ class BIM_Material:
             lay.addWidget(createButtonsLayoutBox)
 
             # add standard buttons
-            buttonBox = QtGui.QDialogButtonBox(self.dlg)
+            buttonBox = QtWidgets.QDialogButtonBox(self.dlg)
             buttonBox.setOrientation(QtCore.Qt.Horizontal)
             buttonBox.setStandardButtons(
-                QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.Ok
+                QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
             )
             lay.addWidget(buttonBox)
             buttonBox.accepted.connect(self.onAccept)
             buttonBox.rejected.connect(self.onReject)
 
             # set context menu
-            self.contextMenu = QtGui.QMenu()
+            self.contextMenu = QtWidgets.QMenu()
             context1 = self.contextMenu.addAction(translate("BIM", "Rename"))
             context1.triggered.connect(self.onStartRename)
             context2 = self.contextMenu.addAction(translate("BIM", "Duplicate"))
             context2.triggered.connect(self.onDuplicate)
-            context3 = self.contextMenu.addAction(translate("BIM", "Merge To…"))
+            context3 = self.contextMenu.addAction(translate("BIM", "Merge to..."))
             context3.triggered.connect(self.onMergeTo)
             context4 = self.contextMenu.addAction(translate("BIM", "Delete"))
             context4.triggered.connect(self.onDelete)
@@ -486,7 +482,7 @@ class BIM_Material:
             self.dlg.searchBox.setText("")
 
     def onSearch(self, text):
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         self.dlg.matList.clear()
         for o in self.dlg.materials:
@@ -497,7 +493,7 @@ class BIM_Material:
                 self.dlg.matList.setCurrentItem(i)
 
     def rescan(self, rebuild=False):
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         if self.dlg:
             self.dlg.materials = []
@@ -531,7 +527,7 @@ class BIM_Material:
                 self.dlg.buttonMergeDupes.setEnabled(hasMultipleMaterials)
 
     def createIcon(self, obj):
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         if hasattr(obj, "Materials"):
             return QtGui.QIcon(":/icons/Arch_Material_Multi.svg")
@@ -633,7 +629,7 @@ class Arch_MaterialToolsCommand:
     def GetCommands(self):
         return tuple(['Arch_Material','Arch_MultiMaterial'])
     def GetResources(self):
-        return { 'MenuText': QT_TRANSLATE_NOOP("Arch_MaterialTools",'Material Tools'),
+        return { 'MenuText': QT_TRANSLATE_NOOP("Arch_MaterialTools",'Material tools'),
                  'ToolTip': QT_TRANSLATE_NOOP("Arch_MaterialTools",'Material tools')
                }
     def IsActive(self):

@@ -340,7 +340,7 @@ class Edit(gui_base_original.Modifier):
         super(Edit, self).finish()
         self.running = False
         # delay resetting edit mode otherwise it doesn't happen
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
         QtCore.QTimer.singleShot(0, self.reset_edit)
 
     def reset_edit(self):

@@ -41,7 +41,7 @@ class BIM_Views:
     def GetResources(self):
         return {
             "Pixmap": "BIM_Views",
-            "MenuText": QT_TRANSLATE_NOOP("BIM_Views", "Views Manager"),
+            "MenuText": QT_TRANSLATE_NOOP("BIM_Views", "Views manager"),
             "ToolTip": QT_TRANSLATE_NOOP(
                 "BIM_Views", "Shows or hides the views manager"
             ),
@@ -49,7 +49,7 @@ class BIM_Views:
         }
 
     def Activated(self):
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         vm = findWidget()
         self.allItemsInTree = []
@@ -86,14 +86,14 @@ class BIM_Views:
             self.dialog.tree.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
 
             # set button
-            self.dialog.menu = QtGui.QMenu()
-            for button in [("Active", translate("BIM","Active")),
-                            ("AddLevel", translate("BIM","New Level")),
-                            ("AddProxy", translate("BIM","New Working Plane Proxy")),
+            self.dialog.menu = QtWidgets.QMenu()
+            for button in [("Active", translate("BIM","Active (default)")),
+                            ("AddLevel", translate("BIM","Add level")),
+                            ("AddProxy", translate("BIM","Add proxy")),
                             ("Delete", translate("BIM","Delete")),
-                            ("Toggle", translate("BIM","Toggle Visibility")),
+                            ("Toggle", translate("BIM","Toggle on/off")),
                             ("Isolate", translate("BIM","Isolate")),
-                            ("SaveView", translate("BIM","Save View Position")),
+                            ("SaveView", translate("BIM","Save view position")),
                             ("Rename", translate("BIM","Rename"))]:
                 action = QtGui.QAction(button[1])
 
@@ -109,20 +109,20 @@ class BIM_Views:
 
             # # set button icons
             self.dialog.buttonAddLevel.setIcon(QtGui.QIcon(":/icons/Arch_Floor_Tree.svg"))
-            self.dialog.buttonAddProxy.setIcon(QtGui.QIcon(":/icons/Draft_PlaneProxy.svg"))
+            self.dialog.buttonAddProxy.setIcon(QtGui.QIcon(":/icons/Draft_SelectPlane.svg"))
             self.dialog.buttonDelete.setIcon(QtGui.QIcon(":/icons/delete.svg"))
             self.dialog.buttonToggle.setIcon(QtGui.QIcon(":/icons/dagViewVisible.svg"))
-            self.dialog.buttonIsolate.setIcon(QtGui.QIcon(":/icons/Std_ShowSelection.svg"))
-            self.dialog.buttonSaveView.setIcon(QtGui.QIcon(":/icons/Std_ViewScreenShot.svg"))
+            self.dialog.buttonIsolate.setIcon(QtGui.QIcon(":/icons/view-refresh.svg"))
+            self.dialog.buttonSaveView.setIcon(QtGui.QIcon(":/icons/view-perspective.svg"))
             self.dialog.buttonRename.setIcon(
-                QtGui.QIcon(":/icons/edit-edit.svg")
+                QtGui.QIcon(":/icons/accessories-text-editor.svg")
             )
 
             # set tooltips
             self.dialog.buttonAddLevel.setToolTip(translate("BIM","Creates a new level"))
-            self.dialog.buttonAddProxy.setToolTip(translate("BIM","Creates a new working plane proxy"))
+            self.dialog.buttonAddProxy.setToolTip(translate("BIM","Creates a new Working Plane Proxy"))
             self.dialog.buttonDelete.setToolTip(translate("BIM","Deletes the selected item"))
-            self.dialog.buttonToggle.setToolTip(translate("BIM","Toggles the visibility of selected items"))
+            self.dialog.buttonToggle.setToolTip(translate("BIM","Toggles selected items on/off"))
             self.dialog.buttonIsolate.setToolTip(translate("BIM","Turns all items off except the selected ones"))
             self.dialog.buttonSaveView.setToolTip(translate("BIM","Saves the current camera position to the selected items"))
             self.dialog.buttonRename.setToolTip(translate("BIM","Renames the selected item"))
@@ -177,7 +177,7 @@ class BIM_Views:
             self.update()
 
     def onClose(self, event):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         st = FreeCADGui.getMainWindow().statusBar()
         statuswidget = st.findChild(QtGui.QToolBar, "BIMStatusWidget")
@@ -204,7 +204,7 @@ class BIM_Views:
     def update(self, retrigger=True):
         "updates the view manager"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         import Draft
 
         vm = findWidget()
@@ -578,7 +578,7 @@ class BIM_Views:
     def getDockArea(self, area):
         """Turns an int into a qt dock area"""
 
-        from PySide import QtCore
+        from PySide import QtWidgets, QtCore
 
         if area == 1:
             return QtCore.Qt.LeftDockWidgetArea
@@ -630,7 +630,7 @@ class BIM_Views:
 def findWidget():
     "finds the manager widget, if present"
 
-    from PySide import QtGui
+    from PySide import QtWidgets, QtGui
 
     mw = FreeCADGui.getMainWindow()
     vm = mw.findChild(QtGui.QDockWidget, "BIM Views Manager")
@@ -732,7 +732,7 @@ def getTreeViewItem(obj):
     from FreeCAD object make the TreeWidgetItem including icon Label and LevelHeight
     and also make a level height in number to sort the order after
     """
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
     z = obj.Placement.Base.z
     lvHStr = FreeCAD.Units.Quantity(z, FreeCAD.Units.Length).UserString

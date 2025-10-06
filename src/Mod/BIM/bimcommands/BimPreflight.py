@@ -80,7 +80,7 @@ class BIM_Preflight:
 class BIM_Preflight_TaskPanel:
 
     def __init__(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         self.results = {}  # to store the result message
         self.culprits = {}  # to store objects to highlight
@@ -144,7 +144,7 @@ class BIM_Preflight_TaskPanel:
                                 descr = "Undefined"
                             lab = QtGui.QLabel(descr)
                             lab.setWordWrap(True)
-                            but = QtGui.QPushButton()
+                            but = QtWidgets.QPushButton()
                             butname = "Custom_" + customModule + "_" + funcname
                             but.setObjectName(butname)
                             setattr(self.form, butname, but)
@@ -156,21 +156,21 @@ class BIM_Preflight_TaskPanel:
                             self.customTests[butname] = func
 
     def getStandardButtons(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def reject(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
         FreeCADGui.Control.closeDialog()
         FreeCAD.ActiveDocument.recompute()
 
     def passed(self, test):
         "sets the button as passed"
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         getattr(self.form, test).setIcon(QtGui.QIcon(":/icons/button_valid.svg"))
         getattr(self.form, test).setText(translate("BIM", "Passed"))
@@ -181,7 +181,7 @@ class BIM_Preflight_TaskPanel:
     def failed(self, test):
         "sets the button as failed"
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         getattr(self.form, test).setIcon(QtGui.QIcon(":/icons/process-stop.svg"))
         getattr(self.form, test).setText("Failed")
@@ -192,7 +192,7 @@ class BIM_Preflight_TaskPanel:
     def reset(self, test):
         "reset the button"
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         getattr(self.form, test).setIcon(QtGui.QIcon(":/icons/button_right.svg"))
         getattr(self.form, test).setText(translate("BIM", "Test"))
@@ -285,12 +285,12 @@ class BIM_Preflight_TaskPanel:
     def testAll(self):
         "runs all tests"
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         from draftutils import todo
 
         for test in tests:
             if test != "testAll":
-                QtGui.QApplication.processEvents()
+                QtWidgets.QApplication.processEvents()
                 self.reset(test)
                 if hasattr(self, test):
                     todo.ToDo.delay(getattr(self, test), None)
@@ -369,13 +369,13 @@ class BIM_Preflight_TaskPanel:
         "tests for project hierarchy support"
 
         import Draft
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testHierarchy"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -419,19 +419,19 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testSites(self):
         "tests for Sites support"
 
         import Draft
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testSites"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -476,18 +476,18 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testBuildings(self):
         "tests for Buildings support"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testBuildings"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -526,18 +526,18 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testStoreys(self):
         "tests for Building Storey support"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testStoreys"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -587,18 +587,18 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testUndefined(self):
         "tests for undefined BIM objects"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testUndefined"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -646,18 +646,18 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testSolid(self):
         "tests for invalid/non-solid BIM objects"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testSolid"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -685,19 +685,19 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testQuantities(self):
         "tests for explicit quantities export"
 
         import Draft
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testQuantities"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -734,19 +734,19 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testCommonPsets(self):
         "tests for common property sets"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         import csv
 
         test = "testCommonPsets"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -810,19 +810,19 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testPsets(self):
         "tests for property sets integrity"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         import csv
 
         test = "testPsets"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -902,18 +902,18 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testMaterials(self):
         "tests for materials in BIM objects"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testMaterials"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -937,18 +937,18 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testStandards(self):
         "tests for standards in BIM objects"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testStandards"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -978,19 +978,19 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testExtrusions(self):
         "tests is all objects are extrusions"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
         import Draft
 
         test = "testExtrusions"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -1030,19 +1030,19 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testStandardCases(self):
         "tests for structs and wall standard cases"
 
         import Draft
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testStandardCases"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -1072,18 +1072,18 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testTinyLines(self):
         "tests for objects with tiny lines (< 0.8mm)"
 
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         test = "testTinyLines"
         if getattr(self.form, test).text() == "Failed":
             self.show(test)
         else:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
             self.reset(test)
             self.results[test] = None
             self.culprits[test] = []
@@ -1134,7 +1134,7 @@ class BIM_Preflight_TaskPanel:
             else:
                 self.passed(test)
             self.results[test] = msg
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
     def testRectangleProfileDef(self):
         "tests for RectangleProfileDef disable"

@@ -37,7 +37,7 @@ import PathScripts.PathUtils as PathUtils
 import importlib
 from PySide.QtCore import QT_TRANSLATE_NOOP
 
-from PySide import QtCore, QtGui, QtWidgets
+from PySide import QtWidgets, QtCore, QtGui
 
 __title__ = "CAM Operation UI base classes"
 __author__ = "sliptonic (Brad Collette)"
@@ -1313,11 +1313,11 @@ class TaskPanel(object):
 
     def pageDirtyChanged(self, page):
         """pageDirtyChanged(page) ... internal callback"""
-        self.buttonBox.button(QtGui.QDialogButtonBox.Apply).setEnabled(self.isDirty())
+        self.buttonBox.button(QtWidgets.QDialogButtonBox.Apply).setEnabled(self.isDirty())
 
     def clicked(self, button):
         """clicked(button) ... callback invoked when the user presses any of the task panel buttons."""
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.panelGetFields()
             self.setClean()
             FreeCAD.ActiveDocument.recompute()
@@ -1356,7 +1356,7 @@ class TaskPanel(object):
     def getStandardButtons(self):
         """getStandardButtons() ... returns the Buttons for the task panel."""
         return (
-            QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Cancel
+            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel
         )
 
     def setupUi(self):

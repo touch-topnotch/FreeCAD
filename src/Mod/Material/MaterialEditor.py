@@ -27,7 +27,7 @@ __url__ = "https://www.freecad.org"
 import os
 from pathlib import PurePath
 import sys
-from PySide import QtCore, QtGui, QtSvgWidgets
+from PySide import QtWidgets, QtCore, QtGui, QtSvgWidgets
 
 import FreeCAD
 import FreeCADGui
@@ -104,14 +104,14 @@ class MaterialEditor:
 
         buttonURL.setIcon(QtGui.QIcon(":/icons/internet-web-browser.svg"))
         buttonDeleteProperty.setEnabled(False)
-        standardButtons.button(QtGui.QDialogButtonBox.Ok).setAutoDefault(False)
-        standardButtons.button(QtGui.QDialogButtonBox.Cancel).setAutoDefault(False)
+        standardButtons.button(QtWidgets.QDialogButtonBox.Ok).setAutoDefault(False)
+        standardButtons.button(QtWidgets.QDialogButtonBox.Cancel).setAutoDefault(False)
         self.updateCardsInCombo()
         # TODO allow one to enter a custom property by pressing Enter in the lineedit
         # currently closes the dialog
 
         standardButtons.rejected.connect(self.reject)
-        standardButtons.button(QtGui.QDialogButtonBox.Ok).clicked.connect(self.verify)
+        standardButtons.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.verify)
         buttonOpen.clicked.connect(self.openfile)
         buttonSave.clicked.connect(self.savefile)
         buttonURL.clicked.connect(self.openProductURL)
@@ -361,13 +361,13 @@ class MaterialEditor:
         ""
 
         self.storeSize()
-        QtGui.QDialog.accept(self.widget)
+        QtWidgets.QDialog.accept(self.widget)
 
     def reject(self):
         ""
 
         self.storeSize()
-        QtGui.QDialog.reject(self.widget)
+        QtWidgets.QDialog.reject(self.widget)
 
     def storeSize(self):
         "stores the widget size"
@@ -601,8 +601,8 @@ class MaterialEditor:
         if self.card_path is None or len(self.card_path) == 0:
             self.card_path = directory
         filetuple = QtGui.QFileDialog.getOpenFileName(
-            QtGui.QApplication.activeWindow(),
-            "Open FreeCAD material file",
+            QtWidgets.QApplication.activeWindow(),
+            "Open FreeCAD Material file",
             self.card_path,
             "*.FCMat"
         )
@@ -679,8 +679,8 @@ class MaterialEditor:
         if not name:
             name = "Material"
         filetuple = QtGui.QFileDialog.getSaveFileName(
-            QtGui.QApplication.activeWindow(),
-            "Save FreeCAD material file",
+            QtWidgets.QApplication.activeWindow(),
+            "Save FreeCAD Material file",
             self.save_directory + "/" + name + ".FCMat",
             "*.FCMat"
         )
@@ -720,7 +720,7 @@ class MaterialEditor:
 
 # ************************************************************************************************
 # ************************************************************************************************
-class MaterialsDelegate(QtGui.QStyledItemDelegate):
+class MaterialsDelegate(QtWidgets.QStyledItemDelegate):
 
     """provides display and editing facilities for data items from a model."""
 
@@ -934,7 +934,7 @@ def matProperWidget(parent=None, matproperty=None, Type="String", Value=None,
             widget.setProperty("color", color)
 
     else:
-        widget = QtGui.QLineEdit()
+        widget = QtWidgets.QLineEdit()
 
     widget.setProperty("Type", Type)
 

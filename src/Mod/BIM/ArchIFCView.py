@@ -28,7 +28,7 @@ import FreeCAD
 import ArchIFC
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     import FreeCADGui
     from draftutils.translate import translate
 else:
@@ -201,7 +201,7 @@ class IfcContextUI:
         """
 
         label = QtGui.QLabel(self.baseWidget)
-        label.setText(QtGui.QApplication.translate("Arch", value, None))
+        label.setText(QtWidgets.QApplication.translate("Arch", value, None))
         return label
 
     def createLineEdit(self, name):
@@ -219,7 +219,7 @@ class IfcContextUI:
             The form Qt widget.
         """
 
-        lineEdit = QtGui.QLineEdit(self.baseWidget)
+        lineEdit = QtWidgets.QLineEdit(self.baseWidget)
         lineEdit.setObjectName(name)
         self.lineEditObjects.append(lineEdit)
         return lineEdit

@@ -23,13 +23,10 @@
 
 """Widget for browsing ToolBit assets with filtering and sorting."""
 
-import yaml
-from typing import List, Optional, cast, Sequence
-from PySide import QtGui, QtCore
-from PySide.QtGui import QApplication, QMessageBox, QMenu, QAction, QKeySequence, QDialog
-from PySide.QtCore import QMimeData
-import FreeCAD
-import Path
+from typing import List, cast
+from PySide import QtWidgets, QtGui, QtCore
+from typing import List, cast
+from PySide import QtWidgets, QtGui, QtCore
 from ...assets import AssetManager, AssetUri
 from ..models.base import ToolBit
 from ..serializers.yaml import YamlToolBitSerializer
@@ -78,11 +75,11 @@ class ToolBitBrowserWidget(QtGui.QWidget):
         self._selected_uris: List[str] = []  # Track selected toolbit URIs
 
         # UI Elements
-        self._search_edit = QtGui.QLineEdit()
-        self._search_edit.setPlaceholderText("Search toolbits...")
+        self._search_edit = QtWidgets.QLineEdit()
+        self._search_edit.setPlaceholderText("Search tools...")
 
         # Sorting dropdown
-        self._sort_combo = QtGui.QComboBox()
+        self._sort_combo = QtWidgets.QComboBox()
         if self._tool_no_factory:
             self._sort_combo.addItem("Sort by Toolbit Number", "tool_no")
         self._sort_combo.addItem("Sort by Label", "label")

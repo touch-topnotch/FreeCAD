@@ -1387,8 +1387,8 @@ def getIfcElevation(obj):
 def explore(filename=None):
     "explore the contents of an ifc file in a Qt dialog"
     if not filename:
-        from PySide import QtGui
-        filename = QtGui.QFileDialog.getOpenFileName(QtGui.QApplication.activeWindow(),'Open IFC file',None,'IFC files (*.ifc *.IFC)')
+        from PySide import QtWidgets, QtGui
+        filename = QtGui.QFileDialog.getOpenFileName(QtWidgets.QApplication.activeWindow(),'Open IFC file',None,'IFC files (*.ifc *.IFC)')
         if filename:
             filename = filename[0]
     if filename:
@@ -1795,7 +1795,7 @@ class IfcDocument:
 
 def explorer(filename,schema="IFC2X3_TC1.exp"):
     "returns a PySide dialog showing the contents of an IFC file"
-    from PySide import QtGui
+    from PySide import QtWidgets, QtGui
     ifc = IfcDocument(filename,schema)
     schema = IfcSchema(schema)
     tree = QtGui.QTreeWidget()
@@ -1863,7 +1863,7 @@ def explorer(filename,schema="IFC2X3_TC1.exp"):
                                 item = QtGui.QTreeWidgetItem(tree)
                                 item.setText(2,str(t))
 
-    d = QtGui.QDialog()
+    d = QtWidgets.QDialog()
     d.setObjectName("IfcExplorer")
     d.setWindowTitle("IFC Explorer")
     d.resize(640, 480)

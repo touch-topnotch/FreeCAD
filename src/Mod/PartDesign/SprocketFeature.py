@@ -25,7 +25,7 @@ from fcsprocket import sprocket
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from FreeCADGui import PySideUic as uic
 
 __title__="PartDesign SprocketObject management"
@@ -312,10 +312,10 @@ class SprocketTaskPanel:
         self.obj.Proxy.execute(self.obj)
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.Apply
+        return QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Apply
 
     def clicked(self, button):
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.transferTo()
             self.obj.Proxy.execute(self.obj)
 

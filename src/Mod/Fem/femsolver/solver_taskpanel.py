@@ -28,8 +28,8 @@ __url__ = "https://www.freecad.org"
 ## \addtogroup FEM
 #  @{
 
-from PySide import QtCore
-from PySide import QtGui
+from PySide import QtWidgets, QtCore
+from PySide import QtWidgets, QtGui
 
 import FreeCADGui as Gui
 
@@ -149,7 +149,7 @@ class ControlTaskPanel(QtCore.QObject):
         femsolver.report.display(machine.report, _REPORT_TITLE, text)
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def reject(self):
         Gui.ActiveDocument.resetEdit()
@@ -207,7 +207,7 @@ class ControlWidget(QtGui.QWidget):
     def _setupUi(self):
         self.setWindowTitle(self.tr("Solver Control"))
         # Working directory group box
-        self._directoryTxt = QtGui.QLineEdit()
+        self._directoryTxt = QtWidgets.QLineEdit()
         self._directoryTxt.editingFinished.connect(self.directoryChanged)
         directoryBtt = QtGui.QToolButton()
         directoryBtt.setText("...")
@@ -220,9 +220,9 @@ class ControlWidget(QtGui.QWidget):
         self._directoryGrp.setLayout(directoryLyt)
 
         # Action buttons (Write, Edit, Run)
-        self._writeBtt = QtGui.QPushButton(self.tr("Write"))
-        self._editBtt = QtGui.QPushButton(self.tr("Edit"))
-        self._runBtt = QtGui.QPushButton()
+        self._writeBtt = QtWidgets.QPushButton(self.tr("Write"))
+        self._editBtt = QtWidgets.QPushButton(self.tr("Edit"))
+        self._runBtt = QtWidgets.QPushButton()
         self._writeBtt.clicked.connect(self.writeClicked)
         self._editBtt.clicked.connect(self.editClicked)
         actionLyt = QtGui.QGridLayout()

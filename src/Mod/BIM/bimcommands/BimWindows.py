@@ -53,7 +53,7 @@ class BIM_Windows:
 class BIM_Windows_TaskPanel:
 
     def __init__(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         self.form = FreeCADGui.PySideUic.loadUi(":/ui/dialogWindows.ui")
         self.form.setWindowIcon(QtGui.QIcon(":/icons/BIM_Windows.svg"))
@@ -70,9 +70,9 @@ class BIM_Windows_TaskPanel:
         self.update()
 
     def getStandardButtons(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def reject(self):
         FreeCADGui.Control.closeDialog()
@@ -81,7 +81,7 @@ class BIM_Windows_TaskPanel:
     def update(self, index=None):
         import Draft
         import Arch_rc
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         self.form.windows.clear()
         windows = [
@@ -218,7 +218,7 @@ class BIM_Windows_TaskPanel:
     def setMaterial(self):
         import Draft
         import Arch_rc
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         form = FreeCADGui.PySideUic.loadUi(":/ui/dialogMaterialChooser.ui")
         mw = FreeCADGui.getMainWindow()

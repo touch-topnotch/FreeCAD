@@ -2,7 +2,7 @@ import sys
 
 # sys.path.append("")
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 import FreeCAD, FreeCADGui
 
 from ui_mainwindow import Ui_MainWindow
@@ -11,7 +11,7 @@ from ui_mainwindow import Ui_MainWindow
 class MainWindow(QtGui.QMainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
-        from PySide import QtNetwork
+        from PySide import QtWidgets, QtNetwork
 
         QtNetwork.QNetworkConfigurationManager()
 
@@ -48,7 +48,7 @@ class MainWindow(QtGui.QMainWindow):
         FreeCADGui.ActiveDocument.ActiveView.fitAll()
 
 
-app = QtGui.QApplication(sys.argv)
+app = QtWidgets.QApplication(sys.argv)
 ui = Ui_MainWindow()
 mw = MainWindow()
 ui.setupUi(mw)

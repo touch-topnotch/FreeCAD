@@ -46,7 +46,7 @@ from draftutils import params
 if FreeCAD.GuiUp:
     import re
     from pivy import coin
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     from draftutils.translate import translate
@@ -676,13 +676,13 @@ class _AxisTaskPanel:
         self.tree.header().resizeSection(2,60)
 
         # buttons
-        self.addButton = QtGui.QPushButton(self.form)
+        self.addButton = QtWidgets.QPushButton(self.form)
         self.addButton.setObjectName("addButton")
         self.addButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         self.grid.addWidget(self.addButton, 3, 0, 1, 1)
         self.addButton.setEnabled(True)
 
-        self.delButton = QtGui.QPushButton(self.form)
+        self.delButton = QtWidgets.QPushButton(self.form)
         self.delButton.setObjectName("delButton")
         self.delButton.setIcon(QtGui.QIcon(":/icons/Arch_Remove.svg"))
         self.grid.addWidget(self.delButton, 3, 1, 1, 1)
@@ -703,7 +703,7 @@ class _AxisTaskPanel:
 
     def getStandardButtons(self):
 
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def update(self):
 
@@ -781,11 +781,11 @@ class _AxisTaskPanel:
 
     def retranslateUi(self, TaskPanel):
 
-        TaskPanel.setWindowTitle(QtGui.QApplication.translate("Arch", "Axes", None))
-        self.delButton.setText(QtGui.QApplication.translate("Arch", "Remove", None))
-        self.addButton.setText(QtGui.QApplication.translate("Arch", "Add", None))
-        self.title.setText(QtGui.QApplication.translate("Arch", "Distances (mm) and angles (deg) between axes", None))
-        self.tree.setHeaderLabels([QtGui.QApplication.translate("Arch", "Axis", None),
-                                   QtGui.QApplication.translate("Arch", "Distance", None),
-                                   QtGui.QApplication.translate("Arch", "Angle", None),
-                                   QtGui.QApplication.translate("Arch", "Label", None)])
+        TaskPanel.setWindowTitle(QtWidgets.QApplication.translate("Arch", "Axes", None))
+        self.delButton.setText(QtWidgets.QApplication.translate("Arch", "Remove", None))
+        self.addButton.setText(QtWidgets.QApplication.translate("Arch", "Add", None))
+        self.title.setText(QtWidgets.QApplication.translate("Arch", "Distances (mm) and angles (deg) between axes", None))
+        self.tree.setHeaderLabels([QtWidgets.QApplication.translate("Arch", "Axis", None),
+                                   QtWidgets.QApplication.translate("Arch", "Distance", None),
+                                   QtWidgets.QApplication.translate("Arch", "Angle", None),
+                                   QtWidgets.QApplication.translate("Arch", "Label", None)])

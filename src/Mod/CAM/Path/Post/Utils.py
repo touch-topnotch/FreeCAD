@@ -29,7 +29,7 @@ These are common functions and classes for creating custom post processors.
 
 
 from Path.Base.MachineState import MachineState
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 import FreeCAD
 import Part
 import Path
@@ -206,11 +206,11 @@ class GCodeHighlighter(QtGui.QSyntaxHighlighter):
                 index = expression.match(text, index.capturedStart() + length)
 
 
-class GCodeEditorDialog(QtGui.QDialog):
+class GCodeEditorDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         if parent is None:
             parent = FreeCADGui.getMainWindow()
-        QtGui.QDialog.__init__(self, parent)
+        QtWidgets.QDialog.__init__(self, parent)
 
         layout = QtGui.QVBoxLayout(self)
 
@@ -225,8 +225,8 @@ class GCodeEditorDialog(QtGui.QDialog):
         layout.addWidget(self.editor)
 
         # OK and Cancel buttons
-        self.buttons = QtGui.QDialogButtonBox(
-            QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel,
+        self.buttons = QtWidgets.QDialogButtonBox(
+            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel,
             QtCore.Qt.Horizontal,
             self,
         )
@@ -253,7 +253,7 @@ class GCodeEditorDialog(QtGui.QDialog):
         params.SetInt("posY", self.y())
         params.SetInt("width", self.size().width())
         params.SetInt("height", self.size().height())
-        return QtGui.QDialog.done(self, *args, **kwargs)
+        return QtWidgets.QDialog.done(self, *args, **kwargs)
 
 
 def stringsplit(commandline):

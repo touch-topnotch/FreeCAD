@@ -31,8 +31,8 @@ __url__ = "https://www.freecad.org"
 
 from abc import ABC, abstractmethod
 
-from PySide import QtCore
-from PySide import QtGui
+from PySide import QtWidgets, QtCore
+from PySide import QtWidgets, QtGui
 
 import FreeCAD
 
@@ -115,10 +115,10 @@ class _BaseLogTaskPanel(base_femtaskpanel._BaseTaskPanel, ABC):
     def thread_started(self):
         self.text_log.clear()
         self.write_log("Prepare process...\n", QtGui.QColor(getOutputWinColor("Text")))
-        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
 
     def thread_finished(self):
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
         if self._thread.prepare_ok:
             self.write_log("Preparation finished\n", QtGui.QColor(getOutputWinColor("Text")))
             self.preparation_finished()
@@ -142,7 +142,7 @@ class _BaseLogTaskPanel(base_femtaskpanel._BaseTaskPanel, ABC):
             self.write_log("Process finished\n", QtGui.QColor(getOutputWinColor("Text")))
 
     def process_started(self):
-        QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         self.write_log("Start process...\n", QtGui.QColor(getOutputWinColor("Text")))
 
     def process_failed(self, error):
@@ -189,7 +189,7 @@ class _BaseLogTaskPanel(base_femtaskpanel._BaseTaskPanel, ABC):
 
     def getStandardButtons(self):
         button_value = (
-            QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Cancel
+            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel
         )
         return button_value
 
@@ -202,7 +202,7 @@ class _BaseLogTaskPanel(base_femtaskpanel._BaseTaskPanel, ABC):
             return None
 
         self.timer.stop()
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
         self.set_object_params()
         return super().accept()
 
@@ -211,7 +211,7 @@ class _BaseLogTaskPanel(base_femtaskpanel._BaseTaskPanel, ABC):
         if self._thread.isRunning():
             return None
         self.timer.stop()
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
         if self.tool.process.state() != QtCore.QProcess.ProcessState.NotRunning:
             self.tool.process.kill()
             FreeCAD.Console.PrintWarning("Process aborted\n")
@@ -219,7 +219,7 @@ class _BaseLogTaskPanel(base_femtaskpanel._BaseTaskPanel, ABC):
             return super().reject()
 
     def clicked(self, button):
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             if (
                 self._thread.isRunning()
                 or self.tool.process.state() != QtCore.QProcess.ProcessState.NotRunning
@@ -237,7 +237,7 @@ class _BaseLogTaskPanel(base_femtaskpanel._BaseTaskPanel, ABC):
 
     def stop_timer(self, *reason):
         self.timer.stop()
-        QtGui.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.restoreOverrideCursor()
 
     def run_process(self):
         self.set_object_params()

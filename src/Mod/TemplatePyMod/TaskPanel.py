@@ -3,9 +3,9 @@
 
 import FreeCAD as App
 import FreeCADGui as Gui
-from PySide import QtGui,QtCore
+from PySide import QtWidgets, QtGui,QtCore
 
-class MyLineEdit(QtGui.QLineEdit):
+class MyLineEdit(QtWidgets.QLineEdit):
     pass
 
 class TaskWatcher:
@@ -61,7 +61,7 @@ class TaskPanel:
         return True
 
     def getStandardButtons(self):
-        return QtGui.QDialogButtonBox.Ok
+        return QtWidgets.QDialogButtonBox.Ok
 
     def helpRequested(self):
         pass
@@ -69,7 +69,7 @@ class TaskPanel:
     def setupUi(self):
         mw = self.getMainWindow()
         form = mw.findChild(QtGui.QWidget, "TaskPanel")
-        form.pushButton = form.findChild(QtGui.QPushButton, "pushButton")
+        form.pushButton = form.findChild(QtWidgets.QPushButton, "pushButton")
         form.listWidget = form.findChild(QtGui.QListWidget, "listWidget")
         self.form = form
         #Connect Signals and Slots
@@ -77,10 +77,10 @@ class TaskPanel:
 
     def getMainWindow(self):
         "returns the main window"
-        # using QtGui.QApplication.activeWindow() isn't very reliable because if another
+        # using QtWidgets.QApplication.activeWindow() isn't very reliable because if another
         # widget than the mainwindow is active (e.g. a dialog) the wrong widget is
         # returned
-        toplevel = QtGui.QApplication.topLevelWidgets()
+        toplevel = QtWidgets.QApplication.topLevelWidgets()
         for i in toplevel:
             if i.metaObject().className() == "Gui::MainWindow":
                 return i

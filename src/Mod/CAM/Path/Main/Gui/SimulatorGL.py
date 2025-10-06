@@ -44,8 +44,8 @@ Part = LazyLoader("Part", globals(), "Part")
 
 if FreeCAD.GuiUp:
     import FreeCADGui
-    from PySide import QtGui, QtCore
-    from PySide.QtGui import QDialogButtonBox
+    from PySide import QtGui, QtCore, QtWidgets
+    from PySide.QtWidgets import QDialogButtonBox
 
 _filePath = os.path.dirname(os.path.abspath(__file__))
 

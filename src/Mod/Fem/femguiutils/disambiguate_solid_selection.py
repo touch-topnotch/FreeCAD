@@ -28,8 +28,8 @@ from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
 
 import copy
 
-from PySide import QtGui
-from PySide import QtCore
+from PySide import QtWidgets, QtGui
+from PySide import QtWidgets, QtCore
 
 highlight_color_t = List[Tuple[float, float, float, float]]  # rgba value per face
 highlight_map_t = Dict[Optional[str], highlight_color_t]
@@ -141,7 +141,7 @@ def disambiguate_solid_selection(
     """
 
     # Build menu
-    menu_of_solids = QtGui.QMenu()
+    menu_of_solids = QtWidgets.QMenu()
     label = menu_of_solids.addAction("Selected entity belongs to multiple solids, pick one…")
     label.setDisabled(True)
 

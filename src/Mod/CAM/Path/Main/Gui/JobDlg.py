@@ -20,7 +20,7 @@
 # *                                                                         *
 # ***************************************************************************
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 from collections import Counter
 import FreeCAD
 import FreeCADGui
@@ -41,13 +41,13 @@ else:
     Path.Log.setLevel(Path.Log.Level.INFO, Path.Log.thisModule())
 
 
-class _ItemDelegate(QtGui.QStyledItemDelegate):
+class _ItemDelegate(QtWidgets.QStyledItemDelegate):
     def __init__(self, controller, parent):
         self.controller = controller
-        QtGui.QStyledItemDelegate.__init__(self, parent)
+        QtWidgets.QStyledItemDelegate.__init__(self, parent)
 
     def createEditor(self, parent, option, index):
-        editor = QtGui.QSpinBox(parent)
+        editor = QtWidgets.QSpinBox(parent)
         self.controller.setupColumnEditor(index, editor)
         return editor
 

@@ -50,7 +50,7 @@ from draftutils import params
 from draftutils.messages import _wrn
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
     from PySide.QtCore import QT_TRANSLATE_NOOP
     import FreeCADGui
     import draftguitools.gui_trackers as DraftTrackers
@@ -106,6 +106,10 @@ class _Window(ArchComponent.Component):
         # Add features in the SketchArch External Add-on
         self.addSketchArchFeatures(obj)
 
+        # Initialize those two values later on during first onChanged call
+        self.baseSill = None
+        self.basePos = None
+
     def addSketchArchFeatures(self,obj,linkObj=None,mode=None):
         '''
            To add features in the SketchArch External Add-on  (https://github.com/paullee0/FreeCAD_SketchArch)
@@ -138,6 +142,8 @@ class _Window(ArchComponent.Component):
             obj.addProperty("App::PropertyLength","Width","Window",QT_TRANSLATE_NOOP("App::Property","The width of this window"), locked=True)
         if not "Height" in lp:
             obj.addProperty("App::PropertyLength","Height","Window",QT_TRANSLATE_NOOP("App::Property","The height of this window"), locked=True)
+        if not "Sill" in lp:
+            obj.addProperty("App::PropertyLength","Sill","Window",QT_TRANSLATE_NOOP("App::Property","The height of this window's sill"), locked=True)
         if not "Normal" in lp:
             obj.addProperty("App::PropertyVector","Normal","Window",QT_TRANSLATE_NOOP("App::Property","The normal direction of this window"), locked=True)
         # Automatic Normal Reverse
@@ -174,31 +180,6 @@ class _Window(ArchComponent.Component):
         obj.setEditorMode("HorizontalArea",2)
         obj.setEditorMode("PerimeterLength",2)
 
-        # Sill change related properties
-        self.setSillProperties(obj)
-
-    def setSillProperties(self, orgObj, linkObj=None):
-        '''  Set properties which support Sill change.
-             Support both Arch Window and Link of Arch Window.
-        '''
-
-        if linkObj:
-            obj = linkObj
-        else:
-            obj = orgObj
-
-        prop = obj.PropertiesList
-
-        # 'Sill' support
-        if not "Sill" in prop:
-            obj.addProperty("App::PropertyLength","Sill","Window",QT_TRANSLATE_NOOP("App::Property","The height of this window's sill"), locked=True)
-
-        # Link has no Proxy, so needs to use PropertyPythonObject
-        sillProp = ['baseSill','basePosZ','atthOffZ']
-        for i in sillProp:
-            if i not in prop:
-                obj.addProperty("App::PropertyPythonObject", i)
-
     def onDocumentRestored(self,obj):
 
         ArchComponent.Component.onDocumentRestored(self,obj)
@@ -207,13 +188,12 @@ class _Window(ArchComponent.Component):
         # Add features in the SketchArch External Add-on
         self.addSketchArchFeatures(obj, mode='ODR')
 
-        # TODO 2025.6.27 : Seems Sill already triggered onChanged() upon document restored - NO need codes below in onDocumentRestored()
         # Need to restore 'initial' settings as corresponding codes in onChanged() does upon object creation
-        #self.baseSill = obj.Sill.Value
-        #self.basePos = obj.Base.Placement.Base
-        #self.atthOff = None
-        #if hasattr(obj, 'AttachmentOffsetXyzAndRotation'):
-        #    self.atthOff = obj.AttachmentOffsetXyzAndRotation.Base
+        self.baseSill = obj.Sill.Value
+        self.basePos = obj.Base.Placement.Base
+        self.atthOff = None
+        if hasattr(obj, 'AttachmentOffsetXyzAndRotation'):
+            self.atthOff = obj.AttachmentOffsetXyzAndRotation.Base
 
     def loads(self,state):
 
@@ -230,8 +210,37 @@ class _Window(ArchComponent.Component):
 
         self.hideSubobjects(obj,prop)
         if prop == "Sill":
-            self.setSillProperties(obj)  # Can't wait until onDocumentRestored
-            self.onSillChanged(obj)
+            val = getattr(obj,prop).Value
+
+            if (getattr(self, 'baseSill', None) is None and
+                getattr(self, 'basePos', None) is None and
+                getattr(self, 'atthOff', None) is None):  # TODO Any cases only 1 or 2 are not None?
+                self.baseSill = val
+                self.basePos = obj.Base.Placement.Base
+                self.atthOff = None
+                if hasattr(obj, 'AttachmentOffsetXyzAndRotation'):
+                    self.atthOff = obj.AttachmentOffsetXyzAndRotation.Base
+                return
+
+            import ArchSketchObject  # Need to import per method
+            host = None
+            if obj.Hosts:
+                host = obj.Hosts[0]
+            if (hasattr(obj, 'AttachToAxisOrSketch') and
+                obj.AttachToAxisOrSketch == "Host" and
+                host and Draft.getType(host.Base) == "ArchSketch" and
+                hasattr(ArchSketchObject, 'updateAttachmentOffset')):
+                SketchArch = True
+            else:
+                SketchArch = False
+
+            if SketchArch:
+                objAttOff = obj.AttachmentOffsetXyzAndRotation
+                objAttOff.Base.z = self.atthOff.z + (obj.Sill.Value - self.baseSill)
+                obj.AttachmentOffsetXyzAndRotation = objAttOff
+            else:
+                obj.Base.Placement.Base.z = self.basePos.z + (obj.Sill.Value - self.baseSill)
+
         elif not "Restore" in obj.State:
             if prop in ["Base","WindowParts","Placement","HoleDepth","Height","Width","Hosts","Shape"]:
                 # anti-recursive loops, bc the base sketch will touch the Placement all the time
@@ -565,65 +574,11 @@ class _Window(ArchComponent.Component):
             @realthunder added support to Links to run Linked Scripted Object's methods()
         '''
 
-        # Sill change support
-        self.setSillProperties(obj, linkObj)
-
         # Add features in the SketchArch External Add-on
         self.addSketchArchFeatures(obj, linkObj)
 
         # Execute features in the SketchArch External Add-on
         self.executeSketchArchFeatures(obj, linkObj)
-
-        # Sill change feature
-        self.onSillChanged(obj, linkObj)
-
-    def onSillChanged(self, orgObj, linkObj=None, index=None, linkElement=None):
-
-        if linkObj:
-            obj = linkObj
-        else:
-            obj = orgObj
-
-        val = getattr(obj,'Sill').Value
-        if (getattr(obj, 'baseSill', None) is None and
-            getattr(obj, 'basePosZ', None) is None and
-            getattr(obj, 'atthOffZ', None) is None):  # TODO Any cases only 1 or 2 are not None?
-            obj.baseSill = val
-            # Not to change Base's Placement, would change all Clones and
-            # Link's disposition unexpectedly to users, undesirable.
-            #
-            # self.basePos = obj.Base.Placement.Base
-            obj.basePosZ = obj.Placement.Base.z
-            obj.atthOffZ = None
-            if hasattr(obj, 'AttachmentOffsetXyzAndRotation'):
-                obj.atthOffZ = obj.AttachmentOffsetXyzAndRotation.Base.z
-            return
-
-        import ArchSketchObject  # Need to import per method
-        host = None
-        if obj.Hosts:
-            host = obj.Hosts[0]
-        if (hasattr(obj, 'AttachToAxisOrSketch') and
-            obj.AttachToAxisOrSketch == "Host" and
-            host and Draft.getType(host.Base) == "ArchSketch" and
-            hasattr(ArchSketchObject, 'updateAttachmentOffset')):
-            SketchArch = True
-        else:
-            SketchArch = False
-
-        # Keep track of change whether SketchArch is True or False (i.e.
-        # even Window object is not currently parametrically attached to
-        # a Wall or other Arch object at the moment).
-        #
-        # SketchArch or Not
-        if hasattr(obj, 'AttachmentOffsetXyzAndRotation'):
-            objAttOff = obj.AttachmentOffsetXyzAndRotation
-            objAttOff.Base.z = obj.atthOffZ + (obj.Sill.Value - obj.baseSill)
-            obj.AttachmentOffsetXyzAndRotation = objAttOff
-        if not SketchArch:
-            # Not to change Base's Placement
-            #obj.Base.Placement.Base.z = self.basePos.z + (obj.Sill.Value - self.baseSill)
-            obj.Placement.Base.z = obj.basePosZ + (obj.Sill.Value - obj.baseSill)
 
     def getSubFace(self):
         "returns a subface for creation of subvolume for cutting in a base object"
@@ -969,7 +924,7 @@ class _ViewProviderWindow(ArchComponent.ViewProviderComponent):
 
         if len(hingeIdxs) > 0:
             actionInvertOpening = QtGui.QAction(QtGui.QIcon(":/icons/Arch_Window_Tree.svg"),
-                                                translate("Arch", "Invert Opening Direction"),
+                                                translate("Arch", "Invert opening direction"),
                                                 menu)
             QtCore.QObject.connect(actionInvertOpening,
                                    QtCore.SIGNAL("triggered()"),
@@ -978,7 +933,7 @@ class _ViewProviderWindow(ArchComponent.ViewProviderComponent):
 
         if len(hingeIdxs) == 1:
             actionInvertHinge = QtGui.QAction(QtGui.QIcon(":/icons/Arch_Window_Tree.svg"),
-                                              translate("Arch", "Invert Hinge Position"),
+                                              translate("Arch", "Invert hinge position"),
                                               menu)
             QtCore.QObject.connect(actionInvertHinge,
                                    QtCore.SIGNAL("triggered()"),
@@ -1070,10 +1025,10 @@ class _ArchWindowTaskPanel:
         self.holeLabel = QtGui.QLabel(self.baseform)
         self.grid.addWidget(self.holeLabel, 2, 0, 1, 1)
 
-        self.holeNumber = QtGui.QLineEdit(self.baseform)
+        self.holeNumber = QtWidgets.QLineEdit(self.baseform)
         self.grid.addWidget(self.holeNumber, 2, 2, 1, 3)
 
-        self.holeButton = QtGui.QPushButton(self.baseform)
+        self.holeButton = QtWidgets.QPushButton(self.baseform)
         self.grid.addWidget(self.holeButton, 2, 6, 1, 1)
         self.holeButton.setEnabled(True)
 
@@ -1088,20 +1043,20 @@ class _ArchWindowTaskPanel:
         self.comptree.setColumnCount(1)
 
         # buttons
-        self.addButton = QtGui.QPushButton(self.baseform)
+        self.addButton = QtWidgets.QPushButton(self.baseform)
         self.addButton.setObjectName("addButton")
         self.addButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         self.grid.addWidget(self.addButton, 4, 0, 1, 1)
         self.addButton.setMaximumSize(QtCore.QSize(70,40))
 
-        self.editButton = QtGui.QPushButton(self.baseform)
+        self.editButton = QtWidgets.QPushButton(self.baseform)
         self.editButton.setObjectName("editButton")
         self.editButton.setIcon(QtGui.QIcon(":/icons/Draft_Edit.svg"))
         self.grid.addWidget(self.editButton, 4, 2, 1, 3)
         self.editButton.setMaximumSize(QtCore.QSize(60,40))
         self.editButton.setEnabled(False)
 
-        self.delButton = QtGui.QPushButton(self.baseform)
+        self.delButton = QtWidgets.QPushButton(self.baseform)
         self.delButton.setObjectName("delButton")
         self.delButton.setIcon(QtGui.QIcon(":/icons/Arch_Remove.svg"))
         self.grid.addWidget(self.delButton, 4, 6, 1, 1)
@@ -1109,12 +1064,12 @@ class _ArchWindowTaskPanel:
         self.delButton.setEnabled(False)
 
         # invert buttons
-        self.invertOpeningButton = QtGui.QPushButton(self.baseform)
+        self.invertOpeningButton = QtWidgets.QPushButton(self.baseform)
         self.invertOpeningButton.setIcon(QtGui.QIcon(":/icons/Arch_Window_Tree.svg"))
         self.invertOpeningButton.clicked.connect(self.invertOpening)
         self.grid.addWidget(self.invertOpeningButton, 5, 0, 1, 7)
         self.invertOpeningButton.setEnabled(False)
-        self.invertHingeButton = QtGui.QPushButton(self.baseform)
+        self.invertHingeButton = QtWidgets.QPushButton(self.baseform)
         self.invertHingeButton.setIcon(QtGui.QIcon(":/icons/Arch_Window_Tree.svg"))
         self.invertHingeButton.clicked.connect(self.invertHinge)
         self.grid.addWidget(self.invertHingeButton, 6, 0, 1, 7)
@@ -1131,16 +1086,16 @@ class _ArchWindowTaskPanel:
         self.new5 = QtGui.QLabel(self.baseform)
         self.new6 = QtGui.QLabel(self.baseform)
         self.new7 = QtGui.QLabel(self.baseform)
-        self.field1 = QtGui.QLineEdit(self.baseform)
-        self.field2 = QtGui.QComboBox(self.baseform)
-        self.field3 = QtGui.QLineEdit(self.baseform)
+        self.field1 = QtWidgets.QLineEdit(self.baseform)
+        self.field2 = QtWidgets.QComboBox(self.baseform)
+        self.field3 = QtWidgets.QLineEdit(self.baseform)
         self.field4 = ui.createWidget("Gui::InputField")
         self.field5 = ui.createWidget("Gui::InputField")
-        self.field6 = QtGui.QPushButton(self.baseform)
-        self.field7 = QtGui.QComboBox(self.baseform)
+        self.field6 = QtWidgets.QPushButton(self.baseform)
+        self.field7 = QtWidgets.QComboBox(self.baseform)
         self.addp4 = QtGui.QCheckBox(self.baseform)
         self.addp5 = QtGui.QCheckBox(self.baseform)
-        self.createButton = QtGui.QPushButton(self.baseform)
+        self.createButton = QtWidgets.QPushButton(self.baseform)
         self.createButton.setObjectName("createButton")
         self.createButton.setIcon(QtGui.QIcon(":/icons/Arch_Add.svg"))
         self.grid.addWidget(self.newtitle, 7, 0, 1, 7)
@@ -1208,7 +1163,7 @@ class _ArchWindowTaskPanel:
 
     def getStandardButtons(self):
 
-        return QtGui.QDialogButtonBox.Close
+        return QtWidgets.QDialogButtonBox.Close
 
     def check(self,wid,col):
 
@@ -1316,7 +1271,7 @@ class _ArchWindowTaskPanel:
         self.field3.setText('')
         self.field4.setText('')
         self.field5.setText('')
-        self.field6.setText(QtGui.QApplication.translate("Arch", "Get selected edge", None))
+        self.field6.setText(QtWidgets.QApplication.translate("Arch", "Get selected edge", None))
         self.field7.setCurrentIndex(0)
         self.addp4.setChecked(False)
         self.addp5.setChecked(False)
@@ -1365,7 +1320,7 @@ class _ArchWindowTaskPanel:
             if self.obj:
                 if comp in self.obj.WindowParts:
                     ind = self.obj.WindowParts.index(comp)
-                    self.field6.setText(QtGui.QApplication.translate("Arch", "Get selected edge", None))
+                    self.field6.setText(QtWidgets.QApplication.translate("Arch", "Get selected edge", None))
                     self.field7.setCurrentIndex(0)
                     for i in range(5):
                         f = getattr(self,"field"+str(i+1))
@@ -1503,37 +1458,37 @@ class _ArchWindowTaskPanel:
 
     def retranslateUi(self, TaskPanel):
 
-        TaskPanel.setWindowTitle(QtGui.QApplication.translate("Arch", "Window elements", None))
-        self.holeLabel.setText(QtGui.QApplication.translate("Arch", "Hole wire", None))
-        self.holeNumber.setToolTip(QtGui.QApplication.translate("Arch", "The number of the wire that defines a hole in the host object. A value of zero will automatically adopt the largest wire", None))
-        self.holeButton.setText(QtGui.QApplication.translate("Arch", "Pick Selected", None))
-        self.delButton.setText(QtGui.QApplication.translate("Arch", "Remove", None))
-        self.addButton.setText(QtGui.QApplication.translate("Arch", "Add", None))
-        self.editButton.setText(QtGui.QApplication.translate("Arch", "Edit", None))
-        self.createButton.setText(QtGui.QApplication.translate("Arch", "Create/Update Component", None))
-        self.title.setText(QtGui.QApplication.translate("Arch", "Base 2D object", None))
-        self.wiretree.setHeaderLabels([QtGui.QApplication.translate("Arch", "Wires", None)])
-        self.comptree.setHeaderLabels([QtGui.QApplication.translate("Arch", "Components", None)])
-        self.newtitle.setText(QtGui.QApplication.translate("Arch", "Create new Component", None))
-        self.new1.setText(QtGui.QApplication.translate("Arch", "Name", None))
-        self.new2.setText(QtGui.QApplication.translate("Arch", "Type", None))
-        self.new3.setText(QtGui.QApplication.translate("Arch", "Wires", None))
-        self.new4.setText(QtGui.QApplication.translate("Arch", "Frame depth", None))
-        self.new5.setText(QtGui.QApplication.translate("Arch", "Offset", None))
-        self.new6.setText(QtGui.QApplication.translate("Arch", "Hinge", None))
-        self.new7.setText(QtGui.QApplication.translate("Arch", "Opening mode", None))
-        self.addp4.setText(QtGui.QApplication.translate("Arch", "+ Frame property", None))
-        self.addp4.setToolTip(QtGui.QApplication.translate("Arch", "If this is checked, the window's Frame property value will be added to the value entered here", None))
-        self.addp5.setText(QtGui.QApplication.translate("Arch", "+ Offset property", None))
-        self.addp5.setToolTip(QtGui.QApplication.translate("Arch", "If this is checked, the window's Offset property value will be added to the value entered here", None))
-        self.field6.setText(QtGui.QApplication.translate("Arch", "Get Selected Edge", None))
-        self.field6.setToolTip(QtGui.QApplication.translate("Arch", "Press to retrieve the selected edge", None))
-        self.invertOpeningButton.setText(QtGui.QApplication.translate("Arch", "Invert Opening Direction", None))
-        self.invertHingeButton.setText(QtGui.QApplication.translate("Arch", "Invert Hinge Position", None))
+        TaskPanel.setWindowTitle(QtWidgets.QApplication.translate("Arch", "Window elements", None))
+        self.holeLabel.setText(QtWidgets.QApplication.translate("Arch", "Hole wire", None))
+        self.holeNumber.setToolTip(QtWidgets.QApplication.translate("Arch", "The number of the wire that defines a hole in the host object. A value of zero will automatically adopt the largest wire", None))
+        self.holeButton.setText(QtWidgets.QApplication.translate("Arch", "Pick selected", None))
+        self.delButton.setText(QtWidgets.QApplication.translate("Arch", "Remove", None))
+        self.addButton.setText(QtWidgets.QApplication.translate("Arch", "Add", None))
+        self.editButton.setText(QtWidgets.QApplication.translate("Arch", "Edit", None))
+        self.createButton.setText(QtWidgets.QApplication.translate("Arch", "Create/update component", None))
+        self.title.setText(QtWidgets.QApplication.translate("Arch", "Base 2D object", None))
+        self.wiretree.setHeaderLabels([QtWidgets.QApplication.translate("Arch", "Wires", None)])
+        self.comptree.setHeaderLabels([QtWidgets.QApplication.translate("Arch", "Components", None)])
+        self.newtitle.setText(QtWidgets.QApplication.translate("Arch", "Create new component", None))
+        self.new1.setText(QtWidgets.QApplication.translate("Arch", "Name", None))
+        self.new2.setText(QtWidgets.QApplication.translate("Arch", "Type", None))
+        self.new3.setText(QtWidgets.QApplication.translate("Arch", "Wires", None))
+        self.new4.setText(QtWidgets.QApplication.translate("Arch", "Frame depth", None))
+        self.new5.setText(QtWidgets.QApplication.translate("Arch", "Offset", None))
+        self.new6.setText(QtWidgets.QApplication.translate("Arch", "Hinge", None))
+        self.new7.setText(QtWidgets.QApplication.translate("Arch", "Opening mode", None))
+        self.addp4.setText(QtWidgets.QApplication.translate("Arch", "+ Frame prop.", None))
+        self.addp4.setToolTip(QtWidgets.QApplication.translate("Arch", "If this is checked, the window's Frame property value will be added to the value entered here", None))
+        self.addp5.setText(QtWidgets.QApplication.translate("Arch", "+ Offset prop.", None))
+        self.addp5.setToolTip(QtWidgets.QApplication.translate("Arch", "If this is checked, the window's Offset property value will be added to the value entered here", None))
+        self.field6.setText(QtWidgets.QApplication.translate("Arch", "Get selected edge", None))
+        self.field6.setToolTip(QtWidgets.QApplication.translate("Arch", "Press to retrieve the selected edge", None))
+        self.invertOpeningButton.setText(QtWidgets.QApplication.translate("Arch", "Invert opening direction", None))
+        self.invertHingeButton.setText(QtWidgets.QApplication.translate("Arch", "Invert hinge position", None))
         for i in range(len(WindowPartTypes)):
-            self.field2.setItemText(i, QtGui.QApplication.translate("Arch", WindowPartTypes[i], None))
+            self.field2.setItemText(i, QtWidgets.QApplication.translate("Arch", WindowPartTypes[i], None))
         for i in range(len(WindowOpeningModes)):
-            self.field7.setItemText(i, QtGui.QApplication.translate("Arch", WindowOpeningModes[i], None))
+            self.field7.setItemText(i, QtWidgets.QApplication.translate("Arch", WindowOpeningModes[i], None))
 
     def invertOpening(self):
 

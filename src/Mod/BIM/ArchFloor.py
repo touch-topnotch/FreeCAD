@@ -402,7 +402,7 @@ class _ViewProviderFloor:
             called.
         """
 
-        from PySide import QtCore,QtGui
+        from PySide import QtWidgets, QtCore,QtGui
         import Arch_rc
         if FreeCADGui.activeWorkbench().name() != 'BIMWorkbench':
             return

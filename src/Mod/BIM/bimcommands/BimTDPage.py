@@ -49,7 +49,7 @@ class BIM_TDPage:
         return v
 
     def Activated(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         import TechDraw
 
         templatedir = FreeCAD.ParamGet(
@@ -58,7 +58,7 @@ class BIM_TDPage:
         if not templatedir:
             templatedir = None
         filename, _ = QtGui.QFileDialog.getOpenFileName(
-            QtGui.QApplication.activeWindow(),
+            QtWidgets.QApplication.activeWindow(),
             translate("BIM", "Select page template"),
             templatedir,
             "SVG file (*.svg)",

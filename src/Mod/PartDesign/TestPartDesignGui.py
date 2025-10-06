@@ -31,8 +31,8 @@ import PartDesign
 import PartDesignGui
 import tempfile
 
-from PySide import QtGui, QtCore
-from PySide.QtGui import QApplication
+from PySide import QtWidgets, QtGui, QtCore
+from PySide.QtWidgets import QApplication
 
 from PartDesignTests.TestMaterial import TestMaterial
 from PartDesignTests.TestActiveObject import TestActiveObject
@@ -72,7 +72,7 @@ class CallableComboBox:
         dialog = QApplication.activeModalWidget()
         self.test.assertIsNotNone(dialog, "Warning dialog box could not be found")
         if (dialog is not None):
-            cbox = dialog.findChild(QtGui.QComboBox)
+            cbox = dialog.findChild(QtWidgets.QComboBox)
             self.test.assertIsNotNone(cbox, "ComboBox widget could not be found")
             if (cbox is not None):
                 QtCore.QTimer.singleShot(0, dialog, QtCore.SLOT('accept()'))

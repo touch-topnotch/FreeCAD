@@ -28,7 +28,7 @@ import FreeCADGui
 import Path
 import Path.Tool.Gui.Controller as PathToolControllerGui
 import PathScripts.PathUtilsGui as PathUtilsGui
-from PySide import QtGui, QtCore, QtWidgets
+from PySide import QtWidgets, QtGui, QtCore
 from functools import partial
 from typing import List, Tuple
 from ...camassets import cam_assets, ensure_assets_initialized
@@ -82,11 +82,10 @@ class ToolBitLibraryDock(object):
         main_layout.addWidget(self.browser_widget)
 
         # Create buttons
-        self.libraryEditorOpenButton = QtGui.QPushButton(
+        self.libraryEditorOpenButton = QtWidgets.QPushButton(
             translate("CAM_ToolBit", "Open Library Editor")
         )
-        self.addToolControllerButton = QtGui.QPushButton(translate("CAM_ToolBit", "Add to Job"))
-        self.closeButton = QtGui.QPushButton(translate("CAM_ToolBit", "Close"))
+        self.addToolControllerButton = QtWidgets.QPushButton(translate("CAM_ToolBit", "Add to Job"))
 
         button_width = 120
         self.libraryEditorOpenButton.setMinimumWidth(button_width)

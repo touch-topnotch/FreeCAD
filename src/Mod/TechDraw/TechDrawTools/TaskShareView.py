@@ -26,7 +26,7 @@ __url__ = "https://www.freecad.org"
 __version__ = "00.01"
 __date__ = "2022/01/11"
 
-from PySide import QtCore
+from PySide import QtWidgets, QtCore
 import PySide.QtGui as QtGui
 
 import FreeCAD as App
@@ -90,7 +90,7 @@ class TaskShareView:
             s = v.Label + " / " + v.Name
             item = QtGui.QListWidgetItem(s, dlg.lwPages)
             item.setData(QtCore.Qt.UserRole, v.Name)
-        if (dlg.exec() == QtGui.QDialog.Accepted) :
+        if (dlg.exec() == QtWidgets.QDialog.Accepted) :
             if dlg.lwPages.selectedItems():
                 selItem = dlg.lwPages.selectedItems()[0]
                 self.viewName = selItem.data(QtCore.Qt.UserRole)
@@ -113,7 +113,7 @@ class TaskShareView:
             s = p.Label + " / " + p.Name
             item = QtGui.QListWidgetItem(s, dlg.lwPages)
             item.setData(QtCore.Qt.UserRole, p.Name)
-        if (dlg.exec() == QtGui.QDialog.Accepted) :
+        if (dlg.exec() == QtWidgets.QDialog.Accepted) :
             if dlg.lwPages.selectedItems():
                 selItem = dlg.lwPages.selectedItems()[0]
                 self.fromPageName = selItem.data(QtCore.Qt.UserRole)
@@ -137,7 +137,7 @@ class TaskShareView:
             s = p.Label + " / " + p.Name
             item = QtGui.QListWidgetItem(s, dlg.lwPages)
             item.setData(QtCore.Qt.UserRole, p.Name)
-        if (dlg.exec() == QtGui.QDialog.Accepted) :
+        if (dlg.exec() == QtWidgets.QDialog.Accepted) :
             if dlg.lwPages.selectedItems():
                 selItem = dlg.lwPages.selectedItems()[0]
                 self.toPageName = selItem.data(QtCore.Qt.UserRole)

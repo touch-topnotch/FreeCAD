@@ -24,7 +24,7 @@ import pathlib
 import tempfile
 import FreeCAD
 import Path
-from PySide import QtGui, QtCore
+from PySide import QtWidgets, QtGui, QtCore
 
 translate = FreeCAD.Qt.translate
 
@@ -53,7 +53,7 @@ class AssetPreferencesPage:
 
         # Create widgets
         self.asset_path_label = QtGui.QLabel(translate("CAM_PreferencesAssets", "Asset Directory:"))
-        self.asset_path_edit = QtGui.QLineEdit()
+        self.asset_path_edit = QtWidgets.QLineEdit()
         self.asset_path_note_label = QtGui.QLabel(
             translate(
                 "CAM_PreferencesAssets",
@@ -65,7 +65,7 @@ class AssetPreferencesPage:
         self.select_path_button = QtGui.QToolButton()
         self.select_path_button.setIcon(QtGui.QIcon.fromTheme("folder-open"))
         self.select_path_button.clicked.connect(self.selectAssetPath)
-        self.reset_path_button = QtGui.QPushButton(translate("CAM_PreferencesAssets", "Reset"))
+        self.reset_path_button = QtWidgets.QPushButton(translate("CAM_PreferencesAssets", "Reset"))
         self.reset_path_button.clicked.connect(self.resetAssetPath)
 
         # Set note label font to italic

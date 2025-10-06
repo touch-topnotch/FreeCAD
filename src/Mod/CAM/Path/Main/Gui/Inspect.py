@@ -23,7 +23,7 @@
 # ***************************************************************************
 
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 import FreeCAD
 import FreeCADGui
 import Path
@@ -84,7 +84,7 @@ class GCodeHighlighter(QtGui.QSyntaxHighlighter):
                 index = expression.match(text, index.capturedStart() + length)
 
 
-class GCodeEditorDialog(QtGui.QDialog):
+class GCodeEditorDialog(QtWidgets.QDialog):
     tool = None
 
     def __init__(self, PathObj, parent=FreeCADGui.getMainWindow()):
@@ -94,7 +94,7 @@ class GCodeEditorDialog(QtGui.QDialog):
         else:
             self.tool = None
 
-        QtGui.QDialog.__init__(self, parent)
+        QtWidgets.QDialog.__init__(self, parent)
         layout = QtGui.QVBoxLayout(self)
 
         p = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/CAM")
@@ -134,8 +134,8 @@ class GCodeEditorDialog(QtGui.QDialog):
         layout.addWidget(lab)
 
         # OK and Cancel buttons
-        self.buttons = QtGui.QDialogButtonBox(
-            QtGui.QDialogButtonBox.Close,
+        self.buttons = QtWidgets.QDialogButtonBox(
+            QtWidgets.QDialogButtonBox.Close,
             QtCore.Qt.Horizontal,
             self,
         )

@@ -29,7 +29,7 @@ __url__ = "https://www.freecad.org"
 #  \ingroup FEM
 #  \brief task panel base for post objects
 
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 import FreeCAD
 
@@ -54,12 +54,12 @@ class _BasePostTaskPanel(base_femtaskpanel._BaseTaskPanel):
 
     def getStandardButtons(self):
         return (
-            QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Cancel
+            QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel
         )
 
     def clicked(self, button):
         # apply button hit?
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.obj.Document.recompute()
 
     def open(self):

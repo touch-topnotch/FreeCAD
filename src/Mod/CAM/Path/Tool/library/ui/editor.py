@@ -547,8 +547,134 @@ class LibraryEditor(QWidget):
             )
             return
 
-        dialog = AssetOpenDialog(
-            cam_assets, asset_class=ToolBit, serializers=toolbit_serializers, parent=self
+        # Open the file dialog
+        dialog = AssetOpenDialog(ToolBit, toolbit_serializers, self.form)
+        dialog_result = dialog.exec_()
+        if not dialog_result:
+            return  # User canceled or error
+        file_path, toolbit = dialog_result
+        toolbit = cast(ToolBit, toolbit)
+
+        try:
+            # Add the existing toolbit to the current library's model
+            # The add_bit method handles assigning a tool number and returns it.
+            cam_assets.add(toolbit)
+            tool_no = self.current_library.add_bit(toolbit)
+
+            # Add the new tool directly to the UI model
+            new_row_items = ModelFactory._tool_add(
+                tool_no, toolbit.to_dict(), str(toolbit.get_uri())  # URI of the persisted toolbit
+            )
+            self.toolModel.appendRow(new_row_items)
+
+            # Save the library (which now references the added toolbit)
+            # Use cam_assets.add directly for internal save on existing toolbit
+            self.saveLibrary()
+
+        except Exception as e:
+            Path.Log.error(
+                f"Failed to add imported toolbit {toolbit.get_id()} "
+                f"from {file_path} to library: {e}"
+            )
+            PySide.QtGui.QMessageBox.critical(
+                self.form,
+                translate("CAM_ToolBit", "Error Adding Imported Toolbit"),
+                str(e),
+            )
+            raise
+
+    def toolDelete(self):
+        """Delete a tool"""
+        Path.Log.track()
+        selected_indices = self.toolTableView.selectedIndexes()
+        if not selected_indices:
+            return
+
+        if not self.current_library:
+            Path.Log.error("toolDelete: No current_library loaded. Cannot delete tools.")
+            return
+
+        # Collect unique rows to process, as selectedIndexes can return multiple indices per row
+        selected_rows = sorted(list(set(index.row() for index in selected_indices)), reverse=True)
+
+        # Remove the rows from the library model.
+        for row in selected_rows:
+            item_tool_nr_or_uri = self.toolModel.item(row, 0)  # Column 0 stores _PathRole
+            tool_uri_string = item_tool_nr_or_uri.data(_PathRole)
+            tool_uri = AssetUri(tool_uri_string)
+            bit = self.current_library.get_tool_by_uri(tool_uri)
+            self.current_library.remove_bit(bit)
+            self.toolModel.removeRows(row, 1)
+
+        Path.Log.info(f"toolDelete: Removed {len(selected_rows)} rows from UI model.")
+
+        # Save the library after deleting a tool
+        self.saveLibrary()
+
+    def toolSelect(self, selected, deselected):
+        sel = len(self.toolTableView.selectedIndexes()) > 0
+        self.form.toolDelete.setEnabled(sel)
+
+    def tableSelected(self, index):
+        """loads the tools for the selected tool table"""
+        Path.Log.track()
+        item = index.model().itemFromIndex(index)
+        library_uri_string = item.data(_LibraryRole)
+        self._loadSelectedLibraryTools(library_uri_string)
+
+    def open(self):
+        Path.Log.track()
+        return self.form.exec_()
+
+    def toolEdit(self, selected):
+        """Edit the selected tool bit asset"""
+        Path.Log.track()
+        item = self.toolModel.item(selected.row(), 0)
+
+        if selected.column() == 0:
+            return  # Assuming tool number editing is handled directly in the table model
+
+        toolbit_uri_string = item.data(_PathRole)
+        if not toolbit_uri_string:
+            Path.Log.error("No toolbit URI found for selected item.")
+            return
+        toolbit_uri = AssetUri(toolbit_uri_string)
+
+        # Load the toolbit asset for editing
+        try:
+            bit = cast(ToolBit, cam_assets.get(toolbit_uri))
+            editor_dialog = ToolBitEditor(bit, self.form)  # Create dialog instance
+            result = editor_dialog.show()  # Show as modal dialog
+
+            if result == PySide.QtWidgets.QDialog.Accepted:
+                # The editor updates the toolbit directly, so we just need to save
+                cam_assets.add(bit)
+                Path.Log.info(f"Toolbit {bit.get_id()} saved.")
+                # Refresh the display and save the library
+                self._loadSelectedLibraryTools(
+                    self.current_library.get_uri() if self.current_library else None
+                )
+                # Save the library after editing a toolbit
+                self.saveLibrary()
+
+        except Exception as e:
+            Path.Log.error(f"Failed to load or edit toolbit asset {toolbit_uri_string}: {e}")
+            PySide.QtGui.QMessageBox.critical(
+                self.form,
+                translate("CAM_ToolBit", "Error Editing Toolbit"),
+                str(e),
+            )
+            raise
+
+    def libraryNew(self):
+        """Create a new tool library asset"""
+        Path.Log.track()
+
+        # Get the desired library name (label) from the user
+        library_label, ok = PySide.QtGui.QInputDialog.getText(
+            self.form,
+            translate("CAM_ToolBit", "New Tool Library"),
+            translate("CAM_ToolBit", "Enter a name for the new library:"),
         )
         response = dialog.exec_()
         if not response:

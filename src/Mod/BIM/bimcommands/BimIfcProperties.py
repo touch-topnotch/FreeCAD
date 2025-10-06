@@ -55,13 +55,7 @@ class BIM_IfcProperties:
         return v
 
     def Activated(self):
-
-        # only raise the dialog if it is already open
-        if getattr(self, "form", None):
-            self.form.raise_()
-            return
-
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         try:
             import ArchIFC
@@ -258,7 +252,7 @@ class BIM_IfcProperties:
         return result
 
     def updateByType(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         groups = {}
         for name, role in self.objectslist.items():
@@ -292,7 +286,7 @@ class BIM_IfcProperties:
         self.spanTopLevels()
 
     def updateByTree(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         # order by hierarchy
         def istop(obj):
@@ -350,7 +344,7 @@ class BIM_IfcProperties:
         self.form.tree.expandAll()
 
     def updateDefault(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         for name, role in self.objectslist.items():
             role = role[0]
@@ -453,7 +447,7 @@ class BIM_IfcProperties:
         return props
 
     def getSearchResults(self, obj):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         text = self.form.searchField.currentText()
         if not text:
@@ -486,7 +480,7 @@ class BIM_IfcProperties:
                 return QtGui.QStandardItem()
 
     def updateProperties(self, sel1=None, sel2=None):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         self.propmodel.clear()
         self.propmodel.setHorizontalHeaderLabels(
@@ -649,7 +643,7 @@ class BIM_IfcProperties:
                                 del self.objectslist[name][1][prop]
 
     def addProperty(self, idx=0, pset=None, prop=None, ptype=None):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         if not self.form.tree.selectedIndexes():
             return
@@ -706,7 +700,7 @@ class BIM_IfcProperties:
             self.form.comboProperty.setCurrentIndex(0)
 
     def addPset(self, idx):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         if not self.form.tree.selectedIndexes():
             return
@@ -716,7 +710,7 @@ class BIM_IfcProperties:
                 None,
                 translate("BIM", "New property set"),
                 translate("BIM", "Property set name:"),
-                QtGui.QLineEdit.Normal,
+                QtWidgets.QLineEdit.Normal,
                 name,
             )
             if res[1]:
@@ -753,7 +747,7 @@ class BIM_IfcProperties:
             self.form.comboPset.setCurrentIndex(0)
 
     def removeProperty(self):
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         sel = self.form.treeProperties.selectedIndexes()
         remove = []
@@ -785,12 +779,12 @@ class BIM_IfcProperties:
 
 
 if FreeCAD.GuiUp:
-    from PySide import QtGui
+    from PySide import QtWidgets, QtGui
 
-    class propertiesDelegate(QtGui.QStyledItemDelegate):
+    class propertiesDelegate(QtWidgets.QStyledItemDelegate):
         def __init__(self, parent=None, container=None, ptypes=[], plabels=[], *args):
             self.container = container
-            QtGui.QStyledItemDelegate.__init__(self, parent, *args)
+            QtWidgets.QStyledItemDelegate.__init__(self, parent, *args)
             self.ptypes = ptypes
             self.plabels = plabels
 
@@ -798,28 +792,28 @@ if FreeCAD.GuiUp:
             import FreeCADGui
 
             if index.column() == 0:  # property name
-                editor = QtGui.QLineEdit(parent)
+                editor = QtWidgets.QLineEdit(parent)
             elif index.column() == 1:  # property type
-                editor = QtGui.QComboBox(parent)
+                editor = QtWidgets.QComboBox(parent)
             else:  # property value
                 ptype = index.sibling(index.row(), 1).data()
                 if "Integer" in ptype:
-                    editor = QtGui.QSpinBox(parent)
+                    editor = QtWidgets.QSpinBox(parent)
                 elif "Real" in ptype:
-                    editor = QtGui.QDoubleSpinBox(parent)
+                    editor = QtWidgets.QDoubleSpinBox(parent)
                     editor.setDecimals(
                         FreeCAD.ParamGet(
                             "User parameter:BaseApp/Preferences/Units"
                         ).GetInt("Decimals", 2)
                     )
                 elif ("Boolean" in ptype) or ("Logical" in ptype):
-                    editor = QtGui.QComboBox(parent)
+                    editor = QtWidgets.QComboBox(parent)
                     editor.addItems(["True", "False"])
                 elif "Measure" in ptype:
                     editor = FreeCADGui.UiLoader().createWidget("Gui::InputField")
                     editor.setParent(parent)
                 else:
-                    editor = QtGui.QLineEdit(parent)
+                    editor = QtWidgets.QLineEdit(parent)
                 editor.setObjectName("editor_" + ptype)
             return editor
 

@@ -30,7 +30,7 @@ __url__ = "https://www.freecad.org"
 
 # it is a Gui only module and should only be imported in Gui mode
 # thus no guard is needed
-from PySide import QtGui
+from PySide import QtWidgets, QtGui
 from femtools.femutils import getOutputWinColor
 
 
@@ -39,14 +39,14 @@ WARNING_COLOR = "Warning"
 INFO_COLOR = "Logging"
 
 
-class ReportDialog(QtGui.QDialog):
+class ReportDialog(QtWidgets.QDialog):
 
     def __init__(self, report, title="Report", text=None, parent=None):
         super().__init__(parent)
         msgDetails = QtGui.QTextEdit()
         msgDetails.setReadOnly(True)
         msgDetails.setHtml(self._getText(report))
-        bttBox = QtGui.QDialogButtonBox(QtGui.QDialogButtonBox.Ok)
+        bttBox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Ok)
         bttBox.accepted.connect(self.close)
         layout = QtGui.QVBoxLayout()
         if text is not None:

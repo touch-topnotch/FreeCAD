@@ -1,6 +1,6 @@
 import FreeCAD
 import FreeCADGui
-from PySide import QtCore, QtGui
+from PySide import QtWidgets, QtCore, QtGui
 
 class DxfImportDialog:
     """
@@ -26,7 +26,7 @@ class DxfImportDialog:
 
     def connect_signals(self):
         """Connect signals from the dialog's widgets to our methods."""
-        buttonBox = self.dialog.findChild(QtGui.QDialogButtonBox, "buttonBox")
+        buttonBox = self.dialog.findChild(QtWidgets.QDialogButtonBox, "buttonBox")
         if buttonBox:
             # Connect to our custom slots INSTEAD of the dialog's built-in ones
             buttonBox.accepted.connect(self.on_accept)
@@ -100,7 +100,7 @@ class DxfImportDialog:
         result = self.dialog.exec_()
         FreeCAD.Console.PrintLog("DxfImportDialog: self.dialog.exec_() returned with result: {}\n".format(result))
         # QDialog.Accepted is usually 1, Rejected is 0.
-        FreeCAD.Console.PrintLog("(Note: QDialog.Accepted = {}, QDialog.Rejected = {})\n".format(QtGui.QDialog.Accepted, QtGui.QDialog.Rejected))
+        FreeCAD.Console.PrintLog("(Note: QDialog.Accepted = {}, QDialog.Rejected = {})\n".format(QtWidgets.QDialog.Accepted, QtWidgets.QDialog.Rejected))
         return result
 
     def get_selected_mode(self):

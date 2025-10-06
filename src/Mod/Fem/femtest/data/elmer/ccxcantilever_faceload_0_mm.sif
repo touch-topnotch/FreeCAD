@@ -57,7 +57,7 @@ Solver 2
   Coordinate Scaling Revert = Logical True
   Equation = String "ResultOutput"
   Exec Solver = String "After simulation"
-  Output File Name = File "FreeCAD"
+  Output File Name = File "ARCHI"
   Procedure = File "ResultOutputSolve" "ResultOutputSolver"
   Save Geometry Ids = Logical False
   Vtu Format = Logical True

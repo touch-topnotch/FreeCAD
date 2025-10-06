@@ -21,8 +21,8 @@
 import Tux_rc
 import FreeCAD as App
 import FreeCADGui as Gui
-from PySide import QtGui
-from PySide import QtCore
+from PySide import QtWidgets, QtGui
+from PySide import QtWidgets, QtCore
 
 mw = Gui.getMainWindow()
 statusBar = mw.statusBar()
@@ -33,10 +33,10 @@ pMWin = App.ParamGet("User parameter:BaseApp/Preferences/MainWindow")
 
 def translate(context, text):
     "convenience function for Qt 5/6 translator"
-    return QtGui.QApplication.translate(context, text, None)
+    return QtWidgets.QApplication.translate(context, text, None)
 
 
-class IndicatorButton(QtGui.QPushButton):
+class IndicatorButton(QtWidgets.QPushButton):
     """Detect language change events."""
 
     def __init__(self, parent=None):
@@ -664,18 +664,18 @@ indicator = IndicatorButton(statusBar)
 indicator.setFlat(True)
 indicator.adjustSize()
 indicator.setObjectName("NavigationIndicator")
-text = QtGui.QApplication.translate(
+text = QtWidgets.QApplication.translate(
     "NavigationIndicator",
     "Navigation indicator",
     "A context menu action used to show or hide the 'Navigation indicator' toolbar widget",
 )
 indicator.setWindowTitle(text)
 
-menu = QtGui.QMenu(indicator)
+menu = QtWidgets.QMenu(indicator)
 indicator.setMenu(menu)
 
-menuSettings = QtGui.QMenu(menu)
-menuOrbit = QtGui.QMenu(menu)
+menuSettings = QtWidgets.QMenu(menu)
+menuOrbit = QtWidgets.QMenu(menu)
 
 aCompact = QtGui.QAction(menuSettings)
 aCompact.setCheckable(True)

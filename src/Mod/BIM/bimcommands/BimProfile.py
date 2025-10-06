@@ -67,7 +67,7 @@ class Arch_Profile:
 
         "sets up a taskbox widget"
 
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
         from draftutils import params
         w = QtGui.QWidget()
         ui = FreeCADGui.UiLoader()
@@ -76,14 +76,14 @@ class Arch_Profile:
 
         # categories box
         labelc = QtGui.QLabel(translate("Arch","Category"))
-        self.vCategory = QtGui.QComboBox()
+        self.vCategory = QtWidgets.QComboBox()
         self.vCategory.addItems(self.Categories)
         grid.addWidget(labelc,1,0,1,1)
         grid.addWidget(self.vCategory,1,1,1,1)
 
         # presets box
         labelp = QtGui.QLabel(translate("Arch","Preset"))
-        self.vPresets = QtGui.QComboBox()
+        self.vPresets = QtWidgets.QComboBox()
         self.pSelect = [None]
         fpresets = [" "]
         self.vPresets.addItems(fpresets)

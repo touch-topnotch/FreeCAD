@@ -27,8 +27,8 @@ __version__ = "00.02"
 __date__ = "2023/12/07"
 
 from PySide.QtCore import QT_TRANSLATE_NOOP
-from PySide import QtCore, QtGui
-from PySide.QtGui import QLineEdit, QCheckBox
+from PySide import QtWidgets, QtCore, QtGui
+from PySide.QtWidgets import QLineEdit, QCheckBox
 import FreeCAD as App
 import FreeCADGui as Gui
 import datetime
@@ -127,7 +127,7 @@ class TaskFillTemplateFields:
                 self.dialog = None
                 self.s1 = None
 
-                self.dialog = QtGui.QDialog()
+                self.dialog = QtWidgets.QDialog()
                 self.dialog.resize(1050, 400)
                 self.dialog.setWindowTitle(
                     QtCore.QT_TRANSLATE_NOOP(
@@ -162,7 +162,7 @@ class TaskFillTemplateFields:
                         u1 = QtGui.QLabel("")
                         u1.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u1, dialogRow, 2)
-                        self.s1 = QtGui.QLineEdit()
+                        self.s1 = QtWidgets.QLineEdit()
                         self.s1.setText(App.ActiveDocument.CreatedBy)
                         self.la.addWidget(self.s1, dialogRow, 3)
                         self.cb1.setObjectName(key)
@@ -185,7 +185,7 @@ class TaskFillTemplateFields:
                         u2 = QtGui.QLabel("")
                         u2.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u2, dialogRow, 2)
-                        self.s2 = QtGui.QLineEdit()
+                        self.s2 = QtWidgets.QLineEdit()
                         self.la.addWidget(self.s2, dialogRow, 3)
                         self.cb2.setObjectName(key)
                         keyLst.append(self.cb2.objectName())
@@ -210,7 +210,7 @@ class TaskFillTemplateFields:
                         u3 = QtGui.QLabel("")
                         u3.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u3, dialogRow, 2)
-                        self.s3 = QtGui.QLineEdit()
+                        self.s3 = QtWidgets.QLineEdit()
                         self.la.addWidget(self.s3, dialogRow, 3)
                         self.s3.setText(App.ActiveDocument.Label)
                         self.cb3.setObjectName(key)
@@ -233,7 +233,7 @@ class TaskFillTemplateFields:
                         u4 = QtGui.QLabel("")
                         u4.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u4, dialogRow, 2)
-                        self.s4 = QtGui.QLineEdit()
+                        self.s4 = QtWidgets.QLineEdit()
                         self.la.addWidget(self.s4, dialogRow, 3)
                         self.s4.setText(App.ActiveDocument.Comment)
                         self.cb4.setObjectName(key)
@@ -256,7 +256,7 @@ class TaskFillTemplateFields:
                         u5 = QtGui.QLabel("")
                         u5.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u5, dialogRow, 2)
-                        self.s5 = QtGui.QLineEdit()
+                        self.s5 = QtWidgets.QLineEdit()
                         self.la.addWidget(self.s5, dialogRow, 3)
                         self.s5.setText(App.ActiveDocument.Company)
                         self.cb5.setObjectName(key)
@@ -279,7 +279,7 @@ class TaskFillTemplateFields:
                         u6 = QtGui.QLabel("")
                         u6.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u6, dialogRow, 2)
-                        self.s6 = QtGui.QLineEdit()
+                        self.s6 = QtWidgets.QLineEdit()
                         self.la.addWidget(self.s6, dialogRow, 3)
                         self.s6.setText(App.ActiveDocument.License)
                         self.cb6.setObjectName(key)
@@ -302,7 +302,7 @@ class TaskFillTemplateFields:
                         u7 = QtGui.QLabel("")
                         u7.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u7, dialogRow, 2)
-                        self.s7 = QtGui.QLineEdit()
+                        self.s7 = QtWidgets.QLineEdit()
                         self.la.addWidget(self.s7, dialogRow, 3)
                         self.cb7.setObjectName(key)
                         keyLst.append(self.cb7.objectName())
@@ -353,7 +353,7 @@ class TaskFillTemplateFields:
                         u8 = QtGui.QLabel("")
                         u8.setPixmap(pix.scaled(32, 32))
                         self.la.addWidget(u8, dialogRow, 2)
-                        self.s8 = QtGui.QLineEdit()
+                        self.s8 = QtWidgets.QLineEdit()
                         self.la.addWidget(self.s8, dialogRow, 3)
                         self.cb8.setObjectName(key)
                         keyLst.append(self.cb8.objectName())
@@ -406,11 +406,11 @@ class TaskFillTemplateFields:
                     self.cbAll.clicked.connect(self.on_cbAll_clicked)
 
                 if len(keyLst) > 0:
-                    self.okbox = QtGui.QDialogButtonBox(self.dialog)
+                    self.okbox = QtWidgets.QDialogButtonBox(self.dialog)
                     self.okbox.setOrientation(QtCore.Qt.Horizontal)
 
                     self.okbox.setStandardButtons(
-                        QtGui.QDialogButtonBox.Cancel | QtGui.QDialogButtonBox.Ok
+                        QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
                     )
                     self.la.addWidget(self.okbox)
                     QtCore.QObject.connect(
@@ -419,9 +419,9 @@ class TaskFillTemplateFields:
                     QtCore.QObject.connect(
                         self.okbox, QtCore.SIGNAL("rejected()"), self.close
                     )
-                    self.okbox.button(QtGui.QDialogButtonBox.Ok).setText("&Ok")
-                    self.okbox.button(QtGui.QDialogButtonBox.Cancel).setText("&Cancel")
-                    self.button = self.okbox.button(QtGui.QDialogButtonBox.Ok)
+                    self.okbox.button(QtWidgets.QDialogButtonBox.Ok).setText("&Ok")
+                    self.okbox.button(QtWidgets.QDialogButtonBox.Cancel).setText("&Cancel")
+                    self.button = self.okbox.button(QtWidgets.QDialogButtonBox.Ok)
                     self.button.setEnabled(True)
                     self.dialog.resize(600 + longestText, dialogRow * 50 + 75)
                     self.dialog.move(400, 200 * (400 / (dialogRow * 50 + 75)))

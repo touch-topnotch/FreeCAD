@@ -55,7 +55,7 @@ class BIM_IfcElements:
             return
 
         import Draft
-        from PySide import QtGui
+        from PySide import QtWidgets, QtGui
 
         # build objects list
         self.objectslist = {}
@@ -454,7 +454,7 @@ class BIM_IfcElements:
 
     def checkMatChanged(self):
         import Draft
-        from PySide import QtCore, QtGui
+        from PySide import QtWidgets, QtCore, QtGui
 
         if FreeCADGui.Control.activeDialog():
             QtCore.QTimer.singleShot(500, self.checkMatChanged)
@@ -563,9 +563,9 @@ class BIM_IfcElements:
 
 
 if FreeCAD.GuiUp:
-    from PySide import QtCore, QtGui
+    from PySide import QtWidgets, QtCore, QtGui
 
-    class IfcElementsDelegate(QtGui.QStyledItemDelegate):
+    class IfcElementsDelegate(QtWidgets.QStyledItemDelegate):
         def __init__(self, parent=None, dialog=None, *args):
             import Arch_rc
 
@@ -584,10 +584,10 @@ if FreeCAD.GuiUp:
                     self.mats.append(o.Name)
                     self.matlabels.append(o.Label)
             self.dialog = dialog
-            self.btn = QtGui.QPushButton()
+            self.btn = QtWidgets.QPushButton()
             self.btn.setIcon(QtGui.QIcon(":/icons/IFC.svg"))
             self.btn.setText("")
-            QtGui.QStyledItemDelegate.__init__(self, parent, *args)
+            QtWidgets.QStyledItemDelegate.__init__(self, parent, *args)
 
         def paint(self, painter, option, index):
             # not used - ugly and fake!
@@ -598,13 +598,13 @@ if FreeCAD.GuiUp:
                 p = QtGui.QPixmap.grabWidget(self.btn)
                 painter.drawPixmap(option.rect.x(), option.rect.y(), p)
             else:
-                QtGui.QStyledItemDelegate.paint(self, painter, option, index)
+                QtWidgets.QStyledItemDelegate.paint(self, painter, option, index)
 
         def createEditor(self, parent, option, index):
             if index.column() > 0:
-                editor = QtGui.QComboBox(parent)
+                editor = QtWidgets.QComboBox(parent)
             else:
-                editor = QtGui.QLineEdit(parent)
+                editor = QtWidgets.QLineEdit(parent)
             return editor
 
         def setEditorData(self, editor, index):
@@ -648,7 +648,7 @@ if FreeCAD.GuiUp:
 def getIcon(obj):
     """returns a QIcon for an object"""
 
-    from PySide import QtGui
+    from PySide import QtWidgets, QtGui
     import Arch_rc
 
     if hasattr(obj.ViewObject, "Icon"):

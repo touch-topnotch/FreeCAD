@@ -23,11 +23,8 @@
 
 """Widget for browsing Tool Library assets with filtering and sorting."""
 
-import yaml
-from typing import cast, List, Optional
-from PySide import QtCore, QtGui
-from PySide.QtGui import QMenu, QAction, QKeySequence
-import FreeCAD
+from typing import cast
+from PySide import QtWidgets, QtGui
 import Path
 from ...assets import AssetManager, AssetUri
 from ...toolbit import ToolBit
@@ -607,6 +604,8 @@ class LibraryBrowserWithCombo(LibraryBrowserWidget):
         parent=None,
         compact=True,
     ):
+        self._library_combo = QtWidgets.QComboBox()
+
         super().__init__(
             asset_manager=asset_manager,
             store=store,

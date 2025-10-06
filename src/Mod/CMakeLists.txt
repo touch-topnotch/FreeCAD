@@ -10,6 +10,8 @@ if(BUILD_BIM)
   add_subdirectory(BIM)
 endif(BUILD_BIM)
 
+
+
 if(BUILD_ASSEMBLY)
   add_subdirectory(Assembly)
 endif(BUILD_ASSEMBLY)
@@ -94,6 +96,7 @@ if(BUILD_ROBOT)
     endif(EIGEN3_FOUND)
 endif(BUILD_ROBOT)
 
+
 if(BUILD_SANDBOX)
     add_subdirectory(Sandbox)
 endif(BUILD_SANDBOX)
@@ -130,7 +133,7 @@ if(BUILD_TECHDRAW)
     add_subdirectory(TechDraw)
 endif(BUILD_TECHDRAW)
 
-#add_subdirectory(TemplatePyMod)
+# add_subdirectory(TemplatePy)
 
 if(BUILD_TEST)
   add_subdirectory(Test)
@@ -143,3 +146,7 @@ endif(BUILD_TUX)
 if(BUILD_WEB)
     add_subdirectory(Web)
 endif(BUILD_WEB)
+
+if(BUILD_ARCHI)
+    add_subdirectory(ArchiModule)
+endif(BUILD_ARCHI)

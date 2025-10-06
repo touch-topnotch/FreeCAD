@@ -20,7 +20,7 @@
 # *                                                                         *
 # ***************************************************************************
 
-from PySide import QtGui
+from PySide import QtWidgets, QtGui
 from PySide.QtCore import QT_TRANSLATE_NOOP
 import FreeCAD
 import FreeCADGui
@@ -60,7 +60,7 @@ class TaskPanel(object):
 
     def getStandardButtons(self):
         return (
-            QtGui.QDialogButtonBox.Ok | QtGui.QDialogButtonBox.Apply | QtGui.QDialogButtonBox.Cancel
+            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel
         )
 
     def modifyStandardButtons(self, buttonBox):
@@ -68,15 +68,15 @@ class TaskPanel(object):
 
     def setDirty(self):
         self.isDirty = True
-        self.buttonBox.button(QtGui.QDialogButtonBox.Apply).setEnabled(True)
+        self.buttonBox.button(QtWidgets.QDialogButtonBox.Apply).setEnabled(True)
 
     def setClean(self):
         self.isDirty = False
-        self.buttonBox.button(QtGui.QDialogButtonBox.Apply).setEnabled(False)
+        self.buttonBox.button(QtWidgets.QDialogButtonBox.Apply).setEnabled(False)
 
     def clicked(self, button):
         # callback for standard buttons
-        if button == QtGui.QDialogButtonBox.Apply:
+        if button == QtWidgets.QDialogButtonBox.Apply:
             self.updateDressup()
             FreeCAD.ActiveDocument.recompute()
 
