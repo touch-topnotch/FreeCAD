@@ -70,6 +70,7 @@ tsupdate_stdout.log
 files_to_translate.txt
 # pixi environments
 .pixi
+.lock
 *.egg-info
 ARCHI.app
 *.dmg
