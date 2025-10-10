@@ -16,7 +16,6 @@ coin3d = "*"
 compilers = ">=1.10,<1.11"
 conda-devenv = "*"
 debugpy = "*"
-dmgbuild = "*"
 docutils = "*"
 doxygen = "*"
 eigen = "*"
@@ -139,10 +138,12 @@ xorg-xproto = "*"
 
 ## macOS Dependencies (Intel)
 [target.osx-64.dependencies]
+dmgbuild = "*"
 sed = "*"
 
 ## macOS Dependencies (Apple Silicon)
 [target.osx-arm64.dependencies]
+dmgbuild = "*"
 sed = "*"
 
 [target.win-64.dependencies]
